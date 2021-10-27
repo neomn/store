@@ -19,7 +19,8 @@ class CreateCustomerTable extends Migration
             $table->string('lastName');
             $table->string('phoneNumber');
             $table->string('email');
-            $table->string('purchasedProducts');
+            $table->string('purchasedProducts')->nullable();
+            $table->string('favoriteProducts')->nullable();
             $table->timestamp('registerDate');
             $table->timestamps();
         });
