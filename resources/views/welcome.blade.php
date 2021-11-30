@@ -1,1 +1,8 @@
-<h1> welcome page </h1>
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+<a href="{{route('customer.index')}}"> show customers </a>
+</body>
+
