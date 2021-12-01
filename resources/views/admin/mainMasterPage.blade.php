@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('bs_css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('tw_css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('bs_css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('tw_css/admin.css') }}" rel="stylesheet">
     <title>Laravel</title>
 </head>
 
     <body>
-        @include('parts\header')
-        @yield('welcome')
+        @include('admin\parts\header')
+        @yield('admin\welcome')
         @yield('login_register')
         @yield('preview')
         @yield('edit')
-        @include('parts\footer')
+        @include('admin\parts\footer')
+        <script src="{{asset('js/admin.js')}}"></script>
         <br>
         <br>
     </body>

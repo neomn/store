@@ -1,5 +1,6 @@
 <?php
-use App\Http\Controllers\customerController;
+
+use App\Http\Controllers\admin\customerController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {return view('welcome');})->name('welcome');
+Route::get('/', function () {return view('admin.welcome');})->name('welcome');
 
-Route::resource( 'customer',customerController::class);
+//Route::get('/customer', function (){ return view('admin.customer.preview'); } )->name('customer');

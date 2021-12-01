@@ -11,9 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/bs_css')
-    .postCss("resources/css/app.css", "public/tw_css", [
+mix.js('resources/js/admin/admin.js', 'public/js')
+    .sass('resources/sass/admin/admin.scss', 'public/bs_css')
+    .postCss("resources/css/admin/admin.css", "public/tw_css", [
     require("tailwindcss"),
     ]);
 

@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Home</a>
@@ -7,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/customer/create">Login/Register</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('customer.create')}}">Login/Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/customer">View Customers</a>
+                    <a class="nav-link" href="{{route('customer.index')}}">View Customers</a>
                 </li>
             </ul>
             <form class="d-flex float-right ml-5 ">

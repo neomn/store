@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\login_registerRequest;
 use App\Models\Customer;
-use Database\Seeders\customerSeeder;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use function Illuminate\Support\Facades\Date;
 
@@ -23,7 +19,7 @@ class customerController extends Controller
     public function index()
     {
         $customer=Customer::get();
-        return view ('customer.preview',compact('customer'));
+        return view ('admin.customer.preview',compact('customer'));
     }
 
     /**
@@ -33,7 +29,7 @@ class customerController extends Controller
      */
     public function create()
     {
-        return view('customer.login_register');
+        return view('admin.customer.login_register');
     }
 
     /**
@@ -73,7 +69,7 @@ class customerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        return view('customer.edit',compact('customer'));
+        return view('admin.customer.edit',compact('customer'));
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('mainMasterPage')
+@extends('admin.mainMasterPage')
 @section('login_register')
 
     {{--
