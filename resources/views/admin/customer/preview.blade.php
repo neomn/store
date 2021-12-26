@@ -6,6 +6,7 @@
 
         <div class="container " >
 
+
                     @if(session('update'))
                         <div class="alert alert-info">
                             {{\Illuminate\Support\Facades\Session::pull('update')}}
@@ -21,9 +22,6 @@
                                 {{\Illuminate\Support\Facades\Session::pull('store')}}
                             </div>
                         @endif()
-
-
-
 
             <table class="table table-striped table-dark table-hover">
                 <thead>
@@ -45,11 +43,11 @@
                         <td>{{$customer->phoneNumber}}</td>
                         <td>{{$customer->emailAddress}}</td>
                         <td>
-                            <form class="d-inline" action="{{route('customer.edit',$customer->id)}}" >
+                            <form class="d-inline" action="{{route('admin.customer.edit',$customer->id)}}" >
                                 <button type="submit" class="btn btn-outline-info btn-sm">Edit</button>
                             </form>
 
-                            <form class="d-inline" method="post" action="{{route('customer.destroy',$customer->id)}}">
+                            <form class="d-inline" method="post" action="{{route('admin.customer.destroy',$customer->id)}}">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>

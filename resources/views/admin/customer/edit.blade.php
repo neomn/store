@@ -4,7 +4,7 @@
 
     <br><br><br><br><br><br>
     <div class="container">
-    <form method="post" action="{{route('customer.update',$customer->id)}}">
+    <form method="post" action="{{route('admin.customer.update',$customer->id)}}">
         @csrf
         @method('PATCH')
         <div class="row mb-5">

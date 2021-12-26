@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<head>
-    <title>welcome</title>
-</head>
-<body>
-<a href="{{route('customer.index')}}"> show customers </a><br>
-<a href="{{route('customer.create')}}"> create customers </a>
-</body>
+@extends('admin.mainMasterPage')
+@section('welcome')
+<a class="twbg-yellow-500" href="{{route('admin.customer.index')}}"> show customers </a><br>
+<a class="twbg-yellow-500" href="{{route('admin.customer.create')}}"> create customers  <i class="fad fa-adjust"></i>  </a><br>
+<tb>
+    <th><i class="fad fa-adjust"></i></th>
+</tb>
+<br>
+<p>  <i class="fas fa-adjust twbg-white m-lg-3"></i>   </p>
+@endsection
 

@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('bs_css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('tw_css/admin.css') }}" rel="stylesheet">
-    <title>Laravel</title>
+    <title>admin panel</title>
 </head>
+    <body class="sidebar-mini">
+{{--        <div class="wrapper">--}}
+{{--            <div class="main-header"></div>--}}
+{{--            <div class="sidebar-wrapper"></div>--}}
+{{--            <div class="content-wrapper"></div>--}}
+{{--        </div>--}}
 
-    <body>
-        @include('admin\parts\header')
-        @yield('admin\welcome')
-        @yield('login_register')
-        @yield('preview')
-        @yield('edit')
+        <div class="wrapper">
+{{--             <div class="content-header">--}}
+                    @include('admin\parts\header')
+{{--             </div>--}}
+             <aside class="main-sidebar sidebar-dark elevation-4">
+                @include('admin.parts.sidebar')
+             </aside>
+             <div class="content-wrapper" style="background-color: #2d3748;">
+                 @yield('welcome')
+                 @yield('login_register')
+                 @yield('preview')
+                 @yield('edit')
+             </div>
+        </div>
+        <br>
+        <br>
         @include('admin\parts\footer')
         <script src="{{asset('js/admin.js')}}"></script>
-        <br>
-        <br>
     </body>
 </html>

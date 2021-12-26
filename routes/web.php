@@ -12,6 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {return view('admin.welcome');})->name('welcome');
+Route::get('/', function () {return view('root');})->name('root');
 
 //Route::get('/customer', function (){ return view('admin.customer.preview'); } )->name('customer');

@@ -21,7 +21,7 @@
 
     <br><br><br><br><br><br>
     <div class="container ">
-        <form method="post" action='{{route('customer.store')}}' class="ml-5 mr-5 mb-5 mt-5">
+        <form method="post" action='{{route('admin.customer.store')}}' class="ml-5 mr-5 mb-5 mt-5">
           @csrf
          <div class="row mb-5 ">
             <div class="col-lg-3 mr-5" >
