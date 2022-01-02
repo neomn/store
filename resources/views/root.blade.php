@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style> body{background-color:gray; color: white}</style>
+    <link rel="stylesheet" href="./css/app.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,9 +15,3 @@
 <script src={{mix("js/app.js")}}></script>
 </body>
 </html>
-{{--<script>--}}
-{{--    import Root from "../js/component/Root";--}}
-{{--    export default {--}}
-{{--        components: {Root}--}}
-{{--    }--}}
-{{--</script>--}}
