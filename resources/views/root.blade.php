@@ -6,6 +6,9 @@
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/app.css">
+    {{--  font awesome  --}}
+    <!-- all.js loads all styles and icons -->
+    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
     <title>Document</title>
 </head>
 <body>
