@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="root">
         <div class="HeaderImage">
             <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">
         </div>
@@ -10,9 +10,8 @@
                 <a href="#">profile</a>
                 <a href="#">paymetns</a>
                 <a href="#">orders history</a>
-                <a class="right" href="#">login/register</a>
+                <a class="right" href="#">login / register <i class="fa-solid fa-door-open login-register"></i></a>
             </ul>
-            <img src="" alt="">
         </div>
     </div>
 </template>
@@ -28,6 +27,9 @@ export default {
 </script>
 
 <style scoped>
+div.root{
+    display: unset;
+}
 div.HeaderImage {
     border: 1px solid #1d455b;
     background-color: #333333;
@@ -35,30 +37,35 @@ div.HeaderImage {
 }
 
 div.list {
+    overflow: hidden;
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
     background-color: #333333;
-    padding: 10px;
-    align-content: center;
 }
 
 a {
     position: relative;
-    display: inline;
+    display: inline-block;
     color: white;
-    padding: 15px;
+    padding:2px;
+    padding-top: 10px;
+    padding-right: 10px;
     margin-right: 2px;
     margin-left: 2px;
-    margin-top: 5px;
     border-right: 2px solid gray;
     text-decoration: none;
 
 }
-a.right{
+
+a.right {
     border: none;
     float: right;
     margin: unset;
     margin-right: 50px;
+}
+
+i.login-register {
+    padding-right: 10px;
 }
 </style>
