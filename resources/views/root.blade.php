@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/app.css">
     {{--  font awesome  --}}
     <!-- all.js loads all styles and icons -->
-    <script defer src="/your-path-to-fontawesome/js/all.js"></script>
+    <script defer src="{{asset('./resources/js/FontAwesome/all.js')}}"></script>
     <title>Document</title>
 </head>
 <body>
