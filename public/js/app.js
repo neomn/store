@@ -13923,7 +13923,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-1f42fb90]{\r\n    display: unset;\n}\ndiv.HeaderImage[data-v-1f42fb90] {\r\n    border: 1px solid #1d455b;\r\n    background-color: #333333;\r\n    position: relative;\n}\ndiv.list[data-v-1f42fb90] {\r\n    overflow: hidden;\r\n    position: -webkit-sticky; /* Safari */\r\n    position: sticky;\r\n    top: 0;\r\n    background-color: #333333;\n}\na[data-v-1f42fb90] {\r\n    position: relative;\r\n    display: inline-block;\r\n    color: white;\r\n    padding:2px;\r\n    padding-top: 10px;\r\n    padding-right: 10px;\r\n    margin-right: 2px;\r\n    margin-left: 2px;\r\n    border-right: 2px solid gray;\r\n    text-decoration: none;\n}\na.right[data-v-1f42fb90] {\r\n    border: none;\r\n    float: right;\r\n    margin: unset;\r\n    margin-right: 50px;\n}\ni.login-register[data-v-1f42fb90] {\r\n    padding-right: 10px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-1f42fb90]{\n    display: unset;\n}\ndiv.HeaderImage[data-v-1f42fb90] {\n    border: 1px solid #1d455b;\n    background-color: #333333;\n    position: relative;\n}\ndiv.list[data-v-1f42fb90] {\n    overflow: hidden;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n    background-color: #333333;\n}\na[data-v-1f42fb90] {\n    position: relative;\n    display: inline-block;\n    color: white;\n    padding:2px;\n    padding-top: 10px;\n    padding-right: 10px;\n    margin-right: 2px;\n    margin-left: 2px;\n    border-right: 2px solid gray;\n    text-decoration: none;\n}\na.right[data-v-1f42fb90] {\n    border: none;\n    float: right;\n    margin: unset;\n    margin-right: 50px;\n}\ni.login-register[data-v-1f42fb90] {\n    padding-right: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -32375,7 +32375,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("a", { attrs: { href: "#" } }, [_vm._v("orders history")]),
         _vm._v(" "),
-        _c("a", { staticClass: "right", attrs: { href: "#" } }, [
+        _c("a", { staticClass: "right", attrs: { href: "/api/user" } }, [
           _vm._v("login / register "),
           _c("i", { staticClass: "fa-solid fa-door-open login-register" }),
         ]),

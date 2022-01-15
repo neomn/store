@@ -10,7 +10,7 @@
                 <a href="#">profile</a>
                 <a href="#">paymetns</a>
                 <a href="#">orders history</a>
-                <a class="right" href="#">login / register <i class="fa-solid fa-door-open login-register"></i></a>
+                <a class="right" href="/api/user">login / register <i class="fa-solid fa-door-open login-register"></i></a>
             </ul>
         </div>
     </div>

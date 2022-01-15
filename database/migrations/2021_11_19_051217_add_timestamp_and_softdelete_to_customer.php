@@ -25,8 +25,8 @@ class AddTimestampAndSoftdeleteToCustomer extends Migration
      */
     public function down()
     {
-        Schema::table('customer', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+//        Schema::table('customer', function (Blueprint $table) {
+//            $table->dropSoftDeletes();
+//        });
     }
 }

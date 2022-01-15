@@ -6,7 +6,7 @@ use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class customerSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -21,9 +21,11 @@ class customerSeeder extends Seeder
                 'firstName'=>$faker->name(),
                 'lastName'=>$faker->lastName(),
                 'phoneNumber'=>$faker->phoneNumber(),
-                'emailAddress'=>$faker->email(),
+                'email'=>$faker->email(),
+                'email_verified_at'=>$faker->dateTime(),
+                'password'=>$faker->password,
             ];
-             DB::table('customer')->insert($value);
+             DB::table('user')->insert($value);
         }
     }
 }
