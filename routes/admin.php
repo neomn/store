@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\customerController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/','admin.mainMasterPage');
+Route::view('/panel','admin.mainMasterPage')
+    ->middleware('adminAuthenticator')->name('panel');
 
-Route::resource( 'customer',customerController::class);
+//Route::resource( 'customer',customerController::class);

@@ -25,6 +25,11 @@
     </form>
 
     <!-- Right navbar links -->
+    <form action="{{route('logout')}}"  method="POST" style="float: right; color: black; color:gray;
+        tw-background-color:black; border: 3px solid black ; tw-margin: 15px;" >
+        @csrf
+        <button type="submit">     Log Out </button>
+    </form>
     <ul class="navbar-nav ml-auto">
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">

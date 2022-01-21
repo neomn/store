@@ -2,6 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AdminAuthenticator;
+use App\Http\Middleware\AdminLogout;
+use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\NeoTestMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -47,7 +50,13 @@ class Kernel extends HttpKernel
         ],
 
         'admin' =>[
-            NeoTestMiddleware::class,
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
 
@@ -68,5 +77,13 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'adminAuthenticator'=> AdminAuthenticator::class,
+        'AdminLogout'=> AdminLogout::class,
+    ];
+
+
+    protected $middlewarePriority = [
+        AdminLogout::class,
+        Authenticate::class,
     ];
 }
