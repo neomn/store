@@ -7,9 +7,9 @@
 </template>
 
 <script>
-    import Header from './components/Header.vue';
-    import Body from './components/Body';
-    import Footer from './components/Footer';
+    import Header from './Header.vue';
+    import Body from './Body';
+    import Footer from './Footer';
 
     export default {
         name:'app',
@@ -17,6 +17,7 @@
             Header,
             Body,
             Footer,
+
         },
         data(){
             return{

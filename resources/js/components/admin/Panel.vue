@@ -1,12 +1,13 @@
 <template>
-    <h1>this is admin panel</h1>
+    <h1>this is panel vue file</h1>
 </template>
 
-<script>
-console.log('this is panel')
 
- export default {
-    name: "app",
+<script>
+console.log('this is panel.vue')
+
+export default {
+    name:'app',
 }
 </script>
 
