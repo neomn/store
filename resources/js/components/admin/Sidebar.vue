@@ -1,11 +1,11 @@
 <template>
 <div >
     <ul class="bg-gray-800">
-        <li class="li">Dashboard</li>
-        <li>Analytics</li>
-        <li>Customers</li>
-        <li>Products</li>
-        <li>Settings</li>
+        <a>Dashboard</a>
+        <a>Analytics</a>
+        <a>Customers</a>
+        <a>Products</a>
+        <a>Settings</a>
     </ul>
 </div>
 </template>

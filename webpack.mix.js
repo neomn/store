@@ -11,21 +11,23 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
+mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/admin/admin.js' , 'public/js/admin')
+    .js('resources/js/FontAwesome/all.js' , 'public/js/FontAwesome')
+    .vue()
     .postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
     ]);
-    // .sass('./resources/sass/app.scss','public/scss');
 
-mix.js('resources/js/admin/admin.js' , 'public/js/admin')
-    // .js('resources/js/admin/admin.js' , 'public/js/admin')
-    // .js('resources/js/admin/admin.js' , 'public/js/admin')
-    // .js('resources/js/admin/admin.js' , 'public/js/admin')
-    .vue()
-    .postCss('resources/css/admin/admin.css','public/css/admin', [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('autoprefixer'),
-    ]);
+// mix.js('resources/js/admin/admin.js' , 'public/js/admin')
+//     // .js('resources/js/admin/admin.js' , 'public/js/admin')
+//     // .js('resources/js/admin/admin.js' , 'public/js/admin')
+//     // .js('resources/js/admin/admin.js' , 'public/js/admin')
+//     .vue()
+//     .postCss('resources/css/admin/admin.css','public/css/admin', [
+//         require('postcss-import'),
+//         require('tailwindcss'),
+//         require('autoprefixer'),
+//     ]);

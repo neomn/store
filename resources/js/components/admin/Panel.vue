@@ -1,6 +1,6 @@
 <template>
-    <div class="panel">
-        <h1 class="text-3xl text-pink-500" >tesing tailwind css</h1>
+    <div class="bg-gray-800 ">
+        <h1 class="text-gray-200">testing tailwind css</h1>
         <header>
             <Header/>
         </header>
@@ -50,7 +50,5 @@ export default {
 </script>
 
 <style scoped>
-    .panel{
-        background-color: gray;
-    }
+
 </style>

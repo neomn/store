@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>this is body</h1>
+        <h1 class="text-red-600 bg-white">this is body</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut enim, minima. Amet aspernatur eveniet ipsum
             nesciunt saepe, soluta! Aspernatur distinctio fugit iusto modi sapiente veniam! Ad officia possimus ratione
             veritatis.</p>
@@ -22,7 +22,7 @@
         margin-top: 30px;
     }
     h1{
-        color: white;
+
     }
     p{
         color: white;
