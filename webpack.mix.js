@@ -28,5 +28,4 @@ mix.js('resources/js/admin/admin.js' , 'public/js/admin')
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
-    ],[
     ]);
