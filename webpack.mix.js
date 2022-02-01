@@ -13,13 +13,17 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/admin/admin.js' , 'public/js/admin')
-    .js('resources/js/FontAwesome/all.js' , 'public/js/FontAwesome')
     .vue()
     .postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
     ]);
+
+mix.js('node_modules/@fortawesome/fontawesome-free/js/all.js','public/js/FontAwesome')
+    .js('node_modules/@fortawesome/fontawesome-free/js/fontawesome.js','public/js/FontAwesome')
+    .js('node_modules/@fortawesome/fontawesome-free/js/solid.js','public/js/FontAwesome');
+
 
 // mix.js('resources/js/admin/admin.js' , 'public/js/admin')
 //     // .js('resources/js/admin/admin.js' , 'public/js/admin')

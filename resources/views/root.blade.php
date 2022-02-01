@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('../css/app.css')}}">
     {{--  font awesome  --}}
-    <!-- all.js loads all styles and icons -->
-    <script defer src="{{asset('./js/FontAwesome/all.js')}}"></script>
+    <script defer src="public/js/FontAwesome/all.js"></script>
+    <script defer src="public/js/FontAwesome/solid.js"></script>
+    <script defer src="public/js/FontAwesome/fontawesome.js"></script>
+
     <title>Document</title>
 </head>
 <body>

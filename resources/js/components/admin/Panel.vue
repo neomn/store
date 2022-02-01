@@ -1,18 +1,21 @@
 <template>
-    <div class="bg-gray-800 ">
-        <h1 class="text-gray-200">testing tailwind css</h1>
-        <header>
-            <Header/>
-        </header>
-        <div>
-            <h1>this is panel</h1>
-            <sidebar class="sidebar">
-                <Sidebar/>
-            </sidebar>
+    <div class="dark" ref="panel">
+        <div class="bg-white dark:bg-slate-900 min-h-screen ">
+            <header>
+                <Header/>
+            </header>
+            <div>
+                <button type="button" ref="darkButton" @click="switchDarkmode">dark Mode</button>
+                <h1>this is panel</h1>
+                <sidebar class="sidebar">
+                    <Sidebar/>
+                </sidebar>
+            </div>
+
+            <footer>
+                <Footer/>
+            </footer>
         </div>
-        <footer>
-            <Footer/>
-        </footer>
     </div>
 </template>
 
@@ -38,13 +41,16 @@ export default {
         Statistics,
     },
     data() {
-        return {
-
-        }
+        return {}
 
     },
-    methods :{
+    methods: {
+        switchDarkmode() {
+            if (this.$refs.panel.classList.contains('dark')) {
+                this.$refs.panel.classList.remove('dark')
+            } else this.$refs.panel.classList.add('dark')
 
+        }
     },
 }
 </script>
