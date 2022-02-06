@@ -5,6 +5,8 @@
 </template>
 
 <script>
+console.log('this is products')
+
 export default {
     name: "Products"
 }

@@ -23,15 +23,3 @@ mix.js('resources/js/app.js', 'public/js')
 mix.js('node_modules/@fortawesome/fontawesome-free/js/all.js','public/js/FontAwesome')
     .js('node_modules/@fortawesome/fontawesome-free/js/fontawesome.js','public/js/FontAwesome')
     .js('node_modules/@fortawesome/fontawesome-free/js/solid.js','public/js/FontAwesome');
-
-
-// mix.js('resources/js/admin/admin.js' , 'public/js/admin')
-//     // .js('resources/js/admin/admin.js' , 'public/js/admin')
-//     // .js('resources/js/admin/admin.js' , 'public/js/admin')
-//     // .js('resources/js/admin/admin.js' , 'public/js/admin')
-//     .vue()
-//     .postCss('resources/css/admin/admin.css','public/css/admin', [
-//         require('postcss-import'),
-//         require('tailwindcss'),
-//         require('autoprefixer'),
-//     ]);

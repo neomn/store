@@ -5,6 +5,8 @@
 </template>
 
 <script>
+console.log('this is settings')
+
 export default {
     name: "Settings"
 }

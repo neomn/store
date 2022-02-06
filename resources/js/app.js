@@ -16,7 +16,7 @@ window.Alpine = Alpine;
 Alpine.start();
 
 window.Vue=require('vue');
-Vue.component('root', require('./components/Root').default);
+Vue.component('root', require('./components/root/Root').default);
 const app = new Vue({
         el: '#app',
     });
