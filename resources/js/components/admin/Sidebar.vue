@@ -4,8 +4,8 @@
 
         <!--sidebar links-->
         <ul class="text-gray-100">
-            <div class="hover:bg-gray-900"><button><font-awesome-icon :icon="['fas','chart-line']"/></button></div>
-            <div class="hover:bg-gray-900"><router-link to="settings" ><font-awesome-icon :icon="['fab','product-hunt']"/> </router-link></div>
+            <div class="hover:bg-gray-900"><router-link to="panel"><font-awesome-icon :icon="['fas','chart-line']"/></router-link></div>
+            <div class="hover:bg-gray-900"><router-link to='products' ><font-awesome-icon :icon="['fab','product-hunt']"/> </router-link></div>
             <div class="hover:bg-gray-900"><a><font-awesome-icon :icon="['fas','users']"/></a></div>
             <div class="hover:bg-gray-900"><a><font-awesome-icon :icon="['fas','chart-bar']"/></a></div>
             <div class="hover:bg-gray-900"><a><font-awesome-icon :icon="['fas','cogs']"/></a></div>
@@ -29,6 +29,9 @@ export default {
         return {
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         }
+    },
+    methods:{
+
     }
 }
 </script>

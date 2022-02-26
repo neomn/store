@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        <Panel></Panel>
+        <App></App>
     </div>
 <script src="{{mix('/js/admin/admin.js')}}"></script>
 </body>

@@ -9,6 +9,7 @@ import VueRouter from "vue-router";
 //import adminRouter from "../router/admin/adminRouter";
 
 
+import App from "../components/admin/App";
 import Panel from "../components/admin/Panel";
 import Products from "../components/admin/Products";
 import Users from "../components/admin/Users";
@@ -25,10 +26,11 @@ library.add(far)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
-Vue.component('panel', require('../components/admin/Panel').default);
+Vue.component('App', require('../components/admin/App').default);
 
 
 const routes=[
+        { path: '/admin/App', name: 'app', component: App},
         { path: '/admin/panel', name: 'panel', component: Panel},
         { path: '/admin/products', name: 'products', component: Products},
         { path: '/admin/users', name: 'users', component: Users},
@@ -45,15 +47,4 @@ const app = new Vue({
     router,
     el:'#app'
 })
-
-// export default new VueRouter({
-//     mode: 'history',
-//     routes
-// })
-
-
-// const app =new Vue({
-//     adminRouter
-// }).$mount('#app');
-
 

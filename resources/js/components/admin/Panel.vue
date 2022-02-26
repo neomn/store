@@ -1,6 +1,5 @@
 <template>
     <div class="dark" ref="panel">
-
         <div class="bg-white dark:bg-slate-900 min-h-screen ">
             <header>
                 <Header/>
@@ -19,7 +18,6 @@
                 <Footer/>
             </footer>
         </div>
-        <router-view/>
     </div>
 </template>
 
@@ -45,7 +43,9 @@ export default {
         Statistics,
     },
     data() {
-        return {}
+        return {
+            showProducts: false,
+        }
 
     },
     methods: {
