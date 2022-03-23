@@ -15538,15 +15538,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -34126,39 +34117,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "text-gray-300 text-center" }, [
-    _c(
-      "div",
-      [
-        _c("br"),
-        _vm._v("\n        this is products >>> "),
-        _c("Products"),
-        _vm._v(" "),
-        _c("br"),
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("h1", [_vm._v("this is body")]),
-    _vm._v(" "),
-    _c("p", [
-      _vm._v(
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut enim, minima. Amet aspernatur eveniet ipsum\n        nesciunt saepe, soluta! Aspernatur distinctio fugit iusto modi sapiente veniam! Ad officia possimus ratione\n        veritatis."
-      ),
-    ]),
-    _vm._v(" "),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-    _c("br"),
-  ])
+  return _c("div", { staticClass: "text-gray-300 text-center" })
 }
 var staticRenderFns = []
 render._withStripped = true
