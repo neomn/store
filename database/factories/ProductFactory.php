@@ -22,7 +22,10 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'product_number'=>$this->faker->unique->numberBetween(1000000000,5000000000),
+            'product_name'=>$this->faker->unique->name,
+            'available_count'=>$this->faker->unique->numberBetween(0,500),
+            'is_active'=>$this->faker->boolean,
         ];
     }
 }

@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('product_number')->default(random_int(1000,3000000000))->unique();
+            $table->bigInteger('product_number')->default(random_int(1000000000,9000000000))->unique();
             $table->string('product_name');
             $table->integer('available_count');
             $table->boolean('is_active')->default(false);
