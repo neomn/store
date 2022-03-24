@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Welcome;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -15,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $products = Product::all();
-    return view('welcome');
-})->name('root');
+Route::get('/', Welcome::class )->name('welcome');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
