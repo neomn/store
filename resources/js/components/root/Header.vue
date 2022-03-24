@@ -22,7 +22,7 @@
 export default {
     data() {
         return {
-            HeaderImage: '../resources/img/Welcome.jpg',
+            HeaderImage: '../resources/img/WelcomeController.jpg',
         }
     }
 }

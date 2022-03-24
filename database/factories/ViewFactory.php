@@ -22,7 +22,8 @@ class ViewFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'count'=>$this->faker->numberBetween(1 , 500),
+            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now')
         ];
     }
 }

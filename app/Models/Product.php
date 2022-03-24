@@ -10,6 +10,6 @@ class Product extends Model
     use HasFactory;
 
     public function views(){
-        return $this->morphMany(View::class , 'viewable');
+        return $this->hasMany(View::class);
     }
 }

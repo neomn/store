@@ -15,12 +15,7 @@ class CreateViewsTable extends Migration
     {
         Schema::create('views', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('today');
-            $table->bigInteger('lastWeek');
-            $table->bigInteger('lastMonth');
-            $table->bigInteger('lastYear');
-            $table->bigInteger('total');
-            $table->boolean('viewed_today');
+            $table->bigInteger('count');
             $table->timestamps();
         });
     }

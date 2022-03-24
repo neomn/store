@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\View;
 use Illuminate\Database\Seeder;
 
 class ViewSeeder extends Seeder
@@ -13,6 +14,6 @@ class ViewSeeder extends Seeder
      */
     public function run()
     {
-        //
+        View::factory()->count(200)->create();
     }
 }

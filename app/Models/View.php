@@ -9,7 +9,7 @@ class View extends Model
 {
     use HasFactory;
 
-    public function viewable(){
-        return $this->morphTo();
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
 }

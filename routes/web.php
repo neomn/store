@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Welcome;
+use App\Http\Controllers\WelcomeController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Welcome::class )->name('welcome');
+Route::get('/', WelcomeController::class )->name('welcome');
 
 
 Route::get('/dashboard', function () {
