@@ -16,11 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $view = View::factory(200)->create();
 
-        $this->call([
-            User::class,
-            Product::class,
-            View::class,
-        ]);
+
     }
 }

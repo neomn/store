@@ -31,7 +31,7 @@ class WelcomeController extends Controller
             $products[$index] = $views->product;
         }
 
-        return $products;
+       // return $products;
     }
 
     public function newProducts(){
