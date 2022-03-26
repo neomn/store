@@ -15,7 +15,7 @@ class WelcomeController extends Controller
         return view('root', compact('weekProructs'));
     }
 
-    //returns top 25 most visited products in recent month
+    //returns top 20 most visited products in recent month
     public function mostVisitedProductsRecentWeek()
     {
 
@@ -24,8 +24,8 @@ class WelcomeController extends Controller
         $weekEndDate = $now->endOfWeek()->format('Y-m-d H:i');
 
         $views = View::whereBetween('created_at', [$weekStartDate, $weekEndDate])
-            ->orderBy('count', 'asc')
-            ->limit(25)
+            ->orderBy('count', 'desc')
+            ->limit(20)
             ->get();
 
         dd($views);
