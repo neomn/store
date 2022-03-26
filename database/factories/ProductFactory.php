@@ -26,6 +26,7 @@ class ProductFactory extends Factory
             'product_name'=>$this->faker->unique->name,
             'available_count'=>$this->faker->unique->numberBetween(0,500),
             'is_active'=>$this->faker->boolean,
+            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now'),
         ];
     }
 }

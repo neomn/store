@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- display all products-->
+    <!-- top 20 most visited products in recent week-->
     <div class="">
         <table>
             <thead>
@@ -17,7 +17,6 @@
                 <th>name</th>
             </thead>
             <tbody>
-{{--            @dd($weekProducts)--}}
                 @foreach($weekProducts as $product)
                 <tr>
                     <td>{{$product->id}}</td>
@@ -27,5 +26,24 @@
             </tbody>
         </table>
     </div>
+
+    <!-- new products in recent month-->
+    <div class="">
+        <table>
+            <thead>
+            <th>id</th>
+            <th>name</th>
+            </thead>
+            <tbody>
+            @foreach($recentMonthNewProducts as $product)
+                <tr>
+                    <td>{{$product->id}}</td>
+                    <td>{{$product->product_name}}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>
