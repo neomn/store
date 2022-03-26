@@ -16,6 +16,7 @@ class CreateViewsTable extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('count');
+            $table->bigInteger('product_id');
             $table->timestamps();
         });
     }
