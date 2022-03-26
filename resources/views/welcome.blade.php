@@ -8,18 +8,22 @@
     <title>Document</title>
 </head>
 <body>
+
     <!-- display all products-->
     <div class="">
         <table>
             <thead>
-                <tr>
-                    <td></td>
-                </tr>
+                <th>id</th>
+                <th>name</th>
             </thead>
             <tbody>
+{{--            @dd($weekProducts)--}}
+                @foreach($weekProducts as $product)
                 <tr>
-                    <td></td>
+                    <td>{{$product->id}}</td>
+                    <td>{{$product->product_name}}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

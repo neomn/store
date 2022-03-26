@@ -5,36 +5,34 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\View;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
     public function __invoke()
     {
-        $weekProructs = $this->mostVisitedProductsRecentWeek();
-        return view('root', compact('weekProructs'));
+        $weekProducts = $this->mostVisitedProductsRecentWeek();
+        return view('welcome', compact('weekProducts'));
     }
 
-    //returns top 20 most visited products in recent month
+    //returns top 20 most visited products in recent week
     public function mostVisitedProductsRecentWeek()
     {
-
         $now = Carbon::now();
         $weekStartDate = $now->startOfWeek()->format('Y-m-d H:i');
         $weekEndDate = $now->endOfWeek()->format('Y-m-d H:i');
 
-        $views = View::whereBetween('created_at', [$weekStartDate, $weekEndDate])
+        $top_20_Views = View::whereBetween('created_at', [$weekStartDate, $weekEndDate])
             ->orderBy('count', 'desc')
             ->limit(20)
             ->get();
 
-        dd($views);
         $products = [];
-        foreach ($views as $index => $view) {
-            $products[$index] = $views->product;
-        }
+        foreach ($top_20_Views as $view)
+            $products[] = $view->product;
 
-       // return $products;
+        return $products;
     }
 
     public function newProducts()
