@@ -12,37 +12,43 @@ class WelcomeController extends Controller
     public function __invoke()
     {
         $weekProructs = $this->mostVisitedProductsRecentWeek();
-        return view('root' , compact('weekProructs'));
+        return view('root', compact('weekProructs'));
     }
 
-    //returns top 100 most visited products in recent month
-    public function mostVisitedProductsRecentWeek(){
+    //returns top 25 most visited products in recent month
+    public function mostVisitedProductsRecentWeek()
+    {
 
         $now = Carbon::now();
         $weekStartDate = $now->startOfWeek()->format('Y-m-d H:i');
         $weekEndDate = $now->endOfWeek()->format('Y-m-d H:i');
 
-        $views = View::whereBetween('created_at' ,[$weekStartDate , $weekEndDate ])
-        ->orderBy('count' , 'asc')
-        ->limit(100)
-        ->get();
+        $views = View::whereBetween('created_at', [$weekStartDate, $weekEndDate])
+            ->orderBy('count', 'asc')
+            ->limit(25)
+            ->get();
 
-        foreach ($views as $index=>$view){
+        dd($views);
+        $products = [];
+        foreach ($views as $index => $view) {
             $products[$index] = $views->product;
         }
 
         return $products;
     }
 
-    public function newProducts(){
+    public function newProducts()
+    {
 
     }
 
-    public function topSold(){
+    public function topSold()
+    {
 
     }
 
-    public function discountedProducts(){
+    public function discountedProducts()
+    {
 
     }
 }
