@@ -9,6 +9,14 @@
 </head>
 <body>
 
+    <nav>
+        <a href="{{route('welcome')}}">Home</a>
+        <a href="{{route('categories')}}">Product Categories</a>
+        <a href="{{route('shopping-card')}}">Shopping Card</a>
+        <a href="{{route('about-us')}}">about us</a>
+        <a href="{{route('contact-us')}}">contact us</a>
+    </nav>
+
     <!-- top 20 most visited products in recent week-->
     <h1>top 20 most visited products in recent week</h1>
     <div class="">

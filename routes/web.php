@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', WelcomeController::class )->name('welcome');
-
+Route::view('categories' , 'categories' )->name('categories');
+Route::view('shopping-card' , 'shopping-card' )->name('shopping-card');
+Route::view('about-us' , 'about-us' )->name('about-us');
+Route::view('contact-us' , 'contact-us' )->name('contact-us');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
