@@ -70,8 +70,8 @@ class WelcomeController extends Controller
 
         $products = [];
 
-        foreach ($sold as $sold)
-            $products[] = $sold->product;
+        foreach ($sold as $sell)
+            $products[] = $sell->product;
 
         return $products;
     }
