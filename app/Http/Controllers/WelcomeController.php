@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Sell;
 use App\Models\View;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
@@ -14,7 +15,13 @@ class WelcomeController extends Controller
     {
         $weekProducts = $this->mostVisitedProductsRecentWeek();
         $recentMonthNewProducts = $this->newProducts();
-        return view('welcome', compact(['weekProducts', 'recentMonthNewProducts']));
+        $topSold = $this->topSells();
+
+        return view('welcome', compact([
+            'weekProducts',
+            'recentMonthNewProducts',
+            'topSold',
+        ]));
     }
 
     //returns top 20 most visited products in recent week
@@ -43,15 +50,30 @@ class WelcomeController extends Controller
         $monthStartDate = $now->startOfMonth()->format('y-m-d H:i');
         $monthEndDate = $now->endOfMonth()->format('y-m-d H:i');
 
-        return $newProducts = Product::whereBetween('created_at',[ $monthStartDate , $monthEndDate])
-            ->orderBy('created_at','desc')
+        return Product::whereBetween('created_at', [$monthStartDate, $monthEndDate])
+            ->orderBy('created_at', 'desc')
             ->take(20)
             ->get();
     }
 
-    public function topSold()
+    //returns top 20 sold products in recent month
+    public function topSells()
     {
+        $now = Carbon::now();
+        $monthStartDate = $now->startOfMonth()->format('y-m-d H:i');
+        $monthEndDate = $now->endOfMonth()->format('y-m-d H:i');
 
+        $sold =  Sell::whereBetween('created_at', [$monthStartDate, $monthEndDate])
+            ->orderBy('sold_count' , 'desc')
+            ->take(20)
+            ->get();
+
+        $products = [];
+
+        foreach ($sold as $sold)
+            $products[] = $sold->product;
+
+        return $products;
     }
 
     public function discountedProducts()

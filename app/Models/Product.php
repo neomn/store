@@ -12,4 +12,7 @@ class Product extends Model
     public function views(){
         return $this->hasMany(View::class);
     }
+    public function sells(){
+        return $this->hasMany(Sell::class);
+    }
 }
