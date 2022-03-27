@@ -17,7 +17,7 @@ class WelcomeController extends Controller
         $recentMonthNewProducts = $this->newProducts();
         $topSold = $this->topSells();
 
-        return view('welcome', compact([
+        return view('blade.welcome', compact([
             'weekProducts',
             'recentMonthNewProducts',
             'topSold',
