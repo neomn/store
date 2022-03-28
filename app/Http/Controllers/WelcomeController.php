@@ -60,8 +60,8 @@ class WelcomeController extends Controller
     public function topSells()
     {
         $now = Carbon::now();
-        $monthStartDate = $now->startOfMonth()->format('y-m-d H:i');
-        $monthEndDate = $now->endOfMonth()->format('y-m-d H:i');
+        $monthStartDate = $now->startOfMonth()->format('y-m-d H:i:s');
+        $monthEndDate = $now->endOfMonth()->format('y-m-d H:i:s');
 
         $sold =  Sell::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('sold_count' , 'desc')
