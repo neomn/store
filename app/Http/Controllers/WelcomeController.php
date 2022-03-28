@@ -28,8 +28,8 @@ class WelcomeController extends Controller
     public function mostVisitedProductsRecentWeek()
     {
         $now = Carbon::now();
-        $weekStartDate = $now->startOfWeek()->format('Y-m-d H:i');
-        $weekEndDate = $now->endOfWeek()->format('Y-m-d H:i');
+        $weekStartDate = $now->startOfWeek()->format('Y-m-d H:i:s');
+        $weekEndDate = $now->endOfWeek()->format('Y-m-d H:i:s');
 
         $top_20_Views = View::whereBetween('created_at', [$weekStartDate, $weekEndDate])
             ->orderBy('count', 'desc')
@@ -47,8 +47,8 @@ class WelcomeController extends Controller
     public function newProducts()
     {
         $now = Carbon::now();
-        $monthStartDate = $now->startOfMonth()->format('y-m-d H:i');
-        $monthEndDate = $now->endOfMonth()->format('y-m-d H:i');
+        $monthStartDate = $now->startOfMonth()->format('y-m-d H:i:s');
+        $monthEndDate = $now->endOfMonth()->format('y-m-d H:i:s');
 
         return Product::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('created_at', 'desc')
