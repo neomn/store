@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WelcomeController;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', WelcomeController::class )->name('welcome');
-Route::view('categories' , 'blade.categories' )->name('categories');
+
+Route::get('categories' , function (){
+    $categories = Category::all();
+    return view('blade.categories' , compact('categories'));
+} )->name('categories');
+
 Route::view('shopping-card' , 'blade.shoppingCard' )->name('shopping-card');
 Route::view('about-us' , 'blade.aboutUs' )->name('about-us');
 Route::view('contact-us' , 'blade.contactUs' )->name('contact-us');
