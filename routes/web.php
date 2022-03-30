@@ -24,6 +24,12 @@ Route::get('categories' , function (){
     return view('blade.categories' , compact('categories'));
 } )->name('categories');
 
+Route::get('product/{product_number}' , function ($product_number){
+    $product = Product::where('product_number' , $product_number)->first();
+    dd($product);
+    return view('' , compact('product'));
+})->name('display-product');
+
 Route::view('shopping-card' , 'blade.shoppingCard' )->name('shopping-card');
 Route::view('about-us' , 'blade.aboutUs' )->name('about-us');
 Route::view('contact-us' , 'blade.contactUs' )->name('contact-us');
