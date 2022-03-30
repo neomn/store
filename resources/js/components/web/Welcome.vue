@@ -1,7 +1,26 @@
 <template>
     <div>
+        <div>
+            <h1>this is welcome.vue file</h1>
+        </div>
+
         <Header/>
-        <Body/>
+
+        <!-- display all products-->
+        <div class="">
+            <table>
+                <thead>
+                <tr>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
         <Footer/>
     </div>
 </template>
