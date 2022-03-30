@@ -27,14 +27,12 @@
 
 <script>
     import Header from './Header.vue';
-    import Body from './Body';
     import Footer from './Footer';
 
     export default {
         name:'app',
         components: {
             Header,
-            Body,
             Footer,
 
         },

@@ -1,7 +1,7 @@
 <template>
     <div class="root">
         <div class="HeaderImage">
-            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">
+<!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
         </div>
         <div class="list ">
             <ul>
