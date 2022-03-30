@@ -21,21 +21,21 @@ Route::get('/', WelcomeController::class )->name('welcome');
 
 Route::get('categories' , function (){
     $categories = Category::all();
-    return view('blade.categories' , compact('categories'));
+    return view('web.blade.categories' , compact('categories'));
 } )->name('categories');
 
 Route::get('product/{product_number}' , function ($product_number){
     $product = Product::where('product_number' , $product_number)->first();
     dd($product);
-    return view('' , compact('product'));
+//    return view('' , compact('product'));
 })->name('display-product');
 
-Route::view('shopping-card' , 'blade.shoppingCard' )->name('shopping-card');
-Route::view('about-us' , 'blade.aboutUs' )->name('about-us');
-Route::view('contact-us' , 'blade.contactUs' )->name('contact-us');
+Route::view('shopping-card' , 'web.blade.shoppingCard' )->name('shopping-card');
+Route::view('about-us' , 'web.blade.aboutUs' )->name('about-us');
+Route::view('contact-us' , 'web.blade.contactUs' )->name('contact-us');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('web.blade.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
