@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-@extends('admin.mainMasterPage')
+@extends('admin.blade.mainMasterPage')
 @section('preview')
 
 

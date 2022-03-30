@@ -1,4 +1,4 @@
-@extends('admin.mainMasterPage')
+@extends('admin.blade.mainMasterPage')
 @section('edit')
 
 

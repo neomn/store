@@ -1,4 +1,4 @@
-@extends('admin.mainMasterPage')
+@extends('admin.blade.mainMasterPage')
 @section('welcome')
 <a class="twbg-yellow-500" href="{{route('admin.customer.index')}}"> show customers </a><br>
 <a class="twbg-yellow-500" href="{{route('admin.customer.create')}}"> create customers  <i class="fad fa-adjust"></i>  </a><br>

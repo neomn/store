@@ -30,6 +30,7 @@
                 <tr>
                     <td>{{$product->id}}</td>
                     <td>{{$product->product_name}}</td>
+                    <td> <a href="{{route('display-product' , $product->product_number )}}"> display product</a></td>
                 </tr>
                 @endforeach
             </tbody>
@@ -51,6 +52,7 @@
                 <tr>
                     <td>{{$product->id}}</td>
                     <td>{{$product->product_name}}</td>
+                    <td> <a href="{{route('display-product' , $product->product_number )}}"> display product</a></td>
                 </tr>
             @endforeach
             </tbody>
