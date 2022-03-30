@@ -137,7 +137,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The session cookie path determines the path for which the cookie will
-    | be regarded as available. Typically, this will be the root path of
+    | be regarded as available. Typically, this will be the web path of
     | your application but you are free to change this when necessary.
     |
     */
