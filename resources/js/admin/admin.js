@@ -17,7 +17,7 @@ import Analytics from "../components/admin/Analytics";
 import Settings from "../components/admin/Settings";
 
 
-require('../bootstrap');
+require('../web/bootstrap');
 Vue.use(VueRouter)
 
 library.add(fas)

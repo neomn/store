@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div>
-            <h1>this is welcome.vue file</h1>
-        </div>
-
         <Header/>
 
         <!-- display all products-->

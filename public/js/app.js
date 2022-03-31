@@ -15622,10 +15622,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -15641,10 +15637,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/js/web/app.js":
+/*!*********************************!*\
+  !*** ./resources/js/web/app.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -15663,22 +15659,22 @@ _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__.library.add(_fort
 vue__WEBPACK_IMPORTED_MODULE_4__["default"].component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon);
 vue__WEBPACK_IMPORTED_MODULE_4__["default"].config.productionTip = false;
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/web/bootstrap.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-vue__WEBPACK_IMPORTED_MODULE_4__["default"].component('root', (__webpack_require__(/*! ./components/web/Welcome */ "./resources/js/components/web/Welcome.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_4__["default"].component('root', (__webpack_require__(/*! ../components/web/Welcome */ "./resources/js/components/web/Welcome.vue")["default"]));
 var app = new vue__WEBPACK_IMPORTED_MODULE_4__["default"]({
   el: '#app'
 });
 
 /***/ }),
 
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
+/***/ "./resources/js/web/bootstrap.js":
+/*!***************************************!*\
+  !*** ./resources/js/web/bootstrap.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
@@ -15750,7 +15746,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-13d3fa53]{\n    display: unset;\n}\ndiv.HeaderImage[data-v-13d3fa53] {\n    border: 1px solid #1d455b;\n    background-color: #333333;\n    position: relative;\n}\ndiv.list[data-v-13d3fa53] {\n    overflow: hidden;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n    background-color: #333333;\n}\na[data-v-13d3fa53] {\n    position: relative;\n    display: inline-block;\n    color: white;\n    padding:2px;\n    padding-top: 10px;\n    padding-right: 10px;\n    margin-right: 2px;\n    margin-left: 2px;\n    border-right: 2px solid gray;\n    text-decoration: none;\n}\na.right[data-v-13d3fa53] {\n    border: none;\n    float: right;\n    margin: unset;\n    margin-right: 50px;\n}\ni.login-register[data-v-13d3fa53] {\n    padding-right: 10px;\n    background-color: green;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-13d3fa53]{\r\n    display: unset;\n}\ndiv.HeaderImage[data-v-13d3fa53] {\r\n    border: 1px solid #1d455b;\r\n    background-color: #333333;\r\n    position: relative;\n}\ndiv.list[data-v-13d3fa53] {\r\n    overflow: hidden;\r\n    position: -webkit-sticky; /* Safari */\r\n    position: sticky;\r\n    top: 0;\r\n    background-color: #333333;\n}\na[data-v-13d3fa53] {\r\n    position: relative;\r\n    display: inline-block;\r\n    color: white;\r\n    padding:2px;\r\n    padding-top: 10px;\r\n    padding-right: 10px;\r\n    margin-right: 2px;\r\n    margin-left: 2px;\r\n    border-right: 2px solid gray;\r\n    text-decoration: none;\n}\na.right[data-v-13d3fa53] {\r\n    border: none;\r\n    float: right;\r\n    margin: unset;\r\n    margin-right: 50px;\n}\ni.login-register[data-v-13d3fa53] {\r\n    padding-right: 10px;\r\n    background-color: green;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34009,25 +34005,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("Header"),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("Footer"),
-    ],
+    [_c("Header"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("Footer")],
     1
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("this is welcome.vue file")])])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -46400,7 +46382,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/web/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	

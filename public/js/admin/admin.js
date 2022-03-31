@@ -16801,10 +16801,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
+/***/ "./resources/js/web/bootstrap.js":
+/*!***************************************!*\
+  !*** ./resources/js/web/bootstrap.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 var Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
@@ -51353,7 +51353,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-__webpack_require__(/*! ../bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ../web/bootstrap */ "./resources/js/web/bootstrap.js");
 
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_9__["default"]);
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.fas);
