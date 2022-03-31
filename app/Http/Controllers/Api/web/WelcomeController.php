@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Api\web;
 
+use App\Http\Resources\web\FavoriteProductResource;
+use App\Http\Resources\web\NewProductResource;
+use App\Http\Resources\web\TopSoldResource;
 use App\Models\Product;
 use App\Models\Sell;
 use App\Models\View;
@@ -9,20 +12,32 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use function MongoDB\BSON\toJSON;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        $weekProducts = $this->mostVisitedProductsRecentWeek();
-        $recentMonthNewProducts = $this->newProducts();
-        $topSold = $this->topSells();
+        $favoriteProducts = $this->mostVisitedProductsRecentWeek();
+        $newProducts = $this->newProducts();
+        $topSells = $this->topSells();
 
-        return [
-            $weekProducts,
-            $recentMonthNewProducts,
-            $topSold,
+        $favoriteProducts = FavoriteProductResource::collection($favoriteProducts);
+        $newProducts = NewProductResource::collection($newProducts);
+        $topSells = TopSoldResource::collection($topSells);
+
+//        dd([  $favoriteProducts , $newProducts , $topSells]);
+
+        $data = [
+            'favoriteProducts' => $favoriteProducts ,
+            'newProducts' => $newProducts ,
+            'topSells' => $topSells
         ];
+
+//        dd($week);
+//        return $week;
+
+        return $data;
     }
 
     //returns top 20 most visited products in recent week
