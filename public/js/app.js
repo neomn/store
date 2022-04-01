@@ -15624,6 +15624,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -34035,22 +34043,34 @@ var render = function () {
     [
       _c("Header"),
       _vm._v(" "),
-      _c("table", { staticClass: "border rounded-md text-gray-200" }, [
-        _vm._m(0),
+      _c("div", { staticClass: "mx-4 mt-4" }, [
+        _c("h1", { staticClass: "text-gray-200" }, [
+          _vm._v(" favorite products"),
+        ]),
         _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.favoriteProducts, function (product) {
-            return _c("tr", [
-              _c("td", [_vm._v(_vm._s(product.number))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(product.name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(product.available_count))]),
-            ])
-          }),
-          0
-        ),
+        _c("table", { staticClass: "border rounded-md text-gray-200" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.favoriteProducts, function (product) {
+              return _c("tr", [
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(product.number)),
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(product.name)),
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(product.available_count)),
+                ]),
+              ])
+            }),
+            0
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("Footer"),

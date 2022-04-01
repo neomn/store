@@ -1,24 +1,32 @@
 <template>
     <div>
+
+        <!-- header component-->
         <Header/>
 
-        <!-- display all products-->
-        <table class="border rounded-md text-gray-200" >
-            <thead>
-            <th>product number</th>
-            <th>name</th>
-            <th>available count</th>
-            </thead>
-            <tbody>
-                <tr v-for="product in favoriteProducts">
-                    <td>{{ product.number }}</td>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.available_count }}</td>
-                </tr>
-            </tbody>
-        </table>
 
+        <!-- display favorite products-->
+        <div class="mx-4 mt-4">
+            <h1 class="text-gray-200"> favorite products</h1>
+            <table class="border rounded-md text-gray-200">
+                <thead>
+                <th>product number</th>
+                <th>name</th>
+                <th>available count</th>
+                </thead>
+                <tbody>
+                <tr v-for="product in favoriteProducts">
+                    <td class="text-center">{{ product.number }}</td>
+                    <td class="text-center">{{ product.name }}</td>
+                    <td class="text-center">{{ product.available_count }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- footer component-->
         <Footer/>
+
     </div>
 </template>
 
