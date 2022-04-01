@@ -3,13 +3,20 @@
         <Header/>
 
         <!-- display all products-->
-        <div v-for="product in favoriteProducts" class=" ml-4 p-2 text-gray-200" >
-            <label class="mx-4">132</label>
-            <label class="mx-4">{{product.name}}</label>
-            <label class="mx-4">{{product.number}}</label>
-            <label  class="mx-4">{{product.available_count}}</label>
-            <br>
-        </div>
+        <table class="border rounded-md text-gray-200" >
+            <thead>
+            <th>product number</th>
+            <th>name</th>
+            <th>available count</th>
+            </thead>
+            <tbody>
+                <tr v-for="product in favoriteProducts">
+                    <td>{{ product.number }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.available_count }}</td>
+                </tr>
+            </tbody>
+        </table>
 
         <Footer/>
     </div>
@@ -45,7 +52,7 @@ export default {
                     this.newProducts = response.data.newProducts;
                     this.topSells = response.data.topSells;
                     console.log('favorite >>> ' + this.favoriteProducts);
-                    console.log( this.favoriteProducts);
+                    console.log(this.favoriteProducts);
                     console.log('new >>> ' + this.newProducts);
                     console.log('top  >>> ' + this.topSells);
                 })

@@ -15617,6 +15617,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -34028,30 +34035,43 @@ var render = function () {
     [
       _c("Header"),
       _vm._v(" "),
-      _vm._l(_vm.favoriteProducts, function (product) {
-        return _c("div", { staticClass: " ml-4 p-2 text-gray-200" }, [
-          _c("label", { staticClass: "mx-4" }, [_vm._v("132")]),
-          _vm._v(" "),
-          _c("label", { staticClass: "mx-4" }, [_vm._v(_vm._s(product.name))]),
-          _vm._v(" "),
-          _c("label", { staticClass: "mx-4" }, [
-            _vm._v(_vm._s(product.number)),
-          ]),
-          _vm._v(" "),
-          _c("label", { staticClass: "mx-4" }, [
-            _vm._v(_vm._s(product.available_count)),
-          ]),
-          _vm._v(" "),
-          _c("br"),
-        ])
-      }),
+      _c("table", { staticClass: "border rounded-md text-gray-200" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.favoriteProducts, function (product) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(product.number))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(product.name))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(product.available_count))]),
+            ])
+          }),
+          0
+        ),
+      ]),
       _vm._v(" "),
       _c("Footer"),
     ],
-    2
+    1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("th", [_vm._v("product number")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("available count")]),
+    ])
+  },
+]
 render._withStripped = true
 
 
