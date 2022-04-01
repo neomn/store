@@ -15617,12 +15617,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -15651,10 +15645,11 @@ __webpack_require__.r(__webpack_exports__);
         _this.newProducts = response.data.newProducts;
         _this.topSells = response.data.topSells;
         console.log('favorite >>> ' + _this.favoriteProducts);
+        console.log(_this.favoriteProducts);
         console.log('new >>> ' + _this.newProducts);
-        console.log('topSells >>> ' + _this.topSells);
+        console.log('top  >>> ' + _this.topSells);
       })["catch"](function (error) {
-        console.log('error while catching data >> ' + error);
+        console.log('error while catching data >>> ' + error);
       });
     }
   }
@@ -34030,24 +34025,33 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("Header"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("Footer")],
-    1
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _vm._l(_vm.favoriteProducts, function (product) {
+        return _c("div", { staticClass: " ml-4 p-2 text-gray-200" }, [
+          _c("label", { staticClass: "mx-4" }, [_vm._v("132")]),
+          _vm._v(" "),
+          _c("label", { staticClass: "mx-4" }, [_vm._v(_vm._s(product.name))]),
+          _vm._v(" "),
+          _c("label", { staticClass: "mx-4" }, [
+            _vm._v(_vm._s(product.number)),
+          ]),
+          _vm._v(" "),
+          _c("label", { staticClass: "mx-4" }, [
+            _vm._v(_vm._s(product.available_count)),
+          ]),
+          _vm._v(" "),
+          _c("br"),
+        ])
+      }),
+      _vm._v(" "),
+      _c("Footer"),
+    ],
+    2
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("table", [
-        _c("thead", [_c("tr", [_c("td")])]),
-        _vm._v(" "),
-        _c("tbody", [_c("tr")]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

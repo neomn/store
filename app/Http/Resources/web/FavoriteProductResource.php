@@ -24,9 +24,9 @@ class FavoriteProductResource extends JsonResource
 //        dd($this);
 //        return parent::toArray($request);
         return [
-            'product number' => $this->product_number,
-            'product name' => $this->product_name,
-            'product count' => $this->available_count,
+            'number' => $this->product_number,
+            'name' => $this->product_name,
+            'available_count' => $this->available_count,
         ];
     }
 
