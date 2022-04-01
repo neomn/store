@@ -9,10 +9,7 @@ use App\Models\Product;
 use App\Models\Sell;
 use App\Models\View;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use function MongoDB\BSON\toJSON;
 
 class WelcomeController extends Controller
 {
@@ -26,18 +23,11 @@ class WelcomeController extends Controller
         $newProducts = NewProductResource::collection($newProducts);
         $topSells = TopSoldResource::collection($topSells);
 
-//        dd([  $favoriteProducts , $newProducts , $topSells]);
-
-        $data = [
+        return [
             'favoriteProducts' => $favoriteProducts ,
             'newProducts' => $newProducts ,
             'topSells' => $topSells
         ];
-
-//        dd($week);
-//        return $week;
-
-        return $data;
     }
 
     //returns top 20 most visited products in recent week

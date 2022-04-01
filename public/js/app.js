@@ -15622,6 +15622,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -15631,7 +15632,31 @@ __webpack_require__.r(__webpack_exports__);
     Footer: _Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      categories: [],
+      favoriteProducts: [],
+      newProducts: [],
+      topSells: []
+    };
+  },
+  mounted: function mounted() {
+    this.loadInitialData();
+  },
+  methods: {
+    loadInitialData: function loadInitialData() {
+      var _this = this;
+
+      axios.get('api/welcome').then(function (response) {
+        _this.favoriteProducts = response.data.favoriteProducts;
+        _this.newProducts = response.data.newProducts;
+        _this.topSells = response.data.topSells;
+        console.log('favorite >>> ' + _this.favoriteProducts);
+        console.log('new >>> ' + _this.newProducts);
+        console.log('topSells >>> ' + _this.topSells);
+      })["catch"](function (error) {
+        console.log('error while catching data >> ' + error);
+      });
+    }
   }
 });
 
@@ -15770,7 +15795,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody{\n    background-color:#616161;\n}\n.top-nav-button{\n    color: white;\n    padding: 0px;\n    margin: 5px;\n    border: white;\n    text-decoration: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody {\n    background-color: #616161;\n}\n.top-nav-button {\n    color: white;\n    padding: 0px;\n    margin: 5px;\n    border: white;\n    text-decoration: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
