@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/', WelcomeController::class )->name('welcome');
 //changing top command to use vue js instead of blade
-Route::view('/' , 'web.vue.welcome');
+Route::view('/' , 'web.vue.app');
 
 Route::get('categories' , function (){
     $categories = Category::all();

@@ -4,7 +4,6 @@
         <!-- header component-->
         <Header/>
 
-
         <!-- display favorite products-->
         <div class="mx-4 mt-4">
             <h1 class="text-gray-200"> favorite products</h1>
@@ -29,6 +28,9 @@
 
     </div>
 </template>
+
+
+
 
 
 <script>
@@ -71,6 +73,8 @@ export default {
     }
 }
 </script>
+
+
 
 
 <style>
