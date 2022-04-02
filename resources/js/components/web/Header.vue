@@ -6,7 +6,7 @@
         <div class="list ">
             <ul>
                 <a href="/">Home</a>
-                <a href="#">categories</a>
+                <router-link to="categories">categories</router-link>
                 <a href="#">profile</a>
                 <a href="#">paymetns</a>
                 <a href="#">orders history</a>

@@ -19,22 +19,22 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/', WelcomeController::class )->name('welcome');
 //changing top command to use vue js instead of blade
-Route::view('/' , 'web.vue.app');
+Route::view('/{any}' , 'web.vue.app')->where('any' , '.*');
 
-Route::get('categories' , function (){
-    $categories = Category::all();
-    return view('web.blade.categories' , compact('categories'));
-} )->name('categories');
+//Route::get('categories' , function (){
+//    $categories = Category::all();
+//    return view('web.blade.categories' , compact('categories'));
+//} )->name('categories');
 
-Route::get('product/{product_number}' , function ($product_number){
-    $product = Product::where('product_number' , $product_number)->first();
-    dd($product);
-//    return view('' , compact('product'));
-})->name('display-product');
+//Route::get('product/{product_number}' , function ($product_number){
+//    $product = Product::where('product_number' , $product_number)->first();
+//    dd($product);
+////    return view('' , compact('product'));
+//})->name('display-product');
 
-Route::view('shopping-card' , 'web.blade.shoppingCard' )->name('shopping-card');
-Route::view('about-us' , 'web.blade.aboutUs' )->name('about-us');
-Route::view('contact-us' , 'web.blade.contactUs' )->name('contact-us');
+//Route::view('shopping-card' , 'web.blade.shoppingCard' )->name('shopping-card');
+//Route::view('about-us' , 'web.blade.aboutUs' )->name('about-us');
+//Route::view('contact-us' , 'web.blade.contactUs' )->name('contact-us');
 
 Route::get('/dashboard', function () {
     return view('web.blade.dashboard');
