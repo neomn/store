@@ -32,7 +32,7 @@ import Users from "./Users";
 import Statistics from "./Analytics";
 
 export default {
-    name: 'app',
+    name: 'web',
     components: {
         Header,
         Sidebar,

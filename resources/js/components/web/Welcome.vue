@@ -36,7 +36,7 @@ import Header from './Header.vue';
 import Footer from './Footer';
 
 export default {
-    name: 'app',
+    name: 'web',
     components: {
         Header,
         Footer,

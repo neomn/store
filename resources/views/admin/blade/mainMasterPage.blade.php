@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', web()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('bs_css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('tw_css/admin.css') }}" rel="stylesheet">
-    <link href="{{ asset('scss/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('scss/web.css') }}" rel="stylesheet">
     <title>admin panel</title>
 </head>
     <body class="sidebar-mini">

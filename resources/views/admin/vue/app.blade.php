@@ -10,11 +10,11 @@
     <meta name="csrf-token" content="{{csrf_token()}}" >
 
     {{--  Style  --}}
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/web.css">
     <title>Store > Admin Panel</title>
 </head>
 <body>
-    <div id="app">
+    <div id="web">
         <App></App>
     </div>
 <script src="{{mix('/js/admin/admin.js')}}"></script>

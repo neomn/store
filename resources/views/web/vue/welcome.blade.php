@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('../css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('../css/web.css')}}">
     {{--  font awesome  --}}
     <script defer src="../../../../public/js/FontAwesome/all.js"></script>
     <script defer src="../../../../public/js/FontAwesome/solid.js"></script>
@@ -14,9 +14,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
+    <div id="web">
         <root></root>
     </div>
-<script src={{mix("js/app.js")}}></script>
+<script src={{mix("/js/web/web.js")}}></script>
 </body>
 </html>
