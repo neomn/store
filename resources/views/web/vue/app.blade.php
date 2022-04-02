@@ -5,11 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('../css/web.css')}}">
+    <link rel="stylesheet" href="{{asset('../../css/app.css')}}">
     {{--  font awesome  --}}
-    <script defer src="../../../../public/js/FontAwesome/all.js"></script>
-    <script defer src="../../../../public/js/FontAwesome/solid.js"></script>
-    <script defer src="../../../../public/js/FontAwesome/fontawesome.js"></script>
+    <script defer src="../../js/FontAwesome/all.js"></script>
+    <script defer src="../../js/FontAwesome/solid.js"></script>
+    <script defer src="../../js/FontAwesome/fontawesome.js"></script>
 
     <title>Document</title>
 </head>
