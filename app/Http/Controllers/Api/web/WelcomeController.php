@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\web;
 
 use App\Http\Resources\web\FavoriteProductResource;
 use App\Http\Resources\web\NewProductResource;
-use App\Http\Resources\web\TopSoldResource;
+use App\Http\Resources\web\TopSellsResource;
 use App\Models\Product;
 use App\Models\Sell;
 use App\Models\View;
@@ -21,13 +21,17 @@ class WelcomeController extends Controller
 
         $favoriteProducts = FavoriteProductResource::collection($favoriteProducts);
         $newProducts = NewProductResource::collection($newProducts);
-        $topSells = TopSoldResource::collection($topSells);
+        $topSells = TopSellsResource::collection($topSells);
 
         return [
             'favoriteProducts' => $favoriteProducts ,
             'newProducts' => $newProducts ,
             'topSells' => $topSells
         ];
+    }
+
+    public function product($product_number){
+        return $product_number;
     }
 
     //returns top 20 most visited products in recent week

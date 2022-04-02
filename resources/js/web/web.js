@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import App from "../components/web/App";
 import Welcome from "../components/web/Welcome";
-import Products from "../components/web/Products";
+import Products from "../components/web/Product";
 import {fab} from "@fortawesome/free-brands-svg-icons";
 import {far} from "@fortawesome/free-regular-svg-icons";
 
@@ -31,7 +31,9 @@ Vue.config.productionTip = false
 const routes=[
     { path: '/app', name: 'app', component: App},
     { path: '/', name: 'welcome', component: Welcome},
-    { path: '/categories', name: 'categories', component: Products}]
+    { path: '/categories', name: 'categories', component: Products},
+    { path: '/product/:product_number', name: 'product', component: Products},
+    ];
 
 const router = new VueRouter({
     mode:'history',

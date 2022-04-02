@@ -7,7 +7,7 @@
             <ul>
                 <a href="/">Home</a>
                 <router-link to="categories">categories</router-link>
-                <a href="#">profile</a>
+                <router-link to="/product/1851567607">product</router-link>
                 <a href="#">paymetns</a>
                 <a href="#">orders history</a>
                 <a class="right" href="/api/user">login / register
