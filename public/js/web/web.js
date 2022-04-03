@@ -19933,6 +19933,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
 //
 //
 //
@@ -19940,10 +19941,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Product",
+  components: {
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
+      product_number: this.$route.params.product_number,
       product: []
     };
   },
@@ -19954,8 +19965,10 @@ __webpack_require__.r(__webpack_exports__);
     retriveProduct: function retriveProduct() {
       var _this = this;
 
-      axios.get('/api/product/{product_number}').then(function (response) {
-        _this.product = response.data;
+      axios.get('/api/product/' + this.product_number).then(function (response) {
+        _this.product = response.data.product;
+        console.log('intended product >>>');
+        console.log(response.data.product);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -20101,11 +20114,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
 /* harmony import */ var _components_web_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/web/App */ "./resources/js/components/web/App.vue");
 /* harmony import */ var _components_web_Welcome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/web/Welcome */ "./resources/js/components/web/Welcome.vue");
 /* harmony import */ var _components_web_Product__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/web/Product */ "./resources/js/components/web/Product.vue");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
 
 
 
@@ -20138,10 +20151,6 @@ var routes = [{
   path: '/',
   name: 'welcome',
   component: _components_web_Welcome__WEBPACK_IMPORTED_MODULE_4__["default"]
-}, {
-  path: '/categories',
-  name: 'categories',
-  component: _components_web_Product__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
   path: '/product/:product_number',
   name: 'product',
@@ -38635,13 +38644,24 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "text-gray-300" }, [
-    _c("h1", [_vm._v("this is product component")]),
-    _vm._v(" "),
-    _c("h1", [
-      _vm._v(" product number is  " + _vm._s(_vm.$route.params.product_number)),
-    ]),
-  ])
+  return _c(
+    "div",
+    { staticClass: "text-gray-300" },
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c("h1", [_vm._v("this is product component")]),
+      _vm._v(" "),
+      _c("h1", [
+        _vm._v(" product number is " + _vm._s(_vm.product_number) + "  "),
+      ]),
+      _vm._v(" "),
+      _c("h1", [_vm._v(" product name is " + _vm._s(_vm.product.name) + "  ")]),
+      _vm._v(" "),
+      _c("br"),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

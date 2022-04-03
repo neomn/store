@@ -6,12 +6,12 @@ import VueRouter from "vue-router";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import {fab} from "@fortawesome/free-brands-svg-icons";
+import {far} from "@fortawesome/free-regular-svg-icons";
 
 import App from "../components/web/App";
 import Welcome from "../components/web/Welcome";
-import Products from "../components/web/Product";
-import {fab} from "@fortawesome/free-brands-svg-icons";
-import {far} from "@fortawesome/free-regular-svg-icons";
+import Product from "../components/web/Product";
 
 
 require('./bootstrap');
@@ -31,8 +31,7 @@ Vue.config.productionTip = false
 const routes=[
     { path: '/app', name: 'app', component: App},
     { path: '/', name: 'welcome', component: Welcome},
-    { path: '/categories', name: 'categories', component: Products},
-    { path: '/product/:product_number', name: 'product', component: Products},
+    { path: '/product/:product_number', name: 'product', component: Product},
     ];
 
 const router = new VueRouter({

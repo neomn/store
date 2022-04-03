@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api\web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\web\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        //
     }
 
     /**
@@ -43,11 +44,12 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+
      */
-    public function show($id)
+    public function show($product_number)
     {
-        //
+        $product = Product::where('product_number' , $product_number)->first();
+        return  ProductResource::make($product);
     }
 
     /**

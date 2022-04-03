@@ -10,9 +10,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class FavoriteProductResource extends JsonResource
 {
 
-//    public $collects = Product::class;
-//    public static $wrap = 'week';
-
     /**
      * Transform the resource collection into an array.
      *
@@ -21,8 +18,6 @@ class FavoriteProductResource extends JsonResource
      */
     public function toArray($request)
     {
-//        dd($this);
-//        return parent::toArray($request);
         return [
             'number' => $this->product_number,
             'name' => $this->product_name,
