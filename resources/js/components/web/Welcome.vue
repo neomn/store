@@ -4,9 +4,9 @@
         <!-- header component-->
         <Header/>
 
-        <!-- display new products in recent month-->
-        <div class="mx-4 mt-4">
-            <h1 class="text-gray-200"> new products in recent month</h1>
+        <!-- display favorite products in recent month-->
+        <div class="mx-4 mt-4" v-if="favoriteProducts.length > 0">
+            <h1 class="text-gray-200"> favorite products in recent month</h1>
             <table class="border rounded-md text-gray-200">
                 <thead>
                 <th>product number</th>
@@ -26,9 +26,9 @@
         </div>
 
 
-        <!-- display favorite products-->
-        <div class="mx-4 mt-4">
-            <h1 class="text-gray-200"> favorite products</h1>
+        <!-- display new products-->
+        <div class="mx-4 mt-4" v-if="newProducts.length > 0">
+            <h1 class="text-gray-200"> new products</h1>
             <table class="border rounded-md text-gray-200">
                 <thead>
                 <th>product number</th>
@@ -50,8 +50,8 @@
 
 
         <!-- display top sells in recent month-->
-        <div class="mx-4 mt-4">
-            <h1 class="text-gray-200"> favorite products</h1>
+        <div class="mx-4 mt-4" v-if="topSells.length > 0">
+            <h1 class="text-gray-200"> Top Sells</h1>
             <table class="border rounded-md text-gray-200">
                 <thead>
                 <th>product number</th>
