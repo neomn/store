@@ -4,6 +4,28 @@
         <!-- header component-->
         <Header/>
 
+        <!-- display new products in recent month-->
+        <div class="mx-4 mt-4">
+            <h1 class="text-gray-200"> new products in recent month</h1>
+            <table class="border rounded-md text-gray-200">
+                <thead>
+                <th>product number</th>
+                <th>name</th>
+                <th>available count</th>
+                <th> details </th>
+                </thead>
+                <tbody>
+                <tr v-for="product in favoriteProducts">
+                    <td class="text-center">{{ product.number }}</td>
+                    <td class="text-center">{{ product.name }}</td>
+                    <td class="text-center">{{ product.available_count }}</td>
+                    <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
         <!-- display favorite products-->
         <div class="mx-4 mt-4">
             <h1 class="text-gray-200"> favorite products</h1>
@@ -12,12 +34,37 @@
                 <th>product number</th>
                 <th>name</th>
                 <th>available count</th>
+                <th> details </th>
                 </thead>
                 <tbody>
-                <tr v-for="product in favoriteProducts">
+                <tr v-for="product in newProducts">
                     <td class="text-center">{{ product.number }}</td>
                     <td class="text-center">{{ product.name }}</td>
                     <td class="text-center">{{ product.available_count }}</td>
+                    <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- display top sells in recent month-->
+        <div class="mx-4 mt-4">
+            <h1 class="text-gray-200"> favorite products</h1>
+            <table class="border rounded-md text-gray-200">
+                <thead>
+                <th>product number</th>
+                <th>name</th>
+                <th>available count</th>
+                <th> details </th>
+                </thead>
+                <tbody>
+                <tr v-for="product in topSells">
+                    <td class="text-center">{{ product.number }}</td>
+                    <td class="text-center">{{ product.name }}</td>
+                    <td class="text-center">{{ product.available_count }}</td>
+                    <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
                 </tr>
                 </tbody>
             </table>
@@ -29,9 +76,7 @@
     </div>
 </template>
 
-
-
-
+<!----------------------------------------------------------------------------->
 
 <script>
 import Header from './Header.vue';
