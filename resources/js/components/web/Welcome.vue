@@ -16,7 +16,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="product in favoriteProducts">
-                    <td class="text-center">{{ product.number }}</td>
+                    <td class="mx-10 px-4 text-center">{{ product.number }}</td>
                     <td class="text-center">{{ product.name }}</td>
                     <td class="text-center">{{ product.available_count }}</td>
                     <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
