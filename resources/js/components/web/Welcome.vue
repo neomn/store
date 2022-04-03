@@ -26,7 +26,7 @@
         </div>
 
 
-        <!-- display new products-->
+        <!-- display new products in recent month-->
         <div class="mx-4 mt-4" v-if="newProducts.length > 0">
             <h1 class="text-gray-200"> new products</h1>
             <table class="border rounded-md text-gray-200">
@@ -42,7 +42,6 @@
                     <td class="text-center">{{ product.name }}</td>
                     <td class="text-center">{{ product.available_count }}</td>
                     <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
-
                 </tr>
                 </tbody>
             </table>
@@ -106,10 +105,12 @@ export default {
                     this.favoriteProducts = response.data.favoriteProducts;
                     this.newProducts = response.data.newProducts;
                     this.topSells = response.data.topSells;
-                    console.log('favorite >>> ' + this.favoriteProducts);
+                    console.log('favorite >>> ');
                     console.log(this.favoriteProducts);
-                    console.log('new >>> ' + this.newProducts);
-                    console.log('top  >>> ' + this.topSells);
+                    console.log('new products >>>');
+                    console.log(this.newProducts);
+                    console.log('top Sells >>> ');
+                    console.log(this.topSells);
                 })
                 .catch(function (error) {
                     console.log('error while catching data >>> ' + error);
@@ -119,14 +120,12 @@ export default {
 }
 </script>
 
-
-
+<!------------------------------------------------------------------------------>
 
 <style>
 body {
     background-color: #616161;
 }
-
 .top-nav-button {
     color: white;
     padding: 0px;

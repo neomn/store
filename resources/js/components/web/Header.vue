@@ -5,18 +5,16 @@
         </div>
         <div class="list ">
             <ul>
-                <a href="/">Home</a>
-                <router-link to="categories">categories</router-link>
-                <router-link to="/product/1851567607">product</router-link>
+                <a href="/">Home</a><router-link to="categories">categories</router-link>
                 <a href="#">paymetns</a>
                 <a href="#">orders history</a>
-                <a class="right" href="/api/user">login / register
-                    <font-awesome-icon :icon="['fas', 'door-open']" /></a>
-
+                <a class="right" href="/api/user">login / register <font-awesome-icon :icon="['fas', 'door-open']" /></a>
             </ul>
         </div>
     </div>
 </template>
+
+<!---------------------------------------------------------------------->
 
 <script>
 export default {
@@ -27,6 +25,8 @@ export default {
     }
 }
 </script>
+
+<!------------------------------------------------------------------------------>
 
 <style scoped>
 div.root{

@@ -19910,8 +19910,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -20094,7 +20092,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -20122,10 +20119,12 @@ __webpack_require__.r(__webpack_exports__);
         _this.favoriteProducts = response.data.favoriteProducts;
         _this.newProducts = response.data.newProducts;
         _this.topSells = response.data.topSells;
-        console.log('favorite >>> ' + _this.favoriteProducts);
+        console.log('favorite >>> ');
         console.log(_this.favoriteProducts);
-        console.log('new >>> ' + _this.newProducts);
-        console.log('top  >>> ' + _this.topSells);
+        console.log('new products >>>');
+        console.log(_this.newProducts);
+        console.log('top Sells >>> ');
+        console.log(_this.topSells);
       })["catch"](function (error) {
         console.log('error while catching data >>> ' + error);
       });
@@ -38738,13 +38737,8 @@ var render = function () {
         "ul",
         [
           _c("a", { attrs: { href: "/" } }, [_vm._v("Home")]),
-          _vm._v(" "),
           _c("router-link", { attrs: { to: "categories" } }, [
             _vm._v("categories"),
-          ]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "/product/1851567607" } }, [
-            _vm._v("product"),
           ]),
           _vm._v(" "),
           _c("a", { attrs: { href: "#" } }, [_vm._v("paymetns")]),
@@ -38755,7 +38749,7 @@ var render = function () {
             "a",
             { staticClass: "right", attrs: { href: "/api/user" } },
             [
-              _vm._v("login / register\n                    "),
+              _vm._v("login / register "),
               _c("font-awesome-icon", {
                 attrs: { icon: ["fas", "door-open"] },
               }),
