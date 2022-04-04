@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Price;
 use App\Models\Product;
 use App\Models\Sell;
@@ -26,18 +27,21 @@ class ProductSeeder extends Seeder
        Product::factory(30)->has(View::factory()->count(random_int(0,20)))
            ->has(Price::factory()->count(random_int(0 , 20)))
            ->has(Sell::factory()->count(random_int(0 , 20)))
+           ->has(Image::factory(random_int(0 , 5)))
            ->for($arduino)
            ->create();
 
         Product::factory(30)->has(View::factory()->count(random_int(0,20)))
             ->has(Price::factory()->count(random_int(0 , 20)))
             ->has(Sell::factory()->count(random_int(0 , 20)))
+            ->has(Image::factory(random_int(0 , 5)))
             ->for($raspberry)
             ->create();
 
         Product::factory(30)->has(View::factory()->count(random_int(0,20)))
             ->has(Price::factory()->count(random_int(0 , 20)))
             ->has(Sell::factory()->count(random_int(0 , 20)))
+            ->has(Image::factory(random_int(0 , 5)))
             ->for($esp)
             ->create();
     }
