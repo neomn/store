@@ -4,7 +4,7 @@
         <!-- header component-->
         <Header/>
 
-        <!-- display favorite products in recent month-->
+        <!-- display top 20 favorite products in recent week-->
         <div class="mx-4 mt-4" v-if="favoriteProducts.length > 0">
             <h1 class="text-gray-200"> favorite products in recent month</h1>
             <table class="border rounded-md text-gray-200">
@@ -12,6 +12,7 @@
                 <th>product number</th>
                 <th>name</th>
                 <th>available count</th>
+                <th>icon</th>
                 <th> details </th>
                 </thead>
                 <tbody>
@@ -19,6 +20,7 @@
                     <td class="mx-10 px-4 text-center">{{ product.number }}</td>
                     <td class="text-center">{{ product.name }}</td>
                     <td class="text-center">{{ product.available_count }}</td>
+                    <td><img :src="product.image" alt="image" width="20px" height="20px" ></td>
                     <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
                 </tr>
                 </tbody>
@@ -34,6 +36,7 @@
                 <th>product number</th>
                 <th>name</th>
                 <th>available count</th>
+                <th>icon</th>
                 <th> details </th>
                 </thead>
                 <tbody>
@@ -41,6 +44,7 @@
                     <td class="text-center">{{ product.number }}</td>
                     <td class="text-center">{{ product.name }}</td>
                     <td class="text-center">{{ product.available_count }}</td>
+                    <td><img :src="product.image" alt="image" width="20px" height="20px" ></td>
                     <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
                 </tr>
                 </tbody>
@@ -48,7 +52,7 @@
         </div>
 
 
-        <!-- display top sells in recent month-->
+        <!-- display 20 top sells in recent month-->
         <div class="mx-4 mt-4" v-if="topSells.length > 0">
             <h1 class="text-gray-200"> Top Sells</h1>
             <table class="border rounded-md text-gray-200">
@@ -56,6 +60,7 @@
                 <th>product number</th>
                 <th>name</th>
                 <th>available count</th>
+                <th>icon</th>
                 <th> details </th>
                 </thead>
                 <tbody>
@@ -63,6 +68,7 @@
                     <td class="text-center">{{ product.number }}</td>
                     <td class="text-center">{{ product.name }}</td>
                     <td class="text-center">{{ product.available_count }}</td>
+                    <td><img :src="product.image" alt="image" width="20px" height="20px" ></td>
                     <td> <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show details </router-link> </td>
                 </tr>
                 </tbody>

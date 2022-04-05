@@ -18,6 +18,7 @@ class TopSellsResource extends JsonResource
             'number' => $this->product_number,
             'name' => $this->product_name,
             'available_count' => $this->available_count,
+            'image' => $this->images[0]->url,
         ];
     }
 }

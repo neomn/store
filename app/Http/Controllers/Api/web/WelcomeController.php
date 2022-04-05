@@ -54,6 +54,7 @@ class WelcomeController extends Controller
         return $products;
     }
 
+    //returns all new products in recent month
     public function newProducts()
     {
         $now = Carbon::now();
@@ -62,7 +63,6 @@ class WelcomeController extends Controller
 
         return Product::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('created_at', 'desc')
-            ->take(20)
             ->get();
     }
 

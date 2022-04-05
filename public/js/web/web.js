@@ -19968,6 +19968,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Product",
@@ -20013,6 +20017,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue */ "./resources/js/components/web/Header.vue");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/web/Footer.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38827,13 +38837,28 @@ var render = function () {
     [
       _c("Header"),
       _vm._v(" "),
-      _c("h1", [_vm._v("this is product component")]),
+      _c("img", {
+        staticClass: "w-screen h-60",
+        attrs: { src: _vm.product.image, alt: "product image" },
+      }),
       _vm._v(" "),
-      _c("h1", [
-        _vm._v(" product number is " + _vm._s(_vm.product_number) + "  "),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "ml-4" }, [
+        _c("h1", { staticClass: "pb-3" }, [
+          _vm._v(" product number is " + _vm._s(_vm.product_number) + " "),
+        ]),
+        _vm._v(" "),
+        _c("h1", { staticClass: "pb-3" }, [
+          _vm._v(" product name is " + _vm._s(_vm.product.name) + " "),
+        ]),
+        _vm._v(" "),
+        _c("h1", { staticClass: "pb-3" }, [
+          _vm._v(
+            " available count is " + _vm._s(_vm.product.available_count) + " "
+          ),
+        ]),
       ]),
-      _vm._v(" "),
-      _c("h1", [_vm._v(" product name is " + _vm._s(_vm.product.name) + "  ")]),
       _vm._v(" "),
       _c("br"),
     ],
@@ -38893,6 +38918,17 @@ var render = function () {
                       _vm._v(_vm._s(product.available_count)),
                     ]),
                     _vm._v(" "),
+                    _c("td", [
+                      _c("img", {
+                        attrs: {
+                          src: product.image,
+                          alt: "image",
+                          width: "20px",
+                          height: "20px",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "td",
                       [
@@ -38944,6 +38980,17 @@ var render = function () {
                       _vm._v(_vm._s(product.available_count)),
                     ]),
                     _vm._v(" "),
+                    _c("td", [
+                      _c("img", {
+                        attrs: {
+                          src: product.image,
+                          alt: "image",
+                          width: "20px",
+                          height: "20px",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "td",
                       [
@@ -38993,6 +39040,17 @@ var render = function () {
                       _vm._v(_vm._s(product.available_count)),
                     ]),
                     _vm._v(" "),
+                    _c("td", [
+                      _c("img", {
+                        attrs: {
+                          src: product.image,
+                          alt: "image",
+                          width: "20px",
+                          height: "20px",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
                     _c(
                       "td",
                       [
@@ -39036,19 +39094,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", [_vm._v("available count")]),
       _vm._v(" "),
-      _c("th", [_vm._v(" details ")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("th", [_vm._v("product number")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("name")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("available count")]),
+      _c("th", [_vm._v("icon")]),
       _vm._v(" "),
       _c("th", [_vm._v(" details ")]),
     ])
@@ -39063,6 +39109,24 @@ var staticRenderFns = [
       _c("th", [_vm._v("name")]),
       _vm._v(" "),
       _c("th", [_vm._v("available count")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("icon")]),
+      _vm._v(" "),
+      _c("th", [_vm._v(" details ")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("th", [_vm._v("product number")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("available count")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("icon")]),
       _vm._v(" "),
       _c("th", [_vm._v(" details ")]),
     ])

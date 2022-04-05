@@ -17,6 +17,8 @@ class ProductResource extends JsonResource
         self::wrap('product');
         return [
             'name'=>$this->product_name,
+            'available_count'=>$this->available_count,
+            'image' => $this->images[0]->url,
         ];
 
     }
