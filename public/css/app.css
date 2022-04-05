@@ -683,6 +683,9 @@ select {
 .block {
   display: block;
 }
+.inline-block {
+  display: inline-block;
+}
 .flex {
   display: flex;
 }
@@ -810,6 +813,9 @@ select {
 .flex-col {
   flex-direction: column;
 }
+.content-center {
+  align-content: center;
+}
 .items-center {
   align-items: center;
 }
@@ -854,6 +860,12 @@ select {
 }
 .border {
   border-width: 1px;
+}
+.border-4 {
+  border-width: 4px;
+}
+.border-2 {
+  border-width: 2px;
 }
 .border-t {
   border-top-width: 1px;
@@ -953,6 +965,9 @@ select {
 .p-10 {
   padding: 2.5rem;
 }
+.p-3 {
+  padding: 0.75rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -997,6 +1012,22 @@ select {
   padding-left: 9rem;
   padding-right: 9rem;
 }
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1023,6 +1054,9 @@ select {
 }
 .pb-1 {
   padding-bottom: 0.25rem;
+}
+.pb-12 {
+  padding-bottom: 3rem;
 }
 .text-center {
   text-align: center;

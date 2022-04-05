@@ -20102,6 +20102,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -38894,188 +38917,233 @@ var render = function () {
       _c("Header"),
       _vm._v(" "),
       _vm.favoriteProducts.length > 0
-        ? _c("div", { staticClass: "mx-4 mt-4" }, [
+        ? _c("div", { staticClass: "mx-4 mt-4 pb-12" }, [
             _c("h1", { staticClass: "text-gray-200" }, [
               _vm._v(" favorite products in recent month"),
             ]),
             _vm._v(" "),
-            _c("table", { staticClass: "border rounded-md text-gray-200" }, [
-              _vm._m(0),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.favoriteProducts, function (product) {
-                  return _c("tr", [
-                    _c("td", { staticClass: "mx-10 px-4 text-center" }, [
-                      _vm._v(_vm._s(product.number)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.name)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.available_count)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("img", {
-                        attrs: {
-                          src: product.image,
-                          alt: "image",
-                          width: "20px",
-                          height: "20px",
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c(
-                          "router-link",
-                          {
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-2 rounded-md p-3 text-gray-200 inline-flex",
+              },
+              [
+                _c("table", { staticClass: " text-gray-200" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.favoriteProducts, function (product) {
+                      return _c("tr", [
+                        _c("td", { staticClass: "mx-10 px-4 text-center" }, [
+                          _vm._v(_vm._s(product.number)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.name)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.available_count)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("img", {
                             attrs: {
-                              to: {
-                                name: "product",
-                                params: { product_number: product.number },
-                              },
+                              src: product.image,
+                              alt: "image",
+                              width: "20px",
+                              height: "20px",
                             },
-                          },
-                          [_vm._v(" show details ")]
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "product",
+                                    params: { product_number: product.number },
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  " show\n                            details\n                        "
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
                         ),
-                      ],
-                      1
-                    ),
-                  ])
-                }),
-                0
-              ),
-            ]),
+                      ])
+                    }),
+                    0
+                  ),
+                ]),
+              ]
+            ),
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm.newProducts.length > 0
-        ? _c("div", { staticClass: "mx-4 mt-4" }, [
+        ? _c("div", { staticClass: "mx-4 mt-4 pb-12" }, [
             _c("h1", { staticClass: "text-gray-200" }, [
               _vm._v(" new products"),
             ]),
             _vm._v(" "),
-            _c("table", { staticClass: "border rounded-md text-gray-200" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.newProducts, function (product) {
-                  return _c("tr", [
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.number)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.name)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.available_count)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("img", {
-                        attrs: {
-                          src: product.image,
-                          alt: "image",
-                          width: "20px",
-                          height: "20px",
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c(
-                          "router-link",
-                          {
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-2 rounded-md p-3 text-gray-200 inline-flex",
+              },
+              [
+                _c("table", { staticClass: " text-gray-200" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.newProducts, function (product) {
+                      return _c("tr", [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.number)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.name)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.available_count)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("img", {
                             attrs: {
-                              to: {
-                                name: "product",
-                                params: { product_number: product.number },
-                              },
+                              src: product.image,
+                              alt: "image",
+                              width: "20px",
+                              height: "20px",
                             },
-                          },
-                          [_vm._v(" show details ")]
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "product",
+                                    params: { product_number: product.number },
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  " show\n                            details\n                        "
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
                         ),
-                      ],
-                      1
-                    ),
-                  ])
-                }),
-                0
-              ),
-            ]),
+                      ])
+                    }),
+                    0
+                  ),
+                ]),
+              ]
+            ),
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm.topSells.length > 0
-        ? _c("div", { staticClass: "mx-4 mt-4" }, [
+        ? _c("div", { staticClass: "mx-4 mt-4 pb-12" }, [
             _c("h1", { staticClass: "text-gray-200" }, [_vm._v(" Top Sells")]),
             _vm._v(" "),
-            _c("table", { staticClass: "border rounded-md text-gray-200" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.topSells, function (product) {
-                  return _c("tr", [
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.number)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.name)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-center" }, [
-                      _vm._v(_vm._s(product.available_count)),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c("img", {
-                        attrs: {
-                          src: product.image,
-                          alt: "image",
-                          width: "20px",
-                          height: "20px",
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      [
-                        _c(
-                          "router-link",
-                          {
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-2 rounded-md p-3 text-gray-200 inline-flex",
+              },
+              [
+                _c("table", { staticClass: " text-gray-200" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.topSells, function (product) {
+                      return _c("tr", [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.number)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.name)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.available_count)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("img", {
                             attrs: {
-                              to: {
-                                name: "product",
-                                params: { product_number: product.number },
-                              },
+                              src: product.image,
+                              alt: "image",
+                              width: "20px",
+                              height: "20px",
                             },
-                          },
-                          [_vm._v(" show details ")]
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "product",
+                                    params: { product_number: product.number },
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  " show\n                            details\n                        "
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
                         ),
-                      ],
-                      1
-                    ),
-                  ])
-                }),
-                0
-              ),
-            ]),
+                      ])
+                    }),
+                    0
+                  ),
+                ]),
+              ]
+            ),
           ])
         : _vm._e(),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _c("Footer"),
     ],
@@ -39088,15 +39156,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", [_vm._v("product number")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("product number")]),
       _vm._v(" "),
-      _c("th", [_vm._v("name")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("name")]),
       _vm._v(" "),
-      _c("th", [_vm._v("available count")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("available count")]),
       _vm._v(" "),
-      _c("th", [_vm._v("icon")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("image")]),
       _vm._v(" "),
-      _c("th", [_vm._v(" details ")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v(" details")]),
     ])
   },
   function () {
@@ -39104,15 +39172,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", [_vm._v("product number")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("product number")]),
       _vm._v(" "),
-      _c("th", [_vm._v("name")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("name")]),
       _vm._v(" "),
-      _c("th", [_vm._v("available count")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("available count")]),
       _vm._v(" "),
-      _c("th", [_vm._v("icon")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("image")]),
       _vm._v(" "),
-      _c("th", [_vm._v(" details ")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v(" details")]),
     ])
   },
   function () {
@@ -39120,15 +39188,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", [_vm._v("product number")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("product number")]),
       _vm._v(" "),
-      _c("th", [_vm._v("name")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("name")]),
       _vm._v(" "),
-      _c("th", [_vm._v("available count")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("available count")]),
       _vm._v(" "),
-      _c("th", [_vm._v("icon")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v("image")]),
       _vm._v(" "),
-      _c("th", [_vm._v(" details ")]),
+      _c("th", { staticClass: "px-8" }, [_vm._v(" details")]),
     ])
   },
 ]
