@@ -1,8 +1,4 @@
 {
-    "/js/web/web.js": "/js/web/web.js",
-    "/js/admin/admin.js": "/js/admin/admin.js",
-    "/js/FontAwesome/all.js": "/js/FontAwesome/all.js",
-    "/js/FontAwesome/fontawesome.js": "/js/FontAwesome/fontawesome.js",
-    "/js/FontAwesome/solid.js": "/js/FontAwesome/solid.js",
+    "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css"
 }
