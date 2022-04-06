@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\WelcomeController;
-use App\Models\Category;
-use App\Models\Product;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,27 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', WelcomeController::class )->name('welcome');
-//changing top command to use vue js instead of blade
-Route::view('/{any}' , 'web.vue.app')->where('any' , '.*');
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
-//Route::get('categories' , function (){
-//    $categories = Category::all();
-//    return view('web.blade.categories' , compact('categories'));
-//} )->name('categories');
-
-//Route::get('product/{product_number}' , function ($product_number){
-//    $product = Product::where('product_number' , $product_number)->first();
-//    dd($product);
-////    return view('' , compact('product'));
-//})->name('display-product');
-
-//Route::view('shopping-card' , 'web.blade.shoppingCard' )->name('shopping-card');
-//Route::view('about-us' , 'web.blade.aboutUs' )->name('about-us');
-//Route::view('contact-us' , 'web.blade.contactUs' )->name('contact-us');
-
-Route::get('/dashboard', function () {
-    return view('web.blade.dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__ . '/auth.php';
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+});
