@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\User;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -29,6 +31,19 @@ class UserSeeder extends Seeder
 //             DB::table('user')->insert($value);
 //        }
 
-        User::factory()->count(200)->create();
+        $faker=Factory::create();
+            $value=[
+                'first_name'=> 'test',
+                'last_name'=> 'user',
+                'phone_number'=> '09178448254',
+                'email'=> 'testuser@test.com',
+                'email_verified_at'=>$faker->dateTime(),
+                'password'=> Hash::make('testtest123'),
+            ];
+            DB::table('users')->insert($value);
+
+//        User::factory(100)
+//            ->has(Product::factory(random_int(3 , 10)))
+//            ->create();
     }
 }
