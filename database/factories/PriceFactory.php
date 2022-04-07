@@ -23,7 +23,7 @@ class PriceFactory extends Factory
     {
         return [
             'price' => $this->faker->numberBetween(1000,20000000),
-            'created_at' => $this->faker->dateTimeBetween('-2 years' , 'now'),
+            'created_at' => $this->faker->unique()->dateTimeBetween('-2 years' , 'now')->format('Y-m-d H:i:s'),
         ];
     }
 }
