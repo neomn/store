@@ -1,5 +1,5 @@
-const mix = require('laravel-mix');
 
+const mix = require('laravel-mix');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,15 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
+mix.js('resources/js/web/web.js', 'public/js/web')
+    .js('resources/js/admin/admin.js' , 'public/js/admin')
+    .vue()
     .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
-    ])
-    .alias({
-        '@': 'resources/js',
-    });
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+    ]);
 
-if (mix.inProduction()) {
-    mix.version();
-}
+mix.js('node_modules/@fortawesome/fontawesome-free/js/all.js','public/js/FontAwesome')
+    .js('node_modules/@fortawesome/fontawesome-free/js/fontawesome.js','public/js/FontAwesome')
+    .js('node_modules/@fortawesome/fontawesome-free/js/solid.js','public/js/FontAwesome');
