@@ -17,11 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->bigInteger('product_number')->default(random_int(1000000000,9000000000))->unique();
             $table->string('product_name');
-            $table->bigInteger('price');
             $table->integer('available_count');
             $table->boolean('is_active')->default(false);
             $table->bigInteger('category_id');
-            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }
