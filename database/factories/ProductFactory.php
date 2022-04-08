@@ -27,7 +27,7 @@ class ProductFactory extends Factory
             'price' =>$this->faker->numberBetween(1000 ,100000000 ),
             'available_count'=>$this->faker->unique->numberBetween(0,500),
             'is_active'=>$this->faker->boolean,
-            'created_at'=>$this->faker->unique()->dateTimeBetween('-2 years' , 'now')->format('Y-m-d H:i:s'),
+            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now'),
         ];
     }
 }

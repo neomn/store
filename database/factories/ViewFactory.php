@@ -23,9 +23,7 @@ class ViewFactory extends Factory
     {
         return [
             'count'=>$this->faker->numberBetween(1 , 500),
-            'created_at'=>$this->faker->unique()->dateTimeBetween('-2 years' , 'now')
-                ->format('Y-m-d H:i:s')
-
+            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now')
         ];
     }
 }
