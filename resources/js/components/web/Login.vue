@@ -8,7 +8,9 @@
 export default {
     name: "Login",
     data() {
+        return{
 
+        }
     },
     mounted() {
         this.initLogin();
@@ -16,11 +18,11 @@ export default {
     methods: {
         initLogin() {
             axios.get('/sanctum/csrf-cookie')
-            .then(response=>{
-                console.log('initializing csrf token >>> ')
-                console.log(response.data)
-            })
-            .catch(function ( error) {console.log(error)})
+                .then(response=>{
+                    console.log('initializing csrf token >>> ')
+                    console.log(response.data)
+                })
+                .catch(function ( error) {console.log(error)})
         },
 
     },
