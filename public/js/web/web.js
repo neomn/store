@@ -19937,10 +19937,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   data: function data() {},
@@ -38947,8 +38943,6 @@ var staticRenderFns = [
       _c("h1", { staticClass: "text-gray-200" }, [
         _vm._v("this is login component"),
       ]),
-      _vm._v(" "),
-      _c("form", { attrs: { action: "" } }),
     ])
   },
 ]
