@@ -19942,7 +19942,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Login"
+  name: "Login",
+  data: function data() {},
+  mounted: function mounted() {
+    this.initLogin();
+  },
+  methods: {
+    initLogin: function initLogin() {
+      axios.get('/sanctum/csrf-cookie').then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
