@@ -13,6 +13,7 @@ import App from "../components/web/App";
 import Welcome from "../components/web/Welcome";
 import Product from "../components/web/Product";
 import NotFound from "../components/web/NotFound";
+import Login from "../components/web/Login";
 
 
 require('./bootstrap');
@@ -33,6 +34,7 @@ const routes=[
     { path: '/app', name: 'app', component: App},
     { path: '/', name: 'welcome', component: Welcome},
     { path: '/product/:product_number', name: 'product', component: Product},
+    { path: '/login', name: 'login', component: Login},
     {path: '/:catchAll(.*)' , name: 404 , component: NotFound},
     ];
 
