@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Api\web\ProductController;
 use App\Http\Controllers\Api\web\WelcomeController;
+use App\Http\Controllers\UserDashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('welcome', [WelcomeController::class , 'index']);
 Route::get('product/{product_number}', [ProductController::class , 'show']);
+Route::get('dashboard', [UserDashboard::class , 'index']);
 
