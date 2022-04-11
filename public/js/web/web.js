@@ -19943,6 +19943,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   data: function data() {
@@ -38949,33 +38959,89 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " m-16 justify-center" }, [
-      _c("form", { attrs: { action: "#" } }, [
-        _c("label", { attrs: { for: "email" } }, [_vm._v("enter your email ")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            name: "email",
-            id: "email",
-            type: "email",
-            placeholder: "email",
+    return _c(
+      "div",
+      {
+        staticClass:
+          "min-h-screen bg-slate-800 py-6 flex flex-col justify-center",
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center",
           },
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "password" } }, [_vm._v("enter password")]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: {
-            name: "password",
-            id: "password",
-            type: "password",
-            placeholder: "password",
-          },
-        }),
-        _vm._v(" "),
-        _c("button", { attrs: { type: "submit" } }, [_vm._v("login")]),
-      ]),
-    ])
+          [
+            _c(
+              "h1",
+              {
+                staticClass:
+                  "my-8 mx-8 bg-slate-800 text-3xl text-center rounded-lg h-10",
+              },
+              [_vm._v("Enter Your Credential To Login ")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-left rounded-md" }, [
+              _c("div", { staticClass: " rounded-md" }, [
+                _c(
+                  "form",
+                  {
+                    staticClass: "flex flex-col justify-center",
+                    attrs: { action: "#" },
+                  },
+                  [
+                    _c("div", { staticClass: "flex flex-col m-8" }, [
+                      _c(
+                        "label",
+                        { staticClass: "block ", attrs: { for: "email" } },
+                        [_vm._v("enter your email ")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "mb-5 rounded-lg",
+                        attrs: {
+                          name: "email",
+                          id: "email",
+                          type: "email",
+                          placeholder: "email",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        { staticClass: "block ", attrs: { for: "password" } },
+                        [_vm._v("enter password")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "rounded-lg",
+                        attrs: {
+                          name: "password",
+                          id: "password",
+                          type: "password",
+                          placeholder: "password",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "block mt-8 bg-green-900 rounded-lg p-2 px-4 hover:bg-green-600",
+                          attrs: { type: "submit" },
+                        },
+                        [_vm._v("login\n                        ")]
+                      ),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]
+    )
   },
 ]
 render._withStripped = true
