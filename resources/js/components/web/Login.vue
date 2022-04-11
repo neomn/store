@@ -19,8 +19,8 @@ export default {
         initLogin() {
             axios.get('/sanctum/csrf-cookie')
                 .then(response=>{
-                    console.log('initializing csrf token >>> ')
-                    console.log(response.data)
+                    console.log('initializing csrf token >>>> ')
+                    console.log(response)
                 })
                 .catch(function ( error) {console.log(error)})
         },

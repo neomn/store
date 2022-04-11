@@ -19948,8 +19948,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     initLogin: function initLogin() {
       axios.get('/sanctum/csrf-cookie').then(function (response) {
-        console.log('initializing csrf token >>> ');
-        console.log(response.data);
+        console.log('initializing csrf token >>>> ');
+        console.log(response);
       })["catch"](function (error) {
         console.log(error);
       });
