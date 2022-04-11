@@ -1,6 +1,12 @@
 <template>
-    <div>
-        <h1 class="text-gray-200">this is login component</h1>
+    <div class=" m-16 justify-center">
+        <form action="#" class="">
+            <label for="email">enter your email </label>
+            <input name="email" id="email" type="email" placeholder="email" >
+            <label for="password">enter password</label>
+            <input name="password" id="password" type="password" placeholder="password">
+            <button type="submit">login</button>
+        </form>
     </div>
 </template>
 
@@ -8,9 +14,7 @@
 export default {
     name: "Login",
     data() {
-        return{
-
-        }
+        return {}
     },
     mounted() {
         this.initLogin();
@@ -18,11 +22,13 @@ export default {
     methods: {
         initLogin() {
             axios.get('/sanctum/csrf-cookie')
-                .then(response=>{
+                .then(response => {
                     console.log('initializing csrf token >>>> ')
                     console.log(response)
                 })
-                .catch(function ( error) {console.log(error)})
+                .catch(function (error) {
+                    console.log(error)
+                })
         },
 
     },
