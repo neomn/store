@@ -20024,7 +20024,7 @@ __webpack_require__.r(__webpack_exports__);
     login: function login() {
       axios.post('/login', this.formData).then(function (response) {
         console.log('attempt to login , results >>>');
-        console.log(response);
+        console.log(response.data);
       })["catch"](function (error) {
         console.log(error);
       });

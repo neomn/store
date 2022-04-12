@@ -30,11 +30,13 @@ class RedirectIfAuthenticated
 
 
             if (Auth::guard('admin')->check())
-                return redirect()->route('admin.panel');
+//                return redirect()->route('admin.panel');
+                return 'admin authenticated';
 
             if (Auth::guard('web')->check())
                 return redirect(RouteServiceProvider::HOME);
 
             return $next($request);
         }
+
 }
