@@ -20009,20 +20009,22 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.initCSRFToken();
+  },
   methods: {
-    login: function login() {
-      var _this = this;
-
+    initCSRFToken: function initCSRFToken() {
       axios.get('/sanctum/csrf-cookie').then(function (response) {
         console.log('initializing csrf token >>>> ');
         console.log(response);
-        axios.post('/login', _this.formData).then(function (response) {
-          console.log('attempt to login , results >>>');
-          console.log(response);
-        })["catch"](function (error) {
-          console.log(error);
-        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    login: function login() {
+      axios.post('/login', this.formData).then(function (response) {
+        console.log('attempt to login , results >>>');
+        console.log(response);
       })["catch"](function (error) {
         console.log(error);
       });
@@ -39181,6 +39183,14 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.formData.email,
+                          expression: "formData.email",
+                        },
+                      ],
                       staticClass:
                         "mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
                       attrs: {
@@ -39189,7 +39199,15 @@ var render = function () {
                         type: "email",
                         autocomplete: "email",
                       },
-                      on: { "v-model": _vm.formData.email },
+                      domProps: { value: _vm.formData.email },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.formData, "email", $event.target.value)
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c(
@@ -39202,6 +39220,14 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.formData.password,
+                          expression: "formData.password",
+                        },
+                      ],
                       staticClass:
                         "rounded-lg text-gray-200 bg-slate-700 border border-gray-200",
                       attrs: {
@@ -39210,7 +39236,19 @@ var render = function () {
                         type: "password",
                         autocomplete: "current-password",
                       },
-                      on: { "v-model": _vm.formData.password },
+                      domProps: { value: _vm.formData.password },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.formData,
+                            "password",
+                            $event.target.value
+                          )
+                        },
+                      },
                     }),
                     _vm._v(" "),
                     _c(

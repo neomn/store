@@ -9,10 +9,10 @@
                         <div class="flex flex-col m-8">
                             <label class="block mb-2 ml-2" for="email">Email </label>
                             <input class="mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 "
-                                   @v-model="formData.email" name="email" id="email" type="email" autocomplete="email">
+                                   v-model="formData.email" name="email" id="email" type="email" autocomplete="email">
                             <label class="block mb-1 ml-2" for="password">Password</label>
                             <input class="rounded-lg text-gray-200 bg-slate-700 border border-gray-200"
-                                   @v-model="formData.password" name="password" id="password" type="password"
+                                   v-model="formData.password" name="password" id="password" type="password"
                                    autocomplete="current-password">
                             <button class="block mt-16 justify-end bg-green-900 rounded-lg p-2 px-4 hover:bg-green-600"
                                     type="submit">login
@@ -37,22 +37,24 @@ export default {
         }
     },
     mounted() {
-
+        this.initCSRFToken()
     },
     methods: {
-        login() {
+        initCSRFToken() {
             axios.get('/sanctum/csrf-cookie')
                 .then(response => {
                     console.log('initializing csrf token >>>> ')
                     console.log(response)
-                    axios.post('/login', this.formData)
-                        .then(response => {
-                            console.log('attempt to login , results >>>')
-                            console.log(response)
-                        })
-                        .catch(function (error) {
-                            console.log(error)
-                        })
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+        },
+        login() {
+            axios.post('/login', this.formData)
+                .then(response => {
+                    console.log('attempt to login , results >>>')
+                    console.log(response)
                 })
                 .catch(function (error) {
                     console.log(error)
