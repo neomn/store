@@ -19873,6 +19873,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Dashboard",
   data: function data() {
@@ -19883,7 +19885,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     initDashboard: function initDashboard() {
-      axios.get('/dashboard').then(function (response) {
+      axios.get('api/dashboard').then(function (response) {
         console.log('user dashboard data >>> ');
         console.log(response);
       })["catch"](function (error) {
@@ -19991,19 +19993,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   data: function data() {
-    return {};
+    return {
+      formData: {
+        email: '',
+        password: ''
+      }
+    };
   },
-  mounted: function mounted() {
-    this.initLogin();
-  },
+  mounted: function mounted() {},
   methods: {
-    initLogin: function initLogin() {
+    login: function login() {
+      var _this = this;
+
       axios.get('/sanctum/csrf-cookie').then(function (response) {
         console.log('initializing csrf token >>>> ');
         console.log(response);
+        axios.post('/login', _this.formData).then(function (response) {
+          console.log('attempt to login , results >>>');
+          console.log(response);
+        })["catch"](function (error) {
+          console.log(error);
+        });
       })["catch"](function (error) {
         console.log(error);
       });
@@ -38988,7 +39007,16 @@ var staticRenderFns = [
     return _c(
       "div",
       { staticClass: "bg-slate-900 min-h-screen text-gray-200" },
-      [_c("h2", [_vm._v("this is dashboard")])]
+      [
+        _c(
+          "aside",
+          {
+            staticClass:
+              "bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen",
+          },
+          [_c("h1", [_vm._v("this is side bar")])]
+        ),
+      ]
     )
   },
 ]
@@ -39104,98 +39132,107 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "min-h-screen bg-slate-800 py-6 flex flex-col justify-center",
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-gray-200",
-          },
-          [
-            _c(
-              "h1",
-              {
-                staticClass:
-                  "my-8 mx-8 bg-slate-800 text-3xl text-center rounded-lg h-10",
-              },
-              [_vm._v("Enter Your Credential To Login ")]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-left rounded-md" }, [
-              _c("div", { staticClass: " rounded-md" }, [
-                _c(
-                  "form",
-                  {
-                    staticClass: "flex flex-col justify-center",
-                    attrs: { action: "#" },
+  return _c(
+    "div",
+    {
+      staticClass:
+        "min-h-screen bg-slate-800 py-6 flex flex-col justify-center",
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-gray-200",
+        },
+        [
+          _c(
+            "h1",
+            {
+              staticClass:
+                "my-8 mx-8 bg-slate-800 text-3xl text-center rounded-lg h-10",
+            },
+            [_vm._v("Enter Your Credential To Login ")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-left rounded-md" }, [
+            _c("div", { staticClass: " rounded-md" }, [
+              _c(
+                "form",
+                {
+                  staticClass: "flex flex-col justify-center",
+                  attrs: { action: "#" },
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.login.apply(null, arguments)
+                    },
                   },
-                  [
-                    _c("div", { staticClass: "flex flex-col m-8" }, [
-                      _c(
-                        "label",
-                        { staticClass: "block ", attrs: { for: "email" } },
-                        [_vm._v("enter your email ")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "mb-5 rounded-lg",
-                        attrs: {
-                          name: "email",
-                          id: "email",
-                          type: "email",
-                          placeholder: "email",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        { staticClass: "block ", attrs: { for: "password" } },
-                        [_vm._v("enter password")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "rounded-lg",
-                        attrs: {
-                          name: "password",
-                          id: "password",
-                          type: "password",
-                          placeholder: "password",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "block mt-16 justify-end bg-green-900 rounded-lg p-2 px-4 hover:bg-green-600",
-                          attrs: { type: "submit" },
-                        },
-                        [_vm._v("login")]
-                      ),
-                    ]),
-                  ]
-                ),
-              ]),
+                },
+                [
+                  _c("div", { staticClass: "flex flex-col m-8" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "block mb-2 ml-2",
+                        attrs: { for: "email" },
+                      },
+                      [_vm._v("Email ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass:
+                        "mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
+                      attrs: {
+                        name: "email",
+                        id: "email",
+                        type: "email",
+                        autocomplete: "email",
+                      },
+                      on: { "v-model": _vm.formData.email },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "block mb-1 ml-2",
+                        attrs: { for: "password" },
+                      },
+                      [_vm._v("Password")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass:
+                        "rounded-lg text-gray-200 bg-slate-700 border border-gray-200",
+                      attrs: {
+                        name: "password",
+                        id: "password",
+                        type: "password",
+                        autocomplete: "current-password",
+                      },
+                      on: { "v-model": _vm.formData.password },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "block mt-16 justify-end bg-green-900 rounded-lg p-2 px-4 hover:bg-green-600",
+                        attrs: { type: "submit" },
+                      },
+                      [_vm._v("login\n                        ")]
+                    ),
+                  ]),
+                ]
+              ),
             ]),
-          ]
-        ),
-      ]
-    )
-  },
-]
+          ]),
+        ]
+      ),
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -9,6 +9,6 @@ use Illuminate\Http\Response;
 class UserDashboard extends Controller
 {
     public function index(Request $request){
-        return $request->user()->products();
+        return $request->user();
     }
 }
