@@ -20061,18 +20061,17 @@ __webpack_require__.r(__webpack_exports__);
         console.log('post request to login to check if authenticated >>> ');
         console.log(response.data);
         _this2.loginResponse = response.data;
+
+        if (_this2.loginResponse === 'user already logged in') {
+          console.log('redirecting to welcome');
+
+          _this2.$router.push({
+            name: 'welcome'
+          });
+        }
       })["catch"](function (error) {
         console.log(error);
       });
-      console.log('check equality >>');
-      console.log(this.loginResponse === 'user already logged in');
-
-      if (this.loginResponse === 'user already logged in') {
-        console.log('redirecting to welcome');
-        this.$router.push({
-          name: 'welcome'
-        });
-      }
     }
   }
 });

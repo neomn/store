@@ -69,26 +69,23 @@ export default {
         },
         redirectIfAuthenticated() {
 
-            axios.post('/login')
-                .then(response => {
-                    console.log('post request to login to check if authenticated >>> ')
-                    console.log(response.data)
-                    this.loginResponse = response.data
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
+                axios.post('/login')
+                    .then(response => {
+                        console.log('post request to login to check if authenticated >>> ')
+                        console.log(response.data)
+                        this.loginResponse = response.data
 
-            console.log('check equality >>')
-            console.log(this.loginResponse === 'user already logged in')
-
-            if (this.loginResponse === 'user already logged in') {
-                console.log('redirecting to welcome')
-                this.$router.push({name: 'welcome'})
-            }
+                        if (this.loginResponse === 'user already logged in') {
+                            console.log('redirecting to welcome')
+                            this.$router.push({name: 'welcome'})
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    })
+            },
         },
-    },
-}
+    }
 </script>
 
 <style scoped>
