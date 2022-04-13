@@ -20006,7 +20006,8 @@ __webpack_require__.r(__webpack_exports__);
       formData: {
         email: '',
         password: ''
-      }
+      },
+      loginResponse: ''
     };
   },
   mounted: function mounted() {
@@ -20022,12 +20023,22 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     login: function login() {
+      var _this = this;
+
       axios.post('/login', this.formData).then(function (response) {
         console.log('attempt to login , results >>>');
         console.log(response.data);
+        _this.loginResponse = response.data;
+
+        _this.redirectIfAuthenticated();
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    redirectIfAuthenticated: function redirectIfAuthenticated() {
+      if (this.loginResponse === 'user authenticated') {
+        console.log('redirect to dashboard');
+      }
     }
   }
 });

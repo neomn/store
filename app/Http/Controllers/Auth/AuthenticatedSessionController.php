@@ -36,19 +36,19 @@ class AuthenticatedSessionController extends Controller
 //        return redirect()->intended(RouteServiceProvider::HOME);
 
 
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
-        if (Auth::guard('admin')->check() && !Auth::guard('web')->check() ) {
-            //dd('AuthenticatedSessionController >> store if 1 ');
-            return redirect()->route('admin.panel');
-        }
-
-        else if (Auth::guard('web')->check() && !Auth::guard('admin')->check()) {
-            //dd('AuthenticatedSessionController >> store if 2 ');
-            return redirect()->intended(RouteServiceProvider::HOME);
-        }
+//        $request->authenticate();
+//
+//        $request->session()->regenerate();
+//
+//        if (Auth::guard('admin')->check() && !Auth::guard('web')->check() ) {
+//            //dd('AuthenticatedSessionController >> store if 1 ');
+//            return redirect()->route('admin.panel');
+//        }
+//
+//        else if (Auth::guard('web')->check() && !Auth::guard('admin')->check()) {
+//            //dd('AuthenticatedSessionController >> store if 2 ');
+//            return redirect()->intended(RouteServiceProvider::HOME);
+//        }
 //        else {
 //            Auth::guard('web')->logout();
 //            Auth::guard('admin')->logout();
@@ -56,6 +56,8 @@ class AuthenticatedSessionController extends Controller
 //            $request->session()->regenerateToken();
 //            return redirect()->route('login');
 //        }
+
+        return redirect('/dashboard',110);
     }
 
     /**

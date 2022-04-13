@@ -28,15 +28,13 @@ class RedirectIfAuthenticated
 //        }
 //        return $next($request);
 
+        $credentials = $request->only(['email' , 'password']);
 
-            if (Auth::guard('admin')->check())
-//                return redirect()->route('admin.panel');
-                return 'admin authenticated';
-
-            if (Auth::guard('web')->check())
-                return redirect(RouteServiceProvider::HOME);
-
-            return $next($request);
+        if (Auth::guard('web')->attempt($credentials)){
+            return response('user authenticated');
         }
+
+        return $next($request);
+    }
 
 }

@@ -34,6 +34,7 @@ export default {
                 email: '',
                 password: '',
             },
+            loginResponse:'',
         }
     },
     mounted() {
@@ -55,10 +56,17 @@ export default {
                 .then(response => {
                     console.log('attempt to login , results >>>')
                     console.log(response.data)
+                    this.loginResponse = response.data
+                    this.redirectIfAuthenticated()
                 })
                 .catch(function (error) {
                     console.log(error)
                 })
+        },
+        redirectIfAuthenticated(){
+            if (this.loginResponse === 'user authenticated'){
+                console.log('redirect to dashboard')
+            }
         },
 
     },

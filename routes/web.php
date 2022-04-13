@@ -37,8 +37,8 @@ Route::view('/{any}' , 'web.vue.app')->where('any' , '.*');
 //Route::view('about-us' , 'web.blade.aboutUs' )->name('about-us');
 //Route::view('contact-us' , 'web.blade.contactUs' )->name('contact-us');
 
-Route::get('/dashboard', function () {
-    return view('web.blade.dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    return view('web.blade.dashboard');
+//})->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
