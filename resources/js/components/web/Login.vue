@@ -65,7 +65,8 @@ export default {
         },
         redirectIfAuthenticated(){
             if (this.loginResponse === 'user authenticated'){
-                console.log('redirect to dashboard')
+                console.log('redirecting to dashboard')
+                this.$router.push({name: 'dashboard'})
             }
         },
 

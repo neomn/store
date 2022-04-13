@@ -20037,7 +20037,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     redirectIfAuthenticated: function redirectIfAuthenticated() {
       if (this.loginResponse === 'user authenticated') {
-        console.log('redirect to dashboard');
+        console.log('redirecting to dashboard');
+        this.$router.push({
+          name: 'dashboard'
+        });
       }
     }
   }
