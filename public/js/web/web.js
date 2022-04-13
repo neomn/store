@@ -19875,6 +19875,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Dashboard",
   data: function data() {
@@ -19887,6 +19892,13 @@ __webpack_require__.r(__webpack_exports__);
     initDashboard: function initDashboard() {
       axios.get('api/dashboard').then(function (response) {
         console.log('user dashboard data >>> ');
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    logout: function logout() {
+      axios.post('/logout').then(function (response) {
         console.log(response);
       })["catch"](function (error) {
         console.log(error);
@@ -20012,6 +20024,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.initCSRFToken();
+    this.redirectIfAuthenticated();
   },
   methods: {
     initCSRFToken: function initCSRFToken() {
@@ -20030,16 +20043,34 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this.loginResponse = response.data;
 
-        _this.redirectIfAuthenticated();
+        if (_this.loginResponse === 'user authenticated successfully') {
+          console.log('redirecting to welcome');
+
+          _this.$router.push({
+            name: 'welcome'
+          });
+        }
       })["catch"](function (error) {
         console.log(error);
       });
     },
     redirectIfAuthenticated: function redirectIfAuthenticated() {
-      if (this.loginResponse === 'user authenticated') {
-        console.log('redirecting to dashboard');
+      var _this2 = this;
+
+      axios.post('/login').then(function (response) {
+        console.log('post request to login to check if authenticated >>> ');
+        console.log(response.data);
+        _this2.loginResponse = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+      console.log('check equality >>');
+      console.log(this.loginResponse === 'user already logged in');
+
+      if (this.loginResponse === 'user already logged in') {
+        console.log('redirecting to welcome');
         this.$router.push({
-          name: 'dashboard'
+          name: 'welcome'
         });
       }
     }
@@ -39013,29 +39044,33 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-slate-900 min-h-screen text-gray-200" },
+  return _c("div", { staticClass: "bg-slate-900 min-h-screen text-gray-200" }, [
+    _c(
+      "aside",
+      {
+        staticClass:
+          "bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen ",
+      },
       [
-        _c(
-          "aside",
-          {
-            staticClass:
-              "bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen",
-          },
-          [_c("h1", [_vm._v("this is side bar")])]
-        ),
-      ]
-    )
-  },
-]
+        _c("h1", [_vm._v("this is side bar")]),
+        _vm._v(" "),
+        _c("router-link", { attrs: { to: { name: "welcome" } } }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "fixed bottom-5 left-8 justify-center border-gray-200 rounded-lg bg-red-700 px-4 py-1",
+              on: { click: _vm.logout },
+            },
+            [_vm._v("Log Out\n            ")]
+          ),
+        ]),
+      ],
+      1
+    ),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

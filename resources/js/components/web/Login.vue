@@ -34,11 +34,12 @@ export default {
                 email: '',
                 password: '',
             },
-            loginResponse:'',
+            loginResponse: '',
         }
     },
     mounted() {
         this.initCSRFToken()
+        this.redirectIfAuthenticated()
     },
     methods: {
         initCSRFToken() {
@@ -57,19 +58,35 @@ export default {
                     console.log('attempt to login , results >>>')
                     console.log(response.data)
                     this.loginResponse = response.data
-                    this.redirectIfAuthenticated()
+                    if (this.loginResponse === 'user authenticated successfully') {
+                        console.log('redirecting to welcome')
+                        this.$router.push({name: 'welcome'})
+                    }
                 })
                 .catch(function (error) {
                     console.log(error)
                 })
         },
-        redirectIfAuthenticated(){
-            if (this.loginResponse === 'user authenticated'){
-                console.log('redirecting to dashboard')
-                this.$router.push({name: 'dashboard'})
+        redirectIfAuthenticated() {
+
+            axios.post('/login')
+                .then(response => {
+                    console.log('post request to login to check if authenticated >>> ')
+                    console.log(response.data)
+                    this.loginResponse = response.data
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+
+            console.log('check equality >>')
+            console.log(this.loginResponse === 'user already logged in')
+
+            if (this.loginResponse === 'user already logged in') {
+                console.log('redirecting to welcome')
+                this.$router.push({name: 'welcome'})
             }
         },
-
     },
 }
 </script>

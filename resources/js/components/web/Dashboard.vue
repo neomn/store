@@ -1,7 +1,12 @@
 <template>
     <div class="bg-slate-900 min-h-screen text-gray-200">
-        <aside class="bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen">
+        <aside class="bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen ">
             <h1>this is side bar</h1>
+            <router-link :to="{ name:'welcome' }">
+                <button class="fixed bottom-5 left-8 justify-center border-gray-200 rounded-lg bg-red-700 px-4 py-1"
+                        @click="logout">Log Out
+                </button>
+            </router-link>
         </aside>
     </div>
 </template>
@@ -9,19 +14,26 @@
 <script>
 export default {
     name: "Dashboard",
-    data(){
-        return {
-
-        }
+    data() {
+        return {}
     },
-    mounted(){
+    mounted() {
         this.initDashboard()
     },
-    methods:{
-        initDashboard(){
+    methods: {
+        initDashboard() {
             axios.get('api/dashboard')
+                .then(response => {
+                    console.log('user dashboard data >>> ')
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+        },
+        logout(){
+            axios.post('/logout')
             .then(response=>{
-                console.log('user dashboard data >>> ')
                 console.log(response)
             })
             .catch(function (error){
