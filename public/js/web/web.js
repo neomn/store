@@ -20052,10 +20052,7 @@ __webpack_require__.r(__webpack_exports__);
     login: function login() {
       var _this = this;
 
-      axios.post('/login', this.formData, {
-        headers: {
-          'Accept': 'application/json'
-        }
+      axios.post('/login', this.formData, {// headers:{'Accept' : 'application/json'},
       }).then(function (response) {
         console.log('attempt to login , results >>>');
         console.log(response.data);
