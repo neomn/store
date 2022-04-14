@@ -28,19 +28,10 @@ class RedirectIfAuthenticated
 //        }
 //        return $next($request);
 
-//        return response('redirect if authenticated');
-
-//        return response([ 'auth guard web check  >> ' , Auth::guard('web')->check() ]);
-
-        $credentials = $request->only(['email', 'password']);
 
         if (Auth::guard('web')->check())
             return response('user already logged in');
 
-//        if (Auth::guard('web')->attempt($credentials))
-//            return response('user authenticated');
-
-//        return response('request -> next');
 
         return $next($request);
     }

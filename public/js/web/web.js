@@ -19879,7 +19879,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Dashboard",
   data: function data() {
@@ -39051,8 +39050,6 @@ var render = function () {
           "bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen ",
       },
       [
-        _c("h1", [_vm._v("this is side bar")]),
-        _vm._v(" "),
         _c("router-link", { attrs: { to: { name: "welcome" } } }, [
           _c(
             "button",
@@ -39061,7 +39058,7 @@ var render = function () {
                 "fixed bottom-5 left-8 justify-center border-gray-200 rounded-lg bg-red-700 px-4 py-1",
               on: { click: _vm.logout },
             },
-            [_vm._v("Log Out\n            ")]
+            [_vm._v(" Log Out\n            ")]
           ),
         ]),
       ],

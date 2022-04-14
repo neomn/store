@@ -29,64 +29,40 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-
 //        $request->authenticate();
-//
 //        $request->session()->regenerate();
-//
 //        return redirect()->intended(RouteServiceProvider::HOME);
 
+        $credentials = $request->only(['email', 'password']);
 
-
-//        return 'authenticated session controller -> store ';
-
-
-        $request->authenticate();
-
-        $request->session()->regenerate();
-//
-//        if (Auth::guard('admin')->check() && !Auth::guard('web')->check() ) {
-//            //dd('AuthenticatedSessionController >> store if 1 ');
-//            return redirect()->route('admin.panel');
-//        }
-//
-         if (Auth::guard('web')->check() && !Auth::guard('admin')->check()) {
-            //dd('AuthenticatedSessionController >> store if 2 ');
-//            return redirect()->intended(RouteServiceProvider::HOME);
-             return response('user authenticated successfully');
+        if (Auth::guard('admin')->attempt($credentials)) {
+//            $request->authenticate();
+            $request->session()->regenerate();
+            return response('admin authenticated successfully');
         }
 
-//        else {
-//            Auth::guard('web')->logout();
-//            Auth::guard('admin')->logout();
-//            $request->session()->invalidate();
-//            $request->session()->regenerateToken();
-//            return redirect()->route('login');
-//        }
+        if (Auth::guard('web')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return response('user authenticated successfully');
+        }
 
-
+        return response('authentication failed');
     }
 
     /**
      * Destroy an authenticated session.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     *
      */
     public function destroy(Request $request)
     {
-       // dd('destroy');
-
         Auth::guard('web')->logout();
         Auth::guard('admin')->logout();
         Auth::logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
-
-//        return redirect('/');
-        return 'authenticated session controller -> destroy ';
+        return response('authenticated session controller -> destroy ');
     }
 }
