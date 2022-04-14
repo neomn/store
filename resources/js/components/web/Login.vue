@@ -53,7 +53,9 @@ export default {
                 })
         },
         login() {
-            axios.post('/login', this.formData)
+            axios.post('/login', this.formData , {
+                headers:{'Accept' : 'application/json'},
+            })
                 .then(response => {
                     console.log('attempt to login , results >>>')
                     console.log(response.data)

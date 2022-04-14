@@ -24,5 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('welcome', [WelcomeController::class , 'index']);
 Route::get('product/{product_number}', [ProductController::class , 'show']);
-Route::get('dashboard', [UserDashboard::class , 'index'])->middleware('auth:sanctum');
 
+Route::middleware('auth:sanctum')->get('dashboard', [UserDashboard::class , 'index']);

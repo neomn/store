@@ -10,6 +10,9 @@
     </div>
 </template>
 
+
+
+
 <script>
 export default {
     name: "Dashboard",
@@ -17,17 +20,29 @@ export default {
         return {}
     },
     mounted() {
+        // this.initCSRFToken()
         this.initDashboard()
     },
     methods: {
+        // initCSRFToken() {
+        //     axios.get('/sanctum/csrf-cookie')
+        //         .then(response => {
+        //             console.log('initializing csrf token >>>> ')
+        //             console.log(response)
+        //         })
+        //         .catch(function (error) {
+        //             console.log(error)
+        //         })
+        // },
         initDashboard() {
             axios.get('api/dashboard')
                 .then(response => {
                     console.log('user dashboard data >>> ')
-                    console.log(response)
+                    console.log(response.data)
                 })
                 .catch(function (error) {
-                    console.log(error)
+                    console.log(error.response.data.message);
+                    console.log(error.response.status);
                 })
         },
         logout() {
@@ -42,6 +57,10 @@ export default {
     }
 }
 </script>
+
+
+
+
 
 <style scoped>
 
