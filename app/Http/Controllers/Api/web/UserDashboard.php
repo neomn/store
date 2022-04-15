@@ -8,7 +8,13 @@ use Illuminate\Http\Response;
 
 class UserDashboard extends Controller
 {
-    public function index(Request $request){
-        return $request->user();
+    public function index(Request $request)
+    {
+
+        $user = $request->user();
+        return response([
+            'user dashboard api -> index',
+            'name' => $user->first_name,
+        ]);
     }
 }
