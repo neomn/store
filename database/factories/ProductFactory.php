@@ -22,11 +22,11 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'product_number'=>$this->faker->unique->numberBetween(1000000000,5000000000),
-            'product_name'=>$this->faker->unique->name,
-            'available_count'=>$this->faker->unique->numberBetween(0,500),
+            'product_number'=>$this->faker->numberBetween(1000000000,5000000000),
+            'product_name'=>$this->faker->name,
+            'available_count'=>$this->faker->numberBetween(0,500),
             'is_active'=>$this->faker->boolean,
-            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now'),
+            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now')->format('Y-m-d h:m:s'),
         ];
     }
 }

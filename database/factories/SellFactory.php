@@ -23,7 +23,7 @@ class SellFactory extends Factory
     {
         return [
             'sold_count'=>$this->faker->numberBetween(0 , 50),
-            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now')
+            'created_at'=>$this->faker->dateTimeBetween('-2 years' , 'now')->format('Y-m-d h:m:s'),
         ];
     }
 }

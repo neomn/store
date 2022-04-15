@@ -17,7 +17,7 @@ class ImageFactory extends Factory
             'title' => $this->faker->title,
             'url' => $this->faker->imageUrl,
             'display_order' => $this->faker->numberBetween(1 , 10),
-            'created_at' => $this->faker->dateTimeBetween('-2 years' , 'now'),
+            'created_at' => $this->faker->dateTimeBetween('-2 years' , 'now')->format('Y-m-d h:m:s'),
         ];
     }
 }
