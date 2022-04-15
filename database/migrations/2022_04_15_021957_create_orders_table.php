@@ -15,6 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('price');
+            $table->integer('count');
+            $table->boolean('canceled')->default(false);
             $table->bigInteger('product_id');
             $table->bigInteger('user_id');
             $table->timestamps();

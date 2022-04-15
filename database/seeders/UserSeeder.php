@@ -2,7 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Image;
+use App\Models\Price;
+use App\Models\Product;
+use App\Models\Sell;
 use App\Models\User;
+use App\Models\View;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,19 +23,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-//        $faker=Factory::create();
-//        for ($i=0;$i<30;$i++){
-//            $value=[
-//                'firstName'=>$faker->name(),
-//                'lastName'=>$faker->lastName(),
-//                'phoneNumber'=>$faker->phoneNumber(),
-//                'email'=>$faker->email(),
-//                'email_verified_at'=>$faker->dateTime(),
-//                'password'=>$faker->password,
-//            ];
-//             DB::table('user')->insert($value);
-//        }
-
+        //create a test user to test login
         $faker = Factory::create();
         $value = [
             'first_name' => 'test',
@@ -41,6 +35,25 @@ class UserSeeder extends Seeder
         ];
         DB::table('users')->insert($value);
 
-        User::factory()->count(200)->create();
+
+        //create random users with related products to test database
+        $category = [
+            'arduino' => Category::where('category', 'Arduino Family')->first(),
+            'raspberry' => Category::where('category', 'Raspberry Family')->first(),
+            'esp' => Category::where('category', 'ESP Family')->first(),
+        ];
+
+        User::factory(100)
+            ->each(function ($user) use ($category) {
+                Product::factory(rand(0, 20))
+                    ->has(View::factory(rand(10, 30)))
+                    ->has(Price::factory(rand(10, 30)))
+                    ->has(Sell::factory(rand(10, 20)))
+                    ->has(Image::factory(rand(1, 5)))
+                    ->for($category[array_rand($category, 1)])
+                    ->create([
+                        'user_id' => $user->id,
+                    ]);
+            });
     }
 }
