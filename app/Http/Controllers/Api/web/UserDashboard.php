@@ -12,9 +12,8 @@ class UserDashboard extends Controller
     {
 
         $user = $request->user();
-        return response([
-            'user dashboard api -> index',
-            'name' => $user->first_name,
-        ]);
+
+//        $orders = $user->orders;
+
     }
 }
