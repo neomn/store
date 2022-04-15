@@ -10,10 +10,12 @@ class UserDashboard extends Controller
 {
     public function index(Request $request)
     {
-
         $user = $request->user();
-
-//        $orders = $user->orders;
+        $orders = $user->orders;
+        foreach ($orders as $order) {
+            $products = $order->product;
+        }
+        return response($products);
 
     }
 }
