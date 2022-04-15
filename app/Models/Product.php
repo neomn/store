@@ -18,6 +18,9 @@ class Product extends Model
     public function prices(){
         return $this->hasMany(Price::class);
     }
+    public function latestPrice(){
+        return $this->hasOne(Price::class)->latestOfMany();
+    }
     public function category(){
         return $this->belongsTo(Category::class);
     }
@@ -30,4 +33,5 @@ class Product extends Model
     public function orders(){
         return $this->hasMany(Order::class);
     }
+
 }

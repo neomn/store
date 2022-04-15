@@ -14,7 +14,8 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-//            'price' => $this->faker->numberBetween()
+            'count' => $this->faker->randomNumber(1,200),
+            'created_at' => $this->faker->dateTimeBetween('-6 month' , 'now')->format('Y-m-d h:m:s'),
         ];
     }
 }
