@@ -8,7 +8,7 @@
                 <a href="/">Home</a><router-link to="categories">categories</router-link>
                 <a href="#">paymetns</a>
                 <router-link :to="{name:'dashboard'}"><button>dashboard</button></router-link>
-                <a class="right" href="/api/user">login / register <font-awesome-icon :icon="['fas', 'door-open']" /></a>
+                <a class="right" href="/api/user">login<font-awesome-icon :icon="['fas', 'door-open']" /></a>
             </ul>
         </div>
     </div>

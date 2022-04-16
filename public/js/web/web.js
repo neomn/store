@@ -39161,7 +39161,7 @@ var render = function () {
             "a",
             { staticClass: "right", attrs: { href: "/api/user" } },
             [
-              _vm._v("login / register "),
+              _vm._v("login"),
               _c("font-awesome-icon", {
                 attrs: { icon: ["fas", "door-open"] },
               }),
