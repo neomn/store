@@ -1,9 +1,9 @@
 <template>
-    <div class="root">
+    <div class="root bg-slate-900">
         <div class="HeaderImage">
             <!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
         </div>
-        <div class="list ">
+        <div class="list bg-slate-900 border-b rounded  ">
             <ul>
                 <a href="/">Home</a>
                 <router-link to="categories">categories</router-link>
@@ -11,11 +11,11 @@
                 <router-link :to="{name:'dashboard'}">
                     <button>dashboard</button>
                 </router-link>
-                <router-link v-if="!loginStatus" :to="{name:'login'}" class="right" href="/api/user">
+                <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">
                     <font-awesome-icon :icon="['fas', 'door-open']"/>
                     login
                 </router-link>
-                <router-link v-if="loginStatus" :to="{name:'dashboard'}" class="right px-2" href="/api/user">
+                <router-link v-if="loginStatus" :to="{name:'dashboard'}" class="float-right " href="/api/user">
                     <font-awesome-icon :icon="['fas', 'chart-line']"/>
                     Dashboard
                 </router-link>
@@ -57,7 +57,6 @@ div.list {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
-    background-color: #333333;
 }
 
 a {
@@ -71,18 +70,6 @@ a {
     margin-left: 2px;
     border-right: 2px solid gray;
     text-decoration: none;
-
 }
 
-a.right {
-    border: none;
-    float: right;
-    margin: unset;
-    margin-right: 50px;
-}
-
-i.login-register {
-    padding-right: 10px;
-    background-color: green;
-}
 </style>

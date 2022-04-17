@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed">
+    <div class="fixed bg-slate-900">
         <h1>
             this is Footer
         </h1>
@@ -14,8 +14,6 @@ export default {
 
 <style scoped>
     div.fixed{
-        background-color: #333333;
-        border: 2px solid white;
         position: fixed;
         bottom: 0;
         width: 1300px;
