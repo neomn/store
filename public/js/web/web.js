@@ -19873,8 +19873,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Categories"
+  name: "Categories",
+  data: function data() {
+    return {
+      categories: {}
+    };
+  },
+  mounted: function mounted() {
+    this.getCategories();
+  },
+  methods: {
+    getCategories: function getCategories() {
+      var _this = this;
+
+      axios.get('api/categories').then(function (response) {
+        console.log(response.data);
+        _this.categories = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -39121,7 +39144,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("this is categories")])])
+    return _c(
+      "div",
+      { staticClass: "bg-slate-900 min-h-screen text-gray-200" },
+      [_c("h1", [_vm._v("this is categories")])]
+    )
   },
 ]
 render._withStripped = true
