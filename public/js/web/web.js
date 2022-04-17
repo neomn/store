@@ -39158,10 +39158,13 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c(
-            "a",
-            { staticClass: "right", attrs: { href: "/api/user" } },
+            "router-link",
+            {
+              staticClass: "right",
+              attrs: { to: { name: "login" }, href: "/api/user" },
+            },
             [
-              _vm._v("login"),
+              _vm._v("login "),
               _c("font-awesome-icon", {
                 attrs: { icon: ["fas", "door-open"] },
               }),
