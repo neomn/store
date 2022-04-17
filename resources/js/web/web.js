@@ -15,6 +15,7 @@ import Product from "../components/web/Product";
 import NotFound from "../components/web/NotFound";
 import Login from "../components/web/Login";
 import Dashboard from "../components/web/Dashboard";
+import Categories from "../components/web/Categories";
 
 
 require('./bootstrap');
@@ -33,7 +34,8 @@ Vue.config.productionTip = false
 
 const routes=[
     { path: '/app', name: 'app', component: App},
-    { path: '/', name: 'welcome', props:true , component: Welcome},
+    { path: '/', name: 'welcome', component: Welcome},
+    { path: '/categories', name: 'categories', component: Categories},
     { path: '/product/:product_number', name: 'product', component: Product},
     { path: '/login', name: 'login', component: Login},
     { path: '/dashboard', name: 'dashboard', component: Dashboard},
