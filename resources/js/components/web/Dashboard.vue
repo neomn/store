@@ -17,7 +17,9 @@
 export default {
     name: "Dashboard",
     data() {
-        return {}
+        return {
+            loginStatus:false
+        }
     },
     mounted() {
         // this.initCSRFToken()

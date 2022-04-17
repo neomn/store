@@ -73,7 +73,7 @@ export default {
 
                 axios.post('/login')
                     .then(response => {
-                        console.log('post request to login to check if authenticated >>> ')
+                        console.log('redirect if authenticated >>> ')
                         console.log(response.data)
                         this.loginResponse = response.data
 

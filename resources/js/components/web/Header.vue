@@ -1,14 +1,24 @@
 <template>
     <div class="root">
         <div class="HeaderImage">
-<!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
+            <!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
         </div>
         <div class="list ">
             <ul>
-                <a href="/">Home</a><router-link to="categories">categories</router-link>
+                <a href="/">Home</a>
+                <router-link to="categories">categories</router-link>
                 <a href="#">paymetns</a>
-                <router-link :to="{name:'dashboard'}"><button>dashboard</button></router-link>
-                <router-link :to="{name:'login'}" class="right" href="/api/user">login <font-awesome-icon :icon="['fas', 'door-open']" /></router-link>
+                <router-link :to="{name:'dashboard'}">
+                    <button>dashboard</button>
+                </router-link>
+                <router-link v-if="!loginStatus" :to="{name:'login'}" class="right" href="/api/user">
+                    <font-awesome-icon :icon="['fas', 'door-open']"/>
+                    login
+                </router-link>
+                <router-link v-if="loginStatus" :to="{name:'dashboard'}" class="right px-2" href="/api/user">
+                    <font-awesome-icon :icon="['fas', 'chart-line']"/>
+                    Dashboard
+                </router-link>
             </ul>
         </div>
     </div>
@@ -18,6 +28,9 @@
 
 <script>
 export default {
+    props: [
+        'loginStatus',
+    ],
     data() {
         return {
             HeaderImage: '../resources/img/WelcomeController.jpg',
@@ -29,9 +42,10 @@ export default {
 <!------------------------------------------------------------------------------>
 
 <style scoped>
-div.root{
+div.root {
     display: unset;
 }
+
 div.HeaderImage {
     border: 1px solid #1d455b;
     background-color: #333333;
@@ -50,7 +64,7 @@ a {
     position: relative;
     display: inline-block;
     color: white;
-    padding:2px;
+    padding: 2px;
     padding-top: 10px;
     padding-right: 10px;
     margin-right: 2px;

@@ -2,7 +2,7 @@
     <div>
 
         <!-- header component-->
-        <Header/>
+        <Header :loginStatus="loginStatus" />
 
         <!-- display top 20 favorite products in recent week-->
         <div class="mx-4 mt-4 pb-12" v-if="favoriteProducts.length > 0">
@@ -116,8 +116,12 @@ export default {
         Header,
         Footer,
     },
+    props:[
+        'isLoggedIn',
+    ],
     data() {
         return {
+            loginStatus : false,
             categories: [],
             favoriteProducts: [],
             newProducts: [],
@@ -125,10 +129,12 @@ export default {
         }
     },
     mounted() {
-        this.loadInitialData();
+        this.loadInitialData()
+        this.checkIfLoggedIn()
     },
     methods: {
         loadInitialData: function () {
+            this.loginStatus = false
             axios.get('api/welcome')
                 .then((response) => {
                     this.favoriteProducts = response.data.favoriteProducts;
@@ -144,6 +150,19 @@ export default {
                 .catch(function (error) {
                     console.log('error while catching data >>> ' + error);
                 });
+        },
+        checkIfLoggedIn(){
+            axios.post('login')
+            .then(response=>{
+                if (response.data==='user already logged in'){
+                    this.loginStatus = true
+                    console.log('login status >>> ')
+                    console.log(this.loginStatus)
+                }
+            })
+            .catch(function (error){
+                console.log(error)
+            })
         },
     }
 }
