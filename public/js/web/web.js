@@ -19987,8 +19987,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['loginStatus'],
   data: function data() {
@@ -39107,13 +39105,7 @@ var render = function () {
           _c("a", { attrs: { href: "/" } }, [_vm._v("Home")]),
           _vm._v(" "),
           _c("router-link", { attrs: { to: "categories" } }, [
-            _vm._v("categories"),
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("paymetns")]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: { name: "dashboard" } } }, [
-            _c("button", [_vm._v("dashboard")]),
+            _vm._v("\n                categories\n            "),
           ]),
           _vm._v(" "),
           !_vm.loginStatus
