@@ -19867,6 +19867,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ "./resources/js/components/web/Header.vue");
 //
 //
 //
@@ -19876,8 +19877,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
+  components: {
+    Header: _Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       categories: {}
@@ -20577,7 +20592,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-13d3fa53] {\n    display: unset;\n}\ndiv.HeaderImage[data-v-13d3fa53] {\n    border: 1px solid #1d455b;\n    background-color: #333333;\n    position: relative;\n}\ndiv.list[data-v-13d3fa53] {\n    overflow: hidden;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\na[data-v-13d3fa53] {\n    position: relative;\n    display: inline-block;\n    color: white;\n    padding: 2px;\n    padding-top: 10px;\n    padding-right: 10px;\n    margin-right: 2px;\n    margin-left: 2px;\n    border-right: 2px solid gray;\n    text-decoration: none;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-13d3fa53] {\r\n    display: unset;\n}\ndiv.HeaderImage[data-v-13d3fa53] {\r\n    border: 1px solid #1d455b;\r\n    background-color: #333333;\r\n    position: relative;\n}\ndiv.list[data-v-13d3fa53] {\r\n    overflow: hidden;\r\n    position: -webkit-sticky; /* Safari */\r\n    position: sticky;\r\n    top: 0;\n}\na[data-v-13d3fa53] {\r\n    position: relative;\r\n    display: inline-block;\r\n    color: white;\r\n    padding: 2px;\r\n    padding-top: 10px;\r\n    padding-right: 10px;\r\n    margin-right: 2px;\r\n    margin-left: 2px;\r\n    border-right: 2px solid gray;\r\n    text-decoration: none;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39137,20 +39152,31 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "bg-slate-800 min-h-screen text-gray-200" },
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-4 m-4" },
+        _vm._l(_vm.categories, function (category) {
+          return _c("div", { staticClass: "felx flex-row" }, [
+            _c("div", { staticClass: "bg-slate-700" }, [
+              _vm._v(
+                "\n                " + _vm._s(category) + "\n            "
+              ),
+            ]),
+          ])
+        }),
+        0
+      ),
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "bg-slate-900 min-h-screen text-gray-200" },
-      [_c("h1", [_vm._v("this is categories")])]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
