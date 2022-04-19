@@ -1,5 +1,7 @@
 <template>
+
     <div class="bg-slate-900 min-h-screen text-gray-200">
+
         <aside class="bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen ">
             <router-link :to="{ name:'welcome' }">
                 <button class="fixed bottom-5 left-8 justify-center border-gray-200 rounded-lg bg-red-700 px-4 py-1"
@@ -7,6 +9,7 @@
                 </button>
             </router-link>
         </aside>
+
     </div>
 </template>
 

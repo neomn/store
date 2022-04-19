@@ -3,19 +3,18 @@
 
         <Header/>
 
-        <div class="grid grid-cols-5 block bg-slate-700 ">
-            <div v-for="category in categories" class="bg-slate-800 w-40 h-60 m-8 rounded-lg justify-center">
-                <div class="text-center">
-                    <router-link to="#" >{{ category.category }}</router-link>
+        <aside class="bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ">
+
+        </aside>
+
+            <div class="grid grid-cols-5  block bg-slate-700 pr-4 ">
+                <div v-for="category in categories"
+                     class="bg-slate-800 w-40 h-60 m-8 rounded-lg justify-center relative">
+                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">
+                        <router-link to="#">{{ category.category }}</router-link>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-        <!--        <div class="grid-cols-4 gap-4 h-44 m-4 bg-slate-600 flex">-->
-        <!--            <div class="bg-slate-900 w-10 m-4">div1</div>-->
-        <!--            <div class="bg-slate-900 w-10 m-4">div2</div>-->
-        <!--        </div>-->
 
     </div>
 </template>

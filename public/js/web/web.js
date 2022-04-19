@@ -19892,7 +19892,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -19934,6 +19933,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -39164,20 +39166,28 @@ var render = function () {
     [
       _c("Header"),
       _vm._v(" "),
+      _c("aside", {
+        staticClass:
+          "bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ",
+      }),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "grid grid-cols-5 block bg-slate-700 " },
+        { staticClass: "grid grid-cols-5  block bg-slate-700 pr-4 " },
         _vm._l(_vm.categories, function (category) {
           return _c(
             "div",
             {
               staticClass:
-                "bg-slate-800 w-40 h-60 m-8 rounded-lg justify-center",
+                "bg-slate-800 w-40 h-60 m-8 rounded-lg justify-center relative",
             },
             [
               _c(
                 "div",
-                { staticClass: "text-center" },
+                {
+                  staticClass:
+                    "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                },
                 [
                   _c("router-link", { attrs: { to: "#" } }, [
                     _vm._v(_vm._s(category.category)),
