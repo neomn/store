@@ -8,10 +8,10 @@
         </aside>
 
         <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">
-            <div v-for="category in categoryContainer "
+            <div v-for="category in categoryContainer"
                  class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
                 <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">
-                    {{ category.category }}
+                    {{ category.category}}
                 </div>
             </div>
         </div>
@@ -53,13 +53,12 @@ export default {
                 })
         },
         initCategoryContainer() {
-            this.categories.forEach((item , index , array)=> {
-                if (item.parent_id == null ){
-                    this.categoryContainer.append(item)
+            this.categories.forEach((item, index, array) => {
+                if (item.parent_id == null) {
+
+                    //this is how to update vue js state
+                    this.$set(this.categoryContainer, index , item)
                 }
-                // if (this.categories[] == null) {
-                //     this.categoryContainer = this.categories[key]
-                // }
             })
             console.log('category container >>> ')
             console.log(this.categoryContainer)
