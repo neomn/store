@@ -19922,12 +19922,16 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     initCategoryContainer: function initCategoryContainer() {
-      for (var key in this.categories) {
-        if (this.categories[key] == null) {
-          this.categoryContainer = this.categories[key];
-        }
-      }
+      var _this2 = this;
 
+      this.categories.forEach(function (item, index, array) {
+        if (item.parent_id == null) {
+          _this2.categoryContainer.append(item);
+        } // if (this.categories[] == null) {
+        //     this.categoryContainer = this.categories[key]
+        // }
+
+      });
       console.log('category container >>> ');
       console.log(this.categoryContainer);
     }

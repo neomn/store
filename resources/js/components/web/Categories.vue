@@ -53,11 +53,14 @@ export default {
                 })
         },
         initCategoryContainer() {
-            for (let key in this.categories) {
-                if (this.categories[key] == null) {
-                    this.categoryContainer = this.categories[key]
+            this.categories.forEach((item , index , array)=> {
+                if (item.parent_id == null ){
+                    this.categoryContainer.append(item)
                 }
-            }
+                // if (this.categories[] == null) {
+                //     this.categoryContainer = this.categories[key]
+                // }
+            })
             console.log('category container >>> ')
             console.log(this.categoryContainer)
         },
