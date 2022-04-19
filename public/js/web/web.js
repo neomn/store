@@ -19892,6 +19892,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -19926,12 +19927,23 @@ __webpack_require__.r(__webpack_exports__);
 
       this.categories.forEach(function (item, index, array) {
         if (item.parent_id == null) {
-          //this is how to update vue js state
+          //this is how to update vue js state ,check vue js docs ( reactivity )
           _this2.$set(_this2.categoryContainer, index, item);
         }
       });
       console.log('category container >>> ');
       console.log(this.categoryContainer);
+    },
+    refreshCategoryContainer: function refreshCategoryContainer(clickedCategoryId) {
+      var _this3 = this;
+
+      this.categoryContainer = {};
+      this.categories.forEach(function (item, index, array) {
+        if (item.parent_id === clickedCategoryId) {
+          //this is how to update vue js state ,check vue js docs ( reactivity )
+          _this3.$set(_this3.categoryContainer, index, item);
+        }
+      });
     }
   }
 });
@@ -39206,6 +39218,11 @@ var render = function () {
                 {
                   staticClass:
                     "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                  on: {
+                    click: function ($event) {
+                      _vm.refreshCategoryContainer(category.id)
+                    },
+                  },
                 },
                 [
                   _vm._v(

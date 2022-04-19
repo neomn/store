@@ -10,8 +10,9 @@
         <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">
             <div v-for="category in categoryContainer"
                  class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
-                <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">
-                    {{ category.category}}
+                <div @click="refreshCategoryContainer (category.id)"
+                     class="rounded text-center  absolute bottom-0 border-t w-full h-12">
+                    {{ category.category }}
                 </div>
             </div>
         </div>
@@ -56,13 +57,24 @@ export default {
             this.categories.forEach((item, index, array) => {
                 if (item.parent_id == null) {
 
-                    //this is how to update vue js state
-                    this.$set(this.categoryContainer, index , item)
+                    //this is how to update vue js state ,check vue js docs ( reactivity )
+                    this.$set(this.categoryContainer, index, item)
                 }
             })
             console.log('category container >>> ')
             console.log(this.categoryContainer)
         },
+        refreshCategoryContainer(clickedCategoryId) {
+            this.categoryContainer = {}
+
+            this.categories.forEach((item, index, array) => {
+                if (item.parent_id === clickedCategoryId) {
+
+                    //this is how to update vue js state ,check vue js docs ( reactivity )
+                    this.$set(this.categoryContainer, index, item)
+                }
+            })
+        }
     }
 }
 </script>
