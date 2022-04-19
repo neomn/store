@@ -19900,7 +19900,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      categories: {}
+      categories: {},
+      categoryContainer: {}
     };
   },
   mounted: function mounted() {
@@ -19911,11 +19912,24 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('api/categories').then(function (response) {
+        console.log('received categories from api >>>');
         console.log(response.data);
         _this.categories = response.data;
+
+        _this.initCategoryContainer();
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    initCategoryContainer: function initCategoryContainer() {
+      for (var key in this.categories) {
+        if (this.categories[key] == null) {
+          this.categoryContainer = this.categories[key];
+        }
+      }
+
+      console.log('category container >>> ');
+      console.log(this.categoryContainer);
     }
   }
 });
@@ -20600,7 +20614,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-13d3fa53] {\r\n    display: unset;\n}\ndiv.HeaderImage[data-v-13d3fa53] {\r\n    border: 1px solid #1d455b;\r\n    background-color: #333333;\r\n    position: relative;\n}\ndiv.list[data-v-13d3fa53] {\r\n    overflow: hidden;\r\n    position: -webkit-sticky; /* Safari */\r\n    position: sticky;\r\n    top: 0;\n}\na[data-v-13d3fa53] {\r\n    position: relative;\r\n    display: inline-block;\r\n    color: white;\r\n    padding: 2px;\r\n    padding-top: 10px;\r\n    padding-right: 10px;\r\n    margin-right: 2px;\r\n    margin-left: 2px;\r\n    border-right: 2px solid gray;\r\n    text-decoration: none;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.root[data-v-13d3fa53] {\n    display: unset;\n}\ndiv.HeaderImage[data-v-13d3fa53] {\n    border: 1px solid #1d455b;\n    background-color: #333333;\n    position: relative;\n}\ndiv.list[data-v-13d3fa53] {\n    overflow: hidden;\n    position: -webkit-sticky; /* Safari */\n    position: sticky;\n    top: 0;\n}\na[data-v-13d3fa53] {\n    position: relative;\n    display: inline-block;\n    color: white;\n    padding: 2px;\n    padding-top: 10px;\n    padding-right: 10px;\n    margin-right: 2px;\n    margin-left: 2px;\n    border-right: 2px solid gray;\n    text-decoration: none;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39177,31 +39191,30 @@ var render = function () {
           staticClass:
             "min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ",
         },
-        _vm._l(_vm.categories, function (category) {
-          return category.parent_id == null
-            ? _c(
+        _vm._l(_vm.categoryContainer, function (category) {
+          return _c(
+            "div",
+            {
+              staticClass:
+                "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
+            },
+            [
+              _c(
                 "div",
                 {
                   staticClass:
-                    "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
+                    "rounded text-center  absolute bottom-0 border-t w-full h-12",
                 },
                 [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "rounded text-center  absolute bottom-0 border-t w-full h-12",
-                    },
-                    [
-                      _c("router-link", { attrs: { to: "#" } }, [
-                        _vm._v(_vm._s(category.category)),
-                      ]),
-                    ],
-                    1
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(category.category) +
+                      "\n            "
                   ),
                 ]
-              )
-            : _vm._e()
+              ),
+            ]
+          )
         }),
         0
       ),
