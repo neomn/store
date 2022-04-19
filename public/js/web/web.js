@@ -19887,6 +19887,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -39160,15 +39166,27 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "p-4 m-4" },
+        { staticClass: "grid grid-cols-5 block bg-slate-700 " },
         _vm._l(_vm.categories, function (category) {
-          return _c("div", { staticClass: "felx flex-row" }, [
-            _c("div", { staticClass: "bg-slate-700" }, [
-              _vm._v(
-                "\n                " + _vm._s(category) + "\n            "
+          return _c(
+            "div",
+            {
+              staticClass:
+                "bg-slate-800 w-40 h-60 m-8 rounded-lg justify-center",
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "text-center" },
+                [
+                  _c("router-link", { attrs: { to: "#" } }, [
+                    _vm._v(_vm._s(category.category)),
+                  ]),
+                ],
+                1
               ),
-            ]),
-          ])
+            ]
+          )
         }),
         0
       ),
