@@ -39173,30 +39173,35 @@ var render = function () {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "grid grid-cols-5  block bg-slate-700 pr-4 " },
+        {
+          staticClass:
+            "min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ",
+        },
         _vm._l(_vm.categories, function (category) {
-          return _c(
-            "div",
-            {
-              staticClass:
-                "bg-slate-800 w-40 h-60 m-8 rounded-lg justify-center relative",
-            },
-            [
-              _c(
+          return category.parent_id == null
+            ? _c(
                 "div",
                 {
                   staticClass:
-                    "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                    "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
                 },
                 [
-                  _c("router-link", { attrs: { to: "#" } }, [
-                    _vm._v(_vm._s(category.category)),
-                  ]),
-                ],
-                1
-              ),
-            ]
-          )
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                    },
+                    [
+                      _c("router-link", { attrs: { to: "#" } }, [
+                        _vm._v(_vm._s(category.category)),
+                      ]),
+                    ],
+                    1
+                  ),
+                ]
+              )
+            : _vm._e()
         }),
         0
       ),

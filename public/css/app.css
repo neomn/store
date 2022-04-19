@@ -792,6 +792,9 @@ select {
 .w-52 {
   width: 13rem;
 }
+.w-56 {
+  width: 14rem;
+}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -850,6 +853,9 @@ select {
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
 .grid-rows-1 {
   grid-template-rows: repeat(1, minmax(0, 1fr));
 }
@@ -873,6 +879,12 @@ select {
 }
 .gap-4 {
   gap: 1rem;
+}
+.gap-10 {
+  gap: 2.5rem;
+}
+.gap-44 {
+  gap: 11rem;
 }
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
