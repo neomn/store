@@ -19901,19 +19901,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      // product_number: this.$route.params.product_number,
+      category: this.$route.params.category,
       categories: {},
       categoryContainer: {}
     };
   },
   mounted: function mounted() {
-    this.getCategories();
+    this.getAllCategories();
   },
   methods: {
-    getCategories: function getCategories() {
+    getAllCategories: function getAllCategories() {
       var _this = this;
 
       axios.get('api/categories').then(function (response) {
-        console.log('received categories from api >>>');
+        console.log('get all categories >>>');
         console.log(response.data);
         _this.categories = response.data;
 
@@ -19938,13 +19940,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       this.categoryContainer = {};
-      this.categories.forEach(function (item, index, array) {
+      this.categories.forEach(function (item, index) {
         if (item.parent_id === clickedCategoryId) {
           //this is how to update vue js state ,check vue js docs ( reactivity )
           _this3.$set(_this3.categoryContainer, index, item);
         }
       });
-    }
+    },
+    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
   }
 });
 
@@ -20556,7 +20559,7 @@ var routes = [{
   name: 'welcome',
   component: _components_web_Welcome__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  path: '/categories',
+  path: '/categories/:category?/:product_number?',
   name: 'categories',
   component: _components_web_Categories__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {

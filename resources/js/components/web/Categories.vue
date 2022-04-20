@@ -33,18 +33,21 @@ export default {
     },
     data() {
         return {
+            // product_number: this.$route.params.product_number,
+            category: this.$route.params.category,
             categories: {},
             categoryContainer: {},
         }
     },
     mounted() {
-        this.getCategories();
+        this.getAllCategories();
     },
     methods: {
-        getCategories() {
+
+        getAllCategories() {
             axios.get('api/categories')
                 .then(response => {
-                    console.log('received categories from api >>>')
+                    console.log('get all categories >>>')
                     console.log(response.data)
                     this.categories = response.data
                     this.initCategoryContainer()
@@ -53,6 +56,8 @@ export default {
                     console.log(error)
                 })
         },
+
+
         initCategoryContainer() {
             this.categories.forEach((item, index, array) => {
                 if (item.parent_id == null) {
@@ -64,17 +69,24 @@ export default {
             console.log('category container >>> ')
             console.log(this.categoryContainer)
         },
+
+
         refreshCategoryContainer(clickedCategoryId) {
             this.categoryContainer = {}
 
-            this.categories.forEach((item, index, array) => {
+            this.categories.forEach((item, index) => {
                 if (item.parent_id === clickedCategoryId) {
 
                     //this is how to update vue js state ,check vue js docs ( reactivity )
                     this.$set(this.categoryContainer, index, item)
                 }
             })
-        }
+        },
+
+
+        getCategoryAssociatedProducts(){
+
+        },
     }
 }
 </script>
