@@ -20,9 +20,9 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $arduino = Category::where('category','Arduino Family')->first();
-        $raspberry = Category::where('category' , 'Raspberry Family')->first();
-        $esp = Category::where('category' , 'ESP Family')->first();
+        $arduino = Category::where('queriedCategory','Arduino Family')->first();
+        $raspberry = Category::where('queriedCategory' , 'Raspberry Family')->first();
+        $esp = Category::where('queriedCategory' , 'ESP Family')->first();
 
        Product::factory(70)->has(View::factory()->count(random_int(0,20)))
            ->has(Price::factory()->count(random_int(0 , 20)))

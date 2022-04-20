@@ -38,9 +38,9 @@ class UserSeeder extends Seeder
 
         //create random users with related products to test database
         $category = [
-            'arduino' => Category::where('category', 'Arduino Family')->first(),
-            'raspberry' => Category::where('category', 'Raspberry Family')->first(),
-            'esp' => Category::where('category', 'ESP Family')->first(),
+            'arduino' => Category::where('queriedCategory', 'Arduino Family')->first(),
+            'raspberry' => Category::where('queriedCategory', 'Raspberry Family')->first(),
+            'esp' => Category::where('queriedCategory', 'ESP Family')->first(),
         ];
 
         User::factory(20)->create()

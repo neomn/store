@@ -17,32 +17,32 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'id' => 1 ,
-                'category' => 'Electronics And Robotics',
+                'queriedCategory' => 'Electronics And Robotics',
                 'parent_id' => null,
             ],
             [
                 'id'=> 2,
-                'category' => 'Other',
+                'queriedCategory' => 'Other',
                 'parent_id' => null ,
             ],
             [
                 'id' => 11,
-                'category' => 'MicroControllers and Processors',
+                'queriedCategory' => 'MicroControllers and Processors',
                 'parent_id' => 1
             ],
             [
                 'id' => 111,
-                'category' => 'Arduino Family',
+                'queriedCategory' => 'Arduino Family',
                 'parent_id' => 11
             ],
             [
                 'id' => 112,
-                'category' => 'Raspberry Family',
+                'queriedCategory' => 'Raspberry Family',
                 'parent_id' => 11
             ],
             [
                 'id' => 113,
-                'category' => 'ESP Family',
+                'queriedCategory' => 'ESP Family',
                 'parent_id' => 11
             ],
         ];

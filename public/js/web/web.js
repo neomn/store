@@ -19893,6 +19893,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -19901,51 +19913,70 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      // product_number: this.$route.params.product_number,
-      category: this.$route.params.category,
+      queriedCategory: this.$route.query.category,
       categories: {},
       categoryContainer: {}
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.getAllCategories();
+    this.$watch(function () {
+      return _this.$route.query;
+    }, function (newParams, previousParams) {
+      console.log('query watcher >> queried category >>>' + newParams.queriedCategory);
+    });
   },
   methods: {
     getAllCategories: function getAllCategories() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('api/categories').then(function (response) {
         console.log('get all categories >>>');
         console.log(response.data);
-        _this.categories = response.data;
+        _this2.categories = response.data;
 
-        _this.initCategoryContainer();
+        _this2.initCategoryContainer();
       })["catch"](function (error) {
         console.log(error);
       });
     },
     initCategoryContainer: function initCategoryContainer() {
-      var _this2 = this;
-
-      this.categories.forEach(function (item, index, array) {
-        if (item.parent_id == null) {
-          //this is how to update vue js state ,check vue js docs ( reactivity )
-          _this2.$set(_this2.categoryContainer, index, item);
-        }
-      });
-      console.log('category container >>> ');
-      console.log(this.categoryContainer);
-    },
-    refreshCategoryContainer: function refreshCategoryContainer(clickedCategoryId) {
       var _this3 = this;
 
-      this.categoryContainer = {};
-      this.categories.forEach(function (item, index) {
-        if (item.parent_id === clickedCategoryId) {
+      this.categories.forEach(function (item, index, array) {
+        if (item.parent_id === null) {
           //this is how to update vue js state ,check vue js docs ( reactivity )
           _this3.$set(_this3.categoryContainer, index, item);
         }
       });
+      console.log('queriedCategory container >>> ');
+      console.log(this.categoryContainer);
+    },
+    // refreshRoute(category) {
+    //     this.$router.push({name: 'categories' , query: {category: category}})
+    // },
+    refreshCategoryContainer: function refreshCategoryContainer() {
+      var _this4 = this;
+
+      var categoryIsNotValid = true;
+
+      if (this.queriedCategory) {
+        this.categoryContainer = {};
+        this.categories.forEach(function (item, index) {
+          if (item.category === _this4.queriedCategory) {
+            //this is how to update vue js state ,check vue js docs ( reactivity )
+            _this4.$set(_this4.categoryContainer, index, item);
+
+            categoryIsNotValid = false;
+            console.log('category founded :)');
+            console.log('setting category container to >>>');
+            console.log(item.category);
+          }
+        });
+        if (categoryIsNotValid) console.log('queried category (' + this.queriedCategory + ') is not a valid category');
+      }
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
   }
@@ -20559,7 +20590,7 @@ var routes = [{
   name: 'welcome',
   component: _components_web_Welcome__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  path: '/categories/:category?/:product_number?',
+  path: '/categories/:queriedCategory?',
   name: 'categories',
   component: _components_web_Categories__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
@@ -39217,25 +39248,34 @@ var render = function () {
             },
             [
               _c(
-                "div",
+                "router-link",
                 {
-                  staticClass:
-                    "rounded text-center  absolute bottom-0 border-t w-full h-12",
-                  on: {
-                    click: function ($event) {
-                      _vm.refreshCategoryContainer(category.id)
+                  attrs: {
+                    to: {
+                      name: "categories",
+                      query: { queriedCategory: category.category },
                     },
                   },
                 },
                 [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(category.category) +
-                      "\n            "
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                    },
+                    [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(category.category) +
+                          "\n                "
+                      ),
+                    ]
                   ),
                 ]
               ),
-            ]
+            ],
+            1
           )
         }),
         0
