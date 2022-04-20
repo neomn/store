@@ -6,7 +6,7 @@
         <div class="list bg-slate-900 border-b rounded  ">
             <ul>
                 <a href="/">Home</a>
-                <router-link :to="{name: 'categories'}">
+                <router-link :to="{name: 'categories' , force: true}">
                     categories
                 </router-link>
                 <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">

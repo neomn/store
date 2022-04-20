@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center mt-72 text-gray-200">
+    <div class=" min-h-screen text-gray-200 bg-slate-800 ">
         <h3> 404 </h3>
         <h4> page not found </h4>
     </div>

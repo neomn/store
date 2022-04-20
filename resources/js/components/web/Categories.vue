@@ -18,17 +18,6 @@
             </div>
         </div>
 
-
-        <!--        <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">-->
-        <!--            <div v-for="category in categoryContainer"-->
-        <!--                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative"-->
-        <!--                @click="refreshRoute(category.category)" >-->
-        <!--                <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
-        <!--                    {{ category.category }}-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-
     </div>
 </template>
 
@@ -45,12 +34,13 @@ export default {
     },
     data() {
         return {
+            pageReload: false,
             categories: {},
             categoryContainer: {},
         }
     },
     mounted() {
-        this.refreshContainerInPageRefresh()
+        this.getAllCategories()
 
         // route parameter watcher ,
         // this will refresh container if new parameter received from vue router , but not from page refresh
@@ -75,18 +65,26 @@ export default {
                 }
             }
         )
+
+        //watch if pageReload was true , reload the page once
+        this.$watch(
+            () => this.pageReload,
+            (newParams, previousParams) => {
+                if (newParams) {
+                    this.pageReload = false
+                    this.reloadPage()
+                }
+            }
+        )
     },
     methods: {
+        refreshContainerOnPageRefresh(){
 
-        refreshContainerInPageRefresh(){
-            if (this.intendedCategoryOnPageRefresh(this.$route.params.category)){
-                this.refreshCategoryContainer(this.$route.params.category)
-            }
-            else if (this.queriedCategoryOnPageRefresh(this.$route.query.category)){
+            if (this.$route.query.category){
                 this.refreshCategoryContainer(this.$route.query.category)
             }
             else if (this.$route.path === '/categories'){
-                this.getAllCategories()
+                this.initCategoryContainer()
             }
             else {
                 console.log('invalid route')
@@ -94,34 +92,16 @@ export default {
             }
         },
 
-        intendedCategoryOnPageRefresh(category){
-            if (category) {
-                console.log('\n\n -------------------------------------------------------')
-                console.log('intendedCategoryOnPageRefresh >>> ' + category)
-                return true
-            }
-            else {
-                console.log('no category intended , ')
-                return false
-            }
-        },
-
-        queriedCategoryOnPageRefresh(category){
-            if (category) {
-                console.log('\n\n -------------------------------------------------------')
-                console.log('queriedCategoryOnPageRefresh >>> ' + category)
-                return true
-            }
-            else {
-                console.log('no category queried')
-                return false
-            }
-        },
 
         getAllCategories() {
+
+            console.log('\n')
+            console.log('----------------------------------\n')
+            console.log('getAllCategories > \n' )
+
             axios.get('api/categories')
                 .then(response => {
-                    console.log('get all categories >>>')
+                    console.log('response >>>')
                     console.log(response.data)
                     this.categories = response.data
                     this.initCategoryContainer()
@@ -131,50 +111,65 @@ export default {
                 })
         },
 
+
         initCategoryContainer() {
+
+            console.log('\n')
+            console.log('----------------------------------\n')
+            console.log('initCategoryContainer > \n' )
+
             this.categories.forEach((item, index, array) => {
                 if (item.parent_id === null) {
                     //this is how to update vue js state ,check vue js docs ( reactivity )
                     this.$set(this.categoryContainer, index, item)
                 }
             })
-            console.log(' initCategoryContainer > Category container initialized with root categories >>> ')
-            console.log(this.categoryContainer)
+            console.log(this.categoryContainer )
         },
 
-        refreshCategoryContainer( queriedCategory) {
-            console.log('refreshCategoryContainer >')
-            // let preserveContainerState = this.categoryContainer
-            // let categoryIsNotValid = true
-            // this.categoryContainer = {}
-            //
-            // //find queried category id
-            // let queriedCategoryId
-            // this.categories.forEach((item, index) => {
-            //     if (item[index].category === queriedCategory) {
-            //         queriedCategoryId = item[index].id
-            //     }
-            // })
-            //
-            // //set container to contain childes of queried category
-            // this.categories.forEach((item, index) => {
-            //     if (item.parent_id === queriedCategoryId) {
-            //         //this is how to update vue js state ,check vue js docs ( reactivity )
-            //         this.$set(this.categoryContainer, index, item)
-            //         console.log('category founded :) adding ' + item.category + ' to container')
-            //         categoryIsNotValid = false
-            //     }
-            // })
-            //
-            // if (categoryIsNotValid) {
-            //     console.log('queried category (' + this.queriedCategory + ') is not a valid category')
-            //     this.categoryContainer = preserveContainerState
-            // }
 
+        refreshCategoryContainer( queriedCategory) {
+            console.log('\n')
+            console.log('----------------------------------\n')
+            console.log('refreshCategoryContainer > \n' )
+            console.log('received category to process > ' + queriedCategory + '\n' )
+            let preserveContainerContent = this.categoryContainer
+            let categoryIsNotValid = true
+            this.categoryContainer = {}
+
+            //find queried category id
+            let queriedCategoryId
+            this.categories.forEach((item, index) => {
+                if (item.category === queriedCategory) {
+                    queriedCategoryId = item.id
+                    console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId +' \n')
+                }
+            })
+
+            //set container to contain childes of queried category
+            this.categories.forEach((item, index) => {
+                if (item.parent_id === queriedCategoryId) {
+                    //this is how to update vue js state ,check vue js docs ( reactivity )
+                    this.$set(this.categoryContainer, index, item)
+                    console.log('category founded :) adding ' + item.category + ' to container')
+                    categoryIsNotValid = false
+                }
+            })
+
+            if (categoryIsNotValid) {
+                console.log('queried category (' + queriedCategory + ') is not a valid category')
+                // this.categoryContainer = preserveContainerContent
+            }
         },
 
         getCategoryAssociatedProducts() {
 
+        },
+        reloadPage() {
+            console.log('\n')
+            console.log('----------------------------------\n')
+            console.log('reloading page ')
+            window.location.reload();
         },
     }
 }

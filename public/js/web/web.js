@@ -19894,17 +19894,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -19913,6 +19902,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      pageReload: false,
       categories: {},
       categoryContainer: {}
     };
@@ -19920,7 +19910,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    this.refreshContainerInPageRefresh(); // route parameter watcher ,
+    this.getAllCategories(); // route parameter watcher ,
     // this will refresh container if new parameter received from vue router , but not from page refresh
 
     this.$watch(function () {
@@ -19942,16 +19932,24 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.refreshCategoryContainer(newParams.category);
       }
+    }); //watch if pageReload was true , reload the page once
+
+    this.$watch(function () {
+      return _this.pageReload;
+    }, function (newParams, previousParams) {
+      if (newParams) {
+        _this.pageReload = false;
+
+        _this.reloadPage();
+      }
     });
   },
   methods: {
-    refreshContainerInPageRefresh: function refreshContainerInPageRefresh() {
-      if (this.intendedCategoryOnPageRefresh(this.$route.params.category)) {
-        this.refreshCategoryContainer(this.$route.params.category);
-      } else if (this.queriedCategoryOnPageRefresh(this.$route.query.category)) {
+    refreshContainerOnPageRefresh: function refreshContainerOnPageRefresh() {
+      if (this.$route.query.category) {
         this.refreshCategoryContainer(this.$route.query.category);
       } else if (this.$route.path === '/categories') {
-        this.getAllCategories();
+        this.initCategoryContainer();
       } else {
         console.log('invalid route');
         this.$router.push({
@@ -19959,31 +19957,14 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    intendedCategoryOnPageRefresh: function intendedCategoryOnPageRefresh(category) {
-      if (category) {
-        console.log('\n\n -------------------------------------------------------');
-        console.log('intendedCategoryOnPageRefresh >>> ' + category);
-        return true;
-      } else {
-        console.log('no category intended , ');
-        return false;
-      }
-    },
-    queriedCategoryOnPageRefresh: function queriedCategoryOnPageRefresh(category) {
-      if (category) {
-        console.log('\n\n -------------------------------------------------------');
-        console.log('queriedCategoryOnPageRefresh >>> ' + category);
-        return true;
-      } else {
-        console.log('no category queried');
-        return false;
-      }
-    },
     getAllCategories: function getAllCategories() {
       var _this2 = this;
 
+      console.log('\n');
+      console.log('----------------------------------\n');
+      console.log('getAllCategories > \n');
       axios.get('api/categories').then(function (response) {
-        console.log('get all categories >>>');
+        console.log('response >>>');
         console.log(response.data);
         _this2.categories = response.data;
 
@@ -19995,44 +19976,57 @@ __webpack_require__.r(__webpack_exports__);
     initCategoryContainer: function initCategoryContainer() {
       var _this3 = this;
 
+      console.log('\n');
+      console.log('----------------------------------\n');
+      console.log('initCategoryContainer > \n');
       this.categories.forEach(function (item, index, array) {
         if (item.parent_id === null) {
           //this is how to update vue js state ,check vue js docs ( reactivity )
           _this3.$set(_this3.categoryContainer, index, item);
         }
       });
-      console.log(' initCategoryContainer > Category container initialized with root categories >>> ');
       console.log(this.categoryContainer);
     },
     refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
-      console.log('refreshCategoryContainer >'); // let preserveContainerState = this.categoryContainer
-      // let categoryIsNotValid = true
-      // this.categoryContainer = {}
-      //
-      // //find queried category id
-      // let queriedCategoryId
-      // this.categories.forEach((item, index) => {
-      //     if (item[index].category === queriedCategory) {
-      //         queriedCategoryId = item[index].id
-      //     }
-      // })
-      //
-      // //set container to contain childes of queried category
-      // this.categories.forEach((item, index) => {
-      //     if (item.parent_id === queriedCategoryId) {
-      //         //this is how to update vue js state ,check vue js docs ( reactivity )
-      //         this.$set(this.categoryContainer, index, item)
-      //         console.log('category founded :) adding ' + item.category + ' to container')
-      //         categoryIsNotValid = false
-      //     }
-      // })
-      //
-      // if (categoryIsNotValid) {
-      //     console.log('queried category (' + this.queriedCategory + ') is not a valid category')
-      //     this.categoryContainer = preserveContainerState
-      // }
+      var _this4 = this;
+
+      console.log('\n');
+      console.log('----------------------------------\n');
+      console.log('refreshCategoryContainer > \n');
+      console.log('received category to process > ' + queriedCategory + '\n');
+      var preserveContainerContent = this.categoryContainer;
+      var categoryIsNotValid = true;
+      this.categoryContainer = {}; //find queried category id
+
+      var queriedCategoryId;
+      this.categories.forEach(function (item, index) {
+        if (item.category === queriedCategory) {
+          queriedCategoryId = item.id;
+          console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n');
+        }
+      }); //set container to contain childes of queried category
+
+      this.categories.forEach(function (item, index) {
+        if (item.parent_id === queriedCategoryId) {
+          //this is how to update vue js state ,check vue js docs ( reactivity )
+          _this4.$set(_this4.categoryContainer, index, item);
+
+          console.log('category founded :) adding ' + item.category + ' to container');
+          categoryIsNotValid = false;
+        }
+      });
+
+      if (categoryIsNotValid) {
+        console.log('queried category (' + queriedCategory + ') is not a valid category'); // this.categoryContainer = preserveContainerContent
+      }
     },
-    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
+    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {},
+    reloadPage: function reloadPage() {
+      console.log('\n');
+      console.log('----------------------------------\n');
+      console.log('reloading page ');
+      window.location.reload();
+    }
   }
 });
 
@@ -39451,9 +39445,11 @@ var render = function () {
         [
           _c("a", { attrs: { href: "/" } }, [_vm._v("Home")]),
           _vm._v(" "),
-          _c("router-link", { attrs: { to: { name: "categories" } } }, [
-            _vm._v("\n                categories\n            "),
-          ]),
+          _c(
+            "router-link",
+            { attrs: { to: { name: "categories", force: true } } },
+            [_vm._v("\n                categories\n            ")]
+          ),
           _vm._v(" "),
           !_vm.loginStatus
             ? _c(
@@ -39683,11 +39679,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-center mt-72 text-gray-200" }, [
-      _c("h3", [_vm._v(" 404 ")]),
-      _vm._v(" "),
-      _c("h4", [_vm._v(" page not found ")]),
-    ])
+    return _c(
+      "div",
+      { staticClass: " min-h-screen text-gray-200 bg-slate-800 " },
+      [
+        _c("h3", [_vm._v(" 404 ")]),
+        _vm._v(" "),
+        _c("h4", [_vm._v(" page not found ")]),
+      ]
+    )
   },
 ]
 render._withStripped = true

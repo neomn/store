@@ -777,6 +777,12 @@ select {
 .w-screen {
   width: 100vw;
 }
+.w-60 {
+  width: 15rem;
+}
+.w-96 {
+  width: 24rem;
+}
 .max-w-xl {
   max-width: 36rem;
 }
