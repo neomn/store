@@ -10,7 +10,7 @@
         <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">
             <div v-for="category in categoryContainer"
                  class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
-                <router-link :to="{name: 'categories' , query: {queriedCategory: category.category}}" >
+                <router-link :to="{name: 'categories' , query: {category: category.category}}">
                     <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">
                         {{ category.category }}
                     </div>
@@ -45,22 +45,51 @@ export default {
     },
     data() {
         return {
-            queriedCategory: this.$route.query.category,
             categories: {},
             categoryContainer: {},
         }
     },
     mounted() {
-        this.getAllCategories()
+        this.intendedCategoryInUrl(this.$route.params.category)
+        this.queriedCategoryInUrl(this.$route.query.category)
+        // this.getAllCategories()
 
+        // route parameter watcher
         this.$watch(
             () => this.$route.query,
             (newParams, previousParams) => {
-                console.log('query watcher >> queried category >>>' + newParams.queriedCategory )
+                console.log('parameter watcher >> new category parameter >>>' + newParams.queriedCategory)
+                this.queriedCategory = newParams.queriedCategory
+                // this.refreshCategoryContainer()
+            }
+        )
+
+        // route query watcher
+        this.$watch(
+            () => this.$route.query,
+            (newParams, previousParams) => {
+                console.log('query watcher >> queried category >>>' + newParams.queriedCategory)
+                this.queriedCategory = newParams.queriedCategory
+                // this.refreshCategoryContainer()
             }
         )
     },
     methods: {
+
+        intendedCategoryInUrl(category){
+            if (category) {
+                console.log('\n\n -------------------------------------------------------')
+                console.log('intendedCategoryInUrl >>> ' + category)
+            }
+        },
+
+        queriedCategoryInUrl(category){
+
+            if (category) {
+                console.log('\n\n -------------------------------------------------------')
+                console.log('queriedCategoryInUrl >>> ' + category)
+            }
+        },
         getAllCategories() {
             axios.get('api/categories')
                 .then(response => {
@@ -73,6 +102,7 @@ export default {
                     console.log(error)
                 })
         },
+
         initCategoryContainer() {
             this.categories.forEach((item, index, array) => {
                 if (item.parent_id === null) {
@@ -81,32 +111,39 @@ export default {
                     this.$set(this.categoryContainer, index, item)
                 }
             })
-            console.log('queriedCategory container >>> ')
+            console.log(' initCategoryContainer > Category container initialized with root categories >>> ')
             console.log(this.categoryContainer)
         },
 
-        // refreshRoute(category) {
-        //     this.$router.push({name: 'categories' , query: {category: category}})
-        // },
-
-        refreshCategoryContainer() {
-
+        refreshCategoryContainer( queriedCategory) {
+            console.log('refreshCategoryContainer >')
+            let preserveContainerState = this.categoryContainer
             let categoryIsNotValid = true
-            if (this.queriedCategory) {
-                this.categoryContainer = {}
-                this.categories.forEach((item, index) => {
-                    if (item.category === this.queriedCategory) {
-                        //this is how to update vue js state ,check vue js docs ( reactivity )
-                        this.$set(this.categoryContainer, index, item)
-                        categoryIsNotValid = false
-                        console.log('category founded :)')
-                        console.log('setting category container to >>>')
-                        console.log(item.category)
-                    }
-                })
-                if (categoryIsNotValid)
-                    console.log('queried category (' + this.queriedCategory + ') is not a valid category')
+            this.categoryContainer = {}
+
+            //find queried category id
+            let queriedCategoryId
+            this.categories.forEach((item, index) => {
+                if (item[index].category === queriedCategory) {
+                    queriedCategoryId = item[index].id
+                }
+            })
+
+            //set container to contain childes of queried category
+            this.categories.forEach((item, index) => {
+                if (item.parent_id === queriedCategoryId) {
+                    //this is how to update vue js state ,check vue js docs ( reactivity )
+                    this.$set(this.categoryContainer, index, item)
+                    console.log('category founded :) adding ' + item.category + ' to container')
+                    categoryIsNotValid = false
+                }
+            })
+
+            if (categoryIsNotValid) {
+                console.log('queried category (' + this.queriedCategory + ') is not a valid category')
+                this.categoryContainer = preserveContainerState
             }
+
         },
 
         getCategoryAssociatedProducts() {

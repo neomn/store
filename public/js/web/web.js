@@ -19913,7 +19913,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      queriedCategory: this.$route.query.category,
       categories: {},
       categoryContainer: {}
     };
@@ -19921,14 +19920,37 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    this.getAllCategories();
+    this.intendedCategoryInUrl(this.$route.params.category);
+    this.queriedCategoryInUrl(this.$route.query.category); // this.getAllCategories()
+    // route parameter watcher
+
+    this.$watch(function () {
+      return _this.$route.query;
+    }, function (newParams, previousParams) {
+      console.log('parameter watcher >> new category parameter >>>' + newParams.queriedCategory);
+      _this.queriedCategory = newParams.queriedCategory; // this.refreshCategoryContainer()
+    }); // route query watcher
+
     this.$watch(function () {
       return _this.$route.query;
     }, function (newParams, previousParams) {
       console.log('query watcher >> queried category >>>' + newParams.queriedCategory);
+      _this.queriedCategory = newParams.queriedCategory; // this.refreshCategoryContainer()
     });
   },
   methods: {
+    intendedCategoryInUrl: function intendedCategoryInUrl(category) {
+      if (category) {
+        console.log('\n\n -------------------------------------------------------');
+        console.log('intendedCategoryInUrl >>> ' + category);
+      }
+    },
+    queriedCategoryInUrl: function queriedCategoryInUrl(category) {
+      if (category) {
+        console.log('\n\n -------------------------------------------------------');
+        console.log('queriedCategoryInUrl >>> ' + category);
+      }
+    },
     getAllCategories: function getAllCategories() {
       var _this2 = this;
 
@@ -19951,31 +19973,37 @@ __webpack_require__.r(__webpack_exports__);
           _this3.$set(_this3.categoryContainer, index, item);
         }
       });
-      console.log('queriedCategory container >>> ');
+      console.log(' initCategoryContainer > Category container initialized with root categories >>> ');
       console.log(this.categoryContainer);
     },
-    // refreshRoute(category) {
-    //     this.$router.push({name: 'categories' , query: {category: category}})
-    // },
-    refreshCategoryContainer: function refreshCategoryContainer() {
+    refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
       var _this4 = this;
 
+      console.log('refreshCategoryContainer >');
+      var preserveContainerState = this.categoryContainer;
       var categoryIsNotValid = true;
+      this.categoryContainer = {}; //find queried category id
 
-      if (this.queriedCategory) {
-        this.categoryContainer = {};
-        this.categories.forEach(function (item, index) {
-          if (item.category === _this4.queriedCategory) {
-            //this is how to update vue js state ,check vue js docs ( reactivity )
-            _this4.$set(_this4.categoryContainer, index, item);
+      var queriedCategoryId;
+      this.categories.forEach(function (item, index) {
+        if (item[index].category === queriedCategory) {
+          queriedCategoryId = item[index].id;
+        }
+      }); //set container to contain childes of queried category
 
-            categoryIsNotValid = false;
-            console.log('category founded :)');
-            console.log('setting category container to >>>');
-            console.log(item.category);
-          }
-        });
-        if (categoryIsNotValid) console.log('queried category (' + this.queriedCategory + ') is not a valid category');
+      this.categories.forEach(function (item, index) {
+        if (item.parent_id === queriedCategoryId) {
+          //this is how to update vue js state ,check vue js docs ( reactivity )
+          _this4.$set(_this4.categoryContainer, index, item);
+
+          console.log('category founded :) adding ' + item.category + ' to container');
+          categoryIsNotValid = false;
+        }
+      });
+
+      if (categoryIsNotValid) {
+        console.log('queried category (' + this.queriedCategory + ') is not a valid category');
+        this.categoryContainer = preserveContainerState;
       }
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
@@ -20590,7 +20618,7 @@ var routes = [{
   name: 'welcome',
   component: _components_web_Welcome__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  path: '/categories/:queriedCategory?',
+  path: '/categories/:category?',
   name: 'categories',
   component: _components_web_Categories__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
@@ -39253,7 +39281,7 @@ var render = function () {
                   attrs: {
                     to: {
                       name: "categories",
-                      query: { queriedCategory: category.category },
+                      query: { category: category.category },
                     },
                   },
                 },
