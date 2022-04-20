@@ -19920,23 +19920,37 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    this.checkForValidCategory(); // route parameter watcher
+    this.refreshContainerInPageRefresh(); // route parameter watcher ,
+    // this will refresh container if new parameter received from vue router , but not from page refresh
 
     this.$watch(function () {
       return _this.$route.params;
     }, function (newParams, previousParams) {
-      console.log('parameter watcher >> ' + newParams.category); // this.refreshCategoryContainer()
+      if (newParams.category) {
+        console.log('parameter watcher >> ' + newParams.category);
+
+        _this.refreshCategoryContainer(newParams.category);
+      }
     }); // route query watcher
+    // this will refresh container if new parameter queried by vue router , but not from page refresh
 
     this.$watch(function () {
       return _this.$route.query;
     }, function (newParams, previousParams) {
-      console.log('query watcher >>' + newParams.category); // this.refreshCategoryContainer()
+      if (newParams.category) {
+        console.log('query watcher >>' + newParams.category);
+
+        _this.refreshCategoryContainer(newParams.category);
+      }
     });
   },
   methods: {
-    checkForValidCategory: function checkForValidCategory() {
-      if (this.intendedCategoryInUrl(this.$route.params.category)) {} else if (this.queriedCategoryInUrl(this.$route.query.category)) {} else if (this.$route.path === '/categories') {
+    refreshContainerInPageRefresh: function refreshContainerInPageRefresh() {
+      if (this.intendedCategoryOnPageRefresh(this.$route.params.category)) {
+        this.refreshCategoryContainer(this.$route.params.category);
+      } else if (this.queriedCategoryOnPageRefresh(this.$route.query.category)) {
+        this.refreshCategoryContainer(this.$route.query.category);
+      } else if (this.$route.path === '/categories') {
         this.getAllCategories();
       } else {
         console.log('invalid route');
@@ -19945,20 +19959,20 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    intendedCategoryInUrl: function intendedCategoryInUrl(category) {
+    intendedCategoryOnPageRefresh: function intendedCategoryOnPageRefresh(category) {
       if (category) {
         console.log('\n\n -------------------------------------------------------');
-        console.log('intendedCategoryInUrl >>> ' + category);
+        console.log('intendedCategoryOnPageRefresh >>> ' + category);
         return true;
       } else {
-        console.log('no category intended');
+        console.log('no category intended , ');
         return false;
       }
     },
-    queriedCategoryInUrl: function queriedCategoryInUrl(category) {
+    queriedCategoryOnPageRefresh: function queriedCategoryOnPageRefresh(category) {
       if (category) {
         console.log('\n\n -------------------------------------------------------');
-        console.log('queriedCategoryInUrl >>> ' + category);
+        console.log('queriedCategoryOnPageRefresh >>> ' + category);
         return true;
       } else {
         console.log('no category queried');
@@ -19991,34 +20005,32 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.categoryContainer);
     },
     refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
-      var _this4 = this;
-
-      console.log('refreshCategoryContainer >');
-      var preserveContainerState = this.categoryContainer;
-      var categoryIsNotValid = true;
-      this.categoryContainer = {}; //find queried category id
-
-      var queriedCategoryId;
-      this.categories.forEach(function (item, index) {
-        if (item[index].category === queriedCategory) {
-          queriedCategoryId = item[index].id;
-        }
-      }); //set container to contain childes of queried category
-
-      this.categories.forEach(function (item, index) {
-        if (item.parent_id === queriedCategoryId) {
-          //this is how to update vue js state ,check vue js docs ( reactivity )
-          _this4.$set(_this4.categoryContainer, index, item);
-
-          console.log('category founded :) adding ' + item.category + ' to container');
-          categoryIsNotValid = false;
-        }
-      });
-
-      if (categoryIsNotValid) {
-        console.log('queried category (' + this.queriedCategory + ') is not a valid category');
-        this.categoryContainer = preserveContainerState;
-      }
+      console.log('refreshCategoryContainer >'); // let preserveContainerState = this.categoryContainer
+      // let categoryIsNotValid = true
+      // this.categoryContainer = {}
+      //
+      // //find queried category id
+      // let queriedCategoryId
+      // this.categories.forEach((item, index) => {
+      //     if (item[index].category === queriedCategory) {
+      //         queriedCategoryId = item[index].id
+      //     }
+      // })
+      //
+      // //set container to contain childes of queried category
+      // this.categories.forEach((item, index) => {
+      //     if (item.parent_id === queriedCategoryId) {
+      //         //this is how to update vue js state ,check vue js docs ( reactivity )
+      //         this.$set(this.categoryContainer, index, item)
+      //         console.log('category founded :) adding ' + item.category + ' to container')
+      //         categoryIsNotValid = false
+      //     }
+      // })
+      //
+      // if (categoryIsNotValid) {
+      //     console.log('queried category (' + this.queriedCategory + ') is not a valid category')
+      //     this.categoryContainer = preserveContainerState
+      // }
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
   }
