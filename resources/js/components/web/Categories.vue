@@ -50,16 +50,13 @@ export default {
         }
     },
     mounted() {
-        this.intendedCategoryInUrl(this.$route.params.category)
-        this.queriedCategoryInUrl(this.$route.query.category)
-        // this.getAllCategories()
+        this.checkForValidCategory()
 
         // route parameter watcher
         this.$watch(
-            () => this.$route.query,
+            () => this.$route.params,
             (newParams, previousParams) => {
-                console.log('parameter watcher >> new category parameter >>>' + newParams.queriedCategory)
-                this.queriedCategory = newParams.queriedCategory
+                console.log('parameter watcher >> ' + newParams.category)
                 // this.refreshCategoryContainer()
             }
         )
@@ -68,28 +65,53 @@ export default {
         this.$watch(
             () => this.$route.query,
             (newParams, previousParams) => {
-                console.log('query watcher >> queried category >>>' + newParams.queriedCategory)
-                this.queriedCategory = newParams.queriedCategory
+                console.log('query watcher >>' + newParams.category)
                 // this.refreshCategoryContainer()
             }
         )
     },
     methods: {
 
+        checkForValidCategory(){
+            if (this.intendedCategoryInUrl(this.$route.params.category)){
+
+            }
+            else if (this.queriedCategoryInUrl(this.$route.query.category)){
+
+            }
+            else if (this.$route.path === '/categories'){
+                this.getAllCategories()
+            }
+            else {
+                console.log('invalid route')
+                this.$router.push({name:'404'})
+            }
+        },
+
         intendedCategoryInUrl(category){
             if (category) {
                 console.log('\n\n -------------------------------------------------------')
                 console.log('intendedCategoryInUrl >>> ' + category)
+                return true
+            }
+            else {
+                console.log('no category intended')
+                return false
             }
         },
 
         queriedCategoryInUrl(category){
-
             if (category) {
                 console.log('\n\n -------------------------------------------------------')
                 console.log('queriedCategoryInUrl >>> ' + category)
+                return true
+            }
+            else {
+                console.log('no category queried')
+                return false
             }
         },
+
         getAllCategories() {
             axios.get('api/categories')
                 .then(response => {
@@ -106,7 +128,6 @@ export default {
         initCategoryContainer() {
             this.categories.forEach((item, index, array) => {
                 if (item.parent_id === null) {
-
                     //this is how to update vue js state ,check vue js docs ( reactivity )
                     this.$set(this.categoryContainer, index, item)
                 }

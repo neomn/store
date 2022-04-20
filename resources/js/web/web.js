@@ -39,7 +39,7 @@ const routes = [
 
     {path: '/login', name: 'login', component: Login},
     {path: '/dashboard', name: 'dashboard', component: Dashboard},
-    {path: '/:catchAll(.*)', name: 404, component: NotFound},
+    {path: '/:catchAll(.*)', name: '404' , component: NotFound},
 ];
 
 const router = new VueRouter({
