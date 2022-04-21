@@ -13,7 +13,7 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('allCategories', function (Blueprint $table) {
             $table->id();
             $table->string('queriedCategory');
             $table->bigInteger('parent_id')->nullable();

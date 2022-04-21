@@ -8,7 +8,7 @@ use App\Models\Category;
 class CategoriesController extends Controller
 {
     public function index(){
-//        return response('categories index');
+//        return response('allCategories index');
         return response(Category::all());
     }
 }

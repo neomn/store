@@ -46,6 +46,6 @@ class CategorySeeder extends Seeder
                 'parent_id' => 11
             ],
         ];
-        DB::table('categories')->insert($categories);
+        DB::table('allCategories')->insert($categories);
     }
 }

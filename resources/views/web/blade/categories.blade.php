@@ -11,7 +11,7 @@
 
 @dd($categories)
 
-    {{-- display web categories --}}
+    {{-- display web allCategories --}}
     @foreach($categories as $category)
         @if($category->parent_id==null)
         <a style="margin-left: 15px" href="" >{{$category->category}}</a>#

@@ -19902,47 +19902,48 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      pageReload: false,
-      categories: {},
+      // pageReload: false,
+      allCategories: {},
       categoryContainer: {}
     };
   },
+  props: ['category'],
   mounted: function mounted() {
     var _this = this;
 
-    this.refreshContainerOnPageRefresh(); // route parameter watcher ,
+    this.getAllCategories(); // this.refreshContainerOnPageRefresh()
+    // route parameter watcher ,
     // this will refresh container if new parameter received from vue router , but not from page refresh
+
+    this.$watch(function () {
+      return _this.$route.params;
+    }, function (newParams, previousParams) {
+      if (newParams.category) {
+        console.log('parameter watcher >> ' + newParams.category);
+
+        _this.refreshCategoryContainer(newParams.category);
+      }
+    }); // route query watcher
+    // this will refresh container if new parameter queried by vue router , but not from page refresh
     // this.$watch(
-    //     () => this.$route.params,
+    //     () => this.$route.query,
     //     (newParams, previousParams) => {
     //         if (newParams.category) {
-    //             console.log('parameter watcher >> ' + newParams.category)
+    //             console.log('query watcher >>' + newParams.category)
     //             this.refreshCategoryContainer(newParams.category)
     //         }
     //     }
     // )
-    // route query watcher
-    // this will refresh container if new parameter queried by vue router , but not from page refresh
-
-    this.$watch(function () {
-      return _this.$route.query;
-    }, function (newParams, previousParams) {
-      if (newParams.category) {
-        console.log('query watcher >>' + newParams.category);
-
-        _this.refreshCategoryContainer(newParams.category);
-      }
-    }); //watch if pageReload was true , reload the page once
-
-    this.$watch(function () {
-      return _this.pageReload;
-    }, function (newParams, previousParams) {
-      if (newParams === true) {
-        _this.pageReload = false;
-
-        _this.reloadPage();
-      }
-    });
+    //watch if pageReload was true , reload the page once
+    // this.$watch(
+    //     () => this.pageReload,
+    //     (newParams, previousParams) => {
+    //         if (newParams === true) {
+    //             this.pageReload = false
+    //             this.reloadPage()
+    //         }
+    //     }
+    // )
   },
   methods: {
     refreshContainerOnPageRefresh: function refreshContainerOnPageRefresh() {
@@ -19950,7 +19951,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.$route.query.category) {
         this.refreshCategoryContainer(this.$route.query.category);
-      } else if (this.$route.path === '/categories') {// this.reloadPage()
+      } else if (this.$route.path === '/allCategories') {// this.reloadPage()
       } else {
         console.log('invalid route');
         this.$router.push({
@@ -19964,14 +19965,15 @@ __webpack_require__.r(__webpack_exports__);
       console.log('\n');
       console.log('----------------------------------\n');
       console.log('getAllCategories > \n');
-      axios.get('api/categories').then(function (response) {
-        console.log('response >>>');
+      axios.get('/api/allCategories').then(function (response) {
+        _this2.allCategories = response.data;
         console.log(response.data);
-        _this2.categories = response.data;
 
         _this2.initCategoryContainer();
+
+        _this2.refreshCategoryContainer(_this2.category);
       })["catch"](function (error) {
-        console.log(error);
+        console.log('error getting categories > ' + error);
       });
     },
     initCategoryContainer: function initCategoryContainer() {
@@ -19980,7 +19982,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('\n');
       console.log('----------------------------------\n');
       console.log('initCategoryContainer > \n');
-      this.categories.forEach(function (item, index, array) {
+      this.allCategories.forEach(function (item, index, array) {
         if (item.parent_id === null) {
           //this is how to update vue js state ,check vue js docs ( reactivity )
           _this3.$set(_this3.categoryContainer, index, item);
@@ -19991,39 +19993,44 @@ __webpack_require__.r(__webpack_exports__);
     refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
       var _this4 = this;
 
-      console.log('\n');
       console.log('----------------------------------\n');
       console.log('refreshCategoryContainer > \n');
-      console.log('received category to process > ' + queriedCategory + '\n');
-      var preserveContainerContent = this.categoryContainer;
-      var categoryIsNotValid = true;
-      this.categoryContainer = {};
 
-      if (this.categories) {
-        //find queried category id
-        var queriedCategoryId;
-        this.categories.forEach(function (item, index) {
-          if (item.category === queriedCategory) {
-            queriedCategoryId = item.id;
-            console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n');
-          }
-        }); //set container to contain childes of queried category
+      if (queriedCategory) {
+        console.log('\n');
+        console.log('received category to process > ' + queriedCategory + '\n');
+        var preserveContainerContent = this.categoryContainer;
+        var categoryIsNotValid = true;
+        this.categoryContainer = {};
 
-        this.categories.forEach(function (item, index) {
-          if (item.parent_id === queriedCategoryId) {
-            //this is how to update vue js state ,check vue js docs ( reactivity )
-            _this4.$set(_this4.categoryContainer, index, item);
+        if (this.allCategories) {
+          //find queried category id
+          var queriedCategoryId;
+          this.allCategories.forEach(function (item, index) {
+            if (item.category === queriedCategory) {
+              queriedCategoryId = item.id;
+              console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n');
+            }
+          }); //set container to contain childes of queried category
 
-            console.log('category founded :) adding ' + item.category + ' to container');
-            categoryIsNotValid = false;
-          }
-        });
+          this.allCategories.forEach(function (item, index) {
+            if (item.parent_id === queriedCategoryId) {
+              //this is how to update vue js state ,check vue js docs ( reactivity )
+              _this4.$set(_this4.categoryContainer, index, item);
+
+              console.log('category founded :) adding ' + item.category + ' to container');
+              categoryIsNotValid = false;
+            }
+          });
+        } else {
+          console.log('allCategories not initialized by api \n');
+        }
+
+        if (categoryIsNotValid) {
+          console.log('queried category (' + queriedCategory + ') is not a valid category'); // this.categoryContainer = preserveContainerContent
+        }
       } else {
-        console.log('categories not initialized by api \n');
-      }
-
-      if (categoryIsNotValid) {
-        console.log('queried category (' + queriedCategory + ') is not a valid category'); // this.categoryContainer = preserveContainerContent
+        console.log('no category queried');
       }
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {},
@@ -20643,7 +20650,8 @@ var routes = [{
 }, {
   path: '/categories/:category?',
   name: 'categories',
-  component: _components_web_Categories__WEBPACK_IMPORTED_MODULE_9__["default"]
+  component: _components_web_Categories__WEBPACK_IMPORTED_MODULE_9__["default"],
+  props: true
 }, {
   path: '/product/:product_number',
   name: 'product',
@@ -39279,10 +39287,14 @@ var render = function () {
     [
       _c("Header"),
       _vm._v(" "),
-      _c("aside", {
-        staticClass:
-          "bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ",
-      }),
+      _c(
+        "aside",
+        {
+          staticClass:
+            "bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ",
+        },
+        [_vm._v("\n        " + _vm._s(_vm.category) + "\n    ")]
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -39304,7 +39316,7 @@ var render = function () {
                   attrs: {
                     to: {
                       name: "categories",
-                      query: { category: category.category },
+                      params: { category: category.category },
                     },
                   },
                 },
@@ -39448,11 +39460,9 @@ var render = function () {
         [
           _c("a", { attrs: { href: "/" } }, [_vm._v("Home")]),
           _vm._v(" "),
-          _c(
-            "router-link",
-            { attrs: { to: { name: "categories", force: true } } },
-            [_vm._v("\n                categories\n            ")]
-          ),
+          _c("a", { attrs: { href: "/categories" } }, [
+            _vm._v("\n                categories\n            "),
+          ]),
           _vm._v(" "),
           !_vm.loginStatus
             ? _c(

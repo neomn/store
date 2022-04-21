@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/{any}' , 'web.vue.app')->where('any' , '.*');
 //Route::get('/' , function (){return 'welcome';});
 
-//Route::get('categories' , function (){
-//    $categories = Category::all();
-//    return view('web.blade.categories' , compact('categories'));
-//} )->name('categories');
+//Route::get('allCategories' , function (){
+//    $allCategories = Category::all();
+//    return view('web.blade.allCategories' , compact('allCategories'));
+//} )->name('allCategories');
 
 //Route::get('product/{product_number}' , function ($product_number){
 //    $product = Product::where('product_number' , $product_number)->first();

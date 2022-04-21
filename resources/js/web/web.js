@@ -34,7 +34,7 @@ Vue.config.productionTip = false
 const routes = [
     {path: '/app', name: 'app', component: App},
     {path: '/', name: 'welcome', component: Welcome},
-    {path: '/categories/:category?', name: 'categories', component: Categories},
+    {path: '/categories/:category?', name: 'categories', component: Categories , props: true },
     {path: '/product/:product_number', name: 'product', component: Product},
 
     {path: '/login', name: 'login', component: Login},
