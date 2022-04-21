@@ -34,8 +34,6 @@ export default {
     },
     data() {
         return {
-
-            // pageReload: false,
             allCategories: {},
             categoryContainer: {},
         }
@@ -45,61 +43,29 @@ export default {
     ],
     mounted() {
         this.getAllCategories()
-        // this.refreshContainerOnPageRefresh()
 
-        // route parameter watcher ,
-        // this will refresh container if new parameter received from vue router , but not from page refresh
         this.$watch(
             () => this.$route.params,
             (newParams, previousParams) => {
+                console.log('\n')
+                console.log('-------------------------------\n')
+                console.log('this.$route.params watcher > \n')
+                console.log('new params >> ' + newParams.category + '\n')
+                console.log('previous params >> ' + previousParams.category + '\n')
                 if (newParams.category) {
-                    console.log('parameter watcher >> ' + newParams.category)
                     this.refreshCategoryContainer(newParams.category)
+                } else if (!newParams.category) {
+                    window.location.reload()
                 }
             }
         )
-
-        // route query watcher
-        // this will refresh container if new parameter queried by vue router , but not from page refresh
-        // this.$watch(
-        //     () => this.$route.query,
-        //     (newParams, previousParams) => {
-        //         if (newParams.category) {
-        //             console.log('query watcher >>' + newParams.category)
-        //             this.refreshCategoryContainer(newParams.category)
-        //         }
-        //     }
-        // )
-
-        //watch if pageReload was true , reload the page once
-        // this.$watch(
-        //     () => this.pageReload,
-        //     (newParams, previousParams) => {
-        //         if (newParams === true) {
-        //             this.pageReload = false
-        //             this.reloadPage()
-        //         }
-        //     }
-        // )
-    },
+    }
+    ,
     methods: {
-
-        refreshContainerOnPageRefresh() {
-            this.getAllCategories()
-            if (this.$route.query.category) {
-                this.refreshCategoryContainer(this.$route.query.category)
-            } else if (this.$route.path === '/allCategories') {
-                // this.reloadPage()
-            } else {
-                console.log('invalid route')
-                this.$router.push({name: '404'})
-            }
-        },
-
 
         getAllCategories() {
             console.log('\n')
-            console.log('----------------------------------\n')
+            console.log('-----------------------------\n')
             console.log('getAllCategories > \n')
             axios.get('/api/allCategories')
                 .then(response => {
@@ -116,7 +82,7 @@ export default {
 
         initCategoryContainer() {
             console.log('\n')
-            console.log('----------------------------------\n')
+            console.log('-------------------------------\n')
             console.log('initCategoryContainer > \n')
             this.allCategories.forEach((item, index, array) => {
                 if (item.parent_id === null) {
@@ -129,7 +95,8 @@ export default {
 
 
         refreshCategoryContainer(queriedCategory) {
-            console.log('----------------------------------\n')
+            console.log('\n')
+            console.log('-------------------------------\n')
             console.log('refreshCategoryContainer > \n')
             if (queriedCategory) {
                 console.log('\n')
@@ -165,17 +132,12 @@ export default {
             } else {
                 console.log('no category queried')
             }
-        }
-        ,
+        },
+
 
         getCategoryAssociatedProducts() {
 
-        }
-        ,
-        reloadPage() {
-            window.location.reload();
-        }
-        ,
+        },
     }
 }
 </script>

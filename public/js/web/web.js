@@ -19902,7 +19902,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      // pageReload: false,
       allCategories: {},
       categoryContainer: {}
     };
@@ -19911,59 +19910,29 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    this.getAllCategories(); // this.refreshContainerOnPageRefresh()
-    // route parameter watcher ,
-    // this will refresh container if new parameter received from vue router , but not from page refresh
-
+    this.getAllCategories();
     this.$watch(function () {
       return _this.$route.params;
     }, function (newParams, previousParams) {
-      if (newParams.category) {
-        console.log('parameter watcher >> ' + newParams.category);
+      console.log('\n');
+      console.log('-------------------------------\n');
+      console.log('this.$route.params watcher > \n');
+      console.log('new params >> ' + newParams.category + '\n');
+      console.log('previous params >> ' + previousParams.category + '\n');
 
+      if (newParams.category) {
         _this.refreshCategoryContainer(newParams.category);
+      } else if (!newParams.category) {
+        window.location.reload();
       }
-    }); // route query watcher
-    // this will refresh container if new parameter queried by vue router , but not from page refresh
-    // this.$watch(
-    //     () => this.$route.query,
-    //     (newParams, previousParams) => {
-    //         if (newParams.category) {
-    //             console.log('query watcher >>' + newParams.category)
-    //             this.refreshCategoryContainer(newParams.category)
-    //         }
-    //     }
-    // )
-    //watch if pageReload was true , reload the page once
-    // this.$watch(
-    //     () => this.pageReload,
-    //     (newParams, previousParams) => {
-    //         if (newParams === true) {
-    //             this.pageReload = false
-    //             this.reloadPage()
-    //         }
-    //     }
-    // )
+    });
   },
   methods: {
-    refreshContainerOnPageRefresh: function refreshContainerOnPageRefresh() {
-      this.getAllCategories();
-
-      if (this.$route.query.category) {
-        this.refreshCategoryContainer(this.$route.query.category);
-      } else if (this.$route.path === '/allCategories') {// this.reloadPage()
-      } else {
-        console.log('invalid route');
-        this.$router.push({
-          name: '404'
-        });
-      }
-    },
     getAllCategories: function getAllCategories() {
       var _this2 = this;
 
       console.log('\n');
-      console.log('----------------------------------\n');
+      console.log('-----------------------------\n');
       console.log('getAllCategories > \n');
       axios.get('/api/allCategories').then(function (response) {
         _this2.allCategories = response.data;
@@ -19980,7 +19949,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       console.log('\n');
-      console.log('----------------------------------\n');
+      console.log('-------------------------------\n');
       console.log('initCategoryContainer > \n');
       this.allCategories.forEach(function (item, index, array) {
         if (item.parent_id === null) {
@@ -19993,7 +19962,8 @@ __webpack_require__.r(__webpack_exports__);
     refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
       var _this4 = this;
 
-      console.log('----------------------------------\n');
+      console.log('\n');
+      console.log('-------------------------------\n');
       console.log('refreshCategoryContainer > \n');
 
       if (queriedCategory) {
@@ -20033,10 +20003,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log('no category queried');
       }
     },
-    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {},
-    reloadPage: function reloadPage() {
-      window.location.reload();
-    }
+    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
   }
 });
 
