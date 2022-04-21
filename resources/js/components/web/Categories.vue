@@ -40,19 +40,19 @@ export default {
         }
     },
     mounted() {
-        this.getAllCategories()
+        this.refreshContainerOnPageRefresh()
 
         // route parameter watcher ,
         // this will refresh container if new parameter received from vue router , but not from page refresh
-        this.$watch(
-            () => this.$route.params,
-            (newParams, previousParams) => {
-                if (newParams.category) {
-                    console.log('parameter watcher >> ' + newParams.category)
-                    this.refreshCategoryContainer(newParams.category)
-                }
-            }
-        )
+        // this.$watch(
+        //     () => this.$route.params,
+        //     (newParams, previousParams) => {
+        //         if (newParams.category) {
+        //             console.log('parameter watcher >> ' + newParams.category)
+        //             this.refreshCategoryContainer(newParams.category)
+        //         }
+        //     }
+        // )
 
         // route query watcher
         // this will refresh container if new parameter queried by vue router , but not from page refresh
@@ -70,7 +70,7 @@ export default {
         this.$watch(
             () => this.pageReload,
             (newParams, previousParams) => {
-                if (newParams) {
+                if (newParams === true) {
                     this.pageReload = false
                     this.reloadPage()
                 }
@@ -78,17 +78,17 @@ export default {
         )
     },
     methods: {
-        refreshContainerOnPageRefresh(){
+        refreshContainerOnPageRefresh() {
 
-            if (this.$route.query.category){
+            this.getAllCategories()
+
+            if (this.$route.query.category) {
                 this.refreshCategoryContainer(this.$route.query.category)
-            }
-            else if (this.$route.path === '/categories'){
-                this.initCategoryContainer()
-            }
-            else {
+            } else if (this.$route.path === '/categories') {
+                // this.reloadPage()
+            } else {
                 console.log('invalid route')
-                this.$router.push({name:'404'})
+                this.$router.push({name: '404'})
             }
         },
 
@@ -97,7 +97,7 @@ export default {
 
             console.log('\n')
             console.log('----------------------------------\n')
-            console.log('getAllCategories > \n' )
+            console.log('getAllCategories > \n')
 
             axios.get('api/categories')
                 .then(response => {
@@ -116,7 +116,7 @@ export default {
 
             console.log('\n')
             console.log('----------------------------------\n')
-            console.log('initCategoryContainer > \n' )
+            console.log('initCategoryContainer > \n')
 
             this.categories.forEach((item, index, array) => {
                 if (item.parent_id === null) {
@@ -124,37 +124,44 @@ export default {
                     this.$set(this.categoryContainer, index, item)
                 }
             })
-            console.log(this.categoryContainer )
+            console.log(this.categoryContainer)
         },
 
 
-        refreshCategoryContainer( queriedCategory) {
+        refreshCategoryContainer(queriedCategory) {
             console.log('\n')
             console.log('----------------------------------\n')
-            console.log('refreshCategoryContainer > \n' )
-            console.log('received category to process > ' + queriedCategory + '\n' )
+            console.log('refreshCategoryContainer > \n')
+            console.log('received category to process > ' + queriedCategory + '\n')
             let preserveContainerContent = this.categoryContainer
             let categoryIsNotValid = true
             this.categoryContainer = {}
 
-            //find queried category id
-            let queriedCategoryId
-            this.categories.forEach((item, index) => {
-                if (item.category === queriedCategory) {
-                    queriedCategoryId = item.id
-                    console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId +' \n')
-                }
-            })
 
-            //set container to contain childes of queried category
-            this.categories.forEach((item, index) => {
-                if (item.parent_id === queriedCategoryId) {
-                    //this is how to update vue js state ,check vue js docs ( reactivity )
-                    this.$set(this.categoryContainer, index, item)
-                    console.log('category founded :) adding ' + item.category + ' to container')
-                    categoryIsNotValid = false
-                }
-            })
+            if (this.categories) {
+
+                //find queried category id
+                let queriedCategoryId
+                this.categories.forEach((item, index) => {
+                    if (item.category === queriedCategory) {
+                        queriedCategoryId = item.id
+                        console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
+                    }
+                })
+
+
+                //set container to contain childes of queried category
+                this.categories.forEach((item, index) => {
+                    if (item.parent_id === queriedCategoryId) {
+                        //this is how to update vue js state ,check vue js docs ( reactivity )
+                        this.$set(this.categoryContainer, index, item)
+                        console.log('category founded :) adding ' + item.category + ' to container')
+                        categoryIsNotValid = false
+                    }
+                })
+            } else {
+                console.log('categories not initialized by api \n')
+            }
 
             if (categoryIsNotValid) {
                 console.log('queried category (' + queriedCategory + ') is not a valid category')
@@ -166,10 +173,7 @@ export default {
 
         },
         reloadPage() {
-            console.log('\n')
-            console.log('----------------------------------\n')
-            console.log('reloading page ')
-            window.location.reload();
+                window.location.reload();
         },
     }
 }

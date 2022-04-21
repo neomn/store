@@ -19910,18 +19910,18 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    this.getAllCategories(); // route parameter watcher ,
+    this.refreshContainerOnPageRefresh(); // route parameter watcher ,
     // this will refresh container if new parameter received from vue router , but not from page refresh
-
-    this.$watch(function () {
-      return _this.$route.params;
-    }, function (newParams, previousParams) {
-      if (newParams.category) {
-        console.log('parameter watcher >> ' + newParams.category);
-
-        _this.refreshCategoryContainer(newParams.category);
-      }
-    }); // route query watcher
+    // this.$watch(
+    //     () => this.$route.params,
+    //     (newParams, previousParams) => {
+    //         if (newParams.category) {
+    //             console.log('parameter watcher >> ' + newParams.category)
+    //             this.refreshCategoryContainer(newParams.category)
+    //         }
+    //     }
+    // )
+    // route query watcher
     // this will refresh container if new parameter queried by vue router , but not from page refresh
 
     this.$watch(function () {
@@ -19937,7 +19937,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$watch(function () {
       return _this.pageReload;
     }, function (newParams, previousParams) {
-      if (newParams) {
+      if (newParams === true) {
         _this.pageReload = false;
 
         _this.reloadPage();
@@ -19946,10 +19946,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     refreshContainerOnPageRefresh: function refreshContainerOnPageRefresh() {
+      this.getAllCategories();
+
       if (this.$route.query.category) {
         this.refreshCategoryContainer(this.$route.query.category);
-      } else if (this.$route.path === '/categories') {
-        this.initCategoryContainer();
+      } else if (this.$route.path === '/categories') {// this.reloadPage()
       } else {
         console.log('invalid route');
         this.$router.push({
@@ -19996,25 +19997,30 @@ __webpack_require__.r(__webpack_exports__);
       console.log('received category to process > ' + queriedCategory + '\n');
       var preserveContainerContent = this.categoryContainer;
       var categoryIsNotValid = true;
-      this.categoryContainer = {}; //find queried category id
+      this.categoryContainer = {};
 
-      var queriedCategoryId;
-      this.categories.forEach(function (item, index) {
-        if (item.category === queriedCategory) {
-          queriedCategoryId = item.id;
-          console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n');
-        }
-      }); //set container to contain childes of queried category
+      if (this.categories) {
+        //find queried category id
+        var queriedCategoryId;
+        this.categories.forEach(function (item, index) {
+          if (item.category === queriedCategory) {
+            queriedCategoryId = item.id;
+            console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n');
+          }
+        }); //set container to contain childes of queried category
 
-      this.categories.forEach(function (item, index) {
-        if (item.parent_id === queriedCategoryId) {
-          //this is how to update vue js state ,check vue js docs ( reactivity )
-          _this4.$set(_this4.categoryContainer, index, item);
+        this.categories.forEach(function (item, index) {
+          if (item.parent_id === queriedCategoryId) {
+            //this is how to update vue js state ,check vue js docs ( reactivity )
+            _this4.$set(_this4.categoryContainer, index, item);
 
-          console.log('category founded :) adding ' + item.category + ' to container');
-          categoryIsNotValid = false;
-        }
-      });
+            console.log('category founded :) adding ' + item.category + ' to container');
+            categoryIsNotValid = false;
+          }
+        });
+      } else {
+        console.log('categories not initialized by api \n');
+      }
 
       if (categoryIsNotValid) {
         console.log('queried category (' + queriedCategory + ') is not a valid category'); // this.categoryContainer = preserveContainerContent
@@ -20022,9 +20028,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {},
     reloadPage: function reloadPage() {
-      console.log('\n');
-      console.log('----------------------------------\n');
-      console.log('reloading page ');
       window.location.reload();
     }
   }
