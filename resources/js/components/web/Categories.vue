@@ -7,6 +7,7 @@
             {{ category }}
         </aside>
 
+        <!--display category container contents-->
         <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">
             <div v-for="category in categoryContainer"
                  class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
@@ -18,6 +19,11 @@
             </div>
         </div>
 
+        <!-- display category products  -->
+        <div>
+
+        </div>
+
     </div>
 </template>
 
@@ -26,6 +32,7 @@
 
 <script>
 import Header from "./Header";
+import {isEmpty} from "lodash/lang";
 
 export default {
     name: "Categories",
@@ -44,9 +51,9 @@ export default {
     mounted() {
         this.getAllCategories()
 
+        //watch route parameters changes
         this.$watch(
-            () => this.$route.params,
-            (newParams, previousParams) => {
+            () => this.$route.params, (newParams, previousParams) => {
                 console.log('\n')
                 console.log('-------------------------------\n')
                 console.log('this.$route.params watcher > \n')
@@ -54,12 +61,31 @@ export default {
                 console.log('previous params >> ' + previousParams.category + '\n')
                 if (newParams.category) {
                     this.refreshCategoryContainer(newParams.category)
-                } else if (!newParams.category) {
+                    // this.getAllCategories()
+                }
+                // reload page if route is /categories
+                // this is because category container wasn't refreshing in that route when pressing back button
+                else if (!newParams.category) {
                     window.location.reload()
                 }
             }
         )
+
+        //watch for categories with no sub category
+        this.$watch(
+            ()=>this.categoryHasSubCategory() , (newParams , previousParams) =>{
+                console.log('\n')
+                console.log('-------------------------------\n')
+                console.log('categoryHasSubCategory watcher > \n')
+                console.log(newParams)
+                if (newParams === false) {
+                    console.log('request for category products for > ' + this.category)
+                }
+            }
+        )
+
     }
+
     ,
     methods: {
 
@@ -132,6 +158,14 @@ export default {
             } else {
                 console.log('no category queried')
             }
+        },
+
+        categoryHasSubCategory() {
+            console.log('\n')
+            console.log('-------------------------------\n')
+            console.log('categoryHasSubCategory > \n')
+            console.log(!isEmpty(this.categoryContainer))
+            return !isEmpty(this.categoryContainer)
         },
 
 
