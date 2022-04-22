@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api\web;
 
-use App\Http\Resources\Api\FavoriteProductResource;
-use App\Http\Resources\Api\NewProductResource;
-use App\Http\Resources\Api\TopSellsResource;
+use App\Http\Resources\Api\web\FavoriteProductResource;
+use App\Http\Resources\Api\web\NewProductResource;
+use App\Http\Resources\Api\web\TopSellsResource;
 use App\Models\Product;
 use App\Models\Sell;
 use App\Models\View;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Api;
+namespace App\Http\Resources\Api\web;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserDashboardResource extends JsonResource
+class CategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -12,8 +12,14 @@ class UserDashboardResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
+
+
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'parent_id' => $this->parent_id,
+            'category' => $this->category,
+        ];
     }
 }

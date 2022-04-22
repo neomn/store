@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api\web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\CategoryResource;
+use App\Http\Resources\Api\web\CategoryProductsWithPriceResource;
+use App\Http\Resources\Api\web\CategoryResource;
 use App\Models\Category;
 use App\Models\Price;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Object_;
 
 
 class CategoriesController extends Controller
@@ -17,19 +19,12 @@ class CategoriesController extends Controller
     }
 
     public function retrieveCategoryProducts($category){
-        $category = Category::where('category' , $category)->first();
-        $products = $category->products;
-        $productsLatestPrice = [];
-        foreach ($products as $product){
-            $productId = $product->id;
-            $price = $product->latestPrice->price;
-            $productPrice = [$productId , $price];
-            $productsLatestPrice [] = $productPrice;
-        }
-        return response([$products , $productsLatestPrice]);
-    }
+        $products = Category::where('category' , $category)->first()->products;
+        $productsWithLatestPrice = [];
 
-    public function show($id){
+        foreach ($products as $product)
+            $productsWithLatestPrice [] = (Object) [$product , $product->latestPrice->price];
 
+        return response($productsWithLatestPrice);
     }
 }

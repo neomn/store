@@ -1,19 +1,15 @@
 <?php
 
-namespace App\Http\Resources\Api;
+namespace App\Http\Resources\Api\web;
 
-use App\Models\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
-//use Illuminate\Http\Resources\Json\ResourceCollection;
 
-
-class FavoriteProductResource extends JsonResource
+class NewProductResource extends JsonResource
 {
-
     /**
-     * Transform the resource collection into an array.
+     * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
@@ -25,6 +21,4 @@ class FavoriteProductResource extends JsonResource
             'image' => $this->images[0]->url,
         ];
     }
-
-
 }
