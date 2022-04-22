@@ -19,12 +19,9 @@ class CategoriesController extends Controller
     }
 
     public function retrieveCategoryProducts($category){
-        $products = Category::where('category' , $category)->first()->products;
-        $productsWithLatestPrice = [];
 
-        foreach ($products as $product)
-            $productsWithLatestPrice [] = (Object) [$product , $product->latestPrice->price];
-
-        return response($productsWithLatestPrice);
+        $categoryId = Category::where('category' , $category)->first()->id;
+        $products = Product::with('latestPrice')->where('category_id' , $categoryId)->get();
+        return CategoryProductsWithPriceResource::collection($products);
     }
 }

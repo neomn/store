@@ -17,7 +17,7 @@ class CategoryProductsWithPriceResource extends JsonResource
         return [
             'product' => $this->product_name,
             'product_number' => $this->product_number,
-            'price' => $this
+            'price' => $this->latestPrice->price,
         ];
     }
 }
