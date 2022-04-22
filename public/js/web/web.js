@@ -19929,11 +19929,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('this.$route.params watcher > \n');
       console.log('new params >> ' + newParams.category + '\n');
       console.log('previous params >> ' + previousParams.category + '\n');
-
-      if (newParams.category) {
-        _this.refreshCategoryContainer(newParams.category); // this.getAllCategories()
-
-      } // reload page if route is /categories
+      if (newParams.category) _this.refreshCategoryContainer(newParams.category); // reload page if route is /categories
       // this is because category container wasn't refreshing in that route when pressing back button
       else if (!newParams.category) {
         window.location.reload();
@@ -19949,7 +19945,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log(newParams);
 
       if (newParams === false) {
-        console.log('request for category products for > ' + _this.category);
+        console.log('requesting for category products');
+
+        _this.getCategoryAssociatedProducts();
       }
     });
   },
@@ -19967,6 +19965,10 @@ __webpack_require__.r(__webpack_exports__);
         _this2.initCategoryContainer();
 
         _this2.refreshCategoryContainer(_this2.category);
+
+        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this2.categoryContainer)) {
+          _this2.getCategoryAssociatedProducts();
+        }
       })["catch"](function (error) {
         console.log('error getting categories > ' + error);
       });
@@ -20036,7 +20038,27 @@ __webpack_require__.r(__webpack_exports__);
       console.log(!(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer));
       return !(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer);
     },
-    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
+    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {
+      console.log('\n');
+      console.log('-------------------------------\n');
+      console.log('getCategoryAssociatedProducts > \n');
+      console.log(this.$route.params.category + '\n');
+      var category = this.$route.params.category; //get category id
+
+      var id;
+      this.allCategories.forEach(function (item, index) {
+        if (item.category === category) id = item.id;
+      });
+      console.log('category id >>> ' + id + '\n'); //request for products
+
+      axios.get('/api/categories/' + id).then(function (response) {
+        var products = response.data.data;
+        console.log('retrieved products  >>> \n');
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 

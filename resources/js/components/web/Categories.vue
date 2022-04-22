@@ -59,11 +59,10 @@ export default {
                 console.log('this.$route.params watcher > \n')
                 console.log('new params >> ' + newParams.category + '\n')
                 console.log('previous params >> ' + previousParams.category + '\n')
-                if (newParams.category) {
+                if (newParams.category)
                     this.refreshCategoryContainer(newParams.category)
-                    // this.getAllCategories()
-                }
-                // reload page if route is /categories
+
+                    // reload page if route is /categories
                 // this is because category container wasn't refreshing in that route when pressing back button
                 else if (!newParams.category) {
                     window.location.reload()
@@ -73,20 +72,18 @@ export default {
 
         //watch for categories with no sub category
         this.$watch(
-            ()=>this.categoryHasSubCategory() , (newParams , previousParams) =>{
+            () => this.categoryHasSubCategory(), (newParams, previousParams) => {
                 console.log('\n')
                 console.log('-------------------------------\n')
                 console.log('categoryHasSubCategory watcher > \n')
                 console.log(newParams)
                 if (newParams === false) {
-                    console.log('request for category products for > ' + this.category)
+                    console.log('requesting for category products')
+                    this.getCategoryAssociatedProducts()
                 }
             }
         )
-
-    }
-
-    ,
+    },
     methods: {
 
         getAllCategories() {
@@ -99,6 +96,9 @@ export default {
                     console.log(response.data.data)
                     this.initCategoryContainer()
                     this.refreshCategoryContainer(this.category)
+                    if (isEmpty(this.categoryContainer)){
+                        this.getCategoryAssociatedProducts()
+                    }
                 })
                 .catch(function (error) {
                     console.log('error getting categories > ' + error)
@@ -170,7 +170,30 @@ export default {
 
 
         getCategoryAssociatedProducts() {
+            console.log('\n')
+            console.log('-------------------------------\n')
+            console.log('getCategoryAssociatedProducts > \n')
+            console.log(this.$route.params.category + '\n')
+            let category = this.$route.params.category
 
+            //get category id
+            let id ;
+            this.allCategories.forEach((item, index) => {
+                if (item.category === category)
+                    id = item.id
+            })
+            console.log('category id >>> ' + id + '\n')
+
+            //request for products
+            axios.get('/api/categories/'+id)
+            .then(response =>{
+                let products = response.data.data
+                console.log('retrieved products  >>> \n')
+                console.log(response.data)
+            })
+            .catch(function (error){
+                console.log(error)
+            })
         },
     }
 }
