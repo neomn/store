@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class OrderSeeder extends Seeder
@@ -15,23 +16,17 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-
+        $users = User::all();
         $products = Product::all();
-//        dd($products);
-
-
 
         for ( $i=0 ; $i<50 ; $i++){
-
+            $user = $products->random(1);
             $product =  $products->random(1);
-
-//            dd($products[$i]->latestPrice->price);
-//            dd($product[0]->id);
-
             Order::factory()->create([
                 'price'=> $product[0]->latestPrice->price,
+                'user_id' => $user[0]->id,
                 'product_id' => $product[0]->id,
-                'user_id' => $product[0]->user->id
+
             ]);
         }
     }

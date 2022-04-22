@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->integer('available_count');
             $table->boolean('is_active')->default(false);
-            $table->bigInteger('user_id');
             $table->bigInteger('category_id');
             $table->timestamps();
         });

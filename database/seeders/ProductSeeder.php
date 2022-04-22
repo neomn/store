@@ -20,29 +20,29 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $arduino = Category::where('queriedCategory','Arduino Family')->first();
-        $raspberry = Category::where('queriedCategory' , 'Raspberry Family')->first();
-        $esp = Category::where('queriedCategory' , 'ESP Family')->first();
-
-       Product::factory(70)->has(View::factory()->count(random_int(0,20)))
-           ->has(Price::factory()->count(random_int(0 , 20)))
-           ->has(Sell::factory()->count(random_int(1 , 20)))
-           ->has(Image::factory(random_int(1 , 5)))
-           ->for($arduino)
-           ->create();
-
-        Product::factory(70)->has(View::factory()->count(random_int(0,20)))
-            ->has(Price::factory()->count(random_int(0 , 20)))
-            ->has(Sell::factory()->count(random_int(1 , 20)))
-            ->has(Image::factory(random_int(1 , 5)))
-            ->for($raspberry)
-            ->create();
-
-        Product::factory(70)->has(View::factory()->count(random_int(0,20)))
-            ->has(Price::factory()->count(random_int(0 , 20)))
-            ->has(Sell::factory()->count(random_int(1 , 20)))
-            ->has(Image::factory(random_int(1 , 5)))
-            ->for($esp)
-            ->create();
+//        $arduino = Category::where('queriedCategory','Arduino Family')->first();
+//        $raspberry = Category::where('queriedCategory' , 'Raspberry Family')->first();
+//        $esp = Category::where('queriedCategory' , 'ESP Family')->first();
+//
+//       Product::factory(70)->has(View::factory()->count(random_int(0,20)))
+//           ->has(Price::factory()->count(random_int(0 , 20)))
+//           ->has(Sell::factory()->count(random_int(1 , 20)))
+//           ->has(Image::factory(random_int(1 , 5)))
+//           ->for($arduino)
+//           ->create();
+//
+//        Product::factory(70)->has(View::factory()->count(random_int(0,20)))
+//            ->has(Price::factory()->count(random_int(0 , 20)))
+//            ->has(Sell::factory()->count(random_int(1 , 20)))
+//            ->has(Image::factory(random_int(1 , 5)))
+//            ->for($raspberry)
+//            ->create();
+//
+//        Product::factory(70)->has(View::factory()->count(random_int(0,20)))
+//            ->has(Price::factory()->count(random_int(0 , 20)))
+//            ->has(Sell::factory()->count(random_int(1 , 20)))
+//            ->has(Image::factory(random_int(1 , 5)))
+//            ->for($esp)
+//            ->create();
     }
 }

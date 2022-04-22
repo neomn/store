@@ -15,13 +15,13 @@ class CategoriesController extends Controller
     }
 
     public function retrieveCategoryProducts($category){
-//        $category = Category::where('category' , $category)->first();
-//        $products = $category->products;
+        $category = Category::where('category' , $category)->first();
+        $products = $category->products;
 //        $productsLatestPrice = [];
 //        foreach ($products as $product){
 //
 //        }
-//        return response($products);
+        return response($products);
     }
 
     public function show($id){

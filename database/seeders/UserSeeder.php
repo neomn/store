@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Image;
+use App\Models\Order;
 use App\Models\Price;
 use App\Models\Product;
 use App\Models\Sell;
@@ -43,7 +44,8 @@ class UserSeeder extends Seeder
             'esp' => Category::where('category', 'ESP Family')->first(),
         ];
 
-        User::factory(20)->create()
+        User::factory(20)
+            ->create()
             ->each(function ($user) use ($category) {
                 Product::factory(rand(0, 20))
                     ->has(View::factory(rand(3 , 10)))
@@ -51,9 +53,7 @@ class UserSeeder extends Seeder
                     ->has(Sell::factory(rand(3, 10)))
                     ->has(Image::factory(rand(1, 5)))
                     ->for($category[array_rand($category, 1)])
-                    ->create([
-                        'user_id' => $user->id,
-                    ]);
+                    ->create();
             });
     }
 }
