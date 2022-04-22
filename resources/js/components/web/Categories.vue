@@ -93,7 +93,7 @@ export default {
             console.log('\n')
             console.log('-----------------------------\n')
             console.log('getAllCategories > \n')
-            axios.get('/api/allCategories')
+            axios.get('/api/categories')
                 .then(response => {
                     this.allCategories = response.data.data
                     console.log(response.data.data)
