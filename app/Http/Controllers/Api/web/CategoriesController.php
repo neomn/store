@@ -14,10 +14,14 @@ class CategoriesController extends Controller
         return CategoryResource::collection(Category::all());
     }
 
-    public function retriveCategoryProducts($category){
-        $category = Category::where('category' , $category)->first();
-        $products = $category->products;
-        return response($products);
+    public function retrieveCategoryProducts($category){
+//        $category = Category::where('category' , $category)->first();
+//        $products = $category->products;
+//        $productsLatestPrice = [];
+//        foreach ($products as $product){
+//
+//        }
+//        return response($products);
     }
 
     public function show($id){

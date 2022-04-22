@@ -26,6 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('welcome', [WelcomeController::class , 'index']);
 Route::get('categories', [CategoriesController::class , 'index']);
-Route::get('categories/{category}', [CategoriesController::class , 'retriveCategoryProducts']);
+Route::get('categories/{category}', [CategoriesController::class , 'retrieveCategoryProducts']);
 Route::get('product/{product_number}', [ProductController::class , 'show']);
 Route::middleware('auth:sanctum')->get('dashboard', [UserDashboard::class , 'index']);

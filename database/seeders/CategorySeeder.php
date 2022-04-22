@@ -17,35 +17,35 @@ class CategorySeeder extends Seeder
         $categories = [
             [
                 'id' => 1 ,
-                'queriedCategory' => 'Electronics And Robotics',
+                'category' => 'Electronics And Robotics',
                 'parent_id' => null,
             ],
             [
                 'id'=> 2,
-                'queriedCategory' => 'Other',
+                'category' => 'Other',
                 'parent_id' => null ,
             ],
             [
                 'id' => 11,
-                'queriedCategory' => 'MicroControllers and Processors',
+                'category' => 'MicroControllers and Processors',
                 'parent_id' => 1
             ],
             [
                 'id' => 111,
-                'queriedCategory' => 'Arduino Family',
+                'category' => 'Arduino Family',
                 'parent_id' => 11
             ],
             [
                 'id' => 112,
-                'queriedCategory' => 'Raspberry Family',
+                'category' => 'Raspberry Family',
                 'parent_id' => 11
             ],
             [
                 'id' => 113,
-                'queriedCategory' => 'ESP Family',
+                'category' => 'ESP Family',
                 'parent_id' => 11
             ],
         ];
-        DB::table('allCategories')->insert($categories);
+        DB::table('categories')->insert($categories);
     }
 }
