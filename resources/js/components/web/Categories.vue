@@ -7,8 +7,10 @@
             {{ category }}
         </aside>
 
-        <!--display category container contents-->
+
         <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">
+
+            <!--display category container contents-->
             <div v-for="category in categoryContainer"
                  class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
                 <router-link :to="{name: 'categories' , params: {category: category.category}}">
@@ -17,10 +19,19 @@
                     </div>
                 </router-link>
             </div>
-        </div>
+
 
         <!-- display category products  -->
-        <div>
+            <div v-for="product in productsContainer"
+                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
+                {{ product.product}}
+                {{ product.price}}
+                <router-link :to="{name: 'product' , params: {product_number: product.product_number}}">
+                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">
+                        <button> show details </button>
+                    </div>
+                </router-link>
+            </div>
 
         </div>
 
@@ -43,6 +54,7 @@ export default {
         return {
             allCategories: {},
             categoryContainer: {},
+            productsContainer: {},
         }
     },
     props: [
@@ -57,6 +69,8 @@ export default {
                 console.log('\n')
                 console.log('-------------------------------\n')
                 console.log('this.$route.params watcher > \n')
+                this.emptyProductsContainer()
+                console.log('product container is now empty \n')
                 console.log('new params >> ' + newParams.category + '\n')
                 console.log('previous params >> ' + previousParams.category + '\n')
                 if (newParams.category)
@@ -189,12 +203,17 @@ export default {
             .then(response =>{
                 let products = response.data.data
                 console.log('retrieved products  >>> \n')
-                console.log(response.data)
+                console.log(response.data.data)
+                this.productsContainer = response.data.data
             })
             .catch(function (error){
                 console.log(error)
             })
         },
+
+        emptyProductsContainer(){
+            this.productsContainer = {}
+        }
     }
 }
 </script>

@@ -19902,6 +19902,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -19912,7 +19923,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       allCategories: {},
-      categoryContainer: {}
+      categoryContainer: {},
+      productsContainer: {}
     };
   },
   props: ['category'],
@@ -19927,6 +19939,10 @@ __webpack_require__.r(__webpack_exports__);
       console.log('\n');
       console.log('-------------------------------\n');
       console.log('this.$route.params watcher > \n');
+
+      _this.emptyProductsContainer();
+
+      console.log('product container is now empty \n');
       console.log('new params >> ' + newParams.category + '\n');
       console.log('previous params >> ' + previousParams.category + '\n');
       if (newParams.category) _this.refreshCategoryContainer(newParams.category); // reload page if route is /categories
@@ -20039,6 +20055,8 @@ __webpack_require__.r(__webpack_exports__);
       return !(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer);
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {
+      var _this5 = this;
+
       console.log('\n');
       console.log('-------------------------------\n');
       console.log('getCategoryAssociatedProducts > \n');
@@ -20054,10 +20072,14 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/categories/' + id).then(function (response) {
         var products = response.data.data;
         console.log('retrieved products  >>> \n');
-        console.log(response.data);
+        console.log(response.data.data);
+        _this5.productsContainer = response.data.data;
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    emptyProductsContainer: function emptyProductsContainer() {
+      this.productsContainer = {};
     }
   }
 });
@@ -46494,49 +46516,90 @@ var render = function () {
           staticClass:
             "min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ",
         },
-        _vm._l(_vm.categoryContainer, function (category) {
-          return _c(
-            "div",
-            {
-              staticClass:
-                "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
-            },
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: {
-                      name: "categories",
-                      params: { category: category.category },
+        [
+          _vm._l(_vm.categoryContainer, function (category) {
+            return _c(
+              "div",
+              {
+                staticClass:
+                  "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
+              },
+              [
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "categories",
+                        params: { category: category.category },
+                      },
                     },
                   },
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                      },
+                      [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(category.category) +
+                            "\n                "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ],
+              1
+            )
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.productsContainer, function (product) {
+            return _c(
+              "div",
+              {
+                staticClass:
+                  "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
+              },
+              [
+                _vm._v(
+                  "\n            " +
+                    _vm._s(product.product) +
+                    "\n            " +
+                    _vm._s(product.price) +
+                    "\n            "
+                ),
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "product",
+                        params: { product_number: product.product_number },
+                      },
                     },
-                    [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(category.category) +
-                          "\n                "
-                      ),
-                    ]
-                  ),
-                ]
-              ),
-            ],
-            1
-          )
-        }),
-        0
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                      },
+                      [_c("button", [_vm._v(" show details ")])]
+                    ),
+                  ]
+                ),
+              ],
+              1
+            )
+          }),
+        ],
+        2
       ),
-      _vm._v(" "),
-      _c("div"),
     ],
     1
   )
