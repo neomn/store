@@ -19961,8 +19961,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log('-----------------------------\n');
       console.log('getAllCategories > \n');
       axios.get('/api/allCategories').then(function (response) {
-        _this2.allCategories = response.data;
-        console.log(response.data);
+        _this2.allCategories = response.data.data;
+        console.log(response.data.data);
 
         _this2.initCategoryContainer();
 

@@ -95,8 +95,8 @@ export default {
             console.log('getAllCategories > \n')
             axios.get('/api/allCategories')
                 .then(response => {
-                    this.allCategories = response.data
-                    console.log(response.data)
+                    this.allCategories = response.data.data
+                    console.log(response.data.data)
                     this.initCategoryContainer()
                     this.refreshCategoryContainer(this.category)
                 })
