@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\web;
+namespace App\Http\Resources\Api;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductResource extends JsonResource
+class UserDashboardResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,12 +14,6 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-        self::wrap('product');
-        return [
-            'name'=>$this->product_name,
-            'available_count'=>$this->available_count,
-            'image' => $this->images[0]->url,
-        ];
-
+        return parent::toArray($request);
     }
 }

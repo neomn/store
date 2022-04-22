@@ -19867,9 +19867,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ "./resources/js/components/web/Header.vue");
-/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/lang */ "./node_modules/lodash/lang.js");
-/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_lang__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/lang */ "./node_modules/lodash/lang.js");
+/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_lang__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header */ "./resources/js/components/web/Header.vue");
 //
 //
 //
@@ -19907,7 +19907,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
   components: {
-    Header: _Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Header: _Header__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -20033,8 +20033,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log('\n');
       console.log('-------------------------------\n');
       console.log('categoryHasSubCategory > \n');
-      console.log(!(0,lodash_lang__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(this.categoryContainer));
-      return !(0,lodash_lang__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(this.categoryContainer);
+      console.log(!(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer));
+      return !(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer);
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {}
   }

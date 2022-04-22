@@ -31,8 +31,8 @@
 
 
 <script>
-import Header from "./Header";
 import {isEmpty} from "lodash/lang";
+import Header from "./Header";
 
 export default {
     name: "Categories",
