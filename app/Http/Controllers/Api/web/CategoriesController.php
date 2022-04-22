@@ -14,8 +14,13 @@ class CategoriesController extends Controller
         return CategoryResource::collection(Category::all());
     }
 
-    public function retriveCategoryProducts(Request $request){
-        $category = $request->category;
-        return response($category);
+    public function retriveCategoryProducts($category){
+        $category = Category::where('category' , $category)->first();
+        $products = $category->products;
+        return response($products);
+    }
+
+    public function show($id){
+
     }
 }
