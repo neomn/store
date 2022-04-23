@@ -20160,9 +20160,14 @@ __webpack_require__.r(__webpack_exports__);
     // },
     initDashboard: function initDashboard() {
       axios.get('api/dashboard').then(function (response) {
-        console.log('user dashboard data >>> ');
+        console.log('\n');
+        console.log('---------------------------------');
+        console.log('dashboard get request to api/dashboard >>> ');
         console.log(response.data);
       })["catch"](function (error) {
+        console.log('\n');
+        console.log('---------------------------------');
+        console.log('dashboard get request to api/dashboard error >>> ');
         console.log(error.response.data.message);
         console.log(error.response.status);
       });
@@ -20614,11 +20619,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.loadInitialData();
+    this.initData();
     this.checkIfLoggedIn();
   },
   methods: {
-    loadInitialData: function loadInitialData() {
+    initData: function initData() {
       var _this = this;
 
       this.loginStatus = false;
@@ -20639,7 +20644,7 @@ __webpack_require__.r(__webpack_exports__);
     checkIfLoggedIn: function checkIfLoggedIn() {
       var _this2 = this;
 
-      axios.post('login').then(function (response) {
+      axios.post('/login').then(function (response) {
         if (response.data === 'user already logged in') {
           _this2.loginStatus = true;
           console.log('login status >>> ');

@@ -125,11 +125,11 @@ export default {
         }
     },
     mounted() {
-        this.loadInitialData()
+        this.initData()
         this.checkIfLoggedIn()
     },
     methods: {
-        loadInitialData: function () {
+        initData: function () {
             this.loginStatus = false
             axios.get('api/welcome')
                 .then((response) => {
@@ -148,7 +148,7 @@ export default {
                 });
         },
         checkIfLoggedIn() {
-            axios.post('login')
+            axios.post('/login')
                 .then(response => {
                     if (response.data === 'user already logged in') {
                         this.loginStatus = true

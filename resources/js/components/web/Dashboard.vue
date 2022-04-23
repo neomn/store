@@ -42,10 +42,15 @@ export default {
         initDashboard() {
             axios.get('api/dashboard')
                 .then(response => {
-                    console.log('user dashboard data >>> ')
+                    console.log('\n')
+                    console.log('---------------------------------')
+                    console.log('dashboard get request to api/dashboard >>> ')
                     console.log(response.data)
                 })
                 .catch(function (error) {
+                    console.log('\n')
+                    console.log('---------------------------------')
+                    console.log('dashboard get request to api/dashboard error >>> ')
                     console.log(error.response.data.message);
                     console.log(error.response.status);
                 })
