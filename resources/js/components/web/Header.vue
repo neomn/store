@@ -7,19 +7,21 @@
             <ul>
                 <a href="/">Home</a>
                 <a href="/categories">
-                    categories
+                    Categories
                 </a>
-                <router-link  :to="{name:'aboutUs'}" >
-                    <font-awesome-icon :icon="['fas', 'door-open']"/>
+                <router-link :to="{name:'aboutUs'}">
                     About Us
                 </router-link>
                 <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">
                     <font-awesome-icon :icon="['fas', 'door-open']"/>
-                    login
                 </router-link>
                 <router-link v-if="loginStatus" :to="{name:'dashboard'}" class="float-right " href="/api/user">
                     <font-awesome-icon :icon="['fas', 'chart-line']"/>
-                    Dashboard
+                </router-link>
+                <router-link :to="{name:''}" class="float-right  ">
+                    <div>
+                        <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
+                    </div>
                 </router-link>
             </ul>
         </div>

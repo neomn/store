@@ -20245,6 +20245,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['loginStatus'],
   data: function data() {
@@ -46846,20 +46848,12 @@ var render = function () {
           _c("a", { attrs: { href: "/" } }, [_vm._v("Home")]),
           _vm._v(" "),
           _c("a", { attrs: { href: "/categories" } }, [
-            _vm._v("\n                categories\n            "),
+            _vm._v("\n                Categories\n            "),
           ]),
           _vm._v(" "),
-          _c(
-            "router-link",
-            { attrs: { to: { name: "aboutUs" } } },
-            [
-              _c("font-awesome-icon", {
-                attrs: { icon: ["fas", "door-open"] },
-              }),
-              _vm._v("\n                About Us\n            "),
-            ],
-            1
-          ),
+          _c("router-link", { attrs: { to: { name: "aboutUs" } } }, [
+            _vm._v("\n                About Us\n            "),
+          ]),
           _vm._v(" "),
           !_vm.loginStatus
             ? _c(
@@ -46872,7 +46866,6 @@ var render = function () {
                   _c("font-awesome-icon", {
                     attrs: { icon: ["fas", "door-open"] },
                   }),
-                  _vm._v("\n                login\n            "),
                 ],
                 1
               )
@@ -46889,11 +46882,26 @@ var render = function () {
                   _c("font-awesome-icon", {
                     attrs: { icon: ["fas", "chart-line"] },
                   }),
-                  _vm._v("\n                Dashboard\n            "),
                 ],
                 1
               )
             : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "float-right  ", attrs: { to: { name: "" } } },
+            [
+              _c(
+                "div",
+                [
+                  _c("font-awesome-icon", {
+                    attrs: { icon: ["fas", "shopping-cart"] },
+                  }),
+                ],
+                1
+              ),
+            ]
+          ),
         ],
         1
       ),
