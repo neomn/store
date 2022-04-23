@@ -12,10 +12,11 @@ class UserDashboard extends Controller
     {
         $user = $request->user();
         $orders = $user->orders;
+        $products = [];
         foreach ($orders as $order) {
             $products = $order->product;
         }
-        return response($products);
+        return response($user);
 
     }
 }
