@@ -12,17 +12,26 @@
                 <router-link :to="{name:'aboutUs'}">
                     About Us
                 </router-link>
-                <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">
-                    <font-awesome-icon :icon="['fas', 'door-open']"/>
-                </router-link>
-                <router-link v-if="loginStatus" :to="{name:'dashboard'}" class="float-right " href="/api/user">
-                    <font-awesome-icon :icon="['fas', 'chart-line']"/>
-                </router-link>
-                <router-link :to="{name:''}" class="float-right  ">
-                    <div>
+
+                <div class="inline-block float-right">
+                    <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">
+                        <font-awesome-icon :icon="['fas', 'door-open']"/>
+                    </router-link>
+                </div>
+
+
+                <div class="inline-block float-right">
+                    <router-link v-if="loginStatus" :to="{name:'dashboard'}" href="/api/user">
+                        <font-awesome-icon :icon="['fas', 'chart-line']"/>
+                    </router-link>
+                </div>
+
+
+                <div class="inline-block float-right px-2">
+                    <router-link :to="{name:'shoppingCart'}">
                         <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
-                    </div>
-                </router-link>
+                    </router-link>
+                </div>
             </ul>
         </div>
     </div>

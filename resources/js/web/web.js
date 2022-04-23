@@ -16,6 +16,7 @@ import Login from "../components/web/Login";
 import Dashboard from "../components/web/Dashboard";
 import Categories from "../components/web/Categories";
 import AboutUs from "../components/web/AboutUs";
+import ShoppingCart from "../components/web/ShoppingCart";
 
 
 require('./bootstrap');
@@ -37,10 +38,12 @@ const routes = [
     {path: '/', name: 'welcome', component: Welcome},
     {path: '/categories/:category?', name: 'categories', component: Categories , props: true },
     {path: '/product/:product_number', name: 'product', component: Product},
+    {path: '/shopping-cart', name: 'shoppingCart', component: ShoppingCart},
     {path: '/about-us' , name: 'aboutUs' , component: AboutUs },
 
     {path: '/login', name: 'login', component: Login},
     {path: '/dashboard', name: 'dashboard', component: Dashboard},
+
     {path: '/:catchAll(.*)', name: '404' , component: NotFound},
 ];
 
