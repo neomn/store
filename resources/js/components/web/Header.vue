@@ -9,6 +9,10 @@
                 <a href="/categories">
                     categories
                 </a>
+                <router-link  :to="{name:'aboutUs'}" >
+                    <font-awesome-icon :icon="['fas', 'door-open']"/>
+                    About Us
+                </router-link>
                 <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">
                     <font-awesome-icon :icon="['fas', 'door-open']"/>
                     login

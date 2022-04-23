@@ -15,6 +15,7 @@ import NotFound from "../components/web/NotFound";
 import Login from "../components/web/Login";
 import Dashboard from "../components/web/Dashboard";
 import Categories from "../components/web/Categories";
+import AboutUs from "../components/web/AboutUs";
 
 
 require('./bootstrap');
@@ -36,6 +37,7 @@ const routes = [
     {path: '/', name: 'welcome', component: Welcome},
     {path: '/categories/:category?', name: 'categories', component: Categories , props: true },
     {path: '/product/:product_number', name: 'product', component: Product},
+    {path: '/about-us' , name: 'aboutUs' , component: AboutUs },
 
     {path: '/login', name: 'login', component: Login},
     {path: '/dashboard', name: 'dashboard', component: Dashboard},
