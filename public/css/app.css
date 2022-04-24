@@ -708,6 +708,9 @@ select {
 .grid {
   display: grid;
 }
+.contents {
+  display: contents;
+}
 .hidden {
   display: none;
 }
@@ -737,6 +740,9 @@ select {
 }
 .h-12 {
   height: 3rem;
+}
+.h-72 {
+  height: 18rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -776,6 +782,9 @@ select {
 }
 .w-screen {
   width: 100vw;
+}
+.w-60 {
+  width: 15rem;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1082,6 +1091,9 @@ select {
 }
 .pb-12 {
   padding-bottom: 3rem;
+}
+.pl-4 {
+  padding-left: 1rem;
 }
 .text-left {
   text-align: left;

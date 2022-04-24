@@ -19935,6 +19935,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -46806,15 +46809,22 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
+                  "bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
               },
               [
-                _vm._v("\n            " + _vm._s(product.number) + " "),
-                _c("br"),
-                _vm._v("\n            " + _vm._s(product.name) + " "),
-                _c("br"),
-                _vm._v("\n            " + _vm._s(product.price) + " "),
-                _c("br"),
+                _c("img", {
+                  staticClass: "rounded-lg",
+                  attrs: { src: product.image, alt: "product image" },
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "pt-4 pl-4" }, [
+                  _vm._v("\n                " + _vm._s(product.number) + " "),
+                  _c("br"),
+                  _vm._v("\n                " + _vm._s(product.name) + " "),
+                  _c("br"),
+                  _vm._v("\n                " + _vm._s(product.price) + " "),
+                  _c("br"),
+                ]),
                 _vm._v(" "),
                 _c(
                   "router-link",
@@ -46822,7 +46832,7 @@ var render = function () {
                     attrs: {
                       to: {
                         name: "product",
-                        params: { product_number: product.product_number },
+                        params: { product_number: product.number },
                       },
                     },
                   },
@@ -46833,7 +46843,7 @@ var render = function () {
                         staticClass:
                           "rounded text-center  absolute bottom-0 border-t w-full h-12",
                       },
-                      [_c("button", [_vm._v(" show details ")])]
+                      [_c("button", [_vm._v(" show details")])]
                     ),
                   ]
                 ),

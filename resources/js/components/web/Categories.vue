@@ -21,15 +21,18 @@
             </div>
 
 
-        <!-- display  products  -->
+            <!-- display product container contents  -->
             <div v-for="product in productContainer"
-                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
-                {{ product.number}} <br>
-                {{ product.name}} <br>
-                {{ product.price}} <br>
-                <router-link :to="{name: 'product' , params: {product_number: product.product_number}}">
+                 class="bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
+                <img :src="product.image" alt="product image" class="rounded-lg">
+                <div class="pt-4 pl-4" >
+                    {{ product.number }} <br>
+                    {{ product.name }} <br>
+                    {{ product.price }} <br>
+                </div>
+                <router-link :to="{name: 'product' , params: {product_number: product.number}}">
                     <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">
-                        <button> show details </button>
+                        <button> show details</button>
                     </div>
                 </router-link>
             </div>
@@ -111,7 +114,7 @@ export default {
                     console.log(response.data.data)
                     this.initCategoryContainer()
                     this.refreshCategoryContainer(this.category)
-                    if (isEmpty(this.categoryContainer)){
+                    if (isEmpty(this.categoryContainer)) {
                         this.getCategoryAssociatedProducts()
                     }
                 })
@@ -192,7 +195,7 @@ export default {
             let category = this.$route.params.category
 
             //get category categoryId
-            let categoryId ;
+            let categoryId;
             this.allCategories.forEach((item, index) => {
                 if (item.category === category)
                     categoryId = item.id
@@ -200,19 +203,19 @@ export default {
             console.log('category categoryId >>> ' + categoryId + '\n')
 
             //request for products
-            axios.get('/api/products/'+categoryId)
-            .then(response =>{
-                let products = response.data.data
-                console.log('retrieved products  >>> \n')
-                console.log(response.data.product)
-                this.productContainer = response.data.product
-            })
-            .catch(function (error){
-                console.log(error)
-            })
+            axios.get('/api/products/' + categoryId)
+                .then(response => {
+                    let products = response.data.data
+                    console.log('retrieved products  >>> \n')
+                    console.log(response.data.product)
+                    this.productContainer = response.data.product
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
         },
 
-        emptyProductsContainer(){
+        emptyProductsContainer() {
             this.productContainer = {}
         }
     }
