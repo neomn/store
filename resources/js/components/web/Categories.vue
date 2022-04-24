@@ -22,7 +22,7 @@
 
 
         <!-- display category products  -->
-            <div v-for="product in productsContainer"
+            <div v-for="product in productContainer"
                  class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
                 {{ product.product}}
                 {{ product.price}}
@@ -54,7 +54,7 @@ export default {
         return {
             allCategories: {},
             categoryContainer: {},
-            productsContainer: {},
+            productContainer: {},
         }
     },
     props: [
@@ -190,21 +190,21 @@ export default {
             console.log(this.$route.params.category + '\n')
             let category = this.$route.params.category
 
-            //get category id
-            let id ;
+            //get category categoryId
+            let categoryId ;
             this.allCategories.forEach((item, index) => {
                 if (item.category === category)
-                    id = item.id
+                    categoryId = item.id
             })
-            console.log('category id >>> ' + id + '\n')
+            console.log('category categoryId >>> ' + categoryId + '\n')
 
             //request for products
-            axios.get('/api/categories/'+id)
+            axios.get('/api/products/'+categoryId)
             .then(response =>{
                 let products = response.data.data
                 console.log('retrieved products  >>> \n')
                 console.log(response.data.data)
-                this.productsContainer = response.data.data
+                this.productContainer = response.data.data
             })
             .catch(function (error){
                 console.log(error)
@@ -212,7 +212,7 @@ export default {
         },
 
         emptyProductsContainer(){
-            this.productsContainer = {}
+            this.productContainer = {}
         }
     }
 }

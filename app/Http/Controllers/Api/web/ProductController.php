@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\web\CategoryProductsWithPriceResource;
 use App\Http\Resources\Api\web\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -84,5 +85,10 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function retrieveProductsUsingCategoryId($categoryId){
+        $products = Product::with('latestPrice')->where('category_id' , $categoryId)->get();
+        return CategoryProductsWithPriceResource::collection($products);
     }
 }

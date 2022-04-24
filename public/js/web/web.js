@@ -19945,7 +19945,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       allCategories: {},
       categoryContainer: {},
-      productsContainer: {}
+      productContainer: {}
     };
   },
   props: ['category'],
@@ -20082,25 +20082,25 @@ __webpack_require__.r(__webpack_exports__);
       console.log('-------------------------------\n');
       console.log('getCategoryAssociatedProducts > \n');
       console.log(this.$route.params.category + '\n');
-      var category = this.$route.params.category; //get category id
+      var category = this.$route.params.category; //get category categoryId
 
-      var id;
+      var categoryId;
       this.allCategories.forEach(function (item, index) {
-        if (item.category === category) id = item.id;
+        if (item.category === category) categoryId = item.id;
       });
-      console.log('category id >>> ' + id + '\n'); //request for products
+      console.log('category categoryId >>> ' + categoryId + '\n'); //request for products
 
-      axios.get('/api/categories/' + id).then(function (response) {
+      axios.get('/api/products/' + categoryId).then(function (response) {
         var products = response.data.data;
         console.log('retrieved products  >>> \n');
         console.log(response.data.data);
-        _this5.productsContainer = response.data.data;
+        _this5.productContainer = response.data.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
     emptyProductsContainer: function emptyProductsContainer() {
-      this.productsContainer = {};
+      this.productContainer = {};
     }
   }
 });
@@ -46800,7 +46800,7 @@ var render = function () {
             )
           }),
           _vm._v(" "),
-          _vm._l(_vm.productsContainer, function (product) {
+          _vm._l(_vm.productContainer, function (product) {
             return _c(
               "div",
               {
