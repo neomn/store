@@ -21,11 +21,12 @@
             </div>
 
 
-        <!-- display category products  -->
+        <!-- display  products  -->
             <div v-for="product in productContainer"
                  class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">
-                {{ product.product}}
-                {{ product.price}}
+                {{ product.number}} <br>
+                {{ product.name}} <br>
+                {{ product.price}} <br>
                 <router-link :to="{name: 'product' , params: {product_number: product.product_number}}">
                     <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">
                         <button> show details </button>
@@ -203,8 +204,8 @@ export default {
             .then(response =>{
                 let products = response.data.data
                 console.log('retrieved products  >>> \n')
-                console.log(response.data.data)
-                this.productContainer = response.data.data
+                console.log(response.data.product)
+                this.productContainer = response.data.product
             })
             .catch(function (error){
                 console.log(error)

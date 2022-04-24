@@ -19934,6 +19934,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -20093,8 +20094,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/products/' + categoryId).then(function (response) {
         var products = response.data.data;
         console.log('retrieved products  >>> \n');
-        console.log(response.data.data);
-        _this5.productContainer = response.data.data;
+        console.log(response.data.product);
+        _this5.productContainer = response.data.product;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -46808,13 +46809,13 @@ var render = function () {
                   "bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative",
               },
               [
-                _vm._v(
-                  "\n            " +
-                    _vm._s(product.product) +
-                    "\n            " +
-                    _vm._s(product.price) +
-                    "\n            "
-                ),
+                _vm._v("\n            " + _vm._s(product.number) + " "),
+                _c("br"),
+                _vm._v("\n            " + _vm._s(product.name) + " "),
+                _c("br"),
+                _vm._v("\n            " + _vm._s(product.price) + " "),
+                _c("br"),
+                _vm._v(" "),
                 _c(
                   "router-link",
                   {
