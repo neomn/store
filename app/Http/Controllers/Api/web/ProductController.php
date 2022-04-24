@@ -89,6 +89,6 @@ class ProductController extends Controller
 
     public function retrieveProductsUsingCategoryId($categoryId){
         $products = Product::with('latestPrice')->where('category_id' , $categoryId)->get();
-        return CategoryProductsWithPriceResource::collection($products);
+        return ProductResource::collection($products);
     }
 }

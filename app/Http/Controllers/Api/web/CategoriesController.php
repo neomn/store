@@ -15,9 +15,4 @@ class CategoriesController extends Controller
     public function index(){
         return CategoryResource::collection(Category::all());
     }
-
-    public function retrieveCategoryProducts($categoryId){
-        $products = Product::with('latestPrice')->where('category_id' , $categoryId)->get();
-        return CategoryProductsWithPriceResource::collection($products);
-    }
 }
