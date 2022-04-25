@@ -19,9 +19,9 @@ class WelcomeController extends Controller
         $newProducts = $this->newProducts();
         $topSells = $this->topSells();
 
-        $favoriteProducts = FavoriteProductResource::collection($favoriteProducts);
         $newProducts = NewProductResource::collection($newProducts);
         $topSells = TopSellsResource::collection($topSells);
+        $favoriteProducts = FavoriteProductResource::collection($favoriteProducts);
 
         return [
             'favoriteProducts' => $favoriteProducts ,

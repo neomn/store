@@ -690,6 +690,15 @@ select {
 .mt-16 {
   margin-top: 4rem;
 }
+.mr-4 {
+  margin-right: 1rem;
+}
+.ml-8 {
+  margin-left: 2rem;
+}
+.mt-44 {
+  margin-top: 11rem;
+}
 .block {
   display: block;
 }
@@ -840,6 +849,9 @@ select {
 }
 .grid-cols-5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -1095,11 +1107,20 @@ select {
 .pl-4 {
   padding-left: 1rem;
 }
+.pr-8 {
+  padding-right: 2rem;
+}
+.pt-44 {
+  padding-top: 11rem;
+}
 .text-left {
   text-align: left;
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .font-sans {
   font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
