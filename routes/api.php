@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\web\CategoriesController;
 use App\Http\Controllers\Api\web\ProductController;
 use App\Http\Controllers\Api\web\WelcomeController;
 use App\Http\Controllers\Api\web\UserDashboard;
+use App\Http\Controllers\ShoppingCart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,5 @@ Route::get('welcome', [WelcomeController::class , 'index']);
 Route::get('categories', [CategoriesController::class , 'index']);
 Route::get('products/{category_id}', [ProductController::class , 'retrieveProductsUsingCategoryId']);
 Route::get('product/{product_number}', [ProductController::class , 'show']);
+Route::apiResource('shopping_cart' , ShoppingCart::class);
 Route::middleware('auth:sanctum')->get('dashboard', [UserDashboard::class , 'index']);
