@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Api\web;
 
-use App\Http\Resources\Api\web\FavoriteProductResource;
-use App\Http\Resources\Api\web\NewProductResource;
-use App\Http\Resources\Api\web\TopSellsResource;
+use App\Http\Resources\Api\web\ProductResource;
 use App\Models\Product;
 use App\Models\Sell;
 use App\Models\View;
@@ -19,9 +17,9 @@ class WelcomeController extends Controller
         $newProducts = $this->newProducts();
         $topSells = $this->topSells();
 
-        $newProducts = NewProductResource::collection($newProducts);
-        $topSells = TopSellsResource::collection($topSells);
-        $favoriteProducts = FavoriteProductResource::collection($favoriteProducts);
+        $newProducts = ProductResource::collection($newProducts);
+        $topSells = ProductResource::collection($topSells);
+        $favoriteProducts = ProductResource::collection($favoriteProducts);
 
         return [
             'favoriteProducts' => $favoriteProducts ,
