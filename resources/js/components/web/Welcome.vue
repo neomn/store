@@ -4,35 +4,6 @@
         <Header :loginStatus="loginStatus"/>
 
         <div class="py-8">
-            <!-- display top 20 favorite products in recent week-->
-            <div class="mx-4 mt-4 pb-12" v-if="favoriteProducts.length > 0">
-                <h1 class="text-gray-200"> favorite products in recent month</h1>
-                <div class="border-2 rounded-md p-3 text-gray-200 inline-flex">
-                    <table class=" text-gray-200">
-                        <thead>
-                        <th class="px-8">product number</th>
-                        <th class="px-8">name</th>
-                        <th class="px-8">available count</th>
-                        <th class="px-8">image</th>
-                        <th class="px-8"> details</th>
-                        </thead>
-                        <tbody>
-                        <tr v-for="product in favoriteProducts">
-                            <td class="mx-10 px-4 text-center">{{ product.number }}</td>
-                            <td class="text-center">{{ product.name }}</td>
-                            <td class="text-center">{{ product.available_count }}</td>
-                            <td><img :src="product.image" alt="image" width="20px" height="20px"></td>
-                            <td>
-                                <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show
-                                    details
-                                </router-link>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
 
             <!-- display new products in recent month-->
             <div class="mx-4 mt-4 pb-12" v-if="newProducts.length > 0">
@@ -63,7 +34,6 @@
                 </div>
             </div>
 
-
             <!-- display 20 top sells in recent month-->
             <div class="mx-4 mt-4 pb-12" v-if="topSells.length > 0">
                 <h1 class="text-gray-200"> Top Sells</h1>
@@ -91,6 +61,35 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+
+        <!-- display top 20 favorite products in recent week-->
+        <div class="mx-4 mt-4 pb-12" v-if="favoriteProducts.length > 0">
+            <h1 class="text-gray-200"> favorite products in recent month</h1>
+            <div class="border-2 rounded-md p-3 text-gray-200 inline-flex">
+                <table class=" text-gray-200">
+                    <thead>
+                    <th class="px-8">product number</th>
+                    <th class="px-8">name</th>
+                    <th class="px-8">available count</th>
+                    <th class="px-8">image</th>
+                    <th class="px-8"> details</th>
+                    </thead>
+                    <tbody>
+                    <tr v-for="product in favoriteProducts">
+                        <td class="mx-10 px-4 text-center">{{ product.number }}</td>
+                        <td class="text-center">{{ product.name }}</td>
+                        <td class="text-center">{{ product.available_count }}</td>
+                        <td><img :src="product.image" alt="image" width="20px" height="20px"></td>
+                        <td>
+                            <router-link :to="{ name: 'product' , params:{ product_number: product.number}}"> show
+                                details
+                            </router-link>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 

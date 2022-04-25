@@ -15,7 +15,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $favoriteProducts = $this->mostVisitedProductsRecentWeek();
+        $favoriteProducts = $this->mostVisitedProducts();
         $newProducts = $this->newProducts();
         $topSells = $this->topSells();
 
@@ -35,11 +35,11 @@ class WelcomeController extends Controller
     }
 
     //returns top 20 most visited products in recent week
-    public function mostVisitedProductsRecentWeek()
+    public function mostVisitedProducts()
     {
         $now = Carbon::now();
-        $weekStartDate = $now->startOfWeek()->format('Y-m-d H:i:s');
-        $weekEndDate = $now->endOfWeek()->format('Y-m-d H:i:s');
+        $weekStartDate = $now->startOfMonth()->format('Y-m-d H:i:s');
+        $weekEndDate = $now->endOfMonth()->format('Y-m-d H:i:s');
 
         $top_20_Views = View::whereBetween('created_at', [$weekStartDate, $weekEndDate])
             ->orderBy('count', 'desc')
@@ -63,6 +63,7 @@ class WelcomeController extends Controller
 
         return Product::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('created_at', 'desc')
+            ->take(20)
             ->get();
     }
 
@@ -75,7 +76,7 @@ class WelcomeController extends Controller
 
         $sold =  Sell::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('sold_count' , 'desc')
-            ->take(20)
+            ->limit(20)
             ->get();
 
         $products = [];

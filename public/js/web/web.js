@@ -20264,7 +20264,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['loginStatus'],
   data: function data() {
@@ -20500,7 +20499,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue */ "./resources/js/components/web/Header.vue");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/web/Footer.vue");
-//
 //
 //
 //
@@ -46971,9 +46969,7 @@ var render = function () {
         [
           _c("a", { attrs: { href: "/" } }, [_vm._v("Home")]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "/categories" } }, [
-            _vm._v("\n                Categories\n            "),
-          ]),
+          _c("a", { attrs: { href: "/categories" } }, [_vm._v("Categories")]),
           _vm._v(" "),
           _c("router-link", { attrs: { to: { name: "aboutUs" } } }, [
             _vm._v("\n                About Us\n            "),
@@ -47356,83 +47352,6 @@ var render = function () {
       _c("Header", { attrs: { loginStatus: _vm.loginStatus } }),
       _vm._v(" "),
       _c("div", { staticClass: "py-8" }, [
-        _vm.favoriteProducts.length > 0
-          ? _c("div", { staticClass: "mx-4 mt-4 pb-12" }, [
-              _c("h1", { staticClass: "text-gray-200" }, [
-                _vm._v(" favorite products in recent month"),
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "border-2 rounded-md p-3 text-gray-200 inline-flex",
-                },
-                [
-                  _c("table", { staticClass: " text-gray-200" }, [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.favoriteProducts, function (product) {
-                        return _c("tr", [
-                          _c("td", { staticClass: "mx-10 px-4 text-center" }, [
-                            _vm._v(_vm._s(product.number)),
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "text-center" }, [
-                            _vm._v(_vm._s(product.name)),
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "text-center" }, [
-                            _vm._v(_vm._s(product.available_count)),
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c("img", {
-                              attrs: {
-                                src: product.image,
-                                alt: "image",
-                                width: "20px",
-                                height: "20px",
-                              },
-                            }),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "td",
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "product",
-                                      params: {
-                                        product_number: product.number,
-                                      },
-                                    },
-                                  },
-                                },
-                                [
-                                  _vm._v(
-                                    " show\n                                details\n                            "
-                                  ),
-                                ]
-                              ),
-                            ],
-                            1
-                          ),
-                        ])
-                      }),
-                      0
-                    ),
-                  ]),
-                ]
-              ),
-            ])
-          : _vm._e(),
-        _vm._v(" "),
         _vm.newProducts.length > 0
           ? _c("div", { staticClass: "mx-4 mt-4 pb-12" }, [
               _c("h1", { staticClass: "text-gray-200" }, [
@@ -47447,7 +47366,7 @@ var render = function () {
                 },
                 [
                   _c("table", { staticClass: " text-gray-200" }, [
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -47524,7 +47443,7 @@ var render = function () {
                 },
                 [
                   _c("table", { staticClass: " text-gray-200" }, [
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -47587,6 +47506,81 @@ var render = function () {
             ])
           : _vm._e(),
       ]),
+      _vm._v(" "),
+      _vm.favoriteProducts.length > 0
+        ? _c("div", { staticClass: "mx-4 mt-4 pb-12" }, [
+            _c("h1", { staticClass: "text-gray-200" }, [
+              _vm._v(" favorite products in recent month"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-2 rounded-md p-3 text-gray-200 inline-flex",
+              },
+              [
+                _c("table", { staticClass: " text-gray-200" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.favoriteProducts, function (product) {
+                      return _c("tr", [
+                        _c("td", { staticClass: "mx-10 px-4 text-center" }, [
+                          _vm._v(_vm._s(product.number)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.name)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(product.available_count)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("img", {
+                            attrs: {
+                              src: product.image,
+                              alt: "image",
+                              width: "20px",
+                              height: "20px",
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "product",
+                                    params: { product_number: product.number },
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  " show\n                            details\n                        "
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
+                        ),
+                      ])
+                    }),
+                    0
+                  ),
+                ]),
+              ]
+            ),
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("Footer"),
     ],

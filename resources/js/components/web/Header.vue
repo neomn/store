@@ -6,9 +6,8 @@
         <div class="list bg-slate-900 border-b rounded  ">
             <ul>
                 <a href="/">Home</a>
-                <a href="/categories">
-                    Categories
-                </a>
+                <a href="/categories">Categories</a>
+                
                 <router-link :to="{name:'aboutUs'}">
                     About Us
                 </router-link>
