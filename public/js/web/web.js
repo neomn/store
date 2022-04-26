@@ -20735,14 +20735,6 @@ vue__WEBPACK_IMPORTED_MODULE_12__["default"].component('font-awesome-icon', _for
 vue__WEBPACK_IMPORTED_MODULE_12__["default"].component('App', (__webpack_require__(/*! ../components/web/App */ "./resources/js/components/web/App.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_12__["default"].config.productionTip = false;
 var routes = [{
-  path: '/app',
-  name: 'app',
-  component: _components_web_App__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, {
-  path: '#',
-  name: 'header',
-  component: _components_web_App__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, {
   path: '/',
   name: 'welcome',
   component: _components_web_Welcome__WEBPACK_IMPORTED_MODULE_4__["default"]
