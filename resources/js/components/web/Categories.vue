@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-slate-800 min-h-screen text-gray-200">
+    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">
 
-        <Header/>
+        <Header class="z-10"/>
 
         <aside class="bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ">
             {{ category }}

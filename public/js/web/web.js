@@ -46721,9 +46721,9 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-slate-800 min-h-screen text-gray-200" },
+    { staticClass: "z-0 mt-8 bg-slate-800 min-h-screen text-gray-200" },
     [
-      _c("Header"),
+      _c("Header", { staticClass: "z-10" }),
       _vm._v(" "),
       _c(
         "aside",
