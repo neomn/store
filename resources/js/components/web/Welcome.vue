@@ -1,76 +1,82 @@
 <template>
-    <div class="bg-slate-800">
+    <div class="z-0 min-h-screen  bg-slate-800 ">
+
         <!-- header component-->
-        <Header :loginStatus="loginStatus"/>
+        <Header :loginStatus="loginStatus" class="z-10"/>
 
-        <!-- new products  -->
-        <div class="py-8 pr-8 text-gray-200">
-            <div class=" ml-8 inline-flex text-gray-200 ">
-                <h1> new products in recent month</h1>
-            </div>
-            <div class="grid grid-cols-5">
-                <div v-for="product in newProducts"
-                     class=" bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
-                    <img :src="product.image" alt="product image" class="rounded-lg">
-                    <div class="pt-1 pl-1">
-                        {{ product.number }} <br>
-                        {{ product.name }} <br>
-                        {{ product.price }} <br>
-                    </div>
-                    <router-link :to="{name: 'product' , params: {product_number: product.number}}">
-                        <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
-                            <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart </button>
-                            <button class=" m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show details</button>
+        <div class="mt-8">
+            <!-- new products  -->
+            <div class="py-8 pr-8 text-gray-200">
+                <div class=" ml-8 inline-flex text-gray-200 ">
+                    <h1> new products in recent month</h1>
+                </div>
+                <div class=" grid grid-cols-5">
+                    <div v-for="product in newProducts"
+                         class=" bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
+                        <img :src="product.image" alt="product image" class="rounded-lg">
+                        <div class="pt-1 pl-1">
+                            {{ product.number }} <br>
+                            {{ product.name }} <br>
+                            {{ product.price }} <br>
                         </div>
-                    </router-link>
+                        <router-link :to="{name: 'product' , params: {product_number: product.number}}">
+                            <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
+                                <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart
+                                </button>
+                                <button class=" m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show details</button>
+                            </div>
+                        </router-link>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- top sells  -->
-        <div class="py-8 pr-8 text-gray-200">
-            <div class=" ml-8 inline-flex text-gray-200 ">
-                <h1> top sells in recent month</h1>
-            </div>
-            <div class="grid grid-cols-5">
-                <div v-for="product in topSells"
-                     class="bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
-                    <img :src="product.image" alt="product image" class="rounded-lg">
-                    <div class="pt-4 pl-4">
-                        {{ product.number }} <br>
-                        {{ product.name }} <br>
-                        {{ product.price }} <br>
-                    </div>
-                    <router-link :to="{name: 'product' , params: {product_number: product.number}}">
-                        <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
-                            <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart </button>
-                            <button class="m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show details</button>
+            <!-- top sells  -->
+            <div class=" py-8 pr-8 text-gray-200">
+                <div class=" ml-8 inline-flex text-gray-200 ">
+                    <h1> top sells in recent month</h1>
+                </div>
+                <div class="grid grid-cols-5">
+                    <div v-for="product in topSells"
+                         class="bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
+                        <img :src="product.image" alt="product image" class="rounded-lg">
+                        <div class="pt-4 pl-4">
+                            {{ product.number }} <br>
+                            {{ product.name }} <br>
+                            {{ product.price }} <br>
                         </div>
-                    </router-link>
+                        <router-link :to="{name: 'product' , params: {product_number: product.number}}">
+                            <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
+                                <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart
+                                </button>
+                                <button class="m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show details</button>
+                            </div>
+                        </router-link>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- favorite products  -->
-        <div class="py-8 pr-8 text-gray-200">
-            <div class=" ml-8 inline-flex text-gray-200 ">
-                <h1> favorite in recent month</h1>
-            </div>
-            <div class="grid grid-cols-5">
-                <div v-for="product in favoriteProducts"
-                     class="bg-slate-700 w-44 h-80 m-8 rounded-lg justify-center relative top-0">
-                    <img :src="product.image" alt="product image" class="rounded-lg">
-                    <div class="pt-4 pl-4">
-                        {{ product.number }} <br>
-                        {{ product.name }} <br>
-                        {{ product.price }} <br>
-                    </div>
-                    <router-link :to="{name: 'product' , params: {product_number: product.number}}">
-                        <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
-                            <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart </button>
-                            <button class="m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800" > show details</button>
+            <!-- favorite products  -->
+            <div class="py-8 pr-8 text-gray-200">
+                <div class=" ml-8 inline-flex text-gray-200 ">
+                    <h1> favorite in recent month</h1>
+                </div>
+                <div class="grid grid-cols-5">
+                    <div v-for="product in favoriteProducts"
+                         class="bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
+                        <img :src="product.image" alt="product image" class="rounded-lg">
+                        <div class="pt-4 pl-4">
+                            {{ product.number }} <br>
+                            {{ product.name }} <br>
+                            {{ product.price }} <br>
                         </div>
-                    </router-link>
+                        <router-link :to="{name: 'product' , params: {product_number: product.number}}">
+                            <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
+                                <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart
+                                </button>
+                                <button class="m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show details</button>
+                            </div>
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </div>

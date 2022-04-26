@@ -1,32 +1,26 @@
 <template>
-    <div class="root bg-slate-900">
+    <div class="fixed top-0 w-full border-b border-lime-300 bg-slate-900">
         <div class="HeaderImage">
             <!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
         </div>
-        <div class="list bg-slate-900 border-b rounded  ">
+        <div class="px-1 py-2  bg-slate-900  rounded text-zinc-300 ">
             <ul>
-                <a href="/">Home</a>
-                <a href="/categories">Categories</a>
-
-                <router-link :to="{name:'aboutUs'}">
+                <a href="/" class="mx-2">Home</a>
+                <a href="/categories" class="mx-2">Categories</a>
+                <router-link :to="{name:'aboutUs'}" class="mx-2">
                     About Us
                 </router-link>
-
-                <div class="inline-block float-right">
+                <div class=" mx-2 mr-4 inline-block float-right">
                     <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">
                         <font-awesome-icon :icon="['fas', 'door-open']"/>
                     </router-link>
                 </div>
-
-
-                <div class="inline-block float-right">
+                <div class=" mx-2 mr-4 inline-block float-right">
                     <router-link v-if="loginStatus" :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
                     </router-link>
                 </div>
-
-
-                <div class="inline-block float-right px-2">
+                <div class=" mx-2 inline-block float-right px-2">
                     <router-link :to="{name:'shoppingCart'}">
                         <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
                     </router-link>

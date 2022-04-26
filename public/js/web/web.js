@@ -20258,12 +20258,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['loginStatus'],
   data: function data() {
@@ -20584,6 +20578,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -20721,6 +20721,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/web/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
@@ -20736,6 +20737,10 @@ vue__WEBPACK_IMPORTED_MODULE_12__["default"].config.productionTip = false;
 var routes = [{
   path: '/app',
   name: 'app',
+  component: _components_web_App__WEBPACK_IMPORTED_MODULE_3__["default"]
+}, {
+  path: '#',
+  name: 'header',
   component: _components_web_App__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: '/',
@@ -20823,7 +20828,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*div.root {*/\n/*    display: unset;*/\n/*}*/\n\n/*div.HeaderImage {*/\n/*    border: 1px solid #1d455b;*/\n/*    background-color: #333333;*/\n/*    !*position: relative;*!*/\n/*}*/\n\n/*div.list {*/\n/*    overflow: hidden;*/\n/*    position: -webkit-sticky; !* Safari *!*/\n/*    position: sticky;*/\n/*    top: 0;*/\n/*}*/\n\n/*a {*/\n/*    position: relative;*/\n/*    display: inline-block;*/\n/*    color: white;*/\n/*    padding: 2px;*/\n/*    padding-top: 10px;*/\n/*    padding-right: 10px;*/\n/*    margin-right: 2px;*/\n/*    margin-left: 2px;*/\n/*    border-right: 2px solid gray;*/\n/*    text-decoration: none;*/\n/*}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*div.root {*/\n/*    display: unset;*/\n/*}*/\n\n/*div.HeaderImage {*/\n/*    border: 1px solid #1d455b;*/\n/*    background-color: #333333;*/\n/*    !*position: relative;*!*/\n/*}*/\n\n/*div.list {*/\n/*    overflow: hidden;*/\n/*    position: -webkit-sticky; !* Safari *!*/\n/*    position: sticky;*/\n/*    top: 0;*/\n/*}*/\n\n/*a {*/\n/*    position: relative;*/\n/*    display: inline-block;*/\n/*    color: white;*/\n/*    padding: 2px;*/\n/*    padding-top: 10px;*/\n/*    padding-right: 10px;*/\n/*    margin-right: 2px;*/\n/*    margin-left: 2px;*/\n/*    border-right: 2px solid gray;*/\n/*    text-decoration: none;*/\n/*}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46697,7 +46702,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("router-view")], 1)
+  return _c("div", { staticClass: "bg-slate-800" }, [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -46942,86 +46947,105 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "root bg-slate-900" }, [
-    _c("div", { staticClass: "HeaderImage" }),
-    _vm._v(" "),
-    _c("div", { staticClass: "list bg-slate-900 border-b rounded  " }, [
+  return _c(
+    "div",
+    { staticClass: "fixed top-0 w-full border-b border-lime-300 bg-slate-900" },
+    [
+      _c("div", { staticClass: "HeaderImage" }),
+      _vm._v(" "),
       _c(
-        "ul",
+        "div",
+        { staticClass: "px-1 py-2  bg-slate-900  rounded text-zinc-300 " },
         [
-          _c("a", { attrs: { href: "/" } }, [_vm._v("Home")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/categories" } }, [_vm._v("Categories")]),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: { name: "aboutUs" } } }, [
-            _vm._v("\n                About Us\n            "),
-          ]),
-          _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "inline-block float-right" },
+            "ul",
             [
-              !_vm.loginStatus
-                ? _c(
-                    "router-link",
-                    {
-                      staticClass: "float-right ",
-                      attrs: { to: { name: "login" }, href: "/api/user" },
-                    },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "door-open"] },
-                      }),
-                    ],
-                    1
-                  )
-                : _vm._e(),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "inline-block float-right" },
-            [
-              _vm.loginStatus
-                ? _c(
-                    "router-link",
-                    { attrs: { to: { name: "dashboard" }, href: "/api/user" } },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "chart-line"] },
-                      }),
-                    ],
-                    1
-                  )
-                : _vm._e(),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "inline-block float-right px-2" },
-            [
+              _c("a", { staticClass: "mx-2", attrs: { href: "/" } }, [
+                _vm._v("Home"),
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "mx-2", attrs: { href: "/categories" } }, [
+                _vm._v("Categories"),
+              ]),
+              _vm._v(" "),
               _c(
                 "router-link",
-                { attrs: { to: { name: "shoppingCart" } } },
+                { staticClass: "mx-2", attrs: { to: { name: "aboutUs" } } },
+                [_vm._v("\n                About Us\n            ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: " mx-2 mr-4 inline-block float-right" },
                 [
-                  _c("font-awesome-icon", {
-                    attrs: { icon: ["fas", "shopping-cart"] },
-                  }),
+                  !_vm.loginStatus
+                    ? _c(
+                        "router-link",
+                        {
+                          staticClass: "float-right ",
+                          attrs: { to: { name: "login" }, href: "/api/user" },
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "door-open"] },
+                          }),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: " mx-2 mr-4 inline-block float-right" },
+                [
+                  _vm.loginStatus
+                    ? _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "dashboard" },
+                            href: "/api/user",
+                          },
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "chart-line"] },
+                          }),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: " mx-2 inline-block float-right px-2" },
+                [
+                  _c(
+                    "router-link",
+                    { attrs: { to: { name: "shoppingCart" } } },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "shopping-cart"] },
+                      }),
+                    ],
+                    1
+                  ),
                 ],
                 1
               ),
             ],
             1
           ),
-        ],
-        1
+        ]
       ),
-    ]),
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -47329,245 +47353,274 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-slate-800" },
+    { staticClass: "z-0 min-h-screen  bg-slate-800 " },
     [
-      _c("Header", { attrs: { loginStatus: _vm.loginStatus } }),
+      _c("Header", {
+        staticClass: "z-10",
+        attrs: { loginStatus: _vm.loginStatus },
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "grid grid-cols-5" },
-          _vm._l(_vm.newProducts, function (product) {
-            return _c(
-              "div",
-              {
-                staticClass:
-                  " bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
-              },
-              [
-                _c("img", {
-                  staticClass: "rounded-lg",
-                  attrs: { src: product.image, alt: "product image" },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "pt-1 pl-1" }, [
-                  _vm._v(
-                    "\n                    " + _vm._s(product.number) + " "
-                  ),
-                  _c("br"),
-                  _vm._v("\n                    " + _vm._s(product.name) + " "),
-                  _c("br"),
-                  _vm._v(
-                    "\n                    " + _vm._s(product.price) + " "
-                  ),
-                  _c("br"),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: {
-                        name: "product",
-                        params: { product_number: product.number },
+      _c("div", { staticClass: "mt-8" }, [
+        _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: " grid grid-cols-5" },
+            _vm._l(_vm.newProducts, function (product) {
+              return _c(
+                "div",
+                {
+                  staticClass:
+                    " bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
+                },
+                [
+                  _c("img", {
+                    staticClass: "rounded-lg",
+                    attrs: { src: product.image, alt: "product image" },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pt-1 pl-1" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(product.number) +
+                        " "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        " + _vm._s(product.name) + " "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        " + _vm._s(product.price) + " "
+                    ),
+                    _c("br"),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "product",
+                          params: { product_number: product.number },
+                        },
                       },
                     },
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "rounded text-center  absolute bottom-0 border-t w-full h-16",
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
-                          },
-                          [_vm._v(" add to shopping cart ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              " m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
-                          },
-                          [_vm._v(" show details")]
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-              ],
-              1
-            )
-          }),
-          0
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-        _vm._m(1),
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "rounded text-center  absolute bottom-0 border-t w-full h-16",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                            },
+                            [
+                              _vm._v(
+                                " add to shopping cart\n                            "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                " m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                            },
+                            [_vm._v(" show details")]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                ],
+                1
+              )
+            }),
+            0
+          ),
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "grid grid-cols-5" },
-          _vm._l(_vm.topSells, function (product) {
-            return _c(
-              "div",
-              {
-                staticClass:
-                  "bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
-              },
-              [
-                _c("img", {
-                  staticClass: "rounded-lg",
-                  attrs: { src: product.image, alt: "product image" },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "pt-4 pl-4" }, [
-                  _vm._v(
-                    "\n                    " + _vm._s(product.number) + " "
-                  ),
-                  _c("br"),
-                  _vm._v("\n                    " + _vm._s(product.name) + " "),
-                  _c("br"),
-                  _vm._v(
-                    "\n                    " + _vm._s(product.price) + " "
-                  ),
-                  _c("br"),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: {
-                        name: "product",
-                        params: { product_number: product.number },
+        _c("div", { staticClass: " py-8 pr-8 text-gray-200" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-5" },
+            _vm._l(_vm.topSells, function (product) {
+              return _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
+                },
+                [
+                  _c("img", {
+                    staticClass: "rounded-lg",
+                    attrs: { src: product.image, alt: "product image" },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pt-4 pl-4" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(product.number) +
+                        " "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        " + _vm._s(product.name) + " "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        " + _vm._s(product.price) + " "
+                    ),
+                    _c("br"),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "product",
+                          params: { product_number: product.number },
+                        },
                       },
                     },
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "rounded text-center  absolute bottom-0 border-t w-full h-16",
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
-                          },
-                          [_vm._v(" add to shopping cart ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
-                          },
-                          [_vm._v(" show details")]
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-              ],
-              1
-            )
-          }),
-          0
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-        _vm._m(2),
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "rounded text-center  absolute bottom-0 border-t w-full h-16",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                            },
+                            [
+                              _vm._v(
+                                " add to shopping cart\n                            "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                            },
+                            [_vm._v(" show details")]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                ],
+                1
+              )
+            }),
+            0
+          ),
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "grid grid-cols-5" },
-          _vm._l(_vm.favoriteProducts, function (product) {
-            return _c(
-              "div",
-              {
-                staticClass:
-                  "bg-slate-700 w-44 h-80 m-8 rounded-lg justify-center relative top-0",
-              },
-              [
-                _c("img", {
-                  staticClass: "rounded-lg",
-                  attrs: { src: product.image, alt: "product image" },
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "pt-4 pl-4" }, [
-                  _vm._v(
-                    "\n                    " + _vm._s(product.number) + " "
-                  ),
-                  _c("br"),
-                  _vm._v("\n                    " + _vm._s(product.name) + " "),
-                  _c("br"),
-                  _vm._v(
-                    "\n                    " + _vm._s(product.price) + " "
-                  ),
-                  _c("br"),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    attrs: {
-                      to: {
-                        name: "product",
-                        params: { product_number: product.number },
+        _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "grid grid-cols-5" },
+            _vm._l(_vm.favoriteProducts, function (product) {
+              return _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
+                },
+                [
+                  _c("img", {
+                    staticClass: "rounded-lg",
+                    attrs: { src: product.image, alt: "product image" },
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pt-4 pl-4" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(product.number) +
+                        " "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        " + _vm._s(product.name) + " "
+                    ),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        " + _vm._s(product.price) + " "
+                    ),
+                    _c("br"),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "product",
+                          params: { product_number: product.number },
+                        },
                       },
                     },
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "rounded text-center  absolute bottom-0 border-t w-full h-16",
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
-                          },
-                          [_vm._v(" add to shopping cart ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass:
-                              "m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
-                          },
-                          [_vm._v(" show details")]
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-              ],
-              1
-            )
-          }),
-          0
-        ),
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "rounded text-center  absolute bottom-0 border-t w-full h-16",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                            },
+                            [
+                              _vm._v(
+                                " add to shopping cart\n                            "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                            },
+                            [_vm._v(" show details")]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                ],
+                1
+              )
+            }),
+            0
+          ),
+        ]),
       ]),
       _vm._v(" "),
       _c("Footer"),

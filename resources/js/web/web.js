@@ -9,6 +9,7 @@ import {fab} from "@fortawesome/free-brands-svg-icons";
 import {far} from "@fortawesome/free-regular-svg-icons";
 
 import App from "../components/web/App";
+import Header from "../components/web/App";
 import Welcome from "../components/web/Welcome";
 import Product from "../components/web/Product";
 import NotFound from "../components/web/NotFound";
@@ -35,15 +36,14 @@ Vue.config.productionTip = false
 
 const routes = [
     {path: '/app', name: 'app', component: App},
+    {path: '#', name: 'header', component: Header},
     {path: '/', name: 'welcome', component: Welcome},
     {path: '/categories/:category?', name: 'categories', component: Categories , props: true },
     {path: '/product/:product_number', name: 'product', component: Product},
     {path: '/shopping-cart', name: 'shoppingCart', component: ShoppingCart},
     {path: '/about-us' , name: 'aboutUs' , component: AboutUs },
-
     {path: '/login', name: 'login', component: Login},
     {path: '/dashboard', name: 'dashboard', component: Dashboard},
-
     {path: '/:catchAll(.*)', name: '404' , component: NotFound},
 ];
 
