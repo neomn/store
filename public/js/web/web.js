@@ -20581,6 +20581,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -47326,7 +47329,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-slate-900" },
+    { staticClass: "bg-slate-800" },
     [
       _c("Header", { attrs: { loginStatus: _vm.loginStatus } }),
       _vm._v(" "),
@@ -47335,13 +47338,13 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "grid grid-cols-6" },
+          { staticClass: "grid grid-cols-5" },
           _vm._l(_vm.newProducts, function (product) {
             return _c(
               "div",
               {
                 staticClass:
-                  "bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
+                  " bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
               },
               [
                 _c("img", {
@@ -47349,7 +47352,7 @@ var render = function () {
                   attrs: { src: product.image, alt: "product image" },
                 }),
                 _vm._v(" "),
-                _c("div", { staticClass: "pt-4 pl-4" }, [
+                _c("div", { staticClass: "pt-1 pl-1" }, [
                   _vm._v(
                     "\n                    " + _vm._s(product.number) + " "
                   ),
@@ -47377,9 +47380,27 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                          "rounded text-center  absolute bottom-0 border-t w-full h-16",
                       },
-                      [_c("button", [_vm._v(" show details")])]
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                          },
+                          [_vm._v(" add to shopping cart ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              " m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                          },
+                          [_vm._v(" show details")]
+                        ),
+                      ]
                     ),
                   ]
                 ),
@@ -47396,13 +47417,13 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "grid grid-cols-6" },
+          { staticClass: "grid grid-cols-5" },
           _vm._l(_vm.topSells, function (product) {
             return _c(
               "div",
               {
                 staticClass:
-                  "bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
+                  "bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
               },
               [
                 _c("img", {
@@ -47438,9 +47459,27 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                          "rounded text-center  absolute bottom-0 border-t w-full h-16",
                       },
-                      [_c("button", [_vm._v(" show details")])]
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                          },
+                          [_vm._v(" add to shopping cart ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                          },
+                          [_vm._v(" show details")]
+                        ),
+                      ]
                     ),
                   ]
                 ),
@@ -47457,13 +47496,13 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "grid grid-cols-6" },
+          { staticClass: "grid grid-cols-5" },
           _vm._l(_vm.favoriteProducts, function (product) {
             return _c(
               "div",
               {
                 staticClass:
-                  "bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0",
+                  "bg-slate-700 w-44 h-80 m-8 rounded-lg justify-center relative top-0",
               },
               [
                 _c("img", {
@@ -47499,9 +47538,27 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          "rounded text-center  absolute bottom-0 border-t w-full h-12",
+                          "rounded text-center  absolute bottom-0 border-t w-full h-16",
                       },
-                      [_c("button", [_vm._v(" show details")])]
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                          },
+                          [_vm._v(" add to shopping cart ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                          },
+                          [_vm._v(" show details")]
+                        ),
+                      ]
                     ),
                   ]
                 ),
