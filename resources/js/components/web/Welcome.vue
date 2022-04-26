@@ -13,19 +13,31 @@
                 <div class=" grid grid-cols-5">
                     <div v-for="product in newProducts"
                          class=" bg-slate-700 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
+
+                        <!--card image-->
                         <img :src="product.image" alt="product image" class="rounded-lg">
+
+                        <!--card body-->
                         <div class="pt-1 pl-1">
                             {{ product.number }} <br>
                             {{ product.name }} <br>
                             {{ product.price }} <br>
                         </div>
-                        <router-link :to="{name: 'product' , params: {product_number: product.number}}">
-                            <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
+
+                        <!--card buttons-->
+                        <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
+                            <div>
                                 <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart
                                 </button>
-                                <button class=" m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show details</button>
                             </div>
-                        </router-link>
+                            <div>
+                                <router-link :to="{name: 'product' , params: {product_number: product.number}}">
+                                    <button class=" m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show details
+                                    </button>
+                                </router-link>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

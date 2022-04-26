@@ -20584,6 +20584,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -47390,50 +47402,48 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c(
-                    "router-link",
+                    "div",
                     {
-                      attrs: {
-                        to: {
-                          name: "product",
-                          params: { product_number: product.number },
-                        },
-                      },
+                      staticClass:
+                        "rounded text-center  absolute bottom-0 border-t w-full h-16",
                     },
                     [
+                      _vm._m(1, true),
+                      _vm._v(" "),
                       _c(
                         "div",
-                        {
-                          staticClass:
-                            "rounded text-center  absolute bottom-0 border-t w-full h-16",
-                        },
                         [
                           _c(
-                            "button",
+                            "router-link",
                             {
-                              staticClass:
-                                "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                              attrs: {
+                                to: {
+                                  name: "product",
+                                  params: { product_number: product.number },
+                                },
+                              },
                             },
                             [
-                              _vm._v(
-                                " add to shopping cart\n                            "
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    " m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                                },
+                                [
+                                  _vm._v(
+                                    " show details\n                                "
+                                  ),
+                                ]
                               ),
                             ]
                           ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                " m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
-                            },
-                            [_vm._v(" show details")]
-                          ),
-                        ]
+                        ],
+                        1
                       ),
                     ]
                   ),
-                ],
-                1
+                ]
               )
             }),
             0
@@ -47441,7 +47451,7 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: " py-8 pr-8 text-gray-200" }, [
-          _vm._m(1),
+          _vm._m(2),
           _vm._v(" "),
           _c(
             "div",
@@ -47528,7 +47538,7 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-          _vm._m(2),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "div",
@@ -47627,6 +47637,18 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: " ml-8 inline-flex text-gray-200 " }, [
       _c("h1", [_vm._v(" new products in recent month")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "button",
+        { staticClass: "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800" },
+        [_vm._v(" add to shopping cart\n                            ")]
+      ),
     ])
   },
   function () {

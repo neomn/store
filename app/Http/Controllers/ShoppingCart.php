@@ -34,7 +34,7 @@ class ShoppingCart extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
