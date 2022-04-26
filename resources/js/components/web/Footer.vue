@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed bg-slate-900">
+    <div class="bg-slate-900">
         <h1>
             this is Footer
         </h1>
