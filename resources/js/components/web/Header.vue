@@ -7,7 +7,7 @@
             <ul>
                 <a href="/">Home</a>
                 <a href="/categories">Categories</a>
-                
+
                 <router-link :to="{name:'aboutUs'}">
                     About Us
                 </router-link>
@@ -54,34 +54,33 @@ export default {
 <!------------------------------------------------------------------------------>
 
 <style scoped>
-div.root {
-    display: unset;
-}
+/*div.root {*/
+/*    display: unset;*/
+/*}*/
 
-div.HeaderImage {
-    border: 1px solid #1d455b;
-    background-color: #333333;
-    position: relative;
-}
+/*div.HeaderImage {*/
+/*    border: 1px solid #1d455b;*/
+/*    background-color: #333333;*/
+/*    !*position: relative;*!*/
+/*}*/
 
-div.list {
-    overflow: hidden;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
-}
+/*div.list {*/
+/*    overflow: hidden;*/
+/*    position: -webkit-sticky; !* Safari *!*/
+/*    position: sticky;*/
+/*    top: 0;*/
+/*}*/
 
-a {
-    position: relative;
-    display: inline-block;
-    color: white;
-    padding: 2px;
-    padding-top: 10px;
-    padding-right: 10px;
-    margin-right: 2px;
-    margin-left: 2px;
-    border-right: 2px solid gray;
-    text-decoration: none;
-}
-
+/*a {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*    color: white;*/
+/*    padding: 2px;*/
+/*    padding-top: 10px;*/
+/*    padding-right: 10px;*/
+/*    margin-right: 2px;*/
+/*    margin-left: 2px;*/
+/*    border-right: 2px solid gray;*/
+/*    text-decoration: none;*/
+/*}*/
 </style>
