@@ -21,7 +21,7 @@ export default {
     name: "Dashboard",
     data() {
         return {
-            loginStatus:false
+
         }
     },
     mounted() {
@@ -56,6 +56,7 @@ export default {
                 })
         },
         logout() {
+
             axios.post('/logout')
                 .then(response => {
                     console.log(response)

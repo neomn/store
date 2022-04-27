@@ -70,6 +70,9 @@ export default {
                     }
                 })
                 .catch(function (error) {
+                    localStorage.removeItem('user.first_name')
+                    localStorage.removeItem('user.last_name')
+                    localStorage.removeItem('user.email')
                     console.log('error >> \n')
                     console.log(error)
                 })

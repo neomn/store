@@ -20143,9 +20143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Dashboard",
   data: function data() {
-    return {
-      loginStatus: false
-    };
+    return {};
   },
   mounted: function mounted() {
     // this.initCSRFToken()
@@ -20374,6 +20372,9 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       })["catch"](function (error) {
+        localStorage.removeItem('user.first_name');
+        localStorage.removeItem('user.last_name');
+        localStorage.removeItem('user.email');
         console.log('error >> \n');
         console.log(error);
       });
