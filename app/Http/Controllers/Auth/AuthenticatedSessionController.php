@@ -49,8 +49,8 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
             $userData = [
                 'user' => [
-                    'firstName' => $request->user()->first_name,
-                    'lastName' => $request->user()->last_name,
+                    'first_name' => $request->user()->first_name,
+                    'last_name' => $request->user()->last_name,
                     'email' => $request->user()->email,
                 ]
             ];

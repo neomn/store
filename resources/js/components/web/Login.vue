@@ -65,6 +65,10 @@ export default {
                     if (!isEmpty(response.data.user)) {
                         console.log('saving user data in local storage\n')
 
+                        localStorage.setItem('user.first_name',response.data.user.first_name)
+                        localStorage.setItem('user.last_name',response.data.user.last_name)
+                        localStorage.setItem('user.email',response.data.user.email)
+
                         this.$router.push({name: 'dashboard'})
                     }
                 })

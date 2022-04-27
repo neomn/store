@@ -20386,6 +20386,9 @@ __webpack_require__.r(__webpack_exports__);
 
         if (!(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(response.data.user)) {
           console.log('saving user data in local storage\n');
+          localStorage.setItem('user.first_name', response.data.user.first_name);
+          localStorage.setItem('user.last_name', response.data.user.last_name);
+          localStorage.setItem('user.email', response.data.user.email);
 
           _this.$router.push({
             name: 'dashboard'
