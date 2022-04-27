@@ -20175,11 +20175,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     logout: function logout() {
+      localStorage.removeItem('user.first_name');
+      localStorage.removeItem('user.last_name');
+      localStorage.removeItem('user.email');
       axios.post('/logout').then(function (response) {
         console.log(response);
-        localStorage.removeItem('user.first_name');
-        localStorage.removeItem('user.last_name');
-        localStorage.removeItem('user.email');
       })["catch"](function (error) {
         console.log(error);
       });
