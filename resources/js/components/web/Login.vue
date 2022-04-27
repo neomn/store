@@ -26,6 +26,9 @@
 </template>
 
 <script>
+import {isSet} from "lodash/lang";
+import {isEmpty} from "lodash";
+
 export default {
     name: "Login",
     data() {
@@ -58,11 +61,12 @@ export default {
             axios.post('/login', this.formData)
                 .then(response => {
                     console.log('response >> \n')
-                    console.log(response)
-                    // if (this.loginResponse === 'user authenticated successfully') {
-                    //     console.log('redirecting to welcome')
-                    //     this.$router.push({name: 'dashboard'})
-                    // }
+                    console.log(response.data.user)
+                    if (!isEmpty(response.data.user)) {
+                        console.log('saving user data in local storage\n')
+
+                        this.$router.push({name: 'dashboard'})
+                    }
                 })
                 .catch(function (error) {
                     console.log('error >> \n')

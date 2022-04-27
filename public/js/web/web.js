@@ -20318,6 +20318,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/lang */ "./node_modules/lodash/lang.js");
+/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_lang__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -20345,6 +20349,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   data: function data() {
@@ -20369,32 +20375,39 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     login: function login() {
+      var _this = this;
+
       console.log('\n');
       console.log('-------------------------');
       console.log('login >> ');
       axios.post('/login', this.formData).then(function (response) {
         console.log('response >> \n');
-        console.log(response); // if (this.loginResponse === 'user authenticated successfully') {
-        //     console.log('redirecting to welcome')
-        //     this.$router.push({name: 'dashboard'})
-        // }
+        console.log(response.data.user);
+
+        if (!(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(response.data.user)) {
+          console.log('saving user data in local storage\n');
+
+          _this.$router.push({
+            name: 'dashboard'
+          });
+        }
       })["catch"](function (error) {
         console.log('error >> \n');
         console.log(error);
       });
     },
     redirectIfAuthenticated: function redirectIfAuthenticated() {
-      var _this = this;
+      var _this2 = this;
 
       axios.post('/login').then(function (response) {
         console.log('redirect if authenticated >>> ');
         console.log(response.data);
-        _this.loginResponse = response.data;
+        _this2.loginResponse = response.data;
 
-        if (_this.loginResponse === 'user already logged in') {
+        if (_this2.loginResponse === 'user already logged in') {
           console.log('redirecting to welcome');
 
-          _this.$router.push({
+          _this2.$router.push({
             name: 'welcome'
           });
         }
