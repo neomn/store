@@ -53,14 +53,16 @@ export default {
                 })
         },
         login() {
-            axios.post('/login', this.formData, )
+            axios.post('/login', this.formData, {
+
+            } )
                 .then(response => {
                     console.log('attempt to login , results >>>')
-                    console.log(response.data)
+                    console.log(response)
                     this.loginResponse = response.data
                     if (this.loginResponse === 'user authenticated successfully') {
                         console.log('redirecting to welcome')
-                        // this.$router.push({name: 'welcome'})
+                        this.$router.push({name: 'dashboard'})
                     }
                 })
                 .catch(function (error) {

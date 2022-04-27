@@ -20372,13 +20372,17 @@ __webpack_require__.r(__webpack_exports__);
     login: function login() {
       var _this = this;
 
-      axios.post('/login', this.formData).then(function (response) {
+      axios.post('/login', this.formData, {}).then(function (response) {
         console.log('attempt to login , results >>>');
-        console.log(response.data);
+        console.log(response);
         _this.loginResponse = response.data;
 
         if (_this.loginResponse === 'user authenticated successfully') {
-          console.log('redirecting to welcome'); // this.$router.push({name: 'welcome'})
+          console.log('redirecting to welcome');
+
+          _this.$router.push({
+            name: 'dashboard'
+          });
         }
       })["catch"](function (error) {
         console.log(error);
