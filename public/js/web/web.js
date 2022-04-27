@@ -20378,11 +20378,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.loginResponse = response.data;
 
         if (_this.loginResponse === 'user authenticated successfully') {
-          console.log('redirecting to welcome');
-
-          _this.$router.push({
-            name: 'welcome'
-          });
+          console.log('redirecting to welcome'); // this.$router.push({name: 'welcome'})
         }
       })["catch"](function (error) {
         console.log(error);

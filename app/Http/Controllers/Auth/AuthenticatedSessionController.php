@@ -35,16 +35,20 @@ class AuthenticatedSessionController extends Controller
 
         $credentials = $request->only(['email', 'password']);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
-            $request->authenticate();
-            $request->session()->regenerate();
-            return response('admin authenticated successfully');
-        }
+//        if (Auth::guard('admin')->attempt($credentials)) {
+//            $request->authenticate();
+//            $request->session()->regenerate();
+//            return response('admin authenticated successfully');
+//        }
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->authenticate();
             $request->session()->regenerate();
-            return response('user authenticated successfully');
+            return response([
+                $request->user()->first_name,
+                $request->user()->last_name,
+                $request->user()->email,
+                ]);
         }
 
         return response('authentication failed');
