@@ -59,6 +59,9 @@ export default {
             axios.post('/logout')
                 .then(response => {
                     console.log(response)
+                    localStorage.removeItem('user.first_name')
+                    localStorage.removeItem('user.last_name')
+                    localStorage.removeItem('user.email')
                 })
                 .catch(function (error) {
                     console.log(error)

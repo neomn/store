@@ -20179,6 +20179,9 @@ __webpack_require__.r(__webpack_exports__);
     logout: function logout() {
       axios.post('/logout').then(function (response) {
         console.log(response);
+        localStorage.removeItem('user.first_name');
+        localStorage.removeItem('user.last_name');
+        localStorage.removeItem('user.email');
       })["catch"](function (error) {
         console.log(error);
       });
@@ -20224,6 +20227,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -20258,49 +20263,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: [],
   data: function data() {
     return {
       HeaderImage: '../resources/img/WelcomeController.jpg',
-      userLoggedIn: false
+      userLoggedIn: true
     };
   },
   mounted: function mounted() {
-    console.log('\n');
-    console.log('-----------------------------');
-    console.log('Header mounted >');
-    console.log('user Logged In >' + this.userLoggedIn); // this.$watch(
-    //     ()=> this.userLoggedIn , (newValue , oldValue)=> {
-    //
-    //     }
-    // )
-
     this.checkIfLoggedIn();
   },
-  created: function created() {
-    console.log('\n');
-    console.log('-----------------------------');
-    console.log('Header created >');
-    console.log('user Logged In >' + this.userLoggedIn);
-  },
+  created: function created() {},
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
-      var _this = this;
-
       console.log('\n');
       console.log('-------------------------------');
-      console.log('checkIfLoggedIn > ');
-      axios.post('/login').then(function (response) {
-        if (response.data === 'user already logged in') {
-          _this.userLoggedIn = true;
-          console.log(_this.userLoggedIn);
-        } else console.log(_this.userLoggedIn);
-      })["catch"](function (error) {
-        console.log(error);
-        this.userLoggedIn = false;
-        console.log(this.userLoggedIn);
-      });
+      console.log('checkIfLoggedIn > \n');
+      this.userLoggedIn = !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.first_name'));
+      console.log(this.userLoggedIn);
     }
   }
 });
@@ -20318,10 +20300,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/lang */ "./node_modules/lodash/lang.js");
-/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_lang__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -20349,7 +20329,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
@@ -20384,7 +20363,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log('response >> \n');
         console.log(response.data.user);
 
-        if (!(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(response.data.user)) {
+        if (!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(response.data.user)) {
           console.log('saving user data in local storage\n');
           localStorage.setItem('user.first_name', response.data.user.first_name);
           localStorage.setItem('user.last_name', response.data.user.last_name);
@@ -20891,7 +20870,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*div.root {*/\n/*    display: unset;*/\n/*}*/\n\n/*div.HeaderImage {*/\n/*    border: 1px solid #1d455b;*/\n/*    background-color: #333333;*/\n/*    !*position: relative;*!*/\n/*}*/\n\n/*div.list {*/\n/*    overflow: hidden;*/\n/*    position: -webkit-sticky; !* Safari *!*/\n/*    position: sticky;*/\n/*    top: 0;*/\n/*}*/\n\n/*a {*/\n/*    position: relative;*/\n/*    display: inline-block;*/\n/*    color: white;*/\n/*    padding: 2px;*/\n/*    padding-top: 10px;*/\n/*    padding-right: 10px;*/\n/*    margin-right: 2px;*/\n/*    margin-left: 2px;*/\n/*    border-right: 2px solid gray;*/\n/*    text-decoration: none;*/\n/*}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*div.root {*/\n/*    display: unset;*/\n/*}*/\n\n/*div.HeaderImage {*/\n/*    border: 1px solid #1d455b;*/\n/*    background-color: #333333;*/\n/*    !*position: relative;*!*/\n/*}*/\n\n/*div.list {*/\n/*    overflow: hidden;*/\n/*    position: -webkit-sticky; !* Safari *!*/\n/*    position: sticky;*/\n/*    top: 0;*/\n/*}*/\n\n/*a {*/\n/*    position: relative;*/\n/*    display: inline-block;*/\n/*    color: white;*/\n/*    padding: 2px;*/\n/*    padding-top: 10px;*/\n/*    padding-right: 10px;*/\n/*    margin-right: 2px;*/\n/*    margin-left: 2px;*/\n/*    border-right: 2px solid gray;*/\n/*    text-decoration: none;*/\n/*}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
