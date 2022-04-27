@@ -18,6 +18,7 @@
                 <div class=" mx-2 mr-4 inline-block float-right">
                     <router-link v-if="userLoggedIn" :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
+                        <h3 class="inline-block pl-3">{{this.user.first_name}}</h3>
                     </router-link>
                 </div>
                 <div class=" mx-2 inline-block float-right px-2">
@@ -40,7 +41,12 @@ export default {
     data() {
         return {
             HeaderImage: '../resources/img/WelcomeController.jpg',
-            userLoggedIn: true
+            userLoggedIn: true,
+            user: {
+                'first_name': localStorage.getItem('user.first_name'),
+                'last_name': localStorage.getItem('user.first_name'),
+                'email': localStorage.getItem('user.first_name'),
+            },
         }
     },
     mounted() {

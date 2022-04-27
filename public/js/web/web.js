@@ -20261,13 +20261,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: [],
   data: function data() {
     return {
       HeaderImage: '../resources/img/WelcomeController.jpg',
-      userLoggedIn: true
+      userLoggedIn: true,
+      user: {
+        'first_name': localStorage.getItem('user.first_name'),
+        'last_name': localStorage.getItem('user.first_name'),
+        'email': localStorage.getItem('user.first_name')
+      }
     };
   },
   mounted: function mounted() {
@@ -20871,7 +20877,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*div.root {*/\n/*    display: unset;*/\n/*}*/\n\n/*div.HeaderImage {*/\n/*    border: 1px solid #1d455b;*/\n/*    background-color: #333333;*/\n/*    !*position: relative;*!*/\n/*}*/\n\n/*div.list {*/\n/*    overflow: hidden;*/\n/*    position: -webkit-sticky; !* Safari *!*/\n/*    position: sticky;*/\n/*    top: 0;*/\n/*}*/\n\n/*a {*/\n/*    position: relative;*/\n/*    display: inline-block;*/\n/*    color: white;*/\n/*    padding: 2px;*/\n/*    padding-top: 10px;*/\n/*    padding-right: 10px;*/\n/*    margin-right: 2px;*/\n/*    margin-left: 2px;*/\n/*    border-right: 2px solid gray;*/\n/*    text-decoration: none;*/\n/*}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*div.root {*/\n/*    display: unset;*/\n/*}*/\n\n/*div.HeaderImage {*/\n/*    border: 1px solid #1d455b;*/\n/*    background-color: #333333;*/\n/*    !*position: relative;*!*/\n/*}*/\n\n/*div.list {*/\n/*    overflow: hidden;*/\n/*    position: -webkit-sticky; !* Safari *!*/\n/*    position: sticky;*/\n/*    top: 0;*/\n/*}*/\n\n/*a {*/\n/*    position: relative;*/\n/*    display: inline-block;*/\n/*    color: white;*/\n/*    padding: 2px;*/\n/*    padding-top: 10px;*/\n/*    padding-right: 10px;*/\n/*    margin-right: 2px;*/\n/*    margin-left: 2px;*/\n/*    border-right: 2px solid gray;*/\n/*    text-decoration: none;*/\n/*}*/\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47057,6 +47063,10 @@ var render = function () {
                           _c("font-awesome-icon", {
                             attrs: { icon: ["fas", "chart-line"] },
                           }),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "inline-block pl-3" }, [
+                            _vm._v(_vm._s(this.user.first_name)),
+                          ]),
                         ],
                         1
                       )
