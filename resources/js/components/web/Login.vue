@@ -34,7 +34,6 @@ export default {
                 email: '',
                 password: '',
             },
-            loginResponse: '',
         }
     },
     mounted() {
@@ -53,19 +52,20 @@ export default {
                 })
         },
         login() {
-            axios.post('/login', this.formData, {
-
-            } )
+            console.log('\n')
+            console.log('-------------------------')
+            console.log('login >> ')
+            axios.post('/login', this.formData)
                 .then(response => {
-                    console.log('attempt to login , results >>>')
+                    console.log('response >> \n')
                     console.log(response)
-                    this.loginResponse = response.data
-                    if (this.loginResponse === 'user authenticated successfully') {
-                        console.log('redirecting to welcome')
-                        this.$router.push({name: 'dashboard'})
-                    }
+                    // if (this.loginResponse === 'user authenticated successfully') {
+                    //     console.log('redirecting to welcome')
+                    //     this.$router.push({name: 'dashboard'})
+                    // }
                 })
                 .catch(function (error) {
+                    console.log('error >> \n')
                     console.log(error)
                 })
         },

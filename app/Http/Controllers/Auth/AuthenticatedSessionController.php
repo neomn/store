@@ -27,7 +27,7 @@ class AuthenticatedSessionController extends Controller
      * @param \App\Http\Requests\Auth\LoginRequest $request
      *
      */
-    public function store(LoginRequest $request )
+    public function store(LoginRequest $request)
     {
 //        $request->authenticate();
 //        $request->session()->regenerate();
@@ -42,16 +42,19 @@ class AuthenticatedSessionController extends Controller
 //        }
 
 
-//        $userData = [
-//            'firstName' => Auth::user()->first_name,
-//            'lastName' => $request->user(),
-//            'email' => $request->user(),
-//        ];
+//
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->authenticate();
             $request->session()->regenerate();
-           return response(UserResource::make(Auth::user()));
+            $userData = [
+                'user' => [
+                    'firstName' => $request->user()->first_name,
+                    'lastName' => $request->user()->last_name,
+                    'email' => $request->user()->email,
+                ]
+            ];
+            return response($userData);
         }
 
         return response('authentication failed');

@@ -20352,8 +20352,7 @@ __webpack_require__.r(__webpack_exports__);
       formData: {
         email: '',
         password: ''
-      },
-      loginResponse: ''
+      }
     };
   },
   mounted: function mounted() {
@@ -20370,36 +20369,32 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     login: function login() {
-      var _this = this;
-
-      axios.post('/login', this.formData, {}).then(function (response) {
-        console.log('attempt to login , results >>>');
-        console.log(response);
-        _this.loginResponse = response.data;
-
-        if (_this.loginResponse === 'user authenticated successfully') {
-          console.log('redirecting to welcome');
-
-          _this.$router.push({
-            name: 'dashboard'
-          });
-        }
+      console.log('\n');
+      console.log('-------------------------');
+      console.log('login >> ');
+      axios.post('/login', this.formData).then(function (response) {
+        console.log('response >> \n');
+        console.log(response); // if (this.loginResponse === 'user authenticated successfully') {
+        //     console.log('redirecting to welcome')
+        //     this.$router.push({name: 'dashboard'})
+        // }
       })["catch"](function (error) {
+        console.log('error >> \n');
         console.log(error);
       });
     },
     redirectIfAuthenticated: function redirectIfAuthenticated() {
-      var _this2 = this;
+      var _this = this;
 
       axios.post('/login').then(function (response) {
         console.log('redirect if authenticated >>> ');
         console.log(response.data);
-        _this2.loginResponse = response.data;
+        _this.loginResponse = response.data;
 
-        if (_this2.loginResponse === 'user already logged in') {
+        if (_this.loginResponse === 'user already logged in') {
           console.log('redirecting to welcome');
 
-          _this2.$router.push({
+          _this.$router.push({
             name: 'welcome'
           });
         }
