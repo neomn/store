@@ -2,7 +2,7 @@
     <div class="z-0 min-h-screen  bg-slate-800 ">
 
         <!-- header component-->
-        <Header :loginStatus="loginStatus" class="z-10"/>
+        <Header class="z-10"/>
 
         <div class="mt-8">
             <!-- new products  -->
@@ -142,11 +142,10 @@ export default {
         Footer,
     },
     props: [
-        'isLoggedIn',
+
     ],
     data() {
         return {
-            loginStatus: false,
             categories: [],
             favoriteProducts: [],
             newProducts: [],
@@ -155,11 +154,9 @@ export default {
     },
     mounted() {
         this.initData()
-        this.checkIfLoggedIn()
     },
     methods: {
         initData: function () {
-            this.loginStatus = false
             axios.get('api/welcome')
                 .then((response) => {
                     this.favoriteProducts = response.data.favoriteProducts;
@@ -176,19 +173,7 @@ export default {
                     console.log('error while catching data >>> ' + error);
                 });
         },
-        checkIfLoggedIn() {
-            axios.post('/login')
-                .then(response => {
-                    if (response.data === 'user already logged in') {
-                        this.loginStatus = true
-                        console.log('login status >>> ')
-                        console.log(this.loginStatus)
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
-        },
+
     }
 }
 </script>

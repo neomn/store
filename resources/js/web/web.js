@@ -8,8 +8,6 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {fab} from "@fortawesome/free-brands-svg-icons";
 import {far} from "@fortawesome/free-regular-svg-icons";
 
-import App from "../components/web/App";
-import Header from "../components/web/App";
 import Welcome from "../components/web/Welcome";
 import Product from "../components/web/Product";
 import NotFound from "../components/web/NotFound";

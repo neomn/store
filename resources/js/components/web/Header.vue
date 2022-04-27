@@ -11,12 +11,12 @@
                     About Us
                 </router-link>
                 <div class=" mx-2 mr-4 inline-block float-right">
-                    <router-link v-if="!loginStatus" :to="{name:'login'}" class="float-right " href="/api/user">
+                    <router-link v-if="!userLoggedIn" :to="{name:'login'}" class="float-right " href="/api/user">
                         <font-awesome-icon :icon="['fas', 'door-open']"/>
                     </router-link>
                 </div>
                 <div class=" mx-2 mr-4 inline-block float-right">
-                    <router-link v-if="loginStatus" :to="{name:'dashboard'}" href="/api/user">
+                    <router-link v-if="userLoggedIn" :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
                     </router-link>
                 </div>
@@ -34,13 +34,52 @@
 
 <script>
 export default {
-    props: [
-        'loginStatus',
-    ],
+    props: [],
     data() {
         return {
             HeaderImage: '../resources/img/WelcomeController.jpg',
+            userLoggedIn: false
         }
+    },
+    mounted() {
+        console.log('\n')
+        console.log('-----------------------------')
+        console.log('Header mounted >')
+        console.log('user Logged In >' + this.userLoggedIn)
+
+        // this.$watch(
+        //     ()=> this.userLoggedIn , (newValue , oldValue)=> {
+        //
+        //     }
+        // )
+        this.checkIfLoggedIn()
+    },
+    created() {
+        console.log('\n')
+        console.log('-----------------------------')
+        console.log('Header created >')
+        console.log('user Logged In >' + this.userLoggedIn)
+    },
+
+    methods: {
+        checkIfLoggedIn() {
+            console.log('\n')
+            console.log('-------------------------------')
+            console.log('checkIfLoggedIn > ')
+            axios.post('/login')
+                .then(response => {
+                    if (response.data === 'user already logged in') {
+                        this.userLoggedIn = true
+                        console.log(this.userLoggedIn)
+                    } else
+                        console.log(this.userLoggedIn)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                    this.userLoggedIn = false
+                    console.log(this.userLoggedIn)
+                })
+        },
     }
 }
 </script>

@@ -53,9 +53,7 @@ export default {
                 })
         },
         login() {
-            axios.post('/login', this.formData , {
-                // headers:{'Accept' : 'application/json'},
-            })
+            axios.post('/login', this.formData, )
                 .then(response => {
                     console.log('attempt to login , results >>>')
                     console.log(response.data)
@@ -71,23 +69,23 @@ export default {
         },
         redirectIfAuthenticated() {
 
-                axios.post('/login')
-                    .then(response => {
-                        console.log('redirect if authenticated >>> ')
-                        console.log(response.data)
-                        this.loginResponse = response.data
+            axios.post('/login')
+                .then(response => {
+                    console.log('redirect if authenticated >>> ')
+                    console.log(response.data)
+                    this.loginResponse = response.data
 
-                        if (this.loginResponse === 'user already logged in') {
-                            console.log('redirecting to welcome')
-                            this.$router.push({name: 'welcome'})
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error)
-                    })
-            },
+                    if (this.loginResponse === 'user already logged in') {
+                        console.log('redirecting to welcome')
+                        this.$router.push({name: 'welcome'})
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
         },
-    }
+    },
+}
 </script>
 
 <style scoped>
