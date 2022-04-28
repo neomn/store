@@ -14,7 +14,7 @@ use Illuminate\Validation\Rules;
 class RegisteredUserController extends Controller
 {
 
-    public function __invoke (Request $request)
+    public function __invoke(Request $request)
     {
 
 //        $request->validate([
@@ -38,9 +38,9 @@ class RegisteredUserController extends Controller
 //            'password' => '123456789',
 //        ]);
 
-//        event(new Registered($user));
-//        Auth::login($user);
-
+        event(new Registered($user));
+        $user = User::where('email' , $user->email)->first();
+        Auth::login($user);
         return response($user);
     }
 }
