@@ -47561,7 +47561,7 @@ var render = function () {
         "div",
         {
           staticClass:
-            "relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-lime-300",
+            " h-auto relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-lime-300",
         },
         [
           _c(
@@ -47588,7 +47588,7 @@ var render = function () {
                   },
                 },
                 [
-                  _c("div", { staticClass: "flex flex-col m-8" }, [
+                  _c("div", { staticClass: "flex flex-col mx-8" }, [
                     _c("input", {
                       directives: [
                         {
@@ -47731,7 +47731,7 @@ var render = function () {
                       "button",
                       {
                         staticClass:
-                          "block mt-16 justify-end bg-green-900 rounded-lg p-2 px-4 hover:bg-green-600",
+                          " h-8 block mt-16 justify-end bg-green-900 rounded-lg  px-4 hover:bg-green-600",
                         attrs: { type: "submit" },
                       },
                       [_vm._v("Register\n                            ")]

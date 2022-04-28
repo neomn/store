@@ -759,6 +759,18 @@ select {
 .h-72 {
   height: 18rem;
 }
+.h-64 {
+  height: 16rem;
+}
+.h-96 {
+  height: 24rem;
+}
+.h-auto {
+  height: auto;
+}
+.h-3\/4 {
+  height: 75%;
+}
 .min-h-screen {
   min-height: 100vh;
 }
