@@ -3,25 +3,30 @@
         <div class="HeaderImage">
             <!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
         </div>
-        <div class="px-1 py-2  bg-slate-900  rounded text-zinc-300 ">
+        <div class="px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ">
             <ul>
                 <a href="/" class="mx-2">Home</a>
                 <a href="/categories" class="mx-2">Categories</a>
                 <router-link :to="{name:'aboutUs'}" class="mx-2">
                     About Us
                 </router-link>
-                <div class=" mx-2 mr-4 inline-block float-right">
+                <div class=" ml-4  mr-6 mt-1  inline-block float-right">
+                    <router-link v-if="!userLoggedIn" :to="{name:'register'}" class="float-right ">
+                        <font-awesome-icon :icon="['fas' , 'user-plus']"/>
+                    </router-link>
+                </div>
+                <div class=" mx-2 mt-1  inline-block float-right">
                     <router-link v-if="!userLoggedIn" :to="{name:'login'}" class="float-right " href="/api/user">
                         <font-awesome-icon :icon="['fas', 'door-open']"/>
                     </router-link>
                 </div>
-                <div class=" mx-2 mr-4 inline-block float-right">
+                <div class=" mx-2 mt-1  inline-block float-right">
                     <router-link v-if="userLoggedIn" :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
                         <h3 class="inline-block pl-3">{{this.user.first_name}}</h3>
                     </router-link>
                 </div>
-                <div class=" mx-2 inline-block float-right px-2">
+                <div class=" mx-2 mt-1 inline-block float-right ">
                     <router-link :to="{name:'shoppingCart'}">
                         <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
                     </router-link>
