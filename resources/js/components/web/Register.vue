@@ -48,12 +48,16 @@ export default {
     },
     methods:{
         initCSRFToken() {
+            console.log('\n')
+            console.log('-------------------------')
+            console.log('init csrf token >')
             axios.get('/sanctum/csrf-cookie')
                 .then(response => {
-                    console.log('initializing csrf token >>>> ')
+                    console.log('response > \n ')
                     console.log(response)
                 })
                 .catch(function (error) {
+                    console.log('error > \n ')
                     console.log(error)
                 })
         },

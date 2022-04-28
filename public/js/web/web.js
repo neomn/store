@@ -20558,10 +20558,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     initCSRFToken: function initCSRFToken() {
+      console.log('\n');
+      console.log('-------------------------');
+      console.log('init csrf token >');
       axios.get('/sanctum/csrf-cookie').then(function (response) {
-        console.log('initializing csrf token >>>> ');
+        console.log('response > \n ');
         console.log(response);
       })["catch"](function (error) {
+        console.log('error > \n ');
         console.log(error);
       });
     },

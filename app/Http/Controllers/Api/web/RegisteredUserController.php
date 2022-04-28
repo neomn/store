@@ -17,22 +17,30 @@ class RegisteredUserController extends Controller
     public function __invoke (Request $request)
     {
 
-        $request->validate([
-            'firstName' => ['required', 'string', 'max:255'],
-            'lastName' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+//        $request->validate([
+//            'firstName' => ['required', 'string', 'max:255'],
+//            'lastName' => ['required', 'string', 'max:255'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+//        ]);
+
+//        $user = User::create([
+//            'firstName' => $request->firstName,
+//            'lastName' => $request->lastName,
+//            'email' => $request->email,
+//            'password' => Hash::make($request->password),
+//        ]);
 
         $user = User::create([
-            'firstName' => $request->firstName,
-            'lastName' => $request->lastName,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'firstName' => 'Neo',
+            'lastName' => 'mn',
+            'email' => 'neomn@123',
+            'password' => '123456789',
         ]);
 
-        event(new Registered($user));
-        Auth::login($user);
-        return response($user);
+//        event(new Registered($user));
+//        Auth::login($user);
+
+        return response([$user]);
     }
 }
