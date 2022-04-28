@@ -15,9 +15,9 @@
                             <input class=" h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 "
                                    v-model="formData.email"  type="email" placeholder="Email" autocomplete="off">
                             <input class=" h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 "
-                                   v-model="formData.password"  type="password" placeholder="Password">
+                                   v-model="formData.password"  type="password" autocomplete="new-password" placeholder="Password">
                             <input class=" h-8 rounded-lg text-gray-200 bg-slate-700 border border-gray-200"
-                                   v-model="formData.password_confirm" type="password" placeholder="Confirm Password">
+                                   v-model="formData.password_confirm" type="password" autocomplete="new-password" placeholder="Confirm Password">
                             <button class=" h-8 block mt-16 justify-end bg-green-900 rounded-lg  px-4 hover:bg-green-600"
                                     type="submit">Register
                             </button>
@@ -48,7 +48,17 @@ export default {
     },
     methods:{
         register(){
+            console.log('\n')
+            console.log('-------------------------')
+            console.log('Register > ')
+            axios.post('/register' , this.formData )
+            .then(response => {
 
+            })
+            .catch((error) =>{
+                console.log('error > \n')
+                console.log(error)
+            })
         }
     }
 }

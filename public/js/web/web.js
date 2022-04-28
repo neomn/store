@@ -20555,7 +20555,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {},
   methods: {
-    register: function register() {}
+    register: function register() {
+      console.log('\n');
+      console.log('-------------------------');
+      console.log('Register > ');
+      axios.post('/register', this.formData).then(function (response) {})["catch"](function (error) {
+        console.log('error > \n');
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -47681,7 +47689,11 @@ var render = function () {
                       ],
                       staticClass:
                         " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
-                      attrs: { type: "password", placeholder: "Password" },
+                      attrs: {
+                        type: "password",
+                        autocomplete: "new-password",
+                        placeholder: "Password",
+                      },
                       domProps: { value: _vm.formData.password },
                       on: {
                         input: function ($event) {
@@ -47710,6 +47722,7 @@ var render = function () {
                         " h-8 rounded-lg text-gray-200 bg-slate-700 border border-gray-200",
                       attrs: {
                         type: "password",
+                        autocomplete: "new-password",
                         placeholder: "Confirm Password",
                       },
                       domProps: { value: _vm.formData.password_confirm },
