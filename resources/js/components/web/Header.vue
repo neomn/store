@@ -48,9 +48,9 @@ export default {
             HeaderImage: '../resources/img/WelcomeController.jpg',
             userLoggedIn: true,
             user: {
-                'first_name': localStorage.getItem('user.first_name'),
-                'last_name': localStorage.getItem('user.first_name'),
-                'email': localStorage.getItem('user.first_name'),
+                'first_name': localStorage.getItem('user.firstName'),
+                'last_name': localStorage.getItem('user.firstName'),
+                'email': localStorage.getItem('user.firstName'),
             },
         }
     },
@@ -66,7 +66,7 @@ export default {
             console.log('\n')
             console.log('-------------------------------')
             console.log('checkIfLoggedIn > \n')
-            this.userLoggedIn = !isEmpty(localStorage.getItem('user.first_name'))
+            this.userLoggedIn = !isEmpty(localStorage.getItem('user.firstName'))
             console.log(this.userLoggedIn)
         },
     }

@@ -56,8 +56,8 @@ export default {
                 })
         },
         logout() {
-            localStorage.removeItem('user.first_name')
-            localStorage.removeItem('user.last_name')
+            localStorage.removeItem('user.firstName')
+            localStorage.removeItem('user.lastName')
             localStorage.removeItem('user.email')
             axios.post('/logout')
                 .then(response => {

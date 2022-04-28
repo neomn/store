@@ -20175,8 +20175,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     logout: function logout() {
-      localStorage.removeItem('user.first_name');
-      localStorage.removeItem('user.last_name');
+      localStorage.removeItem('user.firstName');
+      localStorage.removeItem('user.lastName');
       localStorage.removeItem('user.email');
       axios.post('/logout').then(function (response) {
         console.log(response);
@@ -20275,9 +20275,9 @@ __webpack_require__.r(__webpack_exports__);
       HeaderImage: '../resources/img/WelcomeController.jpg',
       userLoggedIn: true,
       user: {
-        'first_name': localStorage.getItem('user.first_name'),
-        'last_name': localStorage.getItem('user.first_name'),
-        'email': localStorage.getItem('user.first_name')
+        'first_name': localStorage.getItem('user.firstName'),
+        'last_name': localStorage.getItem('user.firstName'),
+        'email': localStorage.getItem('user.firstName')
       }
     };
   },
@@ -20290,7 +20290,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('\n');
       console.log('-------------------------------');
       console.log('checkIfLoggedIn > \n');
-      this.userLoggedIn = !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.first_name'));
+      this.userLoggedIn = !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
       console.log(this.userLoggedIn);
     }
   }
@@ -20374,8 +20374,8 @@ __webpack_require__.r(__webpack_exports__);
 
         if (!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(response.data.user)) {
           console.log('saving user data in local storage\n');
-          localStorage.setItem('user.first_name', response.data.user.first_name);
-          localStorage.setItem('user.last_name', response.data.user.last_name);
+          localStorage.setItem('user.firstName', response.data.user.first_name);
+          localStorage.setItem('user.lastName', response.data.user.last_name);
           localStorage.setItem('user.email', response.data.user.email);
 
           _this.$router.push({
@@ -20383,8 +20383,8 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       })["catch"](function (error) {
-        localStorage.removeItem('user.first_name');
-        localStorage.removeItem('user.last_name');
+        localStorage.removeItem('user.firstName');
+        localStorage.removeItem('user.lastName');
         localStorage.removeItem('user.email');
         console.log('error >> \n');
         console.log(error);
@@ -20545,21 +20545,33 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       formData: {
-        first_name: '',
-        last_name: '',
+        firstName: '',
+        lastName: '',
         email: '',
-        password: '',
-        password_confirm: ''
-      }
+        password: ''
+      },
+      password_confirm: ''
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.initCSRFToken();
+  },
   methods: {
+    initCSRFToken: function initCSRFToken() {
+      axios.get('/sanctum/csrf-cookie').then(function (response) {
+        console.log('initializing csrf token >>>> ');
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
     register: function register() {
       console.log('\n');
       console.log('-------------------------');
       console.log('Register > ');
-      axios.post('/register', this.formData).then(function (response) {})["catch"](function (error) {
+      axios.post('/api/register', this.formData).then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
         console.log('error > \n');
         console.log(error);
       });
@@ -47602,14 +47614,14 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.formData.first_name,
-                          expression: "formData.first_name",
+                          value: _vm.formData.firstName,
+                          expression: "formData.firstName",
                         },
                       ],
                       staticClass:
                         " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
                       attrs: { type: "text", placeholder: "First Name" },
-                      domProps: { value: _vm.formData.first_name },
+                      domProps: { value: _vm.formData.firstName },
                       on: {
                         input: function ($event) {
                           if ($event.target.composing) {
@@ -47617,7 +47629,7 @@ var render = function () {
                           }
                           _vm.$set(
                             _vm.formData,
-                            "first_name",
+                            "firstName",
                             $event.target.value
                           )
                         },
@@ -47629,14 +47641,14 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.formData.last_name,
-                          expression: "formData.last_name",
+                          value: _vm.formData.lastName,
+                          expression: "formData.lastName",
                         },
                       ],
                       staticClass:
                         " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
                       attrs: { type: "text", placeholder: "Last Name" },
-                      domProps: { value: _vm.formData.last_name },
+                      domProps: { value: _vm.formData.lastName },
                       on: {
                         input: function ($event) {
                           if ($event.target.composing) {
@@ -47644,7 +47656,7 @@ var render = function () {
                           }
                           _vm.$set(
                             _vm.formData,
-                            "last_name",
+                            "lastName",
                             $event.target.value
                           )
                         },
@@ -47714,8 +47726,8 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.formData.password_confirm,
-                          expression: "formData.password_confirm",
+                          value: _vm.password_confirm,
+                          expression: "password_confirm",
                         },
                       ],
                       staticClass:
@@ -47725,17 +47737,13 @@ var render = function () {
                         autocomplete: "new-password",
                         placeholder: "Confirm Password",
                       },
-                      domProps: { value: _vm.formData.password_confirm },
+                      domProps: { value: _vm.password_confirm },
                       on: {
                         input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(
-                            _vm.formData,
-                            "password_confirm",
-                            $event.target.value
-                          )
+                          _vm.password_confirm = $event.target.value
                         },
                       },
                     }),

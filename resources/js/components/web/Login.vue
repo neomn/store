@@ -63,15 +63,15 @@ export default {
                     console.log(response.data.user)
                     if (!isEmpty(response.data.user)) {
                         console.log('saving user data in local storage\n')
-                        localStorage.setItem('user.first_name',response.data.user.first_name)
-                        localStorage.setItem('user.last_name',response.data.user.last_name)
+                        localStorage.setItem('user.firstName',response.data.user.first_name)
+                        localStorage.setItem('user.lastName',response.data.user.last_name)
                         localStorage.setItem('user.email',response.data.user.email)
                         this.$router.push({name: 'dashboard'})
                     }
                 })
                 .catch(function (error) {
-                    localStorage.removeItem('user.first_name')
-                    localStorage.removeItem('user.last_name')
+                    localStorage.removeItem('user.firstName')
+                    localStorage.removeItem('user.lastName')
                     localStorage.removeItem('user.email')
                     console.log('error >> \n')
                     console.log(error)
