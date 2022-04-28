@@ -24,23 +24,23 @@ class RegisteredUserController extends Controller
 //            'password' => ['required', 'confirmed', Rules\Password::defaults()],
 //        ]);
 
-//        $user = User::create([
-//            'firstName' => $request->firstName,
-//            'lastName' => $request->lastName,
-//            'email' => $request->email,
-//            'password' => Hash::make($request->password),
-//        ]);
-
         $user = User::create([
-            'firstName' => 'Neo',
-            'lastName' => 'mn',
-            'email' => 'neomn@123',
-            'password' => '123456789',
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
+
+//        $user = User::create([
+//            'firstName' => 'Neo',
+//            'lastName' => 'mn',
+//            'email' => 'neomn@123',
+//            'password' => '123456789',
+//        ]);
 
 //        event(new Registered($user));
 //        Auth::login($user);
 
-        return response([$user]);
+        return response($user);
     }
 }
