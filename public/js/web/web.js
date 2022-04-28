@@ -20536,8 +20536,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Register"
+  name: "Register",
+  data: function data() {
+    return {
+      formData: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        password_confirm: ''
+      }
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    register: function register() {}
+  }
 });
 
 /***/ }),
@@ -47150,12 +47169,14 @@ var render = function () {
                 [_vm._v("\n                About Us\n            ")]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: " ml-4  mr-6 mt-1  inline-block float-right" },
-                [
-                  !_vm.userLoggedIn
-                    ? _c(
+              !_vm.userLoggedIn
+                ? _c(
+                    "div",
+                    {
+                      staticClass: " ml-4  mr-6 mt-1  inline-block float-right",
+                    },
+                    [
+                      _c(
                         "router-link",
                         {
                           staticClass: "float-right ",
@@ -47167,11 +47188,11 @@ var render = function () {
                           }),
                         ],
                         1
-                      )
-                    : _vm._e(),
-                ],
-                1
-              ),
+                      ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
@@ -47540,7 +47561,7 @@ var render = function () {
         "div",
         {
           staticClass:
-            "relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-gray-200",
+            "relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-lime-300",
         },
         [
           _c(
@@ -47549,7 +47570,7 @@ var render = function () {
               staticClass:
                 "my-8 mx-8 bg-slate-800 text-3xl text-center rounded-lg h-10",
             },
-            [_vm._v("Enter Your Credential To Login ")]
+            [_vm._v("Welcome To Your Tesla Store ")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "text-left rounded-md" }, [
@@ -47562,20 +47583,65 @@ var render = function () {
                   on: {
                     submit: function ($event) {
                       $event.preventDefault()
-                      return _vm.login.apply(null, arguments)
+                      return _vm.register.apply(null, arguments)
                     },
                   },
                 },
                 [
                   _c("div", { staticClass: "flex flex-col m-8" }, [
-                    _c(
-                      "label",
-                      {
-                        staticClass: "block mb-2 ml-2",
-                        attrs: { for: "email" },
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.formData.first_name,
+                          expression: "formData.first_name",
+                        },
+                      ],
+                      staticClass:
+                        " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
+                      attrs: { type: "text", placeholder: "First Name" },
+                      domProps: { value: _vm.formData.first_name },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.formData,
+                            "first_name",
+                            $event.target.value
+                          )
+                        },
                       },
-                      [_vm._v("Email ")]
-                    ),
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.formData.last_name,
+                          expression: "formData.last_name",
+                        },
+                      ],
+                      staticClass:
+                        " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
+                      attrs: { type: "text", placeholder: "Last Name" },
+                      domProps: { value: _vm.formData.last_name },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.formData,
+                            "last_name",
+                            $event.target.value
+                          )
+                        },
+                      },
+                    }),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -47587,12 +47653,11 @@ var render = function () {
                         },
                       ],
                       staticClass:
-                        "mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
+                        " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
                       attrs: {
-                        name: "email",
-                        id: "email",
                         type: "email",
-                        autocomplete: "email",
+                        placeholder: "Email",
+                        autocomplete: "off",
                       },
                       domProps: { value: _vm.formData.email },
                       on: {
@@ -47605,15 +47670,6 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "block mb-1 ml-2",
-                        attrs: { for: "password" },
-                      },
-                      [_vm._v("Password")]
-                    ),
-                    _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
@@ -47624,13 +47680,8 @@ var render = function () {
                         },
                       ],
                       staticClass:
-                        "rounded-lg text-gray-200 bg-slate-700 border border-gray-200",
-                      attrs: {
-                        name: "password",
-                        id: "password",
-                        type: "password",
-                        autocomplete: "current-password",
-                      },
+                        " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
+                      attrs: { type: "password", placeholder: "Password" },
                       domProps: { value: _vm.formData.password },
                       on: {
                         input: function ($event) {
@@ -47646,6 +47697,36 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.formData.password_confirm,
+                          expression: "formData.password_confirm",
+                        },
+                      ],
+                      staticClass:
+                        " h-8 rounded-lg text-gray-200 bg-slate-700 border border-gray-200",
+                      attrs: {
+                        type: "password",
+                        placeholder: "Confirm Password",
+                      },
+                      domProps: { value: _vm.formData.password_confirm },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.formData,
+                            "password_confirm",
+                            $event.target.value
+                          )
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
                     _c(
                       "button",
                       {
@@ -47653,7 +47734,7 @@ var render = function () {
                           "block mt-16 justify-end bg-green-900 rounded-lg p-2 px-4 hover:bg-green-600",
                         attrs: { type: "submit" },
                       },
-                      [_vm._v("login\n                        ")]
+                      [_vm._v("Register\n                            ")]
                     ),
                   ]),
                 ]

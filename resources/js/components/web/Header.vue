@@ -10,8 +10,8 @@
                 <router-link :to="{name:'aboutUs'}" class="mx-2">
                     About Us
                 </router-link>
-                <div class=" ml-4  mr-6 mt-1  inline-block float-right">
-                    <router-link v-if="!userLoggedIn" :to="{name:'register'}" class="float-right ">
+                <div v-if="!userLoggedIn" class=" ml-4  mr-6 mt-1  inline-block float-right">
+                    <router-link  :to="{name:'register'}" class="float-right ">
                         <font-awesome-icon :icon="['fas' , 'user-plus']"/>
                     </router-link>
                 </div>

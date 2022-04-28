@@ -798,6 +798,9 @@ select {
 .w-screen {
   width: 100vw;
 }
+.w-16 {
+  width: 4rem;
+}
 .max-w-xl {
   max-width: 36rem;
 }
