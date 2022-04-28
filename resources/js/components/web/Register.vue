@@ -9,9 +9,9 @@
                     <form class="flex flex-col justify-center" action="#" @submit.prevent="register">
                         <div class="flex flex-col mx-8">
                             <input class=" h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 "
-                                   v-model="formData.firstName" type="text" placeholder="First Name">
+                                   v-model="formData.first_name" type="text" placeholder="First Name">
                             <input class=" h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 "
-                                   v-model="formData.lastName" type="text" placeholder="Last Name" >
+                                   v-model="formData.last_name" type="text" placeholder="Last Name" >
                             <input class=" h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 "
                                    v-model="formData.email"  type="email" placeholder="Email" autocomplete="off">
                             <input class=" h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 "
@@ -35,8 +35,8 @@ export default {
     data(){
       return {
           formData: {
-              firstName: '',
-              lastName: '',
+              first_name: '',
+              last_name: '',
               email: '',
               password: '',
           },

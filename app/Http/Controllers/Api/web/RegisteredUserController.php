@@ -25,22 +25,23 @@ class RegisteredUserController extends Controller
 //        ]);
 
         $user = User::create([
-            'firstName' => $request->firstName,
-            'lastName' => $request->lastName,
+            'firstName' => $request->first_name,
+            'lastName' => $request->last_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-//        $user = User::create([
-//            'firstName' => 'Neo',
-//            'lastName' => 'mn',
-//            'email' => 'neomn@123',
-//            'password' => '123456789',
-//        ]);
-
         event(new Registered($user));
         $user = User::where('email' , $user->email)->first();
         Auth::login($user);
-        return response($user);
+
+        $userData = [
+            'user' => [
+                'firstName' => $user->firstName,
+                'lastName' => $user->lastName,
+                'email' => $user->email,
+            ]
+        ];
+        return response($userData);
     }
 }

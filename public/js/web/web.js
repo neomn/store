@@ -20545,8 +20545,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       formData: {
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: ''
       },
@@ -47618,14 +47618,14 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.formData.firstName,
-                          expression: "formData.firstName",
+                          value: _vm.formData.first_name,
+                          expression: "formData.first_name",
                         },
                       ],
                       staticClass:
                         " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
                       attrs: { type: "text", placeholder: "First Name" },
-                      domProps: { value: _vm.formData.firstName },
+                      domProps: { value: _vm.formData.first_name },
                       on: {
                         input: function ($event) {
                           if ($event.target.composing) {
@@ -47633,7 +47633,7 @@ var render = function () {
                           }
                           _vm.$set(
                             _vm.formData,
-                            "firstName",
+                            "first_name",
                             $event.target.value
                           )
                         },
@@ -47645,14 +47645,14 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.formData.lastName,
-                          expression: "formData.lastName",
+                          value: _vm.formData.last_name,
+                          expression: "formData.last_name",
                         },
                       ],
                       staticClass:
                         " h-8 mb-5 rounded-lg text-gray-200 bg-slate-700 border border-gray-200 ",
                       attrs: { type: "text", placeholder: "Last Name" },
-                      domProps: { value: _vm.formData.lastName },
+                      domProps: { value: _vm.formData.last_name },
                       on: {
                         input: function ($event) {
                           if ($event.target.composing) {
@@ -47660,7 +47660,7 @@ var render = function () {
                           }
                           _vm.$set(
                             _vm.formData,
-                            "lastName",
+                            "last_name",
                             $event.target.value
                           )
                         },
