@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import {isEmpty} from "lodash";
+
 export default {
     name: "Register",
     data(){
@@ -68,8 +70,18 @@ export default {
             axios.post('/api/register' , this.formData )
             .then(response => {
                 console.log(response.data)
+                if (!isEmpty(response.data.user)) {
+                    console.log('saving user data in local storage\n')
+                    localStorage.setItem('user.firstName',response.data.user.first_name)
+                    localStorage.setItem('user.lastName',response.data.user.last_name)
+                    localStorage.setItem('user.email',response.data.user.email)
+                    this.$router.push({name: 'dashboard'})
+                }
             })
             .catch((error) =>{
+                localStorage.removeItem('user.firstName')
+                localStorage.removeItem('user.lastName')
+                localStorage.removeItem('user.email')
                 console.log('error > \n')
                 console.log(error)
             })

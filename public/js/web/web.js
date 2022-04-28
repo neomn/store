@@ -20509,6 +20509,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -20540,6 +20542,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Register",
   data: function data() {
@@ -20570,12 +20573,28 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     register: function register() {
+      var _this = this;
+
       console.log('\n');
       console.log('-------------------------');
       console.log('Register > ');
       axios.post('/api/register', this.formData).then(function (response) {
         console.log(response.data);
+
+        if (!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(response.data.user)) {
+          console.log('saving user data in local storage\n');
+          localStorage.setItem('user.firstName', response.data.user.first_name);
+          localStorage.setItem('user.lastName', response.data.user.last_name);
+          localStorage.setItem('user.email', response.data.user.email);
+
+          _this.$router.push({
+            name: 'dashboard'
+          });
+        }
       })["catch"](function (error) {
+        localStorage.removeItem('user.firstName');
+        localStorage.removeItem('user.lastName');
+        localStorage.removeItem('user.email');
         console.log('error > \n');
         console.log(error);
       });
