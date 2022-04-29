@@ -20638,6 +20638,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Header_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.vue */ "./resources/js/components/web/Header.vue");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/web/Footer.vue");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -20771,6 +20773,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -20785,7 +20790,8 @@ __webpack_require__.r(__webpack_exports__);
       categories: [],
       favoriteProducts: [],
       newProducts: [],
-      topSells: []
+      topSells: [] // userLoggedIn: true,
+
     };
   },
   mounted: function mounted() {
@@ -20808,6 +20814,21 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log('error while catching data >>> ' + error);
       });
+    },
+    addToShoppingCart: function addToShoppingCart(product) {
+      if (this.checkIfLoggedIn()) {} else {
+        console.log('saving product in local storage');
+        localStorage.setItem('product.' + product.number + '.name', product.name);
+        localStorage.setItem('product.' + product.number + '.number', product.number);
+        localStorage.setItem('product.' + product.price + '.price', product.price);
+      }
+    },
+    checkIfLoggedIn: function checkIfLoggedIn() {
+      console.log('\n');
+      console.log('-------------------------------');
+      console.log('checkIfLoggedIn > \n');
+      console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName')));
+      return !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
     }
   }
 });
@@ -47888,7 +47909,25 @@ var render = function () {
                         "rounded text-center  absolute bottom-0 border-t w-full h-16",
                     },
                     [
-                      _vm._m(1, true),
+                      _c("div", [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                            on: {
+                              click: function ($event) {
+                                return _vm.addToShoppingCart(product)
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              " add to shopping cart\n                            "
+                            ),
+                          ]
+                        ),
+                      ]),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -47933,7 +47972,7 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticClass: "mt-8" }, [
         _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-          _vm._m(2),
+          _vm._m(1),
           _vm._v(" "),
           _c(
             "div",
@@ -47975,7 +48014,7 @@ var render = function () {
                         "rounded text-center  absolute bottom-0 border-t w-full h-16",
                     },
                     [
-                      _vm._m(3, true),
+                      _vm._m(2, true),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -48020,7 +48059,7 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticClass: "mt-8" }, [
         _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-          _vm._m(4),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "div",
@@ -48062,7 +48101,7 @@ var render = function () {
                         "rounded text-center  absolute bottom-0 border-t w-full h-16",
                     },
                     [
-                      _vm._m(5, true),
+                      _vm._m(4, true),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -48117,18 +48156,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: " ml-8 inline-flex text-gray-200 " }, [
       _c("h1", [_vm._v(" new products in recent month")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        { staticClass: "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800" },
-        [_vm._v(" add to shopping cart\n                            ")]
-      ),
     ])
   },
   function () {

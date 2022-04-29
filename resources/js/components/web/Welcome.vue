@@ -5,6 +5,7 @@
         <Header class="z-10"/>
 
         <div class="mt-8">
+
             <!-- new products  -->
             <div class="py-8 pr-8 text-gray-200">
                 <div class=" ml-8 inline-flex text-gray-200 ">
@@ -27,7 +28,8 @@
                         <!--card buttons-->
                         <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
                             <div>
-                                <button class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart
+                                <button @click="addToShoppingCart(product)"
+                                        class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart
                                 </button>
                             </div>
                             <div>
@@ -134,6 +136,7 @@
 <script>
 import Header from './Header.vue';
 import Footer from './Footer';
+import {isEmpty} from "lodash";
 
 export default {
     name: 'web',
@@ -141,15 +144,14 @@ export default {
         Header,
         Footer,
     },
-    props: [
-
-    ],
+    props: [],
     data() {
         return {
             categories: [],
             favoriteProducts: [],
             newProducts: [],
             topSells: [],
+            // userLoggedIn: true,
         }
     },
     mounted() {
@@ -172,6 +174,25 @@ export default {
                 .catch(function (error) {
                     console.log('error while catching data >>> ' + error);
                 });
+        },
+
+        addToShoppingCart(product) {
+            if (this.checkIfLoggedIn()){
+
+            }
+            else {
+                console.log('saving product in local storage')
+                localStorage.setItem('product.'+product.number+'.name' , product.name)
+                localStorage.setItem('product.'+product.number+'.number' , product.number)
+                localStorage.setItem('product.'+product.price+'.price' , product.price)
+            }
+        },
+        checkIfLoggedIn() {
+            console.log('\n')
+            console.log('-------------------------------')
+            console.log('checkIfLoggedIn > \n')
+            console.log(!isEmpty(localStorage.getItem('user.firstName')))
+            return !isEmpty(localStorage.getItem('user.firstName'))
         },
 
     }
