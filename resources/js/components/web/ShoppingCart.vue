@@ -11,26 +11,26 @@ export default {
     name: "ShoppingCart",
     data(){
         return {
-            products: [],
+            products: {},
         }
     },
     mounted() {
-        this.checkForProducts()
+        this.retrieveLocalStorageProducts()
     },
     methods: {
-        checkForProducts(){
+        retrieveLocalStorageProducts(){
             console.log('\n')
             console.log('----------------------------')
-            console.log('checking for products > \n')
+            console.log('retrieve LocalStorage Products > \n')
             if (this.checkIfLoggedIn()){
                 console.log('checking for shopping cart products in database')
             }
             else {
                 console.log('checking for products in local storage')
-                let products = []
-                for (let i = 0; i < localStorage.length; i++){
-                    if (localStorage.key(i).substring(0,3) == 'products.name') {
-                        arr.push(localStorage.key(i));
+                let products = {}
+                for (let i = 0; i <= localStorage.length; i++){
+                    if (localStorage.key(i).substring(0,9) === 'product.'+i) {
+                        products.push(localStorage.key(i));
                     }
                 }
 

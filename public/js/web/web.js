@@ -20628,27 +20628,27 @@ __webpack_require__.r(__webpack_exports__);
   name: "ShoppingCart",
   data: function data() {
     return {
-      products: []
+      products: {}
     };
   },
   mounted: function mounted() {
-    this.checkForProducts();
+    this.retrieveLocalStorageProducts();
   },
   methods: {
-    checkForProducts: function checkForProducts() {
+    retrieveLocalStorageProducts: function retrieveLocalStorageProducts() {
       console.log('\n');
       console.log('----------------------------');
-      console.log('checking for products > \n');
+      console.log('retrieve LocalStorage Products > \n');
 
       if (this.checkIfLoggedIn()) {
         console.log('checking for shopping cart products in database');
       } else {
         console.log('checking for products in local storage');
-        var products = [];
+        var products = {};
 
-        for (var i = 0; i < localStorage.length; i++) {
-          if (localStorage.key(i).substring(0, 3) == 'products.name') {
-            arr.push(localStorage.key(i));
+        for (var i = 0; i <= localStorage.length; i++) {
+          if (localStorage.key(i).substring(0, 9) === 'product.' + i) {
+            products.push(localStorage.key(i));
           }
         }
       }
@@ -20859,9 +20859,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.checkIfLoggedIn()) {} else {
         console.log('saving product in local storage');
         var prefix = localStorage.length;
-        localStorage.setItem('product.' + prefix + '.name', product.name);
         localStorage.setItem('product.' + prefix + '.number', product.number);
-        localStorage.setItem('product.' + prefix + '.price', product.price);
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {

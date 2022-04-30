@@ -182,9 +182,7 @@ export default {
             } else {
                 console.log('saving product in local storage')
                 let prefix = localStorage.length
-                localStorage.setItem('product.'+ prefix + '.name', product.name)
                 localStorage.setItem('product.' + prefix + '.number', product.number)
-                localStorage.setItem('product.' + prefix  + '.price', product.price)
             }
         },
         checkIfLoggedIn() {
