@@ -181,7 +181,7 @@ export default {
 
             } else {
                 console.log('saving product in local storage')
-                let prefix = localStorage.length
+                let prefix = localStorage.length+1
                 localStorage.setItem('product.' + prefix + '.number', product.number)
             }
         },

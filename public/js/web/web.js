@@ -20628,7 +20628,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "ShoppingCart",
   data: function data() {
     return {
-      products: {}
+      products: []
     };
   },
   mounted: function mounted() {
@@ -20644,20 +20644,27 @@ __webpack_require__.r(__webpack_exports__);
         console.log('checking for shopping cart products in database');
       } else {
         console.log('checking for products in local storage');
-        var products = {};
+        var products = [];
 
-        for (var i = 0; i <= localStorage.length; i++) {
-          if (localStorage.key(i).substring(0, 9) === 'product.' + i) {
-            products.push(localStorage.key(i));
+        if (localStorage.length > 0) {
+          for (var i = 1; i <= localStorage.length; i++) {
+            if (localStorage.key(i - 1).substring(0, 8) === 'product.') {
+              console.log('product found in local storage > \n');
+              products.push(localStorage.getItem(localStorage.key(i - 1)));
+              console.log('product number > ' + products[i - 1] + '\n\n');
+            } else {
+              console.log('no product found \n');
+            }
           }
-        }
+        } else console.log('local storage is empty');
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
-      console.log('-------------------------------');
+      console.log('-----------------');
       console.log('checkIfLoggedIn > \n');
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName')));
+      console.log('----------------\n\n');
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
     }
   }
@@ -20858,7 +20865,7 @@ __webpack_require__.r(__webpack_exports__);
     addToShoppingCart: function addToShoppingCart(product) {
       if (this.checkIfLoggedIn()) {} else {
         console.log('saving product in local storage');
-        var prefix = localStorage.length;
+        var prefix = localStorage.length + 1;
         localStorage.setItem('product.' + prefix + '.number', product.number);
       }
     },
