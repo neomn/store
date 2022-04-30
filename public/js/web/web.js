@@ -20627,6 +20627,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShoppingCart",
@@ -47037,7 +47057,12 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-slate-800" }, [_c("router-view")], 1)
+  return _c(
+    "div",
+    { staticClass: "min-h-screen bg-slate-800" },
+    [_c("router-view")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -47910,18 +47935,49 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: " min-h-screen bg-slate-800" },
-    _vm._l(_vm.products, function (product) {
-      return _c("div", { staticClass: " bg-slate-700 text-gray-200" }, [
-        _vm._v("\n        " + _vm._s(product.name) + "\n    "),
-      ])
-    }),
-    0
-  )
+  return _c("div", [
+    _c("div", { staticClass: "flex flex-col justify-center " }, [
+      _c("div", { staticClass: "m-8 bg-slate-700 text-gray-200" }, [
+        _c("table", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.products, function (product) {
+              return _c("tr", [
+                _c("td", [_vm._v(_vm._s(product.number))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(product.name))]),
+                _vm._v(_vm._s(product.price)),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(product.count))]),
+              ])
+            }),
+            0
+          ),
+        ]),
+      ]),
+    ]),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v(" Product Number")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v(" Name")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v(" Price")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v(" Count")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
