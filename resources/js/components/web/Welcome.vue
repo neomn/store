@@ -28,7 +28,7 @@
                         <!--card buttons-->
                         <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
                             <div>
-                                <button @click="addToShoppingCart(product)"
+                                <button @click="addProductTOShoppingCart(product)"
                                         class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping cart
                                 </button>
                             </div>
@@ -176,15 +176,31 @@ export default {
                 });
         },
 
-        addToShoppingCart(product) {
+        addProductTOShoppingCart(product) {
+            console.log('\n')
+            console.log('------------------------------ \n')
+            console.log('adding product to shopping cart \n')
             if (this.checkIfLoggedIn()) {
+
+            } else if (this.productAlreadyExistInShoppingCart(product)) {
 
             } else {
                 product.count = 1
                 console.log('saving product in local storage')
-                let suffix = localStorage.length+1
-                localStorage.setItem('product.' + suffix , JSON.stringify(product))
+                let suffix = localStorage.length + 1
+                localStorage.setItem('product.' + suffix, JSON.stringify(product))
             }
+
+        },
+        productAlreadyExistInShoppingCart(product) {
+            if (localStorage.length > 0)
+                for (let i = 0; i < localStorage.length; i++)
+                    if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+                        console.log('product already exist in local storage \n')
+                        return true
+                    }
+            console.log('product doesnt exist in local storage \n ')
+            return false
         },
         checkIfLoggedIn() {
             console.log('\n')
@@ -193,8 +209,14 @@ export default {
             console.log(!isEmpty(localStorage.getItem('user.firstName')))
             return !isEmpty(localStorage.getItem('user.firstName'))
         },
-
+        // test(product){
+        //     let temp = JSON.stringify(product)
+        //     console.log(temp + '\n\n')
+        //     temp = JSON.parse(temp)
+        //     console.log(temp.number )
+        // }
     }
+
 }
 </script>
 

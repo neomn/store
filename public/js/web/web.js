@@ -20862,13 +20862,27 @@ __webpack_require__.r(__webpack_exports__);
         console.log('error while catching data >>> ' + error);
       });
     },
-    addToShoppingCart: function addToShoppingCart(product) {
-      if (this.checkIfLoggedIn()) {} else {
+    addProductTOShoppingCart: function addProductTOShoppingCart(product) {
+      console.log('\n');
+      console.log('------------------------------ \n');
+      console.log('adding product to shopping cart \n');
+
+      if (this.checkIfLoggedIn()) {} else if (this.productAlreadyExistInShoppingCart(product)) {} else {
         product.count = 1;
         console.log('saving product in local storage');
         var suffix = localStorage.length + 1;
         localStorage.setItem('product.' + suffix, JSON.stringify(product));
       }
+    },
+    productAlreadyExistInShoppingCart: function productAlreadyExistInShoppingCart(product) {
+      if (localStorage.length > 0) for (var i = 0; i < localStorage.length; i++) {
+        if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+          console.log('product already exist in local storage \n');
+          return true;
+        }
+      }
+      console.log('product doesnt exist in local storage \n ');
+      return false;
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
@@ -20876,7 +20890,13 @@ __webpack_require__.r(__webpack_exports__);
       console.log('checkIfLoggedIn > \n');
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName')));
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
-    }
+    } // test(product){
+    //     let temp = JSON.stringify(product)
+    //     console.log(temp + '\n\n')
+    //     temp = JSON.parse(temp)
+    //     console.log(temp.number )
+    // }
+
   }
 });
 
@@ -47964,7 +47984,7 @@ var render = function () {
                               "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
                             on: {
                               click: function ($event) {
-                                return _vm.addToShoppingCart(product)
+                                return _vm.addProductTOShoppingCart(product)
                               },
                             },
                           },
