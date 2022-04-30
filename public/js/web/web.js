@@ -20623,6 +20623,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShoppingCart",
@@ -20644,14 +20648,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log('checking for shopping cart products in database');
       } else {
         console.log('checking for products in local storage');
-        var products = [];
 
         if (localStorage.length > 0) {
           for (var i = 1; i <= localStorage.length; i++) {
             if (localStorage.key(i - 1).substring(0, 8) === 'product.') {
               console.log('product found in local storage > \n');
-              products.push(localStorage.getItem(localStorage.key(i - 1)));
-              console.log('product number > ' + products[i - 1] + '\n\n');
+              this.products.push(JSON.parse(localStorage.getItem(localStorage.key(i - 1))));
+              console.log(this.products[i - 1]);
             } else {
               console.log('no product found \n');
             }
@@ -47907,7 +47910,16 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " min-h-screen bg-slate-800" })
+  return _c(
+    "div",
+    { staticClass: " min-h-screen bg-slate-800" },
+    _vm._l(_vm.products, function (product) {
+      return _c("div", { staticClass: " bg-slate-700 text-gray-200" }, [
+        _vm._v("\n        " + _vm._s(product.name) + "\n    "),
+      ])
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

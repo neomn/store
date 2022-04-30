@@ -1,5 +1,9 @@
 <template>
     <div class=" min-h-screen bg-slate-800">
+        <!-- display shopping cart products -->
+        <div v-for="product in products" class=" bg-slate-700 text-gray-200">
+            {{product.name}}
+        </div>
 
     </div>
 </template>
@@ -26,13 +30,12 @@ export default {
                 console.log('checking for shopping cart products in database')
             } else {
                 console.log('checking for products in local storage')
-                let products = []
                 if (localStorage.length > 0) {
                     for (let i = 1; i <= localStorage.length; i++) {
                         if (localStorage.key(i-1).substring(0, 8) === 'product.') {
                             console.log('product found in local storage > \n')
-                            products.push(localStorage.getItem(localStorage.key(i-1)));
-                            console.log('product number > ' + products[i-1] + '\n\n')
+                            this.products.push(JSON.parse(localStorage.getItem(localStorage.key(i-1))));
+                            console.log(this.products[i-1])
                         } else {
                             console.log('no product found \n')
                         }
