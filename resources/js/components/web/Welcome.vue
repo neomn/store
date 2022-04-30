@@ -175,7 +175,6 @@ export default {
                     console.log('error while catching data >>> ' + error);
                 });
         },
-
         addProductTOShoppingCart(product) {
             console.log('\n')
             console.log('------------------------------ \n')
@@ -183,7 +182,7 @@ export default {
             if (this.checkIfLoggedIn()) {
 
             } else if (this.productAlreadyExistInShoppingCart(product)) {
-
+                    this.incrementProductCount(product)
             } else {
                 product.count = 1
                 console.log('saving product in local storage')
@@ -202,6 +201,15 @@ export default {
             console.log('product doesnt exist in local storage \n ')
             return false
         },
+        incrementProductCount(product){
+            for (let i = 0; i < localStorage.length; i++)
+                if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+                    console.log('incrementing product count by one  \n')
+                    product = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                    product.count++
+                    localStorage.setItem(localStorage.key(i) , JSON.stringify(product))
+                }
+        },
         checkIfLoggedIn() {
             console.log('\n')
             console.log('-------------------------------')
@@ -209,12 +217,6 @@ export default {
             console.log(!isEmpty(localStorage.getItem('user.firstName')))
             return !isEmpty(localStorage.getItem('user.firstName'))
         },
-        // test(product){
-        //     let temp = JSON.stringify(product)
-        //     console.log(temp + '\n\n')
-        //     temp = JSON.parse(temp)
-        //     console.log(temp.number )
-        // }
     }
 
 }

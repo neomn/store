@@ -20867,7 +20867,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log('------------------------------ \n');
       console.log('adding product to shopping cart \n');
 
-      if (this.checkIfLoggedIn()) {} else if (this.productAlreadyExistInShoppingCart(product)) {} else {
+      if (this.checkIfLoggedIn()) {} else if (this.productAlreadyExistInShoppingCart(product)) {
+        this.incrementProductCount(product);
+      } else {
         product.count = 1;
         console.log('saving product in local storage');
         var suffix = localStorage.length + 1;
@@ -20884,19 +20886,23 @@ __webpack_require__.r(__webpack_exports__);
       console.log('product doesnt exist in local storage \n ');
       return false;
     },
+    incrementProductCount: function incrementProductCount(product) {
+      for (var i = 0; i < localStorage.length; i++) {
+        if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+          console.log('incrementing product count by one  \n');
+          product = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          product.count++;
+          localStorage.setItem(localStorage.key(i), JSON.stringify(product));
+        }
+      }
+    },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
       console.log('-------------------------------');
       console.log('checkIfLoggedIn > \n');
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName')));
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
-    } // test(product){
-    //     let temp = JSON.stringify(product)
-    //     console.log(temp + '\n\n')
-    //     temp = JSON.parse(temp)
-    //     console.log(temp.number )
-    // }
-
+    }
   }
 });
 
