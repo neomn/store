@@ -20615,12 +20615,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
 //
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "ShoppingCart"
+  name: "ShoppingCart",
+  data: function data() {
+    return {
+      products: []
+    };
+  },
+  mounted: function mounted() {
+    this.checkForProducts();
+  },
+  methods: {
+    checkForProducts: function checkForProducts() {
+      console.log('\n');
+      console.log('----------------------------');
+      console.log('checking for products > \n');
+
+      if (this.checkIfLoggedIn()) {
+        console.log('checking for shopping cart products in database');
+      } else {
+        console.log('checking for products in local storage');
+        var products = [];
+
+        for (var i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i).substring(0, 3) == 'products.name') {
+            arr.push(localStorage.key(i));
+          }
+        }
+      }
+    },
+    checkIfLoggedIn: function checkIfLoggedIn() {
+      console.log('\n');
+      console.log('-------------------------------');
+      console.log('checkIfLoggedIn > \n');
+      console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName')));
+      return !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
+    }
+  }
 });
 
 /***/ }),
@@ -20818,9 +20858,10 @@ __webpack_require__.r(__webpack_exports__);
     addToShoppingCart: function addToShoppingCart(product) {
       if (this.checkIfLoggedIn()) {} else {
         console.log('saving product in local storage');
-        localStorage.setItem('product.' + product.number + '.name', product.name);
-        localStorage.setItem('product.' + product.number + '.number', product.number);
-        localStorage.setItem('product.' + product.price + '.price', product.price);
+        var prefix = localStorage.length;
+        localStorage.setItem('product.' + prefix + '.name', product.name);
+        localStorage.setItem('product.' + prefix + '.number', product.number);
+        localStorage.setItem('product.' + prefix + '.price', product.price);
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
@@ -47834,7 +47875,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: " min-h-screen bg-slate-800" })
 }
 var staticRenderFns = []
 render._withStripped = true

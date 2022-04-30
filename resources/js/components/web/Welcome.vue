@@ -177,14 +177,14 @@ export default {
         },
 
         addToShoppingCart(product) {
-            if (this.checkIfLoggedIn()){
+            if (this.checkIfLoggedIn()) {
 
-            }
-            else {
+            } else {
                 console.log('saving product in local storage')
-                localStorage.setItem('product.'+product.number+'.name' , product.name)
-                localStorage.setItem('product.'+product.number+'.number' , product.number)
-                localStorage.setItem('product.'+product.price+'.price' , product.price)
+                let prefix = localStorage.length
+                localStorage.setItem('product.'+ prefix + '.name', product.name)
+                localStorage.setItem('product.' + prefix + '.number', product.number)
+                localStorage.setItem('product.' + prefix  + '.price', product.price)
             }
         },
         checkIfLoggedIn() {
