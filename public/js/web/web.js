@@ -20864,9 +20864,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     addToShoppingCart: function addToShoppingCart(product) {
       if (this.checkIfLoggedIn()) {} else {
+        product.count = 1;
         console.log('saving product in local storage');
-        var prefix = localStorage.length + 1;
-        localStorage.setItem('product.' + prefix + '.number', product.number);
+        var suffix = localStorage.length + 1;
+        localStorage.setItem('product.' + suffix, JSON.stringify(product));
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {

@@ -180,9 +180,10 @@ export default {
             if (this.checkIfLoggedIn()) {
 
             } else {
+                product.count = 1
                 console.log('saving product in local storage')
-                let prefix = localStorage.length+1
-                localStorage.setItem('product.' + prefix + '.number', product.number)
+                let suffix = localStorage.length+1
+                localStorage.setItem('product.' + suffix , JSON.stringify(product))
             }
         },
         checkIfLoggedIn() {
