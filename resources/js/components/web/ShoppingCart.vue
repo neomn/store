@@ -26,13 +26,16 @@
                         <td>{{ product.count * product.price }}</td>
                         <td>
                             <div class="inline-flex">
-                                <div class="m-2 px-2 py-1 rounded-lg border border-yellow-500">
+                                <div class="m-2 px-2 py-1 rounded-lg border border-yellow-500"
+                                    @click="decrementProductCount(product)">
                                     <font-awesome-icon :icon="['fas', 'minus-circle']"/>
                                 </div>
-                                <div class="m-2 px-2 py-1 rounded-lg border border-lime-500">
+                                <div class="m-2 px-2 py-1 rounded-lg border border-lime-500"
+                                    @click="incrementProductCount(product)">
                                     <font-awesome-icon :icon="['fas', 'plus-circle']"/>
                                 </div>
-                                <div class="m-2 px-2 py-1 rounded-lg border border-red-500">
+                                <div class="m-2 px-2 py-1 rounded-lg border border-red-500"
+                                     @click="removeProduct(product)">
                                     <font-awesome-icon :icon="['fas', 'trash']"/>
                                 </div>
                             </div>
@@ -83,7 +86,30 @@ export default {
                 } else console.log('local storage is empty')
             }
         },
-
+        incrementProductCount(product) {
+            for (let i = 0; i < localStorage.length; i++)
+                if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+                    console.log('incrementing product count by one  \n')
+                    product = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                    product.count++
+                    localStorage.setItem(localStorage.key(i), JSON.stringify(product))
+                }
+        },
+        decrementProductCount(product) {
+            for (let i = 0; i < localStorage.length; i++)
+                if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+                    console.log('incrementing product count by one  \n')
+                    product = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                    product.count--
+                    localStorage.setItem(localStorage.key(i), JSON.stringify(product))
+                }
+        },
+        removeProduct(product) {
+            for (let i = 0; i < localStorage.length; i++)
+                if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+                    localStorage.removeItem(localStorage.key(i))
+                }
+        },
         checkIfLoggedIn() {
             console.log('\n')
             console.log('-----------------')

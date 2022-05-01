@@ -20668,6 +20668,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -20705,6 +20708,33 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
         } else console.log('local storage is empty');
+      }
+    },
+    incrementProductCount: function incrementProductCount(product) {
+      for (var i = 0; i < localStorage.length; i++) {
+        if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+          console.log('incrementing product count by one  \n');
+          product = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          product.count++;
+          localStorage.setItem(localStorage.key(i), JSON.stringify(product));
+        }
+      }
+    },
+    decrementProductCount: function decrementProductCount(product) {
+      for (var i = 0; i < localStorage.length; i++) {
+        if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+          console.log('incrementing product count by one  \n');
+          product = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          product.count--;
+          localStorage.setItem(localStorage.key(i), JSON.stringify(product));
+        }
+      }
+    },
+    removeProduct: function removeProduct(product) {
+      for (var i = 0; i < localStorage.length; i++) {
+        if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+          localStorage.removeItem(localStorage.key(i));
+        }
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
@@ -47940,6 +47970,11 @@ var render = function () {
                             {
                               staticClass:
                                 "m-2 px-2 py-1 rounded-lg border border-yellow-500",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.decrementProductCount(product)
+                                },
+                              },
                             },
                             [
                               _c("font-awesome-icon", {
@@ -47954,6 +47989,11 @@ var render = function () {
                             {
                               staticClass:
                                 "m-2 px-2 py-1 rounded-lg border border-lime-500",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.incrementProductCount(product)
+                                },
+                              },
                             },
                             [
                               _c("font-awesome-icon", {
@@ -47968,6 +48008,11 @@ var render = function () {
                             {
                               staticClass:
                                 "m-2 px-2 py-1 rounded-lg border border-red-500",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.removeProduct(product)
+                                },
+                              },
                             },
                             [
                               _c("font-awesome-icon", {
