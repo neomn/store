@@ -19871,6 +19871,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "app"
 });
@@ -20617,6 +20619,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+//
 //
 //
 //
@@ -20648,8 +20652,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShoppingCart",
+  components: {
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       products: []
@@ -46991,7 +46999,11 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "min-h-screen bg-slate-800" },
-    [_c("router-view")],
+    [
+      _c("img", { attrs: { src: "", alt: "" } }),
+      _vm._v(" "),
+      _c("router-view"),
+    ],
     1
   )
 }
@@ -47866,8 +47878,8 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "min-h-screen border" }, [
-    _c("div", { staticClass: "m-4 bg-yellow-300 rounded-lg" }, [
+  return _c("div", [
+    _c("div", { staticClass: "m-4 mt-44 bg-yellow-300 rounded-lg" }, [
       _c(
         "div",
         { staticClass: " m-4 p-4 inline-block rounded-lg bg-slate-700" },
@@ -48250,7 +48262,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: " ml-8 inline-flex text-gray-200 " }, [
-      _c("h1", [_vm._v(" new products in recent month")]),
+      _c("h1", [_vm._v(" Top Sells in recent month")]),
     ])
   },
   function () {
@@ -48270,7 +48282,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: " ml-8 inline-flex text-gray-200 " }, [
-      _c("h1", [_vm._v(" new products in recent month")]),
+      _c("h1", [_vm._v(" favorite products in recent month")]),
     ])
   },
   function () {

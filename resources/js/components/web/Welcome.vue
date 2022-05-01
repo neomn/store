@@ -50,7 +50,7 @@
             <!-- new products  -->
             <div class="py-8 pr-8 text-gray-200">
                 <div class=" ml-8 inline-flex text-gray-200 ">
-                    <h1> new products in recent month</h1>
+                    <h1> Top Sells in recent month</h1>
                 </div>
                 <div class=" grid grid-cols-5">
                     <div v-for="product in topSells"
@@ -90,7 +90,7 @@
             <!-- new products  -->
             <div class="py-8 pr-8 text-gray-200">
                 <div class=" ml-8 inline-flex text-gray-200 ">
-                    <h1> new products in recent month</h1>
+                    <h1> favorite products in recent month</h1>
                 </div>
                 <div class=" grid grid-cols-5">
                     <div v-for="product in favoriteProducts"

@@ -1,5 +1,7 @@
 <template>
     <div class="min-h-screen bg-slate-800">
+        <!-- this img tag is for prevent childes moving parent  -->
+        <img src="" alt="">
         <router-view/>
     </div>
 </template>

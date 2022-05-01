@@ -1,8 +1,9 @@
 <template>
-    <div class="min-h-screen border">
+    <div>
+
 
         <!-- display shopping cart products -->
-        <div class="m-4 bg-yellow-300 rounded-lg">
+        <div class="m-4 mt-44 bg-yellow-300 rounded-lg">
             <div class=" m-4 p-4 inline-block rounded-lg bg-slate-700">
                 <table class="text-gray-400 text-center">
                     <thead>
@@ -30,9 +31,11 @@
 
 <script>
 import {isEmpty} from "lodash";
+import Header from "../web/Header";
 
 export default {
     name: "ShoppingCart",
+    components: {Header},
     data() {
         return {
             products: [],

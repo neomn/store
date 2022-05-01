@@ -697,6 +697,12 @@ select {
 .ml-8 {
   margin-left: 2rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-44 {
+  margin-top: 11rem;
+}
 .block {
   display: block;
 }
@@ -753,6 +759,9 @@ select {
 }
 .h-auto {
   height: auto;
+}
+.h-full {
+  height: 100%;
 }
 .min-h-screen {
   min-height: 100vh;
