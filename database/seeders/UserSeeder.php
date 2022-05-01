@@ -47,10 +47,10 @@ class UserSeeder extends Seeder
         User::factory(20)
             ->create()
             ->each(function ($user) use ($category) {
-                Product::factory(rand(0, 100))
-                    ->has(View::factory(rand(3 , 10)))
+                Product::factory(rand(10, 20))
+                    ->has(View::factory(rand(1 , 3)))
                     ->has(Price::factory(rand(3, 10)))
-                    ->has(Sell::factory(rand(3, 10)))
+                    ->has(Sell::factory(rand(1, 3)))
                     ->has(Image::factory(rand(1, 5)))
                     ->for($category[array_rand($category, 1)])
                     ->create();
