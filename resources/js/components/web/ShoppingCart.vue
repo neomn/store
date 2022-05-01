@@ -6,7 +6,7 @@
         <!-- display shopping cart products -->
         <div class=" relative m-4 mt-20  flex-col justify-center  rounded-lg ">
             <div class=" m-4 p-4 flex flex-col justify-center rounded-lg bg-slate-700 ">
-                <table class="text-gray-400 text-center">
+                <table ref="table" class="text-gray-400 text-center">
                     <thead>
                     <tr>
                         <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Product Number</th>
@@ -94,6 +94,7 @@ export default {
                     product.count++
                     localStorage.setItem(localStorage.key(i), JSON.stringify(product))
                 }
+            window.location.reload()
         },
         decrementProductCount(product) {
             for (let i = 0; i < localStorage.length; i++)
@@ -103,12 +104,14 @@ export default {
                     product.count--
                     localStorage.setItem(localStorage.key(i), JSON.stringify(product))
                 }
+            window.location.reload()
         },
         removeProduct(product) {
             for (let i = 0; i < localStorage.length; i++)
                 if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
                     localStorage.removeItem(localStorage.key(i))
                 }
+            window.location.reload()
         },
         checkIfLoggedIn() {
             console.log('\n')

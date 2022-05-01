@@ -20719,6 +20719,8 @@ __webpack_require__.r(__webpack_exports__);
           localStorage.setItem(localStorage.key(i), JSON.stringify(product));
         }
       }
+
+      window.location.reload();
     },
     decrementProductCount: function decrementProductCount(product) {
       for (var i = 0; i < localStorage.length; i++) {
@@ -20729,6 +20731,8 @@ __webpack_require__.r(__webpack_exports__);
           localStorage.setItem(localStorage.key(i), JSON.stringify(product));
         }
       }
+
+      window.location.reload();
     },
     removeProduct: function removeProduct(product) {
       for (var i = 0; i < localStorage.length; i++) {
@@ -20736,6 +20740,8 @@ __webpack_require__.r(__webpack_exports__);
           localStorage.removeItem(localStorage.key(i));
         }
       }
+
+      window.location.reload();
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
@@ -47944,90 +47950,96 @@ var render = function () {
                 " m-4 p-4 flex flex-col justify-center rounded-lg bg-slate-700 ",
             },
             [
-              _c("table", { staticClass: "text-gray-400 text-center" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.products, function (product) {
-                    return _c("tr", [
-                      _c("td", { staticClass: "py-2" }, [
-                        _vm._v(_vm._s(product.number)),
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(product.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(product.price))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(product.count))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(product.count * product.price))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("div", { staticClass: "inline-flex" }, [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "m-2 px-2 py-1 rounded-lg border border-yellow-500",
-                              on: {
-                                click: function ($event) {
-                                  return _vm.decrementProductCount(product)
-                                },
-                              },
-                            },
-                            [
-                              _c("font-awesome-icon", {
-                                attrs: { icon: ["fas", "minus-circle"] },
-                              }),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "m-2 px-2 py-1 rounded-lg border border-lime-500",
-                              on: {
-                                click: function ($event) {
-                                  return _vm.incrementProductCount(product)
-                                },
-                              },
-                            },
-                            [
-                              _c("font-awesome-icon", {
-                                attrs: { icon: ["fas", "plus-circle"] },
-                              }),
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "m-2 px-2 py-1 rounded-lg border border-red-500",
-                              on: {
-                                click: function ($event) {
-                                  return _vm.removeProduct(product)
-                                },
-                              },
-                            },
-                            [
-                              _c("font-awesome-icon", {
-                                attrs: { icon: ["fas", "trash"] },
-                              }),
-                            ],
-                            1
-                          ),
+              _c(
+                "table",
+                { ref: "table", staticClass: "text-gray-400 text-center" },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.products, function (product) {
+                      return _c("tr", [
+                        _c("td", { staticClass: "py-2" }, [
+                          _vm._v(_vm._s(product.number)),
                         ]),
-                      ]),
-                    ])
-                  }),
-                  0
-                ),
-              ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(product.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(product.price))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(product.count))]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(_vm._s(product.count * product.price)),
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("div", { staticClass: "inline-flex" }, [
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "m-2 px-2 py-1 rounded-lg border border-yellow-500",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.decrementProductCount(product)
+                                  },
+                                },
+                              },
+                              [
+                                _c("font-awesome-icon", {
+                                  attrs: { icon: ["fas", "minus-circle"] },
+                                }),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "m-2 px-2 py-1 rounded-lg border border-lime-500",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.incrementProductCount(product)
+                                  },
+                                },
+                              },
+                              [
+                                _c("font-awesome-icon", {
+                                  attrs: { icon: ["fas", "plus-circle"] },
+                                }),
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "m-2 px-2 py-1 rounded-lg border border-red-500",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.removeProduct(product)
+                                  },
+                                },
+                              },
+                              [
+                                _c("font-awesome-icon", {
+                                  attrs: { icon: ["fas", "trash"] },
+                                }),
+                              ],
+                              1
+                            ),
+                          ]),
+                        ]),
+                      ])
+                    }),
+                    0
+                  ),
+                ]
+              ),
             ]
           ),
         ]
