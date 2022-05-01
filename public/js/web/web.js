@@ -20655,6 +20655,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -47919,6 +47932,52 @@ var render = function () {
                       _c("td", [_vm._v(_vm._s(product.count))]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(product.count * product.price))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("div", { staticClass: "inline-flex" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "m-2 px-2 py-1 rounded-lg border border-yellow-500",
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "minus-circle"] },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "m-2 px-2 py-1 rounded-lg border border-lime-500",
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "plus-circle"] },
+                              }),
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "m-2 px-2 py-1 rounded-lg border border-red-500",
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "trash"] },
+                              }),
+                            ],
+                            1
+                          ),
+                        ]),
+                      ]),
                     ])
                   }),
                   0
@@ -47981,7 +48040,7 @@ var staticRenderFns = [
             staticClass: "px-8 pb-4 border-yellow-1 border-b",
             attrs: { scope: "col" },
           },
-          [_vm._v(" Sum ")]
+          [_vm._v(" Sum")]
         ),
         _vm._v(" "),
         _c(
@@ -47990,7 +48049,7 @@ var staticRenderFns = [
             staticClass: "px-8 pb-4 border-yellow-1 border-b",
             attrs: { scope: "col" },
           },
-          [_vm._v(" Operations ")]
+          [_vm._v(" Operations")]
         ),
       ]),
     ])

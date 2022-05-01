@@ -13,8 +13,8 @@
                         <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Name</th>
                         <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Unit Price</th>
                         <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Count</th>
-                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Sum </th>
-                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Operations </th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Sum</th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Operations</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,6 +24,19 @@
                         <td>{{ product.price }}</td>
                         <td>{{ product.count }}</td>
                         <td>{{ product.count * product.price }}</td>
+                        <td>
+                            <div class="inline-flex">
+                                <div class="m-2 px-2 py-1 rounded-lg border border-yellow-500">
+                                    <font-awesome-icon :icon="['fas', 'minus-circle']"/>
+                                </div>
+                                <div class="m-2 px-2 py-1 rounded-lg border border-lime-500">
+                                    <font-awesome-icon :icon="['fas', 'plus-circle']"/>
+                                </div>
+                                <div class="m-2 px-2 py-1 rounded-lg border border-red-500">
+                                    <font-awesome-icon :icon="['fas', 'trash']"/>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
