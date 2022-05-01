@@ -47866,31 +47866,35 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "flex flex-col justify-center " }, [
-      _c("div", { staticClass: " m-8 bg-slate-700" }, [
-        _c("table", { staticClass: "text-gray-400 text-center" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.products, function (product) {
-              return _c("tr", [
-                _c("td", { staticClass: "py-2" }, [
-                  _vm._v(_vm._s(product.number)),
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(product.name))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(product.price))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(product.count))]),
-              ])
-            }),
-            0
-          ),
-        ]),
-      ]),
+  return _c("div", { staticClass: "min-h-screen border" }, [
+    _c("div", { staticClass: "m-4 bg-yellow-300 rounded-lg" }, [
+      _c(
+        "div",
+        { staticClass: " m-4 p-4 inline-block rounded-lg bg-slate-700" },
+        [
+          _c("table", { staticClass: "text-gray-400 text-center" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.products, function (product) {
+                return _c("tr", [
+                  _c("td", { staticClass: "py-2" }, [
+                    _vm._v(_vm._s(product.number)),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.price))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.count))]),
+                ])
+              }),
+              0
+            ),
+          ]),
+        ]
+      ),
     ]),
   ])
 }
@@ -47900,7 +47904,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("tr", { staticClass: "border" }, [
+      _c("tr", [
         _c("th", { staticClass: "px-8", attrs: { scope: "col" } }, [
           _vm._v(" Product Number"),
         ]),

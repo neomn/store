@@ -44,10 +44,10 @@ class UserSeeder extends Seeder
             'esp' => Category::where('category', 'ESP Family')->first(),
         ];
 
-        User::factory(20)
+        User::factory(30)
             ->create()
             ->each(function ($user) use ($category) {
-                Product::factory(rand(0, 20))
+                Product::factory(rand(0, 50))
                     ->has(View::factory(rand(3 , 10)))
                     ->has(Price::factory(rand(3, 10)))
                     ->has(Sell::factory(rand(3, 10)))

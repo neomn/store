@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="min-h-screen border">
 
         <!-- display shopping cart products -->
-        <div class="flex flex-col justify-center ">
-            <div class=" m-8 bg-slate-700">
+        <div class="m-4 bg-yellow-300 rounded-lg">
+            <div class=" m-4 p-4 inline-block rounded-lg bg-slate-700">
                 <table class="text-gray-400 text-center">
                     <thead>
-                    <tr class="border">
+                    <tr>
                         <th scope="col" class="px-8"> Product Number</th>
                         <th scope="col" class="px-8"> Name</th>
                         <th scope="col" class="px-8"> Price</th>
