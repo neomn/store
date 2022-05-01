@@ -36,10 +36,10 @@ class WelcomeController extends Controller
     public function mostVisitedProducts()
     {
         $now = Carbon::now();
-        $weekStartDate = $now->startOfMonth()->format('Y-m-d H:i:s');
-        $weekEndDate = $now->endOfMonth()->format('Y-m-d H:i:s');
+        $monthEndDate = $now->format('Y-m-d H:i:s');
+        $monthStartDate = $now->sub('day',30)->format('Y-m-d H:i:s');
 
-        $top_20_Views = View::whereBetween('created_at', [$weekStartDate, $weekEndDate])
+        $top_20_Views = View::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('count', 'desc')
             ->limit(20)
             ->get();
@@ -56,8 +56,8 @@ class WelcomeController extends Controller
     public function newProducts()
     {
         $now = Carbon::now();
-        $monthStartDate = $now->startOfMonth()->format('y-m-d H:i:s');
-        $monthEndDate = $now->endOfMonth()->format('y-m-d H:i:s');
+        $monthEndDate = $now->format('Y-m-d H:i:s');
+        $monthStartDate = $now->sub('day',30)->format('Y-m-d H:i:s');
 
         return Product::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('created_at', 'desc')
@@ -69,8 +69,8 @@ class WelcomeController extends Controller
     public function topSells()
     {
         $now = Carbon::now();
-        $monthStartDate = $now->startOfMonth()->format('y-m-d H:i:s');
-        $monthEndDate = $now->endOfMonth()->format('y-m-d H:i:s');
+        $monthEndDate = $now->format('Y-m-d H:i:s');
+        $monthStartDate = $now->sub('day',30)->format('Y-m-d H:i:s');
 
         $sold =  Sell::whereBetween('created_at', [$monthStartDate, $monthEndDate])
             ->orderBy('sold_count' , 'desc')
