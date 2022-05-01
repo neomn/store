@@ -594,9 +594,6 @@ select {
 .m-1 {
   margin: 0.25rem;
 }
-.m-16 {
-  margin: 4rem;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -612,10 +609,6 @@ select {
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
-}
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -796,6 +789,12 @@ select {
 }
 .w-screen {
   width: 100vw;
+}
+.w-1\/2 {
+  width: 50%;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1023,6 +1022,9 @@ select {
 .p-2 {
   padding: 0.5rem;
 }
+.p-4 {
+  padding: 1rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1074,6 +1076,10 @@ select {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .pt-6 {
   padding-top: 1.5rem;

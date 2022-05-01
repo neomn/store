@@ -3,23 +3,23 @@
 
         <!-- display shopping cart products -->
         <div class="flex flex-col justify-center ">
-            <div class="m-8 bg-slate-700 text-gray-200">
-                <table>
+            <div class=" m-8 bg-slate-700">
+                <table class="text-gray-400 text-center">
                     <thead>
-                    <tr>
-                        <th scope="col"> Product Number</th>
-                        <th scope="col"> Name</th>
-                        <th scope="col"> Price</th>
-                        <th scope="col"> Count</th>
+                    <tr class="border">
+                        <th scope="col" class="px-8"> Product Number</th>
+                        <th scope="col" class="px-8"> Name</th>
+                        <th scope="col" class="px-8"> Price</th>
+                        <th scope="col" class="px-8"> Count</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="product in products">
-                            <td>{{ product.number }}</td>
-                            <td>{{ product.name }}</td
-                            <td>{{ product.price }}</td>
-                            <td>{{ product.count }}</td>
-                        </tr>
+                    <tr v-for="product in products">
+                        <td class="py-2">{{ product.number }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.count }}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
