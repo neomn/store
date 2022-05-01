@@ -20651,6 +20651,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -47878,37 +47882,55 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "m-4 mt-44 bg-yellow-300 rounded-lg" }, [
+  return _c(
+    "div",
+    [
+      _c("Header"),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: " m-4 p-4 inline-block rounded-lg bg-slate-700" },
+        {
+          staticClass:
+            " relative m-4 mt-20  flex-col justify-center  rounded-lg ",
+        },
         [
-          _c("table", { staticClass: "text-gray-400 text-center" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.products, function (product) {
-                return _c("tr", [
-                  _c("td", { staticClass: "py-2" }, [
-                    _vm._v(_vm._s(product.number)),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.price))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.count))]),
-                ])
-              }),
-              0
-            ),
-          ]),
+          _c(
+            "div",
+            {
+              staticClass:
+                " m-4 p-4 flex flex-col justify-center rounded-lg bg-slate-700 ",
+            },
+            [
+              _c("table", { staticClass: "text-gray-400 text-center" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.products, function (product) {
+                    return _c("tr", [
+                      _c("td", { staticClass: "py-2" }, [
+                        _vm._v(_vm._s(product.number)),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(product.name))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(product.price))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(product.count))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(product.count * product.price))]),
+                    ])
+                  }),
+                  0
+                ),
+              ]),
+            ]
+          ),
         ]
       ),
-    ]),
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {
@@ -47917,21 +47939,59 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { staticClass: "px-8", attrs: { scope: "col" } }, [
-          _vm._v(" Product Number"),
-        ]),
+        _c(
+          "th",
+          {
+            staticClass: "px-8 pb-4 border-yellow-1 border-b",
+            attrs: { scope: "col" },
+          },
+          [_vm._v(" Product Number")]
+        ),
         _vm._v(" "),
-        _c("th", { staticClass: "px-8", attrs: { scope: "col" } }, [
-          _vm._v(" Name"),
-        ]),
+        _c(
+          "th",
+          {
+            staticClass: "px-8 pb-4 border-yellow-1 border-b",
+            attrs: { scope: "col" },
+          },
+          [_vm._v(" Name")]
+        ),
         _vm._v(" "),
-        _c("th", { staticClass: "px-8", attrs: { scope: "col" } }, [
-          _vm._v(" Price"),
-        ]),
+        _c(
+          "th",
+          {
+            staticClass: "px-8 pb-4 border-yellow-1 border-b",
+            attrs: { scope: "col" },
+          },
+          [_vm._v(" Unit Price")]
+        ),
         _vm._v(" "),
-        _c("th", { staticClass: "px-8", attrs: { scope: "col" } }, [
-          _vm._v(" Count"),
-        ]),
+        _c(
+          "th",
+          {
+            staticClass: "px-8 pb-4 border-yellow-1 border-b",
+            attrs: { scope: "col" },
+          },
+          [_vm._v(" Count")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass: "px-8 pb-4 border-yellow-1 border-b",
+            attrs: { scope: "col" },
+          },
+          [_vm._v(" Sum ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass: "px-8 pb-4 border-yellow-1 border-b",
+            attrs: { scope: "col" },
+          },
+          [_vm._v(" Operations ")]
+        ),
       ]),
     ])
   },

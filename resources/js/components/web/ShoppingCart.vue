@@ -1,17 +1,20 @@
 <template>
     <div>
 
+        <Header/>
 
         <!-- display shopping cart products -->
-        <div class="m-4 mt-44 bg-yellow-300 rounded-lg">
-            <div class=" m-4 p-4 inline-block rounded-lg bg-slate-700">
+        <div class=" relative m-4 mt-20  flex-col justify-center  rounded-lg ">
+            <div class=" m-4 p-4 flex flex-col justify-center rounded-lg bg-slate-700 ">
                 <table class="text-gray-400 text-center">
                     <thead>
                     <tr>
-                        <th scope="col" class="px-8"> Product Number</th>
-                        <th scope="col" class="px-8"> Name</th>
-                        <th scope="col" class="px-8"> Price</th>
-                        <th scope="col" class="px-8"> Count</th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Product Number</th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Name</th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Unit Price</th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Count</th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Sum </th>
+                        <th scope="col" class="px-8 pb-4 border-yellow-1 border-b"> Operations </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -20,6 +23,7 @@
                         <td>{{ product.name }}</td>
                         <td>{{ product.price }}</td>
                         <td>{{ product.count }}</td>
+                        <td>{{ product.count * product.price }}</td>
                     </tr>
                     </tbody>
                 </table>
