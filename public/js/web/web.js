@@ -19844,12 +19844,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
 //
 //
 //
 //
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "AboutUs"
+  name: "AboutUs",
+  components: {
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -47024,7 +47031,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "bg-slate-800" }, [_c("Header")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -47051,9 +47058,9 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "min-h-screen bg-slate-800" },
+    { staticClass: " bg-slate-800 min-h-screen " },
     [
-      _c("img", { attrs: { src: "", alt: "" } }),
+      _c("img", { staticClass: "bg-slate-800", attrs: { src: "", alt: "" } }),
       _vm._v(" "),
       _c("router-view"),
     ],
