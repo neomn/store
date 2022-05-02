@@ -20277,6 +20277,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: [],
@@ -47335,16 +47344,32 @@ var render = function () {
                       : "",
                   attrs: { href: "/" },
                 },
-                [_vm._v("Home")]
+                [_vm._v("Home\n            ")]
               ),
               _vm._v(" "),
-              _c("a", { staticClass: "mx-2", attrs: { href: "/categories" } }, [
-                _vm._v("Categories"),
-              ]),
+              _c(
+                "a",
+                {
+                  staticClass: "mx-2",
+                  class:
+                    this.$route.path === "/categories"
+                      ? "border-t-2 border-lime-500 rounded-lg"
+                      : "",
+                  attrs: { href: "/categories" },
+                },
+                [_vm._v("\n                Categories\n            ")]
+              ),
               _vm._v(" "),
               _c(
                 "router-link",
-                { staticClass: "mx-2", attrs: { to: { name: "aboutUs" } } },
+                {
+                  staticClass: "mx-2",
+                  class:
+                    this.$route.path === "/about-us"
+                      ? "border-t-2 border-lime-500 rounded-lg"
+                      : "",
+                  attrs: { to: { name: "aboutUs" } },
+                },
                 [_vm._v("\n                About Us\n            ")]
               ),
               _vm._v(" "),
@@ -47353,6 +47378,10 @@ var render = function () {
                     "div",
                     {
                       staticClass: " ml-4  mr-6 mt-1  inline-block float-right",
+                      class:
+                        this.$route.path === "/register"
+                          ? "border-t-2 border-lime-500 rounded-lg"
+                          : "",
                     },
                     [
                       _c(
@@ -47375,7 +47404,13 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: " mx-2 mt-1  inline-block float-right" },
+                {
+                  staticClass: " mx-2 mt-1  inline-block float-right",
+                  class:
+                    this.$route.path === "/login"
+                      ? "border-t-2 border-lime-500 rounded-lg"
+                      : "",
+                },
                 [
                   !_vm.userLoggedIn
                     ? _c(
@@ -47398,7 +47433,13 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: " mx-2 mt-1  inline-block float-right" },
+                {
+                  staticClass: " mx-2 mt-1  inline-block float-right",
+                  class:
+                    this.$route.path === "/dashboard"
+                      ? "border-t-2 border-lime-500 rounded-lg"
+                      : "",
+                },
                 [
                   _vm.userLoggedIn
                     ? _c(
@@ -47427,7 +47468,13 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: " mx-2 mt-1 inline-block float-right " },
+                {
+                  staticClass: " mx-2 mt-1 inline-block float-right ",
+                  class:
+                    this.$route.path === "/shopping-cart"
+                      ? "border-t-2 border-lime-500 rounded-lg"
+                      : "",
+                },
                 [
                   _c(
                     "router-link",

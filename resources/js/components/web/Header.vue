@@ -6,28 +6,37 @@
         <div class="px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ">
             <ul>
                 <a href="/" class="mx-2 px-3" ref="header.home"
-                   v-bind:class="(this.$route.path === '/')? 'border-t-2 border-lime-500 rounded-lg': ''">Home</a>
-                <a href="/categories" class="mx-2">Categories</a>
-                <router-link :to="{name:'aboutUs'}" class="mx-2">
+                   v-bind:class="(this.$route.path === '/')? 'border-t-2 border-lime-500 rounded-lg': ''">Home
+                </a>
+                <a href="/categories" class="mx-2"
+                   v-bind:class="(this.$route.path === '/categories')? 'border-t-2 border-lime-500 rounded-lg': ''">
+                    Categories
+                </a>
+                <router-link :to="{name:'aboutUs'}" class="mx-2"
+                             v-bind:class="(this.$route.path === '/about-us')? 'border-t-2 border-lime-500 rounded-lg': ''">
                     About Us
                 </router-link>
-                <div v-if="!userLoggedIn" class=" ml-4  mr-6 mt-1  inline-block float-right">
+                <div v-if="!userLoggedIn" class=" ml-4  mr-6 mt-1  inline-block float-right"
+                     v-bind:class="(this.$route.path === '/register')? 'border-t-2 border-lime-500 rounded-lg': ''">
                     <router-link :to="{name:'register'}" class="float-right ">
                         <font-awesome-icon :icon="['fas' , 'user-plus']"/>
                     </router-link>
                 </div>
-                <div class=" mx-2 mt-1  inline-block float-right">
+                <div class=" mx-2 mt-1  inline-block float-right"
+                     v-bind:class="(this.$route.path === '/login')? 'border-t-2 border-lime-500 rounded-lg': ''">
                     <router-link v-if="!userLoggedIn" :to="{name:'login'}" class="float-right " href="/api/user">
                         <font-awesome-icon :icon="['fas', 'door-open']"/>
                     </router-link>
                 </div>
-                <div class=" mx-2 mt-1  inline-block float-right">
+                <div class=" mx-2 mt-1  inline-block float-right"
+                     v-bind:class="(this.$route.path === '/dashboard')? 'border-t-2 border-lime-500 rounded-lg': ''">
                     <router-link v-if="userLoggedIn" :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
                         <h3 class="inline-block pl-3">{{ this.user.first_name }}</h3>
                     </router-link>
                 </div>
-                <div class=" mx-2 mt-1 inline-block float-right ">
+                <div class=" mx-2 mt-1 inline-block float-right "
+                     v-bind:class="(this.$route.path === '/shopping-cart')? 'border-t-2 border-lime-500 rounded-lg': ''">
                     <router-link :to="{name:'shoppingCart'}">
                         <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
                     </router-link>
