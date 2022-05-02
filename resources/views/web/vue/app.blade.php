@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body class="bg-slate-800">
-    <div id="app" >
+    <div id="app">
         <App></App>
     </div>
 <script src={{mix("/js/web/web.js")}}></script>

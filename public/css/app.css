@@ -917,6 +917,9 @@ select {
 .border-b {
   border-bottom-width: 1px;
 }
+.border-t-2 {
+  border-top-width: 2px;
+}
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -1095,6 +1098,10 @@ select {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 .pt-6 {
   padding-top: 1.5rem;

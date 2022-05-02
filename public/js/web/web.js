@@ -20276,6 +20276,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: [],
@@ -47323,9 +47324,19 @@ var render = function () {
           _c(
             "ul",
             [
-              _c("a", { staticClass: "mx-2", attrs: { href: "/" } }, [
-                _vm._v("Home"),
-              ]),
+              _c(
+                "a",
+                {
+                  ref: "header.home",
+                  staticClass: "mx-2 px-3",
+                  class:
+                    this.$route.path === "/"
+                      ? "border-t-2 border-lime-500 rounded-lg"
+                      : "",
+                  attrs: { href: "/" },
+                },
+                [_vm._v("Home")]
+              ),
               _vm._v(" "),
               _c("a", { staticClass: "mx-2", attrs: { href: "/categories" } }, [
                 _vm._v("Categories"),
