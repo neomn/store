@@ -16,30 +16,38 @@
                              v-bind:class="(this.$route.path === '/about-us')? 'border-t border-lime-500 rounded-lg': ''">
                     About Us
                 </router-link>
-                <div v-if="!userLoggedIn" class=" ml-4  mr-6 mt-1 px-2 inline-block float-right"
+                <div v-if="!userLoggedIn" class=" px-4 inline-block float-right"
                      v-bind:class="(this.$route.path === '/register')? 'border-t border-lime-500 rounded-lg': ''">
-                    <router-link :to="{name:'register'}" class="float-right ">
-                        <font-awesome-icon :icon="['fas' , 'user-plus']"/>
-                    </router-link>
+                    <div class="pt-1">
+                        <router-link :to="{name:'register'}" class="float-right ">
+                            <font-awesome-icon :icon="['fas' , 'user-plus']"/>
+                        </router-link>
+                    </div>
                 </div>
-                <div class=" mx-2 mt-1 px-2 inline-block float-right"
+                <div class=" px-4 inline-block float-right"
                      v-bind:class="(this.$route.path === '/login')? 'border-t border-lime-500 rounded-lg': ''">
-                    <router-link v-if="!userLoggedIn" :to="{name:'login'}" class="float-right " href="/api/user">
-                        <font-awesome-icon :icon="['fas', 'door-open']"/>
-                    </router-link>
+                    <div class="pt-1">
+                        <router-link v-if="!userLoggedIn" :to="{name:'login'}" class="float-right " href="/api/user">
+                            <font-awesome-icon :icon="['fas', 'door-open']"/>
+                        </router-link>
+                    </div>
                 </div>
-                <div class=" mx-2 mt-1 px-2 inline-block float-right"
-                     v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': ''">
-                    <router-link v-if="userLoggedIn" :to="{name:'dashboard'}" href="/api/user">
-                        <font-awesome-icon :icon="['fas', 'chart-line']"/>
-                        <h3 class="inline-block pl-3">{{ this.user.first_name }}</h3>
-                    </router-link>
+                <div class=" px-4 inline-block float-right"
+                     v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': 'hidden'">
+                    <div class="pt-1">
+                        <router-link v-if="userLoggedIn" :to="{name:'dashboard'}" href="/api/user">
+                            <font-awesome-icon :icon="['fas', 'chart-line']"/>
+                            <h3 class="inline-block pl-3">{{ this.user.first_name }}</h3>
+                        </router-link>
+                    </div>
                 </div>
-                <div class=" mx-2 mt-1 px-2 inline-block float-right "
+                <div class=" px-4 inline-block float-right "
                      v-bind:class="(this.$route.path === '/shopping-cart')? 'border-t border-lime-500 rounded-lg': ''">
-                    <router-link :to="{name:'shoppingCart'}">
-                        <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
-                    </router-link>
+                    <div class="pt-1">
+                        <router-link :to="{name:'shoppingCart'}">
+                            <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
+                        </router-link>
+                    </div>
                 </div>
             </ul>
         </div>

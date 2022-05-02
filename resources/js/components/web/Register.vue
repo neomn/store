@@ -1,8 +1,10 @@
 <template>
     <div class="min-h-screen bg-slate-800 py-6 flex flex-col justify-center">
-<!--        <div><h1>this is register component</h1></div>-->
+
+        <Header/>
+
         <div
-            class=" h-auto relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-lime-300">
+            class=" h-auto relative py-3 mt-8 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center ">
             <h1 class="my-8 mx-8 bg-slate-800 text-3xl text-center rounded-lg h-10">Welcome To Your Tesla Store </h1>
             <div class="text-left rounded-md">
                 <div class=" rounded-md">
@@ -31,9 +33,11 @@
 
 <script>
 import {isEmpty} from "lodash";
+import Header from "../web/Header";
 
 export default {
     name: "Register",
+    components: {Header},
     data(){
       return {
           formData: {

@@ -20286,6 +20286,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: [],
@@ -20330,6 +20338,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+//
+//
+//
 //
 //
 //
@@ -20358,8 +20370,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
+  components: {
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       formData: {
@@ -20530,6 +20546,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+//
+//
 //
 //
 //
@@ -20562,8 +20581,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Register",
+  components: {
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       formData: {
@@ -47376,8 +47399,7 @@ var render = function () {
                 ? _c(
                     "div",
                     {
-                      staticClass:
-                        " ml-4  mr-6 mt-1 px-2 inline-block float-right",
+                      staticClass: " px-4 inline-block float-right",
                       class:
                         this.$route.path === "/register"
                           ? "border-t border-lime-500 rounded-lg"
@@ -47385,91 +47407,112 @@ var render = function () {
                     },
                     [
                       _c(
-                        "router-link",
-                        {
-                          staticClass: "float-right ",
-                          attrs: { to: { name: "register" } },
-                        },
+                        "div",
+                        { staticClass: "pt-1" },
                         [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "user-plus"] },
-                          }),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "float-right ",
+                              attrs: { to: { name: "register" } },
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "user-plus"] },
+                              }),
+                            ],
+                            1
+                          ),
                         ],
                         1
                       ),
-                    ],
-                    1
+                    ]
                   )
                 : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: " mx-2 mt-1 px-2 inline-block float-right",
+                  staticClass: " px-4 inline-block float-right",
                   class:
                     this.$route.path === "/login"
                       ? "border-t border-lime-500 rounded-lg"
                       : "",
                 },
                 [
-                  !_vm.userLoggedIn
-                    ? _c(
-                        "router-link",
-                        {
-                          staticClass: "float-right ",
-                          attrs: { to: { name: "login" }, href: "/api/user" },
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "door-open"] },
-                          }),
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "pt-1" },
+                    [
+                      !_vm.userLoggedIn
+                        ? _c(
+                            "router-link",
+                            {
+                              staticClass: "float-right ",
+                              attrs: {
+                                to: { name: "login" },
+                                href: "/api/user",
+                              },
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "door-open"] },
+                              }),
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                    ],
+                    1
+                  ),
+                ]
               ),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: " mx-2 mt-1 px-2 inline-block float-right",
+                  staticClass: " px-4 inline-block float-right",
                   class:
                     this.$route.path === "/dashboard"
                       ? "border-t border-lime-500 rounded-lg"
-                      : "",
+                      : "hidden",
                 },
                 [
-                  _vm.userLoggedIn
-                    ? _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "dashboard" },
-                            href: "/api/user",
-                          },
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "chart-line"] },
-                          }),
-                          _vm._v(" "),
-                          _c("h3", { staticClass: "inline-block pl-3" }, [
-                            _vm._v(_vm._s(this.user.first_name)),
-                          ]),
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "pt-1" },
+                    [
+                      _vm.userLoggedIn
+                        ? _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: { name: "dashboard" },
+                                href: "/api/user",
+                              },
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "chart-line"] },
+                              }),
+                              _vm._v(" "),
+                              _c("h3", { staticClass: "inline-block pl-3" }, [
+                                _vm._v(_vm._s(this.user.first_name)),
+                              ]),
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                    ],
+                    1
+                  ),
+                ]
               ),
               _vm._v(" "),
               _c(
                 "div",
                 {
-                  staticClass: " mx-2 mt-1 px-2 inline-block float-right ",
+                  staticClass: " px-4 inline-block float-right ",
                   class:
                     this.$route.path === "/shopping-cart"
                       ? "border-t border-lime-500 rounded-lg"
@@ -47477,17 +47520,23 @@ var render = function () {
                 },
                 [
                   _c(
-                    "router-link",
-                    { attrs: { to: { name: "shoppingCart" } } },
+                    "div",
+                    { staticClass: "pt-1" },
                     [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "shopping-cart"] },
-                      }),
+                      _c(
+                        "router-link",
+                        { attrs: { to: { name: "shoppingCart" } } },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "shopping-cart"] },
+                          }),
+                        ],
+                        1
+                      ),
                     ],
                     1
                   ),
-                ],
-                1
+                ]
               ),
             ],
             1
@@ -47527,11 +47576,13 @@ var render = function () {
         "min-h-screen bg-slate-800 py-6 flex flex-col justify-center",
     },
     [
+      _c("Header"),
+      _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-gray-200",
+            "relative mt-8 py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center  ",
         },
         [
           _c(
@@ -47653,7 +47704,8 @@ var render = function () {
           ]),
         ]
       ),
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -47783,11 +47835,13 @@ var render = function () {
         "min-h-screen bg-slate-800 py-6 flex flex-col justify-center",
     },
     [
+      _c("Header"),
+      _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            " h-auto relative py-3 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center border border-lime-300",
+            " h-auto relative py-3 mt-8 sm:mx-96 text-gray-200 bg-slate-900 rounded-lg pb-12 justify-center ",
         },
         [
           _c(
@@ -47961,7 +48015,7 @@ var render = function () {
                           " h-8 block mt-16 justify-end bg-green-900 rounded-lg  px-4 hover:bg-green-600",
                         attrs: { type: "submit" },
                       },
-                      [_vm._v("Register\n                            ")]
+                      [_vm._v("Register\n                        ")]
                     ),
                   ]),
                 ]
@@ -47970,7 +48024,8 @@ var render = function () {
           ]),
         ]
       ),
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = []
