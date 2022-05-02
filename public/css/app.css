@@ -902,6 +902,9 @@ select {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-t {
   border-top-width: 1px;
 }
@@ -919,6 +922,18 @@ select {
 }
 .border-t-2 {
   border-top-width: 2px;
+}
+.border-r-2 {
+  border-right-width: 2px;
+}
+.border-l-2 {
+  border-left-width: 2px;
+}
+.border-l {
+  border-left-width: 1px;
+}
+.border-r-4 {
+  border-right-width: 4px;
 }
 .border-gray-300 {
   --tw-border-opacity: 1;

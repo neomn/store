@@ -47336,24 +47336,23 @@ var render = function () {
               _c(
                 "a",
                 {
-                  ref: "header.home",
-                  staticClass: "mx-2 px-3",
+                  staticClass: "mx-2 px-2",
                   class:
                     this.$route.path === "/"
-                      ? "border-t-2 border-lime-500 rounded-lg"
+                      ? " border-t border-lime-500 rounded-lg"
                       : "",
                   attrs: { href: "/" },
                 },
-                [_vm._v("Home\n            ")]
+                [_vm._v(" Home\n            ")]
               ),
               _vm._v(" "),
               _c(
                 "a",
                 {
-                  staticClass: "mx-2",
+                  staticClass: "mx-2 px-2 ",
                   class:
                     this.$route.path === "/categories"
-                      ? "border-t-2 border-lime-500 rounded-lg"
+                      ? "border-t border-lime-500 rounded-lg"
                       : "",
                   attrs: { href: "/categories" },
                 },
@@ -47363,10 +47362,10 @@ var render = function () {
               _c(
                 "router-link",
                 {
-                  staticClass: "mx-2",
+                  staticClass: "mx-2 px-2",
                   class:
                     this.$route.path === "/about-us"
-                      ? "border-t-2 border-lime-500 rounded-lg"
+                      ? "border-t border-lime-500 rounded-lg"
                       : "",
                   attrs: { to: { name: "aboutUs" } },
                 },
@@ -47377,10 +47376,11 @@ var render = function () {
                 ? _c(
                     "div",
                     {
-                      staticClass: " ml-4  mr-6 mt-1  inline-block float-right",
+                      staticClass:
+                        " ml-4  mr-6 mt-1 px-2 inline-block float-right",
                       class:
                         this.$route.path === "/register"
-                          ? "border-t-2 border-lime-500 rounded-lg"
+                          ? "border-t border-lime-500 rounded-lg"
                           : "",
                     },
                     [
@@ -47405,10 +47405,10 @@ var render = function () {
               _c(
                 "div",
                 {
-                  staticClass: " mx-2 mt-1  inline-block float-right",
+                  staticClass: " mx-2 mt-1 px-2 inline-block float-right",
                   class:
                     this.$route.path === "/login"
-                      ? "border-t-2 border-lime-500 rounded-lg"
+                      ? "border-t border-lime-500 rounded-lg"
                       : "",
                 },
                 [
@@ -47434,10 +47434,10 @@ var render = function () {
               _c(
                 "div",
                 {
-                  staticClass: " mx-2 mt-1  inline-block float-right",
+                  staticClass: " mx-2 mt-1 px-2 inline-block float-right",
                   class:
                     this.$route.path === "/dashboard"
-                      ? "border-t-2 border-lime-500 rounded-lg"
+                      ? "border-t border-lime-500 rounded-lg"
                       : "",
                 },
                 [
@@ -47469,10 +47469,10 @@ var render = function () {
               _c(
                 "div",
                 {
-                  staticClass: " mx-2 mt-1 inline-block float-right ",
+                  staticClass: " mx-2 mt-1 px-2 inline-block float-right ",
                   class:
                     this.$route.path === "/shopping-cart"
-                      ? "border-t-2 border-lime-500 rounded-lg"
+                      ? "border-t border-lime-500 rounded-lg"
                       : "",
                 },
                 [
