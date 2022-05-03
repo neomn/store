@@ -48324,7 +48324,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border border-lime-300",
+              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-lime-300",
             class: this.displayAllNew ? "h-auto" : "h-1/2",
           },
           [
@@ -48431,7 +48431,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border border-lime-300",
+              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-yellow-500",
             class: this.displayAllTopSells ? "h-auto" : "h-1/2",
           },
           [
@@ -48532,7 +48532,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border border-lime-300",
+              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-orange-500",
             class: this.displayAllFavorite ? "h-auto" : "h-1/2",
           },
           [
