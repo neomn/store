@@ -716,6 +716,15 @@ select {
 .mb-20 {
   margin-bottom: 5rem;
 }
+.mr-44 {
+  margin-right: 11rem;
+}
+.ml-44 {
+  margin-left: 11rem;
+}
+.mr-64 {
+  margin-right: 16rem;
+}
 .block {
   display: block;
 }
@@ -935,6 +944,18 @@ select {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 .rounded-md {
   border-radius: 0.375rem;
