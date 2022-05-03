@@ -274,7 +274,7 @@ export default {
         toggleDisplayAllFavoriteProducts() {
             this.displayAllFavorite = !this.displayAllFavorite
             this.displayAllNew = false
-            this.displayAllTopSells = false
+            this.displayAllTopSells =  false
         },
     }
 
