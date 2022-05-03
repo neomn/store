@@ -5,21 +5,22 @@
         <Header class="z-50"/>
 
         <div>
+
             <!-- new products  -->
-            <div class="mt-16 m-8 flex flex-col border-2 border-yellow-500 overflow-x-hidden overflow-y-scroll">
+            <div class=" h-96 mt-16 m-8 mb-36 flex flex-col rounded-lg bg-slate-600">
                 <div class="mt-4 inline-flex justify-center">
-                    <h1 class="text-gray-200 bg-red-500">
+                    <h1 class=" px-16 py-2 rounded-lg text-gray-200 ">
                         New Products
                     </h1>
                 </div>
-                <div class="mt-4 flex flex-col text-gray-200 ">
+                <div class="mt-4 flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden">
                     <div class="  flex justify-center ">
-                        <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-8 border">
+                        <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16 ">
                             <div v-for="product in newProducts"
-                                 class=" bg-slate-700 w-36 h-64  rounded-lg justify-center relative top-0">
+                                 class=" bg-slate-700 w-36 h-64  rounded-lg justify-center relative top-0 ">
 
                                 <!--card image-->
-                                <img :src="product.image" alt="product image" class=" h-20  rounded-lg">
+                                <img :src="product.image" alt="product image" class=" h-24 w-full rounded-lg">
 
                                 <!--card body-->
                                 <div class="pt-1 pl-1">
@@ -29,16 +30,16 @@
                                 </div>
 
                                 <!--card buttons-->
-                                <div class="rounded text-center  absolute bottom-0 border-t w-full h-16">
+                                <div class="w-full rounded text-center absolute bottom-0 border-t  ">
                                     <div>
                                         <button @click="addProductTOShoppingCart(product)"
-                                                class="m-1 px-1 rounded-lg bg-lime-300 text-zinc-800"> add to shopping
+                                                class=" w-full rounded-lg bg-lime-300 text-zinc-800"> add to
                                             cart
                                         </button>
                                     </div>
                                     <div>
                                         <router-link :to="{name: 'product' , params: {product_number: product.number}}">
-                                            <button class=" m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800"> show
+                                            <button class=" w-full  rounded-lg bg-yellow-300 text-zinc-800"> show
                                                 details
                                             </button>
                                         </router-link>
@@ -48,6 +49,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="flex justify-center">
+                    <button class="mt-8 text-gray-200 ">
+                        Display All
+                    </button>
                 </div>
             </div>
 
