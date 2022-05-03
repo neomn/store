@@ -2,17 +2,18 @@
     <div class="z-0 min-h-screen  bg-slate-800 ">
 
         <!-- header component-->
-        <Header class="z-10"/>
+        <Header class="z-50"/>
 
-        <div class="mt-16">
-
+        <div class="mt-16 m-8 flex flex-col border-2 border-yellow-500 ">
             <!-- new products  -->
-            <h1 class=" relative top-8 text-gray-200 bg-red-500">
-                New Products
-            </h1>
-            <div class=" mt-20 flex flex-col text-gray-200">
-                <div class=" relative flex justify-center ">
-                    <div class="grid grid-cols-7 gap-x-8 gap-y-8 border">
+            <div class="mt-4 inline-flex flex justify-center">
+                <h1 class="text-gray-200 bg-red-500">
+                    New Products
+                </h1>
+            </div>
+            <div class="  mt-4 flex flex-col text-gray-200 ">
+                <div class="  flex justify-center ">
+                    <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-8 border">
                         <div v-for="product in newProducts"
                              class=" bg-slate-700 w-36 h-64  rounded-lg justify-center relative top-0">
 

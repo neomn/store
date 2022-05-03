@@ -20948,6 +20948,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -48260,124 +48261,128 @@ var render = function () {
     "div",
     { staticClass: "z-0 min-h-screen  bg-slate-800 " },
     [
-      _c("Header", { staticClass: "z-10" }),
+      _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-16" }, [
-        _c("h1", { staticClass: " relative top-8 text-gray-200 bg-red-500" }, [
-          _vm._v("\n            New Products\n        "),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: " mt-20 flex flex-col text-gray-200" }, [
-          _c("div", { staticClass: " relative flex justify-center " }, [
-            _c(
-              "div",
-              { staticClass: "grid grid-cols-7 gap-x-8 gap-y-8 border" },
-              _vm._l(_vm.newProducts, function (product) {
-                return _c(
-                  "div",
-                  {
-                    staticClass:
-                      " bg-slate-700 w-36 h-64  rounded-lg justify-center relative top-0",
-                  },
-                  [
-                    _c("img", {
-                      staticClass: " h-20  rounded-lg",
-                      attrs: { src: product.image, alt: "product image" },
-                    }),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "pt-1 pl-1" }, [
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(product.number) +
-                          " "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(product.name) +
-                          " "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                            " +
-                          _vm._s(product.price) +
-                          " "
-                      ),
-                      _c("br"),
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "rounded text-center  absolute bottom-0 border-t w-full h-16",
-                      },
-                      [
-                        _c("div", [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
-                              on: {
-                                click: function ($event) {
-                                  return _vm.addProductTOShoppingCart(product)
-                                },
-                              },
-                            },
-                            [
-                              _vm._v(
-                                " add to shopping cart\n                                "
-                              ),
-                            ]
-                          ),
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          [
+      _c(
+        "div",
+        { staticClass: "mt-16 m-8 flex flex-col border-2 border-yellow-500 " },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "  mt-4 flex flex-col text-gray-200 " }, [
+            _c("div", { staticClass: "  flex justify-center " }, [
+              _c(
+                "div",
+                { staticClass: " m-2 grid grid-cols-7 gap-x-8 gap-y-8 border" },
+                _vm._l(_vm.newProducts, function (product) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass:
+                        " bg-slate-700 w-36 h-64  rounded-lg justify-center relative top-0",
+                    },
+                    [
+                      _c("img", {
+                        staticClass: " h-20  rounded-lg",
+                        attrs: { src: product.image, alt: "product image" },
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "pt-1 pl-1" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(product.number) +
+                            " "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(product.name) +
+                            " "
+                        ),
+                        _c("br"),
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(product.price) +
+                            " "
+                        ),
+                        _c("br"),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "rounded text-center  absolute bottom-0 border-t w-full h-16",
+                        },
+                        [
+                          _c("div", [
                             _c(
-                              "router-link",
+                              "button",
                               {
-                                attrs: {
-                                  to: {
-                                    name: "product",
-                                    params: { product_number: product.number },
+                                staticClass:
+                                  "m-1 px-1 rounded-lg bg-lime-300 text-zinc-800",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.addProductTOShoppingCart(product)
                                   },
                                 },
                               },
                               [
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      " m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
-                                  },
-                                  [
-                                    _vm._v(
-                                      " show details\n                                    "
-                                    ),
-                                  ]
+                                _vm._v(
+                                  " add to shopping cart\n                                "
                                 ),
                               ]
                             ),
-                          ],
-                          1
-                        ),
-                      ]
-                    ),
-                  ]
-                )
-              }),
-              0
-            ),
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "product",
+                                      params: {
+                                        product_number: product.number,
+                                      },
+                                    },
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        " m-1 px-1 rounded-lg bg-yellow-300 text-zinc-800",
+                                    },
+                                    [
+                                      _vm._v(
+                                        " show details\n                                    "
+                                      ),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          ),
+                        ]
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+            ]),
           ]),
-        ]),
-      ]),
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "mt-8" }, [
         _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-          _vm._m(0),
+          _vm._m(1),
           _vm._v(" "),
           _c(
             "div",
@@ -48419,7 +48424,7 @@ var render = function () {
                         "rounded text-center  absolute bottom-0 border-t w-full h-16",
                     },
                     [
-                      _vm._m(1, true),
+                      _vm._m(2, true),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -48464,7 +48469,7 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticClass: "mt-8" }, [
         _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-          _vm._m(2),
+          _vm._m(3),
           _vm._v(" "),
           _c(
             "div",
@@ -48506,7 +48511,7 @@ var render = function () {
                         "rounded text-center  absolute bottom-0 border-t w-full h-16",
                     },
                     [
-                      _vm._m(3, true),
+                      _vm._m(4, true),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -48555,6 +48560,16 @@ var render = function () {
   )
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-4 inline-flex flex justify-center" }, [
+      _c("h1", { staticClass: "text-gray-200 bg-red-500" }, [
+        _vm._v("\n                New Products\n            "),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
