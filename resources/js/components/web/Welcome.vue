@@ -7,7 +7,8 @@
         <div>
 
             <!-- new products  -->
-            <div class="relative w-auto h-1/2 mt-20 m-8 mb-36 flex flex-col rounded-lg border border-lime-300">
+            <div class="relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border border-lime-300"
+                v-bind:class="(this.displayAll)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
                         New Products
@@ -35,8 +36,7 @@
                                     <div>
                                         <button @click="addProductTOShoppingCart(product)"
                                                 class=" w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800">
-                                            add to
-                                            cart
+                                            add to cart
                                         </button>
                                     </div>
                                     <!--                                    <div>-->
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class=" bottom-0 left-1/2  text-gray-200 text-center">
-                    <button class="">
+                    <button @click="toggleDisplayAll" class="">
                         Display All
                     </button>
                 </div>
@@ -166,7 +166,7 @@ export default {
             favoriteProducts: [],
             newProducts: [],
             topSells: [],
-            // userLoggedIn: true,
+            displayAll: true
         }
     },
     mounted() {
@@ -232,6 +232,9 @@ export default {
             console.log(!isEmpty(localStorage.getItem('user.firstName')))
             return !isEmpty(localStorage.getItem('user.firstName'))
         },
+        toggleDisplayAll() {
+            this.displayAll = !this.displayAll
+        }
     }
 
 }

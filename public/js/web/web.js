@@ -20976,8 +20976,8 @@ __webpack_require__.r(__webpack_exports__);
       categories: [],
       favoriteProducts: [],
       newProducts: [],
-      topSells: [] // userLoggedIn: true,
-
+      topSells: [],
+      displayAll: true
     };
   },
   mounted: function mounted() {
@@ -21041,6 +21041,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log('checkIfLoggedIn > \n');
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName')));
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
+    },
+    toggleDisplayAll: function toggleDisplayAll() {
+      this.displayAll = !this.displayAll;
     }
   }
 });
@@ -48280,7 +48283,8 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto h-1/2 mt-20 m-8 mb-36 flex flex-col rounded-lg border border-lime-300",
+              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border border-lime-300",
+            class: this.displayAll ? "h-auto" : "h-1/2",
           },
           [
             _vm._m(0),
@@ -48348,7 +48352,7 @@ var render = function () {
                                   },
                                   [
                                     _vm._v(
-                                      "\n                                        add to\n                                        cart\n                                    "
+                                      "\n                                        add to cart\n                                    "
                                     ),
                                   ]
                                 ),
@@ -48364,13 +48368,21 @@ var render = function () {
               ]
             ),
             _vm._v(" "),
-            _vm._m(1),
+            _c(
+              "div",
+              { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
+              [
+                _c("button", { on: { click: _vm.toggleDisplayAll } }, [
+                  _vm._v("\n                    Display All\n                "),
+                ]),
+              ]
+            ),
           ]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "mt-8" }, [
           _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "div",
@@ -48416,7 +48428,7 @@ var render = function () {
                           "rounded text-center  absolute bottom-0 border-t w-full h-16",
                       },
                       [
-                        _vm._m(3, true),
+                        _vm._m(2, true),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -48461,7 +48473,7 @@ var render = function () {
         _vm._v(" "),
         _c("div", { staticClass: "mt-8" }, [
           _c("div", { staticClass: "py-8 pr-8 text-gray-200" }, [
-            _vm._m(4),
+            _vm._m(3),
             _vm._v(" "),
             _c(
               "div",
@@ -48507,7 +48519,7 @@ var render = function () {
                           "rounded text-center  absolute bottom-0 border-t w-full h-16",
                       },
                       [
-                        _vm._m(5, true),
+                        _vm._m(4, true),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -48566,20 +48578,6 @@ var staticRenderFns = [
         _vm._v("\n                    New Products\n                "),
       ]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
-      [
-        _c("button", {}, [
-          _vm._v("\n                    Display All\n                "),
-        ]),
-      ]
-    )
   },
   function () {
     var _vm = this
