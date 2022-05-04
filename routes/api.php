@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('welcome', [WelcomeController::class , 'index']);
 Route::get('categories', [CategoriesController::class , 'index']);
-Route::get('products/{category_id}', [ProductController::class , 'retrieveProductsUsingCategoryId']);
+Route::get('productContainer/{category_id}', [ProductController::class , 'retrieveProductsUsingCategoryId']);
 Route::get('product/{product_number}', [ProductController::class , 'show']);
 Route::apiResource('shopping_cart' , ShoppingCart::class);
 Route::post('register', RegisteredUserController::class);

@@ -3,7 +3,7 @@
 
         <Header/>
 
-        <!-- display shopping cart products -->
+        <!-- display shopping cart productContainer -->
         <div class=" relative m-4 mt-20  flex-col justify-center  rounded-lg ">
             <div class=" m-4 p-4 flex flex-col justify-center rounded-lg bg-slate-700 ">
                 <table ref="table" class="text-gray-400 text-center">
@@ -18,7 +18,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="product in products">
+                    <tr v-for="product in productContainer">
                         <td class="py-2">{{ product.number }}</td>
                         <td>{{ product.name }}</td>
                         <td>{{ product.price }}</td>
@@ -58,7 +58,7 @@ export default {
     components: {Header},
     data() {
         return {
-            products: [],
+            productContainer: [],
         }
     },
     mounted() {
@@ -67,23 +67,21 @@ export default {
     methods: {
         retrieveLocalStorageProducts() {
             console.log('\n')
-            console.log('----------------------------')
-            console.log('retrieve LocalStorage Products > \n')
+            console.log('retrieve LocalStorage Products > ------------ \n')
             if (this.checkIfLoggedIn()) {
-                console.log('checking for shopping cart products in database')
+                console.log('checking for shopping cart productContainer in database')
             } else {
-                console.log('checking for products in local storage')
+                console.log('checking for productContainer in local storage')
                 if (localStorage.length > 0) {
-                    for (let i = 0; i < localStorage.length; i++) {
+                    for (let i = 0; i < localStorage.length; i++)
                         if (localStorage.key(i).substring(0, 8) === 'product.') {
-                            console.log('product found in local storage > \n')
-                            this.products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                            console.log(this.products[i])
+                            console.log('product found in local storage > adding it to this.productContainer \n')
+                            this.productContainer.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
                         } else {
                             console.log('no product found \n')
                         }
-                    }
                 } else console.log('local storage is empty')
+                this.sortProducts(this.productContainer)
             }
         },
         incrementProductCount(product) {
@@ -118,10 +116,8 @@ export default {
         },
         checkIfLoggedIn() {
             console.log('\n')
-            console.log('-----------------')
-            console.log('checkIfLoggedIn > \n')
+            console.log('checkIfLoggedIn > ---------------- \n')
             console.log(!isEmpty(localStorage.getItem('user.firstName')))
-            console.log('----------------\n\n')
             return !isEmpty(localStorage.getItem('user.firstName'))
         },
         fixLocalStorageProductsSuffix() {
@@ -154,15 +150,35 @@ export default {
         saveProductsWithSortedSuffix(buffer) {
             console.log('saveProductsWithSortedSuffix > ------------ \n')
             for (let i = 0; i < buffer.length; i++) {
-                let suffix = i+1
-                console.log('saving > product.'+ suffix +'\n')
+                let suffix = i + 1
+                console.log('saving > product.' + suffix + '\n')
                 console.log(buffer[i])
                 console.log('\n')
                 localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]))
             }
         },
-    },
+        localStorageProductCounter() {
+            //returns the count of stored productContainer in local storage
+            let counter = 0
+            for (let i = 0; i < localStorage.length; i++)
+                if (localStorage.key(i).substring(0, 8) === 'product.')
+                    counter++
+            return counter
+        },
+        sortProducts(products) {
+            console.log('\n')
+            console.log('sortProducts > ------------ \n')
+            let suffix = 0
+            for (let i = 0; i < products.length; i++) {
+                console.log('product key > ' + products.key(i) + '\n')
+                suffix = products.key(i).replace(/[^0-9]/g,'');
+                console.log('extracted suffix from key  > ' + suffix + '\n')
+            }
 
+
+
+        },
+    }
 }
 </script>
 

@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert($value);
 
 
-        //create random users with related products to test database
+        //create random users with related productContainer to test database
         $category = [
             'arduino' => Category::where('category', 'Arduino Family')->first(),
             'raspberry' => Category::where('category', 'Raspberry Family')->first(),

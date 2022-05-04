@@ -30795,7 +30795,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
         }
         index = offset + match.length;
 
-        // The JS engine embedded in Adobe products needs `match` returned in
+        // The JS engine embedded in Adobe productContainer needs `match` returned in
         // order to produce the correct `offset` value.
         return match;
       });
@@ -34048,7 +34048,7 @@ var render = function () {
       _vm._v(" "),
       _c("div", { staticClass: "mx-4 mt-4" }, [
         _c("h1", { staticClass: "text-gray-200" }, [
-          _vm._v(" favorite products"),
+          _vm._v(" favorite productContainer"),
         ]),
         _vm._v(" "),
         _c("table", { staticClass: "border rounded-md text-gray-200" }, [

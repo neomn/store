@@ -16675,7 +16675,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-console.log('this is products');
+console.log('this is productContainer');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Products",
   components: {
@@ -16696,10 +16696,10 @@ console.log('this is products');
 
       axios.get('/admin-api/products').then(function (response) {
         _this.products = response.data;
-        console.log('this. products >>>' + _this.products);
-        console.log('products retrived ');
+        console.log('this. productContainer >>>' + _this.products);
+        console.log('productContainer retrived ');
       })["catch"](function (error) {
-        console.log('cant load products from server' + error);
+        console.log('cant load productContainer from server' + error);
       });
     }
   }
@@ -16853,7 +16853,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.products[data-v-897a6d62]{\r\n    background-color: #2d3748;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.products[data-v-897a6d62]{\n    background-color: #2d3748;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51372,7 +51372,7 @@ var routes = [{
   name: 'panel',
   component: _components_admin_Panel__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
-  path: '/admin/products',
+  path: '/admin/productContainer',
   name: 'products',
   component: _components_admin_Products__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {

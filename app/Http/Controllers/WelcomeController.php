@@ -24,7 +24,7 @@ class WelcomeController extends Controller
         ]));
     }
 
-    //returns top 20 most visited products in recent week
+    //returns top 20 most visited productContainer in recent week
     public function mostVisitedProductsRecentWeek()
     {
         $now = Carbon::now();
@@ -56,7 +56,7 @@ class WelcomeController extends Controller
             ->get();
     }
 
-    //returns top 20 sold products in recent month
+    //returns top 20 sold productContainer in recent month
     public function topSells()
     {
         $now = Carbon::now();

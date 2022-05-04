@@ -17,8 +17,8 @@
 //             component: Panel
 //         },
 //         {
-//             path: '/admin/products',
-//             name: 'products',
+//             path: '/admin/productContainer',
+//             name: 'productContainer',
 //             component: Products
 //         },
 //         {

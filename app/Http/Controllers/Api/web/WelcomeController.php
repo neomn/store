@@ -32,7 +32,7 @@ class WelcomeController extends Controller
         return $product_number;
     }
 
-    //returns top 20 most visited products in recent week
+    //returns top 20 most visited productContainer in recent week
     public function mostVisitedProducts()
     {
         $now = Carbon::now();
@@ -52,7 +52,7 @@ class WelcomeController extends Controller
         return $products;
     }
 
-    //returns all new products in recent month
+    //returns all new productContainer in recent month
     public function newProducts()
     {
         $now = Carbon::now();
@@ -65,7 +65,7 @@ class WelcomeController extends Controller
             ->get();
     }
 
-    //returns top 20 sold products in recent month
+    //returns top 20 sold productContainer in recent month
     public function topSells()
     {
         $now = Carbon::now();

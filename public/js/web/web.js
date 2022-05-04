@@ -19995,7 +19995,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(newParams);
 
       if (newParams === false) {
-        console.log('requesting for category products');
+        console.log('requesting for category productContainer');
 
         _this.getCategoryAssociatedProducts();
       }
@@ -20101,11 +20101,11 @@ __webpack_require__.r(__webpack_exports__);
       this.allCategories.forEach(function (item, index) {
         if (item.category === category) categoryId = item.id;
       });
-      console.log('category categoryId >>> ' + categoryId + '\n'); //request for products
+      console.log('category categoryId >>> ' + categoryId + '\n'); //request for productContainer
 
       axios.get('/api/products/' + categoryId).then(function (response) {
         var products = response.data.data;
-        console.log('retrieved products  >>> \n');
+        console.log('retrieved productContainer  >>> \n');
         console.log(response.data.product);
         _this5.productContainer = response.data.product;
       })["catch"](function (error) {
@@ -20720,7 +20720,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      products: []
+      productContainer: []
     };
   },
   mounted: function mounted() {
@@ -20729,25 +20729,25 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     retrieveLocalStorageProducts: function retrieveLocalStorageProducts() {
       console.log('\n');
-      console.log('----------------------------');
-      console.log('retrieve LocalStorage Products > \n');
+      console.log('retrieve LocalStorage Products > ------------ \n');
 
       if (this.checkIfLoggedIn()) {
-        console.log('checking for shopping cart products in database');
+        console.log('checking for shopping cart productContainer in database');
       } else {
-        console.log('checking for products in local storage');
+        console.log('checking for productContainer in local storage');
 
         if (localStorage.length > 0) {
           for (var i = 0; i < localStorage.length; i++) {
             if (localStorage.key(i).substring(0, 8) === 'product.') {
-              console.log('product found in local storage > \n');
-              this.products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-              console.log(this.products[i]);
+              console.log('product found in local storage > adding it to this.productContainer \n');
+              this.productContainer.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
             } else {
               console.log('no product found \n');
             }
           }
         } else console.log('local storage is empty');
+
+        this.sortProducts(this.productContainer);
       }
     },
     incrementProductCount: function incrementProductCount(product) {
@@ -20789,10 +20789,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
-      console.log('-----------------');
-      console.log('checkIfLoggedIn > \n');
+      console.log('checkIfLoggedIn > ---------------- \n');
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName')));
-      console.log('----------------\n\n');
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
     },
     fixLocalStorageProductsSuffix: function fixLocalStorageProductsSuffix() {
@@ -20835,6 +20833,27 @@ __webpack_require__.r(__webpack_exports__);
         console.log(buffer[i]);
         console.log('\n');
         localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]));
+      }
+    },
+    localStorageProductCounter: function localStorageProductCounter() {
+      //returns the count of stored productContainer in local storage
+      var counter = 0;
+
+      for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substring(0, 8) === 'product.') counter++;
+      }
+
+      return counter;
+    },
+    sortProducts: function sortProducts(products) {
+      console.log('\n');
+      console.log('sortProducts > ------------ \n');
+      var suffix = 0;
+
+      for (var i = 0; i < products.length; i++) {
+        console.log('product key > ' + products.key(i) + '\n');
+        suffix = products.key(i).replace(/[^0-9]/g, '');
+        console.log('extracted suffix from key  > ' + suffix + '\n');
       }
     }
   }
@@ -21068,7 +21087,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.topSells = response.data.topSells;
         console.log('favorite >>> ');
         console.log(_this.favoriteProducts);
-        console.log('new products >>>');
+        console.log('new productContainer >>>');
         console.log(_this.newProducts);
         console.log('top Sells >>> ');
         console.log(_this.topSells);
@@ -48183,7 +48202,7 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.products, function (product) {
+                    _vm._l(_vm.productContainer, function (product) {
                       return _c("tr", [
                         _c("td", { staticClass: "py-2" }, [
                           _vm._v(_vm._s(product.number)),

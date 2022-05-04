@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index(Product $product)
     {
         $product=Product::all();
-        return view('admin.products',['products'=>$product]);
+        return view('admin.productContainer',['productContainer'=>$product]);
        //dd('Product controller index');
     }
 

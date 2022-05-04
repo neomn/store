@@ -3,7 +3,7 @@
         <Header/>
         <Sidebar/>
 
-        <!--products table-->
+        <!--productContainer table-->
         <div dir="rtl" class="rtl ">
             <table class="table-fixed fixed right-10 top-10 mx-auto inset-x-0 rounded-md bg-slate-400">
                 <thead>
@@ -41,7 +41,7 @@
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
-console.log('this is products')
+console.log('this is productContainer')
 
 export default {
     name: "Products",
@@ -59,11 +59,11 @@ export default {
             axios.get('/admin-api/products')
                 .then((response) => {
                     this.products = response.data;
-                    console.log('this. products >>>' + this.products)
-                    console.log('products retrived ')
+                    console.log('this. productContainer >>>' + this.products)
+                    console.log('productContainer retrived ')
                 })
                 .catch(function (error) {
-                    console.log('cant load products from server' + error)
+                    console.log('cant load productContainer from server' + error)
                 })
         }
     }

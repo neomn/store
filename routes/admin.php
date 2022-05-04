@@ -9,4 +9,4 @@ Route::view('/panel/{any?}','admin.vue.app')
     ->where('any','.*?')
     ->name('panel');
 
-//Route::resource('products', ProductController::class );
+//Route::resource('productContainer', ProductController::class );

@@ -96,7 +96,7 @@ export default {
                 console.log('categoryHasSubCategory watcher > \n')
                 console.log(newParams)
                 if (newParams === false) {
-                    console.log('requesting for category products')
+                    console.log('requesting for category productContainer')
                     this.getCategoryAssociatedProducts()
                 }
             }
@@ -202,11 +202,11 @@ export default {
             })
             console.log('category categoryId >>> ' + categoryId + '\n')
 
-            //request for products
+            //request for productContainer
             axios.get('/api/products/' + categoryId)
                 .then(response => {
                     let products = response.data.data
-                    console.log('retrieved products  >>> \n')
+                    console.log('retrieved productContainer  >>> \n')
                     console.log(response.data.product)
                     this.productContainer = response.data.product
                 })

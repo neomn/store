@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(AdminSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(UserSeeder::class); // this also will seed products and its all related tables
+        $this->call(UserSeeder::class); // this also will seed productContainer and its all related tables
         $this->call(OrderSeeder::class);
     }
 }

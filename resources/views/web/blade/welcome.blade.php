@@ -17,7 +17,7 @@
         <a href="{{route('contact-us')}}">contact us</a>
     </nav>
 
-    <!-- top 20 most visited products in recent week-->
+    <!-- top 20 most visited productContainer in recent week-->
     <h1>top 20 most visited products in recent week</h1>
     <div class="">
         <table>
@@ -39,7 +39,7 @@
     <br>
     <br>
 
-    <!-- new products in recent month-->
+    <!-- new productContainer in recent month-->
     <h1>new products in recent month</h1>
     <div class="">
         <table>
@@ -62,7 +62,7 @@
     <br>
 
 
-    <!-- top 20 most sold products in recent month-->
+    <!-- top 20 most sold productContainer in recent month-->
     <h1>top 20 most sold products in recent month</h1>
     <div class="">
         <table>

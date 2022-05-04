@@ -6,7 +6,7 @@
 
         <div>
 
-            <!-- new products  -->
+            <!-- new productContainer  -->
             <div class="relative w-auto  mt-20 m-8  flex flex-col rounded-lg bg-gradient-to-b from-violet-900"
                  v-bind:class="(this.displayAllNew)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
@@ -112,7 +112,7 @@
                 </div>
             </div>
 
-            <!-- favorite products  -->
+            <!-- favorite productContainer  -->
             <div class="relative w-auto  mt-16 m-8 mb-36 flex flex-col rounded-lg bg-gradient-to-b from-blue-900"
                  v-bind:class="(this.displayAllFavorite)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
@@ -210,7 +210,7 @@ export default {
                     this.topSells = response.data.topSells;
                     console.log('favorite >>> ');
                     console.log(this.favoriteProducts);
-                    console.log('new products >>>');
+                    console.log('new productContainer >>>');
                     console.log(this.newProducts);
                     console.log('top Sells >>> ');
                     console.log(this.topSells);

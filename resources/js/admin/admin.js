@@ -32,7 +32,7 @@ Vue.component('App', require('../components/admin/App').default);
 const routes=[
         { path: '/admin/App', name: 'app', component: App},
         { path: '/admin/panel', name: 'panel', component: Panel},
-        { path: '/admin/products', name: 'products', component: Products},
+        { path: '/admin/productContainer', name: 'products', component: Products},
         { path: '/admin/users', name: 'users', component: Users},
         { path: '/admin/analytics', name: 'analytics', component: Analytics},
         { path: '/admin/settings', name: 'settings', component: Settings},]

@@ -13,7 +13,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('productContainer', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('product_number')->default(random_int(1000000000,9000000000))->unique();
             $table->string('product_name');
@@ -31,6 +31,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('productContainer');
     }
 }
