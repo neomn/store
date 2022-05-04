@@ -48324,7 +48324,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-lime-300",
+              "relative w-auto  mt-20 m-8  flex flex-col rounded-lg bg-gradient-to-b from-violet-600",
             class: this.displayAllNew ? "h-auto" : "h-1/2",
           },
           [
@@ -48340,13 +48340,13 @@ var render = function () {
                 _c("div", { staticClass: "flex justify-center " }, [
                   _c(
                     "div",
-                    { staticClass: " m-2 grid grid-cols-7 gap-x-8 gap-y-16 " },
+                    { staticClass: " m-2 grid grid-cols-7 gap-x-8 gap-y-16  " },
                     _vm._l(_vm.newProducts, function (product) {
                       return _c(
                         "div",
                         {
                           staticClass:
-                            " bg-slate-700 w-36 h-52  rounded-lg justify-center relative top-0 text-center ",
+                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
                         },
                         [
                           _c("img", {
@@ -48355,7 +48355,7 @@ var render = function () {
                             attrs: { src: product.image, alt: "product image" },
                           }),
                           _vm._v(" "),
-                          _c("div", { staticClass: "pt-1 pl-1" }, [
+                          _c("div", { staticClass: "pt-1 pl-1 " }, [
                             _vm._v(
                               "\n                                " +
                                 _vm._s(product.name) +
@@ -48382,7 +48382,7 @@ var render = function () {
                                   "button",
                                   {
                                     staticClass:
-                                      " w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800",
+                                      " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-800 bg-green-300 ",
                                     on: {
                                       click: function ($event) {
                                         return _vm.addProductTOShoppingCart(
@@ -48431,7 +48431,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-yellow-500",
+              "relative w-auto m-8 mt-16 flex flex-col rounded-lg bg-gradient-to-b from-yellow-600",
             class: this.displayAllTopSells ? "h-auto" : "h-1/2",
           },
           [
@@ -48453,7 +48453,7 @@ var render = function () {
                         "div",
                         {
                           staticClass:
-                            " bg-slate-700 w-36 h-52  rounded-lg justify-center relative top-0 text-center ",
+                            " w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ",
                         },
                         [
                           _c("img", {
@@ -48532,7 +48532,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-orange-500",
+              "relative w-auto  mt-16 m-8 mb-36 flex flex-col rounded-lg bg-gradient-to-b from-blue-600",
             class: this.displayAllFavorite ? "h-auto" : "h-1/2",
           },
           [
@@ -48554,7 +48554,7 @@ var render = function () {
                         "div",
                         {
                           staticClass:
-                            " bg-slate-700 w-36 h-52  rounded-lg justify-center relative top-0 text-center ",
+                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
                         },
                         [
                           _c("img", {

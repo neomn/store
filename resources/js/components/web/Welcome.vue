@@ -7,7 +7,7 @@
         <div>
 
             <!-- new products  -->
-            <div class="relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-lime-300"
+            <div class="relative w-auto  mt-20 m-8  flex flex-col rounded-lg bg-gradient-to-b from-violet-600"
                  v-bind:class="(this.displayAllNew)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
@@ -16,16 +16,16 @@
                 </div>
                 <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden">
                     <div class="flex justify-center ">
-                        <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16 ">
+                        <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16  ">
                             <div v-for="product in newProducts"
-                                 class=" bg-slate-700 w-36 h-52  rounded-lg justify-center relative top-0 text-center ">
+                                 class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
 
                                 <!--card image-->
                                 <img :src="product.image" alt="product image"
                                      class=" h-24 w-full rounded-tl-lg rounded-tr-lg">
 
                                 <!--card body-->
-                                <div class="pt-1 pl-1">
+                                <div class="pt-1 pl-1 ">
                                     <!--                                    {{ product.number }} <br>-->
                                     {{ product.name }} <br>
                                     {{ product.price }} <br>
@@ -35,7 +35,7 @@
                                 <div class="w-full rounded text-center absolute bottom-0 ">
                                     <div>
                                         <button @click="addProductTOShoppingCart(product)"
-                                                class=" w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800">
+                                                class=" w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-800 bg-green-300 ">
                                             add to cart
                                         </button>
                                     </div>
@@ -60,7 +60,7 @@
             </div>
 
             <!-- top sells  -->
-            <div class="relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-yellow-500"
+            <div class="relative w-auto m-8 mt-16 flex flex-col rounded-lg bg-gradient-to-b from-yellow-600"
                  v-bind:class="(this.displayAllTopSells)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
@@ -71,7 +71,7 @@
                     <div class="flex justify-center ">
                         <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16 ">
                             <div v-for="product in topSells"
-                                 class=" bg-slate-700 w-36 h-52  rounded-lg justify-center relative top-0 text-center ">
+                                 class=" w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ">
 
                                 <!--card image-->
                                 <img :src="product.image" alt="product image"
@@ -113,7 +113,7 @@
             </div>
 
             <!-- favorite products  -->
-            <div class="relative w-auto  mt-20 m-8 mb-36 flex flex-col rounded-lg border-2 border-orange-500"
+            <div class="relative w-auto  mt-16 m-8 mb-36 flex flex-col rounded-lg bg-gradient-to-b from-blue-600"
                  v-bind:class="(this.displayAllFavorite)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
@@ -124,7 +124,7 @@
                     <div class="flex justify-center ">
                         <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16 ">
                             <div v-for="product in favoriteProducts"
-                                 class=" bg-slate-700 w-36 h-52  rounded-lg justify-center relative top-0 text-center ">
+                                 class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
 
                                 <!--card image-->
                                 <img :src="product.image" alt="product image"
@@ -264,7 +264,7 @@ export default {
         toggleDisplayAllNewProducts() {
             this.displayAllNew = !this.displayAllNew
             this.displayAllTopSells = false
-            this.displayAllFavorite =false
+            this.displayAllFavorite = false
         },
         toggleDisplayTopSells() {
             this.displayAllTopSells = !this.displayAllTopSells
@@ -274,7 +274,7 @@ export default {
         toggleDisplayAllFavoriteProducts() {
             this.displayAllFavorite = !this.displayAllFavorite
             this.displayAllNew = false
-            this.displayAllTopSells =  false
+            this.displayAllTopSells = false
         },
     }
 
