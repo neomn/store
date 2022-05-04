@@ -20775,8 +20775,11 @@ __webpack_require__.r(__webpack_exports__);
       window.location.reload();
     },
     removeProduct: function removeProduct(product) {
+      console.log('remove Product > ------------------- \n');
+
       for (var i = 0; i < localStorage.length; i++) {
         if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+          console.log('removing ' + localStorage.key(i) + '\n');
           localStorage.removeItem(localStorage.key(i));
         }
       }
@@ -20799,9 +20802,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log('product buffer > \n');
       console.log(productBuffer);
       this.removeAllProductsInLocalStorage();
-      this.saveProductsWithSortedSuffix(productBuffer);
-      console.log('collected products from local Storage to rename >');
-      console.log(productBuffer); // for (let i = 0; i < productBuffer.length; i++) {
+      this.saveProductsWithSortedSuffix(productBuffer); // console.log('collected products from local Storage to rename >')
+      // console.log(productBuffer)
+      // for (let i = 0; i < productBuffer.length; i++) {
       //     localStorage.removeItem(localStorage.key(i))
       //     localStorage.setItem('product.', JSON.stringify(product))
       //     console.log('product saved in local storage with key > product.' + '\n')
@@ -20815,10 +20818,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     removeAllProductsInLocalStorage: function removeAllProductsInLocalStorage() {
+      console.log('removeAllProductsInLocalStorage > ------------ \n');
       var length = localStorage.length;
+      console.log('local storage length > ' + length + '\n');
 
-      for (var i = 0; i < length; i++) {
+      for (var i = length - 1; i >= 0; i--) {
         if (localStorage.key(i).substring(0, 8) === 'product.') {
+          console.log('loop index (i) > ' + i + '\n');
+          console.log('removing > ' + localStorage.key(i) + '\n');
           localStorage.removeItem(localStorage.key(i));
         }
       }

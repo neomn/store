@@ -107,8 +107,10 @@ export default {
             window.location.reload()
         },
         removeProduct(product) {
+            console.log('remove Product > ------------------- \n')
             for (let i = 0; i < localStorage.length; i++)
                 if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
+                    console.log('removing ' + localStorage.key(i) + '\n')
                     localStorage.removeItem(localStorage.key(i))
                 }
             this.fixLocalStorageProductsSuffix()
@@ -133,8 +135,8 @@ export default {
             this.saveProductsWithSortedSuffix(productBuffer)
 
 
-            console.log('collected products from local Storage to rename >')
-            console.log(productBuffer)
+            // console.log('collected products from local Storage to rename >')
+            // console.log(productBuffer)
             // for (let i = 0; i < productBuffer.length; i++) {
             //     localStorage.removeItem(localStorage.key(i))
             //     localStorage.setItem('product.', JSON.stringify(product))
@@ -148,9 +150,13 @@ export default {
                 }
         },
         removeAllProductsInLocalStorage() {
-            let length = localStorage.length
-            for (let i = 0; i < length; i++)
+            console.log('removeAllProductsInLocalStorage > ------------ \n')
+            const length = localStorage.length
+            console.log('local storage length > ' + length + '\n')
+            for (let i = length-1 ; i >= 0 ; i--)
                 if (localStorage.key(i).substring(0, 8) === 'product.') {
+                    console.log('loop index (i) > ' + i + '\n')
+                    console.log('removing > ' + localStorage.key(i) + '\n')
                     localStorage.removeItem(localStorage.key(i))
                 }
         },
