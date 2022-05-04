@@ -20782,9 +20782,9 @@ __webpack_require__.r(__webpack_exports__);
           console.log('removing ' + localStorage.key(i) + '\n');
           localStorage.removeItem(localStorage.key(i));
         }
-      }
+      } // this.fixLocalStorageProductsSuffix()
 
-      this.fixLocalStorageProductsSuffix();
+
       window.location.reload();
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
@@ -20793,24 +20793,22 @@ __webpack_require__.r(__webpack_exports__);
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName')));
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
     },
-    fixLocalStorageProductsSuffix: function fixLocalStorageProductsSuffix() {
-      console.log('fixLocalStorageProductsSuffix > ------------ \n');
-      console.log('local storage length > ' + localStorage.length + '\n');
-      var productBuffer = [];
-      this.saveLocalStorageProductsInBuffer(productBuffer);
-      this.removeAllProductsInLocalStorage();
-      this.saveProductsWithSortedSuffix(productBuffer);
-    },
-    saveLocalStorageProductsInBuffer: function saveLocalStorageProductsInBuffer(buffer) {
-      for (var i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i).substring(0, 8) === 'product.') {
-          buffer.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-        }
-      }
-
-      console.log('product buffer > \n');
-      console.log(buffer);
-    },
+    // fixLocalStorageProductsSuffix() {
+    //     console.log('fixLocalStorageProductsSuffix > ------------ \n')
+    //     console.log('local storage length > ' + localStorage.length + '\n')
+    //     let productBuffer = []
+    //     this.saveLocalStorageProductsInBuffer(productBuffer)
+    //     this.removeAllProductsInLocalStorage()
+    //     this.saveProductsWithSortedSuffix(productBuffer)
+    // },
+    // saveLocalStorageProductsInBuffer(buffer) {
+    //     for (let i = 0; i < localStorage.length; i++)
+    //         if (localStorage.key(i).substring(0, 8) === 'product.') {
+    //             buffer.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
+    //         }
+    //     console.log('product buffer > \n')
+    //     console.log(buffer)
+    // },
     removeAllProductsInLocalStorage: function removeAllProductsInLocalStorage() {
       console.log('removeAllProductsInLocalStorage > ------------ \n');
       var length = localStorage.length;
@@ -20824,17 +20822,16 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     },
-    saveProductsWithSortedSuffix: function saveProductsWithSortedSuffix(buffer) {
-      console.log('saveProductsWithSortedSuffix > ------------ \n');
-
-      for (var i = 0; i < buffer.length; i++) {
-        var suffix = i + 1;
-        console.log('saving > product.' + suffix + '\n');
-        console.log(buffer[i]);
-        console.log('\n');
-        localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]));
-      }
-    },
+    // saveProductsWithSortedSuffix(buffer) {
+    //     console.log('saveProductsWithSortedSuffix > ------------ \n')
+    //     for (let i = 0; i < buffer.length; i++) {
+    //         let suffix = i + 1
+    //         console.log('saving > product.' + suffix + '\n')
+    //         console.log(buffer[i])
+    //         console.log('\n')
+    //         localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]))
+    //     }
+    // },
     localStorageProductCounter: function localStorageProductCounter() {
       //returns the count of stored productContainer in local storage
       var counter = 0;

@@ -111,7 +111,7 @@ export default {
                     console.log('removing ' + localStorage.key(i) + '\n')
                     localStorage.removeItem(localStorage.key(i))
                 }
-            this.fixLocalStorageProductsSuffix()
+            // this.fixLocalStorageProductsSuffix()
             window.location.reload()
         },
         checkIfLoggedIn() {
@@ -120,22 +120,22 @@ export default {
             console.log(!isEmpty(localStorage.getItem('user.firstName')))
             return !isEmpty(localStorage.getItem('user.firstName'))
         },
-        fixLocalStorageProductsSuffix() {
-            console.log('fixLocalStorageProductsSuffix > ------------ \n')
-            console.log('local storage length > ' + localStorage.length + '\n')
-            let productBuffer = []
-            this.saveLocalStorageProductsInBuffer(productBuffer)
-            this.removeAllProductsInLocalStorage()
-            this.saveProductsWithSortedSuffix(productBuffer)
-        },
-        saveLocalStorageProductsInBuffer(buffer) {
-            for (let i = 0; i < localStorage.length; i++)
-                if (localStorage.key(i).substring(0, 8) === 'product.') {
-                    buffer.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
-                }
-            console.log('product buffer > \n')
-            console.log(buffer)
-        },
+        // fixLocalStorageProductsSuffix() {
+        //     console.log('fixLocalStorageProductsSuffix > ------------ \n')
+        //     console.log('local storage length > ' + localStorage.length + '\n')
+        //     let productBuffer = []
+        //     this.saveLocalStorageProductsInBuffer(productBuffer)
+        //     this.removeAllProductsInLocalStorage()
+        //     this.saveProductsWithSortedSuffix(productBuffer)
+        // },
+        // saveLocalStorageProductsInBuffer(buffer) {
+        //     for (let i = 0; i < localStorage.length; i++)
+        //         if (localStorage.key(i).substring(0, 8) === 'product.') {
+        //             buffer.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
+        //         }
+        //     console.log('product buffer > \n')
+        //     console.log(buffer)
+        // },
         removeAllProductsInLocalStorage() {
             console.log('removeAllProductsInLocalStorage > ------------ \n')
             const length = localStorage.length
@@ -147,16 +147,16 @@ export default {
                     localStorage.removeItem(localStorage.key(i))
                 }
         },
-        saveProductsWithSortedSuffix(buffer) {
-            console.log('saveProductsWithSortedSuffix > ------------ \n')
-            for (let i = 0; i < buffer.length; i++) {
-                let suffix = i + 1
-                console.log('saving > product.' + suffix + '\n')
-                console.log(buffer[i])
-                console.log('\n')
-                localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]))
-            }
-        },
+        // saveProductsWithSortedSuffix(buffer) {
+        //     console.log('saveProductsWithSortedSuffix > ------------ \n')
+        //     for (let i = 0; i < buffer.length; i++) {
+        //         let suffix = i + 1
+        //         console.log('saving > product.' + suffix + '\n')
+        //         console.log(buffer[i])
+        //         console.log('\n')
+        //         localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]))
+        //     }
+        // },
         localStorageProductCounter() {
             //returns the count of stored productContainer in local storage
             let counter = 0
