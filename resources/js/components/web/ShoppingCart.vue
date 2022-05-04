@@ -74,11 +74,11 @@ export default {
             } else {
                 console.log('checking for products in local storage')
                 if (localStorage.length > 0) {
-                    for (let i = 1; i <= localStorage.length; i++) {
-                        if (localStorage.key(i - 1).substring(0, 8) === 'product.') {
+                    for (let i = 0; i < localStorage.length; i++) {
+                        if (localStorage.key(i).substring(0, 8) === 'product.') {
                             console.log('product found in local storage > \n')
-                            this.products.push(JSON.parse(localStorage.getItem(localStorage.key(i - 1))));
-                            console.log(this.products[i - 1])
+                            this.products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                            console.log(this.products[i])
                         } else {
                             console.log('no product found \n')
                         }
