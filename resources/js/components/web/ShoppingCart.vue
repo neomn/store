@@ -175,6 +175,7 @@ export default {
             console.log('sorted products > \n' )
             console.log(products)
         },
+
     }
 }
 </script>

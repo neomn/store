@@ -21160,6 +21160,31 @@ __webpack_require__.r(__webpack_exports__);
       this.displayAllFavorite = !this.displayAllFavorite;
       this.displayAllNew = false;
       this.displayAllTopSells = false;
+    },
+    biggestProductSuffix: function biggestProductSuffix(products) {
+      products.sort(function (a, b) {
+        return a.sort - b.sort;
+      });
+      var suffix = products[products.length - 1];
+      return products[products.length - 1];
+    },
+    retrieveLocalStorageProducts: function retrieveLocalStorageProducts() {
+      console.log('\n');
+      console.log('retrieve LocalStorage Products > ------------ \n');
+      var products = [];
+
+      if (localStorage.length > 0) {
+        for (var i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i).substring(0, 8) === 'product.') {
+            console.log('product found in local storage > \n');
+            products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+          } else {
+            console.log('no product found \n');
+          }
+        }
+      } else console.log('local storage is empty');
+
+      return products;
     }
   }
 });

@@ -286,8 +286,30 @@ export default {
             this.displayAllNew = false
             this.displayAllTopSells = false
         },
-    }
+        biggestProductSuffix(products) {
+            products.sort((a, b) => {
+                return (a.sort - b.sort)
+            })
 
+            let suffix = products[products.length - 1]
+            return products[products.length - 1]
+        },
+        retrieveLocalStorageProducts() {
+            console.log('\n')
+            console.log('retrieve LocalStorage Products > ------------ \n')
+            let products = []
+            if (localStorage.length > 0) {
+                for (let i = 0; i < localStorage.length; i++)
+                    if (localStorage.key(i).substring(0, 8) === 'product.') {
+                        console.log('product found in local storage > \n')
+                        products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+                    } else {
+                        console.log('no product found \n')
+                    }
+            } else console.log('local storage is empty')
+            return products
+        },
+    }
 }
 </script>
 
