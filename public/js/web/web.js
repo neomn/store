@@ -20848,13 +20848,24 @@ __webpack_require__.r(__webpack_exports__);
     sortProducts: function sortProducts(products) {
       console.log('\n');
       console.log('sortProducts > ------------ \n');
-      var suffix = 0;
+      console.log('product length  > ' + products.length + '\n');
 
       for (var i = 0; i < products.length; i++) {
-        console.log('product key > ' + products.key(i) + '\n');
-        suffix = products.key(i).replace(/[^0-9]/g, '');
-        console.log('extracted suffix from key  > ' + suffix + '\n');
+        console.log('product index  > ' + i + '\n');
+        console.log('product sort > ' + products[i].sort + '\n');
+        var sort = products[i].sort;
+        var index = i;
+        var temp = void 0;
+
+        if (sort !== index) {
+          temp = products[sort];
+          products[sort] = products[index];
+          products[index] = temp;
+        }
       }
+
+      console.log('sorted products > \n');
+      console.log(products);
     }
   }
 });

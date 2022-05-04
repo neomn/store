@@ -168,12 +168,21 @@ export default {
         sortProducts(products) {
             console.log('\n')
             console.log('sortProducts > ------------ \n')
-            let suffix = 0
+            console.log('product length  > ' + products.length + '\n')
             for (let i = 0; i < products.length; i++) {
-                console.log('product key > ' + products.key(i) + '\n')
-                suffix = products.key(i).replace(/[^0-9]/g,'');
-                console.log('extracted suffix from key  > ' + suffix + '\n')
+                console.log('product index  > ' + i + '\n')
+                console.log('product sort > ' + products[i].sort + '\n')
+                let sort = products[i].sort
+                let index = i
+                let temp
+                if (sort !== index) {
+                    temp = products[sort]
+                    products[sort] = products[index]
+                    products[index] = temp
+                }
             }
+            console.log('sorted products > \n' )
+            console.log(products)
         },
     }
 }
