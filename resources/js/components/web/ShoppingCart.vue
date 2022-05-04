@@ -114,7 +114,7 @@ export default {
                     localStorage.removeItem(localStorage.key(i))
                 }
             this.fixLocalStorageProductsSuffix()
-            // window.location.reload()
+            window.location.reload()
         },
         checkIfLoggedIn() {
             console.log('\n')
@@ -129,39 +129,37 @@ export default {
             console.log('local storage length > ' + localStorage.length + '\n')
             let productBuffer = []
             this.saveLocalStorageProductsInBuffer(productBuffer)
-            console.log('product buffer > \n')
-            console.log(productBuffer)
             this.removeAllProductsInLocalStorage()
             this.saveProductsWithSortedSuffix(productBuffer)
-
-
-            // console.log('collected products from local Storage to rename >')
-            // console.log(productBuffer)
-            // for (let i = 0; i < productBuffer.length; i++) {
-            //     localStorage.removeItem(localStorage.key(i))
-            //     localStorage.setItem('product.', JSON.stringify(product))
-            //     console.log('product saved in local storage with key > product.' + '\n')
-            // }
         },
         saveLocalStorageProductsInBuffer(buffer) {
             for (let i = 0; i < localStorage.length; i++)
                 if (localStorage.key(i).substring(0, 8) === 'product.') {
                     buffer.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
                 }
+            console.log('product buffer > \n')
+            console.log(buffer)
         },
         removeAllProductsInLocalStorage() {
             console.log('removeAllProductsInLocalStorage > ------------ \n')
             const length = localStorage.length
             console.log('local storage length > ' + length + '\n')
-            for (let i = length-1 ; i >= 0 ; i--)
+            for (let i = length - 1; i >= 0; i--)
                 if (localStorage.key(i).substring(0, 8) === 'product.') {
                     console.log('loop index (i) > ' + i + '\n')
                     console.log('removing > ' + localStorage.key(i) + '\n')
                     localStorage.removeItem(localStorage.key(i))
                 }
         },
-        saveProductsWithSortedSuffix(buffer){
-
+        saveProductsWithSortedSuffix(buffer) {
+            console.log('saveProductsWithSortedSuffix > ------------ \n')
+            for (let i = 0; i < buffer.length; i++) {
+                let suffix = i+1
+                console.log('saving > product.'+ suffix +'\n')
+                console.log(buffer[i])
+                console.log('\n')
+                localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]))
+            }
         },
     },
 

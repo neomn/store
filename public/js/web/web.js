@@ -20784,7 +20784,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      this.fixLocalStorageProductsSuffix(); // window.location.reload()
+      this.fixLocalStorageProductsSuffix();
+      window.location.reload();
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
@@ -20799,16 +20800,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log('local storage length > ' + localStorage.length + '\n');
       var productBuffer = [];
       this.saveLocalStorageProductsInBuffer(productBuffer);
-      console.log('product buffer > \n');
-      console.log(productBuffer);
       this.removeAllProductsInLocalStorage();
-      this.saveProductsWithSortedSuffix(productBuffer); // console.log('collected products from local Storage to rename >')
-      // console.log(productBuffer)
-      // for (let i = 0; i < productBuffer.length; i++) {
-      //     localStorage.removeItem(localStorage.key(i))
-      //     localStorage.setItem('product.', JSON.stringify(product))
-      //     console.log('product saved in local storage with key > product.' + '\n')
-      // }
+      this.saveProductsWithSortedSuffix(productBuffer);
     },
     saveLocalStorageProductsInBuffer: function saveLocalStorageProductsInBuffer(buffer) {
       for (var i = 0; i < localStorage.length; i++) {
@@ -20816,6 +20809,9 @@ __webpack_require__.r(__webpack_exports__);
           buffer.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
         }
       }
+
+      console.log('product buffer > \n');
+      console.log(buffer);
     },
     removeAllProductsInLocalStorage: function removeAllProductsInLocalStorage() {
       console.log('removeAllProductsInLocalStorage > ------------ \n');
@@ -20830,7 +20826,17 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     },
-    saveProductsWithSortedSuffix: function saveProductsWithSortedSuffix(buffer) {}
+    saveProductsWithSortedSuffix: function saveProductsWithSortedSuffix(buffer) {
+      console.log('saveProductsWithSortedSuffix > ------------ \n');
+
+      for (var i = 0; i < buffer.length; i++) {
+        var suffix = i + 1;
+        console.log('saving > product.' + suffix + '\n');
+        console.log(buffer[i]);
+        console.log('\n');
+        localStorage.setItem('product.' + suffix, JSON.stringify(buffer[i]));
+      }
+    }
   }
 });
 
