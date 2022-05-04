@@ -20781,7 +20781,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      window.location.reload();
+      this.fixLocalStorageProductsSuffix(); // window.location.reload()
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
@@ -20790,6 +20790,23 @@ __webpack_require__.r(__webpack_exports__);
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName')));
       console.log('----------------\n\n');
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
+    },
+    fixLocalStorageProductsSuffix: function fixLocalStorageProductsSuffix() {
+      console.log('fixLocalStorageProductsSuffix > ------------ \n');
+      console.log('local storage length > ' + localStorage.length + '\n');
+      var productCounter = 0;
+
+      for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substring(0, 8) === 'product.') {
+          productCounter++;
+          console.log('fixing product with index ' + i + '\n');
+          var product = JSON.parse(localStorage.getItem(localStorage.key(i)));
+          localStorage.removeItem(localStorage.key(i));
+          var suffix = productCounter;
+          localStorage.setItem('product.' + suffix, JSON.stringify(product));
+          console.log('product saved in local storage with key > product.' + suffix + '\n');
+        }
+      }
     }
   }
 });
@@ -48324,7 +48341,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-20 m-8  flex flex-col rounded-lg bg-gradient-to-b from-violet-600",
+              "relative w-auto  mt-20 m-8  flex flex-col rounded-lg bg-gradient-to-b from-violet-900",
             class: this.displayAllNew ? "h-auto" : "h-1/2",
           },
           [
@@ -48431,7 +48448,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto m-8 mt-16 flex flex-col rounded-lg bg-gradient-to-b from-yellow-600",
+              "relative w-auto m-8 mt-16 flex flex-col rounded-lg bg-gradient-to-b from-yellow-700",
             class: this.displayAllTopSells ? "h-auto" : "h-1/2",
           },
           [
@@ -48532,7 +48549,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "relative w-auto  mt-16 m-8 mb-36 flex flex-col rounded-lg bg-gradient-to-b from-blue-600",
+              "relative w-auto  mt-16 m-8 mb-36 flex flex-col rounded-lg bg-gradient-to-b from-blue-900",
             class: this.displayAllFavorite ? "h-auto" : "h-1/2",
           },
           [

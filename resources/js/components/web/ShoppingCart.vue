@@ -27,11 +27,11 @@
                         <td>
                             <div class="inline-flex">
                                 <div class="m-2 px-2 py-1 rounded-lg border border-yellow-500"
-                                    @click="decrementProductCount(product)">
+                                     @click="decrementProductCount(product)">
                                     <font-awesome-icon :icon="['fas', 'minus-circle']"/>
                                 </div>
                                 <div class="m-2 px-2 py-1 rounded-lg border border-lime-500"
-                                    @click="incrementProductCount(product)">
+                                     @click="incrementProductCount(product)">
                                     <font-awesome-icon :icon="['fas', 'plus-circle']"/>
                                 </div>
                                 <div class="m-2 px-2 py-1 rounded-lg border border-red-500"
@@ -111,7 +111,8 @@ export default {
                 if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
                     localStorage.removeItem(localStorage.key(i))
                 }
-            window.location.reload()
+            this.fixLocalStorageProductsSuffix()
+            // window.location.reload()
         },
         checkIfLoggedIn() {
             console.log('\n')
@@ -121,6 +122,22 @@ export default {
             console.log('----------------\n\n')
             return !isEmpty(localStorage.getItem('user.firstName'))
         },
+        fixLocalStorageProductsSuffix() {
+            console.log('fixLocalStorageProductsSuffix > ------------ \n')
+            console.log('local storage length > ' + localStorage.length + '\n')
+            let productCounter = 0
+            for (let i = 0; i < localStorage.length; i++) {
+                if (localStorage.key(i).substring(0, 8) === 'product.') {
+                    productCounter++
+                    console.log('fixing product with index ' + i + '\n')
+                    let product = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                    localStorage.removeItem(localStorage.key(i))
+                    let suffix = productCounter
+                    localStorage.setItem('product.'+ suffix , JSON.stringify(product))
+                    console.log('product saved in local storage with key > product.'+ suffix + '\n')
+                }
+            }
+        }
     },
 }
 </script>

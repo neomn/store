@@ -1313,6 +1313,22 @@ select {
   --tw-gradient-from: #7c3aed;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(124 58 237 / 0));
 }
+.from-violet-800 {
+  --tw-gradient-from: #5b21b6;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(91 33 182 / 0));
+}
+.from-violet-900 {
+  --tw-gradient-from: #4c1d95;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(76 29 149 / 0));
+}
+.from-yellow-900 {
+  --tw-gradient-from: #713f12;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(113 63 18 / 0));
+}
+.from-blue-900 {
+  --tw-gradient-from: #1e3a8a;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(30 58 138 / 0));
+}
 .to-cyan-300 {
   --tw-gradient-to: #67e8f9;
 }

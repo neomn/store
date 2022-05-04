@@ -7,7 +7,7 @@
         <div>
 
             <!-- new products  -->
-            <div class="relative w-auto  mt-20 m-8  flex flex-col rounded-lg bg-gradient-to-b from-violet-600"
+            <div class="relative w-auto  mt-20 m-8  flex flex-col rounded-lg bg-gradient-to-b from-violet-900"
                  v-bind:class="(this.displayAllNew)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
@@ -60,7 +60,7 @@
             </div>
 
             <!-- top sells  -->
-            <div class="relative w-auto m-8 mt-16 flex flex-col rounded-lg bg-gradient-to-b from-yellow-600"
+            <div class="relative w-auto m-8 mt-16 flex flex-col rounded-lg bg-gradient-to-b from-yellow-700"
                  v-bind:class="(this.displayAllTopSells)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
@@ -113,7 +113,7 @@
             </div>
 
             <!-- favorite products  -->
-            <div class="relative w-auto  mt-16 m-8 mb-36 flex flex-col rounded-lg bg-gradient-to-b from-blue-600"
+            <div class="relative w-auto  mt-16 m-8 mb-36 flex flex-col rounded-lg bg-gradient-to-b from-blue-900"
                  v-bind:class="(this.displayAllFavorite)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
