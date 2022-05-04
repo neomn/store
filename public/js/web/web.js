@@ -20845,22 +20845,12 @@ __webpack_require__.r(__webpack_exports__);
     sortProducts: function sortProducts(products) {
       console.log('\n');
       console.log('sortProducts > ------------ \n');
+      console.log('unsorted products > \n');
+      console.log(products);
       console.log('product length  > ' + products.length + '\n');
-
-      for (var i = 0; i < products.length; i++) {
-        console.log('product index  > ' + i + '\n');
-        console.log('product sort > ' + products[i].sort + '\n');
-        var sort = products[i].sort;
-        var index = i;
-        var temp = void 0;
-
-        if (sort !== index) {
-          temp = products[sort];
-          products[sort] = products[index];
-          products[index] = temp;
-        }
-      }
-
+      products.sort(function (a, b) {
+        return a.sort - b.sort;
+      });
       console.log('sorted products > \n');
       console.log(products);
     }
