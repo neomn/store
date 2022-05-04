@@ -174,9 +174,6 @@ export default {
                 suffix = products.key(i).replace(/[^0-9]/g,'');
                 console.log('extracted suffix from key  > ' + suffix + '\n')
             }
-
-
-
         },
     }
 }

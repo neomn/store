@@ -21103,6 +21103,8 @@ __webpack_require__.r(__webpack_exports__);
       if (this.checkIfLoggedIn()) {} else if (this.productAlreadyExistInShoppingCart(product)) {
         this.incrementProductCount(product);
       } else {
+        var productCount = this.localStorageProductCounter();
+        product.sort = productCount++;
         product.count = 1;
         console.log('saving product in local storage');
         var suffix = localStorage.length + 1;
@@ -21135,6 +21137,16 @@ __webpack_require__.r(__webpack_exports__);
       console.log('checkIfLoggedIn > \n');
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName')));
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
+    },
+    localStorageProductCounter: function localStorageProductCounter() {
+      //returns the count of stored productContainer in local storage
+      var counter = 0;
+
+      for (var i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substring(0, 8) === 'product.') counter++;
+      }
+
+      return counter;
     },
     toggleDisplayAllNewProducts: function toggleDisplayAllNewProducts() {
       this.displayAllNew = !this.displayAllNew;

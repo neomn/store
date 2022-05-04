@@ -228,6 +228,8 @@ export default {
             } else if (this.productAlreadyExistInShoppingCart(product)) {
                 this.incrementProductCount(product)
             } else {
+                let productCount = this.localStorageProductCounter()
+                product.sort = productCount++
                 product.count = 1
                 console.log('saving product in local storage')
                 let suffix = localStorage.length + 1
@@ -260,6 +262,14 @@ export default {
             console.log('checkIfLoggedIn > \n')
             console.log(!isEmpty(localStorage.getItem('user.firstName')))
             return !isEmpty(localStorage.getItem('user.firstName'))
+        },
+        localStorageProductCounter() {
+            //returns the count of stored productContainer in local storage
+            let counter = 0
+            for (let i = 0; i < localStorage.length; i++)
+                if (localStorage.key(i).substring(0, 8) === 'product.')
+                    counter++
+            return counter
         },
         toggleDisplayAllNewProducts() {
             this.displayAllNew = !this.displayAllNew
