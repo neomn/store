@@ -16,7 +16,8 @@
                              v-bind:class="(this.$route.path === '/about-us')? 'border-t border-lime-500 rounded-lg': ''">
                     About Us
                 </router-link>
-                <div v-if="!userLoggedIn" class=" px-4 inline-block float-right"
+                <!--register-->
+                <div v-if="!loggedInUser" class=" px-4 inline-block float-right"
                      v-bind:class="(this.$route.path === '/register')? 'border-t border-lime-500 rounded-lg': ''">
                     <div class="pt-1">
                         <router-link :to="{name:'register'}" class="float-right ">
@@ -24,19 +25,20 @@
                         </router-link>
                     </div>
                 </div>
+                <!--login-->
                 <div class=" px-4 inline-block float-right"
                      v-bind:class="(this.$route.path === '/login')? 'border-t border-lime-500 rounded-lg': ''">
                     <div class="pt-1">
-                        <router-link v-if="!userLoggedIn" :to="{name:'login'}" class="float-right " href="/api/user">
+                        <router-link v-if="!loggedInUser" :to="{name:'login'}" class="float-right " href="/api/user">
                             <font-awesome-icon :icon="['fas', 'door-open']"/>
                         </router-link>
                     </div>
                 </div>
                 <!--  user dashboard-->
-                <div v-if="userLoggedIn" class="ml-3 inline-block float-right">
+                <div v-if="loggedInUser" class="ml-3 inline-block float-right">
                     <router-link :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
-                        <h3 class="inline-block pl-1">{{user.firstName }}</h3>
+                        <h3 class="inline-block pl-1">{{ loggedInUser.firstName }}</h3>
                     </router-link>
                 </div>
                 <div class=" px-4 inline-block float-right "
@@ -58,30 +60,28 @@
 import {isEmpty} from "lodash";
 
 export default {
-    props: [],
     data() {
         return {
             HeaderImage: '../resources/img/WelcomeController.jpg',
-            userLoggedIn: true,
-            user: {
-                'first_name': localStorage.getItem('user.firstName'),
-                'last_name': localStorage.getItem('user.firstName'),
-                'email': localStorage.getItem('user.firstName'),
-            },
+            loggedInUser: {},
         }
     },
     mounted() {
-        this.checkIfLoggedIn()
+        this.retrieveLoggedInUserFromLocalStorage()
     },
-    created() {
-
-    },
-
     methods: {
         checkIfLoggedIn() {
             console.log('checkIfLoggedIn > ')
             console.log(localStorage.getItem('loggedInUser') !== null)
             return localStorage.getItem('loggedInUser') !== null
+        },
+        retrieveLoggedInUserFromLocalStorage() {
+            console.log('retrieveLoggedInUserFromLocalStorage > ')
+            if (this.checkIfLoggedIn()) {
+                this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
+            }else this.loggedInUser = null
+            console.log( 'loggInUser > ')
+            console.log(this.loggedInUser)
         },
     }
 }

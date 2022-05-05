@@ -20290,29 +20290,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: [],
   data: function data() {
     return {
       HeaderImage: '../resources/img/WelcomeController.jpg',
-      userLoggedIn: true,
-      user: {
-        'first_name': localStorage.getItem('user.firstName'),
-        'last_name': localStorage.getItem('user.firstName'),
-        'email': localStorage.getItem('user.firstName')
-      }
+      loggedInUser: {}
     };
   },
   mounted: function mounted() {
-    this.checkIfLoggedIn();
+    this.retrieveLoggedInUserFromLocalStorage();
   },
-  created: function created() {},
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('checkIfLoggedIn > ');
       console.log(localStorage.getItem('loggedInUser') !== null);
       return localStorage.getItem('loggedInUser') !== null;
+    },
+    retrieveLoggedInUserFromLocalStorage: function retrieveLoggedInUserFromLocalStorage() {
+      console.log('retrieveLoggedInUserFromLocalStorage > ');
+
+      if (this.checkIfLoggedIn()) {
+        this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+      } else this.loggedInUser = null;
+
+      console.log('loggInUser > ');
+      console.log(this.loggedInUser);
     }
   }
 });
@@ -47572,7 +47577,7 @@ var render = function () {
                 [_vm._v("\n                About Us\n            ")]
               ),
               _vm._v(" "),
-              !_vm.userLoggedIn
+              !_vm.loggedInUser
                 ? _c(
                     "div",
                     {
@@ -47621,7 +47626,7 @@ var render = function () {
                     "div",
                     { staticClass: "pt-1" },
                     [
-                      !_vm.userLoggedIn
+                      !_vm.loggedInUser
                         ? _c(
                             "router-link",
                             {
@@ -47645,7 +47650,7 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _vm.userLoggedIn
+              _vm.loggedInUser
                 ? _c(
                     "div",
                     { staticClass: "ml-3 inline-block float-right" },
@@ -47664,7 +47669,7 @@ var render = function () {
                           }),
                           _vm._v(" "),
                           _c("h3", { staticClass: "inline-block pl-1" }, [
-                            _vm._v(_vm._s(_vm.user.firstName)),
+                            _vm._v(_vm._s(_vm.loggedInUser.firstName)),
                           ]),
                         ],
                         1
