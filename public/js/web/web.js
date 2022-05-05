@@ -20384,6 +20384,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -47771,7 +47772,140 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "flex min-h-screen bg-slate-800" },
-    [_c("Header", { staticClass: "z-50" }), _vm._v(" "), _vm._m(0)],
+    [
+      _c("Header", { staticClass: "z-50" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-12 flex flex-col w-full" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              " flex flex-col place-self-center w-auto h-5/6 mt-10 px-4 text-gray-200 bg-slate-900 rounded-lg  border-2 border-red-600 ",
+          },
+          [
+            _c(
+              "h5",
+              {
+                staticClass:
+                  " my-4 mx-4 bg-slate-800 text-center rounded-lg   ",
+              },
+              [_vm._v("Enter Your Credential To Login ")]
+            ),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "flex flex-col justify-center",
+                attrs: { action: "#" },
+                on: {
+                  submit: function ($event) {
+                    $event.preventDefault()
+                    return _vm.login.apply(null, arguments)
+                  },
+                },
+              },
+              [
+                _c("div", { staticClass: "text-left relative" }, [
+                  _c("div", { staticClass: " rounded-md" }, [
+                    _c("div", { staticClass: "flex flex-col py-10" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "block mb-2 ml-2 text-sm",
+                          attrs: { for: "email" },
+                        },
+                        [_vm._v("Email ")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.formData.email,
+                            expression: "formData.email",
+                          },
+                        ],
+                        staticClass:
+                          "mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200 border-1 border-red-600",
+                        attrs: {
+                          name: "email",
+                          id: "email",
+                          type: "email",
+                          autocomplete: "email",
+                        },
+                        domProps: { value: _vm.formData.email },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.formData, "email", $event.target.value)
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "block mb-1 ml-2 text-sm",
+                          attrs: { for: "password" },
+                        },
+                        [_vm._v("Password")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.formData.password,
+                            expression: "formData.password",
+                          },
+                        ],
+                        staticClass:
+                          "rounded-lg text-gray-200 text-sm bg-slate-700 border border-red-600",
+                        attrs: {
+                          name: "password",
+                          id: "password",
+                          type: "password",
+                          autocomplete: "current-password",
+                        },
+                        domProps: { value: _vm.formData.password },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.formData,
+                              "password",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      " justify-center border-2 border-red-600 rounded-lg ",
+                    attrs: { type: "submit" },
+                  },
+                  [_vm._v("login\n                ")]
+                ),
+              ]
+            ),
+          ]
+        ),
+      ]),
+    ],
     1
   )
 }
@@ -47782,29 +47916,20 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "mt-12 flex flex-col w-full border-4 border-yellow-500" },
+      {
+        staticClass:
+          "  text-sm place-self-center p-2 h-auto rounded bg-gradient-to-r from-slate-700",
+      },
       [
-        _c(
-          "div",
-          {
-            staticClass:
-              "place-self-center h-5/6 mt-10 text-gray-200 bg-slate-900 rounded-lg  border-2 border-red-600 ",
-          },
-          [
-            _c(
-              "h1",
-              {
-                staticClass:
-                  "my-8 mx-8 bg-slate-800 text-3xl text-center rounded-lg h-10 border border-slate-700 ",
-              },
-              [
-                _vm._v(
-                  "Enter\n                    Your\n                    Credential To Login "
-                ),
-              ]
-            ),
-          ]
-        ),
+        _c("ul", { staticClass: "list-disk" }, [
+          _c("li", { staticClass: "pt-4 pb-1" }, [
+            _vm._v("enter a valid email address"),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "pt-1 pb-4" }, [
+            _vm._v("password should be at least 8 characters"),
+          ]),
+        ]),
       ]
     )
   },
