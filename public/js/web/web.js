@@ -21101,10 +21101,10 @@ __webpack_require__.r(__webpack_exports__);
         this.incrementProductCount(product);
       } else {
         var productCountInLocalStorage = this.localStorageProductCounter();
-        product.sort = productCountInLocalStorage + 1;
         product.count = 1;
         console.log('saving product in local storage > ');
         var suffix = this.localStorageBiggestProductSuffix(this.retrieveLocalStorageProductKeys()) + 1;
+        product.sort = suffix;
         console.log(product);
         console.log('suffix > ' + suffix);
         localStorage.setItem('product.' + suffix, JSON.stringify(product));

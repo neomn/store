@@ -228,10 +228,10 @@ export default {
                 this.incrementProductCount(product)
             } else {
                 let productCountInLocalStorage = this.localStorageProductCounter()
-                product.sort = productCountInLocalStorage + 1
                 product.count = 1
                 console.log('saving product in local storage > ')
                 let suffix = this.localStorageBiggestProductSuffix(this.retrieveLocalStorageProductKeys()) + 1
+                product.sort = suffix
                 console.log(product)
                 console.log('suffix > ' + suffix)
                 localStorage.setItem('product.' + suffix, JSON.stringify(product))
