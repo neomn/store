@@ -45,6 +45,7 @@ export default {
         }
     },
     mounted() {
+        this.checkIfLoggedIn()
         this.initCSRFToken()
         this.redirectIfAuthenticated()
     },
@@ -97,6 +98,11 @@ export default {
                     console.log(error)
                 })
         },
+        checkIfLoggedIn(){
+            console.log('checkIfLoggedIn > ')
+            console.log(localStorage.getItem('loggedInUser') !== null)
+            return localStorage.getItem('loggedInUser') !== null
+        }
     },
 }
 </script>

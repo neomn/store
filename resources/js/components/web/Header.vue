@@ -79,11 +79,9 @@ export default {
 
     methods: {
         checkIfLoggedIn() {
-            console.log('\n')
-            console.log('-------------------------------')
-            console.log('checkIfLoggedIn > \n')
-            this.userLoggedIn = !isEmpty(localStorage.getItem('user.firstName'))
-            console.log(this.userLoggedIn)
+            console.log('checkIfLoggedIn > ')
+            console.log(localStorage.getItem('loggedInUser') !== null)
+            return localStorage.getItem('loggedInUser') !== null
         },
     }
 }

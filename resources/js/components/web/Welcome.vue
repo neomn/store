@@ -259,10 +259,9 @@ export default {
                 }
         },
         checkIfLoggedIn() {
-            console.log('checkIfLoggedIn >')
-            let isLoggedIn = (!isEmpty(localStorage.getItem('user.firstName')))
-            console.log(isLoggedIn)
-            return isLoggedIn
+            console.log('checkIfLoggedIn > ')
+            console.log(localStorage.getItem('loggedInUser') !== null)
+            return localStorage.getItem('loggedInUser') !== null
         },
         localStorageProductCounter() {
             //returns the count of stored productContainer in local storage
@@ -277,7 +276,7 @@ export default {
         localStorageBiggestProductSuffix(suffixArrayIndexes) {
             console.log('localStorageBiggestProductSuffix > ')
             suffixArrayIndexes.sort((a, b) => {
-                return (a-b)
+                return (a - b)
             })
             let biggest = suffixArrayIndexes[suffixArrayIndexes.length - 1]
             console.log(biggest)

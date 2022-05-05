@@ -20312,11 +20312,9 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {},
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
-      console.log('\n');
-      console.log('-------------------------------');
-      console.log('checkIfLoggedIn > \n');
-      this.userLoggedIn = !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
-      console.log(this.userLoggedIn);
+      console.log('checkIfLoggedIn > ');
+      console.log(localStorage.getItem('loggedInUser') !== null);
+      return localStorage.getItem('loggedInUser') !== null;
     }
   }
 });
@@ -20383,6 +20381,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    this.checkIfLoggedIn();
     this.initCSRFToken();
     this.redirectIfAuthenticated();
   },
@@ -20439,6 +20438,11 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    checkIfLoggedIn: function checkIfLoggedIn() {
+      console.log('checkIfLoggedIn > ');
+      console.log(localStorage.getItem('loggedInUser') !== null);
+      return localStorage.getItem('loggedInUser') !== null;
     }
   }
 });
@@ -21128,10 +21132,9 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
-      console.log('checkIfLoggedIn >');
-      var isLoggedIn = !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
-      console.log(isLoggedIn);
-      return isLoggedIn;
+      console.log('checkIfLoggedIn > ');
+      console.log(localStorage.getItem('loggedInUser') !== null);
+      return localStorage.getItem('loggedInUser') !== null;
     },
     localStorageProductCounter: function localStorageProductCounter() {
       //returns the count of stored productContainer in local storage
