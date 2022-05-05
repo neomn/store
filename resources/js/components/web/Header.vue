@@ -17,9 +17,10 @@
                     About Us
                 </router-link>
                 <!--register-->
-                <div v-if="!loggedInUser" class=" px-4 inline-block float-right"
+                <div v-if="!loggedInUser"
+                     class="px-4 pt-1 inline-block float-right"
                      v-bind:class="(this.$route.path === '/register')? 'border-t border-lime-500 rounded-lg': ''">
-                    <div class="pt-1">
+                    <div>
                         <router-link :to="{name:'register'}" class="float-right ">
                             <font-awesome-icon :icon="['fas' , 'user-plus']"/>
                         </router-link>
@@ -35,12 +36,13 @@
                     </div>
                 </div>
                 <!--  user dashboard-->
-                <div v-if="loggedInUser" class="ml-3 inline-block float-right">
+                <div v-if="loggedInUser" class=" w-auto ml-3 inline-block float-right">
                     <router-link :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
                         <h3 class="inline-block pl-1">{{ loggedInUser.firstName }}</h3>
                     </router-link>
                 </div>
+                <!--  shopping cart-->
                 <div class=" px-4 inline-block float-right "
                      v-bind:class="(this.$route.path === '/shopping-cart')? 'border-t border-lime-500 rounded-lg': ''">
                     <div class="pt-1">
@@ -79,8 +81,8 @@ export default {
             console.log('retrieveLoggedInUserFromLocalStorage > ')
             if (this.checkIfLoggedIn()) {
                 this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
-            }else this.loggedInUser = null
-            console.log( 'loggInUser > ')
+            } else this.loggedInUser = null
+            console.log('loggInUser > ')
             console.log(this.loggedInUser)
         },
     }

@@ -20292,6 +20292,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -20384,9 +20386,21 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.checkIfLoggedIn();
+    var _this = this;
+
     this.initCSRFToken();
     this.redirectIfAuthenticated();
+    this.checkIfLoggedIn();
+    this.$watch(function () {
+      return _this.formData.email;
+    }, function (newValue, oldValue) {
+      console.log(_this.formData.email);
+    });
+    this.$watch(function () {
+      return _this.formData.password;
+    }, function (newValue, oldValue) {
+      console.log(_this.formData.password);
+    });
   },
   methods: {
     initCSRFToken: function initCSRFToken() {
@@ -20398,7 +20412,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     login: function login() {
-      var _this = this;
+      var _this2 = this;
 
       console.log('\n');
       console.log('-------------------------');
@@ -20411,7 +20425,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log('saving user data in local storage\n');
           localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
 
-          _this.$router.push({
+          _this2.$router.push({
             name: 'welcome'
           });
         }
@@ -20424,17 +20438,17 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     redirectIfAuthenticated: function redirectIfAuthenticated() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.post('/login').then(function (response) {
         console.log('redirect if authenticated >>> ');
         console.log(response.data);
-        _this2.loginResponse = response.data;
+        _this3.loginResponse = response.data;
 
-        if (_this2.loginResponse === 'user already logged in') {
+        if (_this3.loginResponse === 'user already logged in') {
           console.log('redirecting to welcome');
 
-          _this2.$router.push({
+          _this3.$router.push({
             name: 'welcome'
           });
         }
@@ -20446,7 +20460,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log('checkIfLoggedIn > ');
       console.log(localStorage.getItem('loggedInUser') !== null);
       return localStorage.getItem('loggedInUser') !== null;
-    }
+    },
+    emailValidation: function emailValidation() {},
+    passwordValidation: function passwordValidation() {}
   }
 });
 
@@ -47581,7 +47597,7 @@ var render = function () {
                 ? _c(
                     "div",
                     {
-                      staticClass: " px-4 inline-block float-right",
+                      staticClass: "px-4 pt-1 inline-block float-right",
                       class:
                         this.$route.path === "/register"
                           ? "border-t border-lime-500 rounded-lg"
@@ -47590,7 +47606,6 @@ var render = function () {
                     [
                       _c(
                         "div",
-                        { staticClass: "pt-1" },
                         [
                           _c(
                             "router-link",
@@ -47653,7 +47668,7 @@ var render = function () {
               _vm.loggedInUser
                 ? _c(
                     "div",
-                    { staticClass: "ml-3 inline-block float-right" },
+                    { staticClass: " w-auto ml-3 inline-block float-right" },
                     [
                       _c(
                         "router-link",

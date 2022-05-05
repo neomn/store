@@ -45,9 +45,20 @@ export default {
         }
     },
     mounted() {
-        this.checkIfLoggedIn()
         this.initCSRFToken()
         this.redirectIfAuthenticated()
+        this.checkIfLoggedIn()
+
+        this.$watch(
+            ()=>this.formData.email , (newValue , oldValue) => {
+                console.log(this.formData.email)
+            }
+        )
+        this.$watch(
+            ()=>this.formData.password , (newValue , oldValue) => {
+                console.log(this.formData.password)
+            }
+        )
     },
     methods: {
         initCSRFToken() {
@@ -102,7 +113,13 @@ export default {
             console.log('checkIfLoggedIn > ')
             console.log(localStorage.getItem('loggedInUser') !== null)
             return localStorage.getItem('loggedInUser') !== null
-        }
+        },
+        emailValidation(){
+
+        },
+        passwordValidation(){
+
+        },
     },
 }
 </script>
