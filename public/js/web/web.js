@@ -20184,9 +20184,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     logout: function logout() {
-      localStorage.removeItem('user.firstName');
-      localStorage.removeItem('user.lastName');
-      localStorage.removeItem('user.email');
+      localStorage.removeItem('loggedInUser');
       axios.post('/logout').then(function (response) {
         console.log(response);
       })["catch"](function (error) {
