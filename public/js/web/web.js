@@ -21101,11 +21101,10 @@ __webpack_require__.r(__webpack_exports__);
         this.incrementProductCount(product);
       } else {
         var productCountInLocalStorage = this.localStorageProductCounter();
-        console.log('product count in local storage > ' + productCountInLocalStorage + '\n');
         product.sort = productCountInLocalStorage + 1;
         product.count = 1;
         console.log('saving product in local storage \n');
-        var suffix = this.biggestProductSuffix(this.retrieveLocalStorageProductKeys()) + 1;
+        var suffix = this.localStorageBiggestProductSuffix(this.retrieveLocalStorageProductKeys()) + 1;
         localStorage.setItem('product.' + suffix, JSON.stringify(product));
       }
     },
@@ -21123,7 +21122,7 @@ __webpack_require__.r(__webpack_exports__);
     incrementProductCount: function incrementProductCount(product) {
       for (var i = 0; i < localStorage.length; i++) {
         if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
-          console.log('incrementing product count by one  \n');
+          console.log(' product count incremented by one \n');
           product = JSON.parse(localStorage.getItem(localStorage.key(i)));
           product.count++;
           localStorage.setItem(localStorage.key(i), JSON.stringify(product));
@@ -21138,14 +21137,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     localStorageProductCounter: function localStorageProductCounter() {
       //returns the count of stored productContainer in local storage
-      console.log('\n');
-      console.log('localStorageProductCounter > ------------- \n');
+      console.log('localStorageProductCounter > ');
       var counter = 0;
 
       for (var i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i).substring(0, 8) === 'product.') counter++;
       }
 
+      console.log(counter);
       return counter;
     },
     toggleDisplayAllNewProducts: function toggleDisplayAllNewProducts() {
@@ -21163,24 +21162,24 @@ __webpack_require__.r(__webpack_exports__);
       this.displayAllNew = false;
       this.displayAllTopSells = false;
     },
-    biggestProductSuffix: function biggestProductSuffix(suffixArrayIndexes) {
-      console.log('\n');
-      console.log('biggestProductSuffix > ------------ \n');
+    localStorageBiggestProductSuffix: function localStorageBiggestProductSuffix(suffixArrayIndexes) {
+      console.log('localStorageBiggestProductSuffix > ');
 
       if (suffixArrayIndexes !== null) {
         suffixArrayIndexes.sort(function (a, b) {
           return a.sort - b.sort;
         });
-        console.log(suffixArrayIndexes[suffixArrayIndexes.length - 1]);
-        return suffixArrayIndexes[suffixArrayIndexes.length - 1];
+        var biggest = suffixArrayIndexes[suffixArrayIndexes.length - 1];
+        console.log(biggest);
+        return biggest;
       } else {
-        console.log('suffix array is null . biggest index > 0 ');
+        console.log(0);
         return 0;
       }
     },
     retrieveLocalStorageProduct: function retrieveLocalStorageProduct() {
       console.log('\n');
-      console.log('retrieve LocalStorage Products > ------------ \n');
+      console.log('retrieve LocalStorage Products > \n');
       var products = [];
 
       if (localStorage.length > 0) {
@@ -21192,14 +21191,13 @@ __webpack_require__.r(__webpack_exports__);
             console.log('no product found ');
           }
         }
-      } else console.log('local storage is empty ');
 
-      console.log(products);
-      return products;
+        console.log(products);
+        return products;
+      } else console.log('local storage is empty ');
     },
     retrieveLocalStorageProductKeys: function retrieveLocalStorageProductKeys() {
-      console.log('\n');
-      console.log('retrieve LocalStorage Product Keys > ------------ \n');
+      console.log('retrieve LocalStorage Product Keys > ');
       var suffixArrayIndexes = [];
 
       if (localStorage.length > 0) {
@@ -21207,7 +21205,7 @@ __webpack_require__.r(__webpack_exports__);
           if (localStorage.key(i).substring(0, 8) === 'product.') suffixArrayIndexes.push(localStorage.key(i).replace(/[^0-9]/g, ''));
         }
       } else {
-        console.log('local storage is empty ');
+        console.log('null');
         return null;
       }
 
