@@ -21095,28 +21095,29 @@ __webpack_require__.r(__webpack_exports__);
     },
     addProductTOShoppingCart: function addProductTOShoppingCart(product) {
       console.log('\n');
-      console.log('------------------------------ \n');
-      console.log('adding product to shopping cart \n');
+      console.log('addProductTOShoppingCart > ------------ \n');
 
       if (this.checkIfLoggedIn()) {} else if (this.productAlreadyExistInShoppingCart(product)) {
         this.incrementProductCount(product);
       } else {
-        var productCount = this.localStorageProductCounter();
-        product.sort = productCount++;
+        var productCountInLocalStorage = this.localStorageProductCounter();
+        console.log('product count in local storage > ' + productCountInLocalStorage + '\n');
+        product.sort = productCountInLocalStorage + 1;
         product.count = 1;
-        console.log('saving product in local storage');
-        var suffix = localStorage.length + 1;
+        console.log('saving product in local storage \n');
+        var suffix = this.biggestProductSuffix(this.retrieveLocalStorageProductKeys()) + 1;
         localStorage.setItem('product.' + suffix, JSON.stringify(product));
       }
     },
     productAlreadyExistInShoppingCart: function productAlreadyExistInShoppingCart(product) {
+      console.log('productAlreadyExistInShoppingCart > ');
       if (localStorage.length > 0) for (var i = 0; i < localStorage.length; i++) {
         if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
-          console.log('product already exist in local storage \n');
+          console.log(true);
           return true;
         }
       }
-      console.log('product doesnt exist in local storage \n ');
+      console.log(false);
       return false;
     },
     incrementProductCount: function incrementProductCount(product) {
@@ -21130,14 +21131,15 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
-      console.log('\n');
-      console.log('-------------------------------');
-      console.log('checkIfLoggedIn > \n');
-      console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName')));
-      return !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
+      console.log('checkIfLoggedIn >');
+      var isLoggedIn = !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(localStorage.getItem('user.firstName'));
+      console.log(isLoggedIn);
+      return isLoggedIn;
     },
     localStorageProductCounter: function localStorageProductCounter() {
       //returns the count of stored productContainer in local storage
+      console.log('\n');
+      console.log('localStorageProductCounter > ------------- \n');
       var counter = 0;
 
       for (var i = 0; i < localStorage.length; i++) {
@@ -21161,14 +21163,22 @@ __webpack_require__.r(__webpack_exports__);
       this.displayAllNew = false;
       this.displayAllTopSells = false;
     },
-    biggestProductSuffix: function biggestProductSuffix(products) {
-      products.sort(function (a, b) {
-        return a.sort - b.sort;
-      });
-      var suffix = products[products.length - 1];
-      return products[products.length - 1];
+    biggestProductSuffix: function biggestProductSuffix(suffixArrayIndexes) {
+      console.log('\n');
+      console.log('biggestProductSuffix > ------------ \n');
+
+      if (suffixArrayIndexes !== null) {
+        suffixArrayIndexes.sort(function (a, b) {
+          return a.sort - b.sort;
+        });
+        console.log(suffixArrayIndexes[suffixArrayIndexes.length - 1]);
+        return suffixArrayIndexes[suffixArrayIndexes.length - 1];
+      } else {
+        console.log('suffix array is null . biggest index > 0 ');
+        return 0;
+      }
     },
-    retrieveLocalStorageProducts: function retrieveLocalStorageProducts() {
+    retrieveLocalStorageProduct: function retrieveLocalStorageProduct() {
       console.log('\n');
       console.log('retrieve LocalStorage Products > ------------ \n');
       var products = [];
@@ -21179,12 +21189,30 @@ __webpack_require__.r(__webpack_exports__);
             console.log('product found in local storage > \n');
             products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
           } else {
-            console.log('no product found \n');
+            console.log('no product found ');
           }
         }
-      } else console.log('local storage is empty');
+      } else console.log('local storage is empty ');
 
+      console.log(products);
       return products;
+    },
+    retrieveLocalStorageProductKeys: function retrieveLocalStorageProductKeys() {
+      console.log('\n');
+      console.log('retrieve LocalStorage Product Keys > ------------ \n');
+      var suffixArrayIndexes = [];
+
+      if (localStorage.length > 0) {
+        for (var i = 0; i < localStorage.length; i++) {
+          if (localStorage.key(i).substring(0, 8) === 'product.') suffixArrayIndexes.push(localStorage.key(i).replace(/[^0-9]/g, ''));
+        }
+      } else {
+        console.log('local storage is empty ');
+        return null;
+      }
+
+      console.log(suffixArrayIndexes);
+      return suffixArrayIndexes;
     }
   }
 });

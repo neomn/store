@@ -221,30 +221,31 @@ export default {
         },
         addProductTOShoppingCart(product) {
             console.log('\n')
-            console.log('------------------------------ \n')
-            console.log('adding product to shopping cart \n')
+            console.log('addProductTOShoppingCart > ------------ \n')
             if (this.checkIfLoggedIn()) {
 
             } else if (this.productAlreadyExistInShoppingCart(product)) {
                 this.incrementProductCount(product)
             } else {
-                let productCount = this.localStorageProductCounter()
-                product.sort = productCount++
+                let productCountInLocalStorage = this.localStorageProductCounter()
+                console.log('product count in local storage > ' + productCountInLocalStorage + '\n')
+                product.sort = productCountInLocalStorage + 1
                 product.count = 1
-                console.log('saving product in local storage')
-                let suffix = localStorage.length + 1
+                console.log('saving product in local storage \n')
+                let suffix = this.biggestProductSuffix(this.retrieveLocalStorageProductKeys()) + 1
                 localStorage.setItem('product.' + suffix, JSON.stringify(product))
             }
 
         },
         productAlreadyExistInShoppingCart(product) {
+            console.log('productAlreadyExistInShoppingCart > ')
             if (localStorage.length > 0)
                 for (let i = 0; i < localStorage.length; i++)
                     if (product.number === JSON.parse(localStorage.getItem(localStorage.key(i))).number) {
-                        console.log('product already exist in local storage \n')
+                        console.log(true)
                         return true
                     }
-            console.log('product doesnt exist in local storage \n ')
+            console.log(false)
             return false
         },
         incrementProductCount(product) {
@@ -257,14 +258,15 @@ export default {
                 }
         },
         checkIfLoggedIn() {
-            console.log('\n')
-            console.log('-------------------------------')
-            console.log('checkIfLoggedIn > \n')
-            console.log(!isEmpty(localStorage.getItem('user.firstName')))
-            return !isEmpty(localStorage.getItem('user.firstName'))
+            console.log('checkIfLoggedIn >')
+            let isLoggedIn = (!isEmpty(localStorage.getItem('user.firstName')))
+            console.log(isLoggedIn)
+            return isLoggedIn
         },
         localStorageProductCounter() {
             //returns the count of stored productContainer in local storage
+            console.log('\n')
+            console.log('localStorageProductCounter > ------------- \n')
             let counter = 0
             for (let i = 0; i < localStorage.length; i++)
                 if (localStorage.key(i).substring(0, 8) === 'product.')
@@ -286,15 +288,19 @@ export default {
             this.displayAllNew = false
             this.displayAllTopSells = false
         },
-        biggestProductSuffix(products) {
-            products.sort((a, b) => {
-                return (a.sort - b.sort)
-            })
-
-            let suffix = products[products.length - 1]
-            return products[products.length - 1]
+        biggestProductSuffix(suffixArrayIndexes) {
+            console.log('\n')
+            console.log('biggestProductSuffix > ------------ \n')
+            if (suffixArrayIndexes !== null){
+                suffixArrayIndexes.sort((a,b)=>{return (a.sort-b.sort)})
+                console.log(suffixArrayIndexes[suffixArrayIndexes.length - 1])
+                return suffixArrayIndexes[suffixArrayIndexes.length - 1]
+            }else {
+                console.log('suffix array is null . biggest index > 0 ')
+                return 0
+            }
         },
-        retrieveLocalStorageProducts() {
+        retrieveLocalStorageProduct() {
             console.log('\n')
             console.log('retrieve LocalStorage Products > ------------ \n')
             let products = []
@@ -304,11 +310,29 @@ export default {
                         console.log('product found in local storage > \n')
                         products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
                     } else {
-                        console.log('no product found \n')
+                        console.log('no product found ')
                     }
-            } else console.log('local storage is empty')
+            } else console.log('local storage is empty ')
+            console.log(products)
             return products
         },
+        retrieveLocalStorageProductKeys() {
+            console.log('\n')
+            console.log('retrieve LocalStorage Product Keys > ------------ \n')
+            let suffixArrayIndexes = []
+            if (localStorage.length > 0) {
+                for (let i = 0; i < localStorage.length; i++)
+                    if (localStorage.key(i).substring(0, 8) === 'product.')
+                        suffixArrayIndexes.push(localStorage.key(i).replace(/[^0-9]/g,''))
+            } else {
+                console.log('local storage is empty ')
+                return null
+            }
+            console.log(suffixArrayIndexes)
+            return suffixArrayIndexes
+        },
+
+
     }
 }
 </script>
