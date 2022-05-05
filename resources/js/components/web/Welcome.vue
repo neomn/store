@@ -221,7 +221,7 @@ export default {
         },
         addProductTOShoppingCart(product) {
             console.log('\n')
-            console.log('addProductTOShoppingCart > ------------ \n')
+            console.log('addProductTOShoppingCart > ------------------------- \n')
             if (this.checkIfLoggedIn()) {
 
             } else if (this.productAlreadyExistInShoppingCart(product)) {
@@ -230,8 +230,10 @@ export default {
                 let productCountInLocalStorage = this.localStorageProductCounter()
                 product.sort = productCountInLocalStorage + 1
                 product.count = 1
-                console.log('saving product in local storage \n')
+                console.log('saving product in local storage > ')
                 let suffix = this.localStorageBiggestProductSuffix(this.retrieveLocalStorageProductKeys()) + 1
+                console.log(product)
+                console.log('suffix > ' + suffix)
                 localStorage.setItem('product.' + suffix, JSON.stringify(product))
             }
 
@@ -272,6 +274,29 @@ export default {
             console.log(counter)
             return counter
         },
+        localStorageBiggestProductSuffix(suffixArrayIndexes) {
+            console.log('localStorageBiggestProductSuffix > ')
+            suffixArrayIndexes.sort((a, b) => {
+                return (a-b)
+            })
+            let biggest = suffixArrayIndexes[suffixArrayIndexes.length - 1]
+            console.log(biggest)
+            return biggest
+        },
+        retrieveLocalStorageProductKeys() {
+            console.log('retrieve LocalStorage Product Keys > ')
+            let suffixArrayIndexes = [0]
+            if (localStorage.length > 0) {
+                for (let i = 0; i < localStorage.length; i++)
+                    if (localStorage.key(i).substring(0, 8) === 'product.')
+                        suffixArrayIndexes.push(Number(localStorage.key(i).replace(/[^0-9]/g, '')))
+            } else {
+                console.log(suffixArrayIndexes)
+                return suffixArrayIndexes
+            }
+            console.log(suffixArrayIndexes)
+            return suffixArrayIndexes
+        },
         toggleDisplayAllNewProducts() {
             this.displayAllNew = !this.displayAllNew
             this.displayAllTopSells = false
@@ -287,54 +312,24 @@ export default {
             this.displayAllNew = false
             this.displayAllTopSells = false
         },
-        localStorageBiggestProductSuffix(suffixArrayIndexes) {
-            console.log('localStorageBiggestProductSuffix > ')
-            if (suffixArrayIndexes !== null) {
-                suffixArrayIndexes.sort((a, b) => {
-                    return (a.sort - b.sort)
-                })
-                let biggest = suffixArrayIndexes[suffixArrayIndexes.length - 1]
-                console.log(biggest)
-                return biggest
-            } else {
-                console.log(0)
-                return 0
-            }
-        },
-        retrieveLocalStorageProduct() {
-            console.log('\n')
-            console.log('retrieve LocalStorage Products > \n')
-            let products = []
-            if (localStorage.length > 0) {
-                for (let i = 0; i < localStorage.length; i++) {
-                    if (localStorage.key(i).substring(0, 8) === 'product.') {
-                        console.log('product found in local storage > \n')
-                        products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                    } else {
-                        console.log('no product found ')
-                    }
-                }
-                console.log(products)
-                return products
-            } else console.log('local storage is empty ')
-
-        },
-        retrieveLocalStorageProductKeys() {
-            console.log('retrieve LocalStorage Product Keys > ')
-            let suffixArrayIndexes = []
-            if (localStorage.length > 0) {
-                for (let i = 0; i < localStorage.length; i++)
-                    if (localStorage.key(i).substring(0, 8) === 'product.')
-                        suffixArrayIndexes.push(localStorage.key(i).replace(/[^0-9]/g, ''))
-            } else {
-                console.log('null')
-                return null
-            }
-            console.log(suffixArrayIndexes)
-            return suffixArrayIndexes
-        },
-
-
+        // retrieveLocalStorageProduct() {
+        //     console.log('\n')
+        //     console.log('retrieve LocalStorage Products > \n')
+        //     let products = []
+        //     if (localStorage.length > 0) {
+        //         for (let i = 0; i < localStorage.length; i++) {
+        //             if (localStorage.key(i).substring(0, 8) === 'product.') {
+        //                 console.log('product found in local storage > \n')
+        //                 products.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+        //             } else {
+        //                 console.log('no product found ')
+        //             }
+        //         }
+        //         console.log(products)
+        //         return products
+        //     } else console.log('local storage is empty ')
+        //
+        // },
     }
 }
 </script>
