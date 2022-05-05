@@ -20292,8 +20292,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: [],
@@ -20409,12 +20407,10 @@ __webpack_require__.r(__webpack_exports__);
 
         if (!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(response.data.user)) {
           console.log('saving user data in local storage\n');
-          localStorage.setItem('user.firstName', response.data.user.first_name);
-          localStorage.setItem('user.lastName', response.data.user.last_name);
-          localStorage.setItem('user.email', response.data.user.email);
+          localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
 
           _this.$router.push({
-            name: 'dashboard'
+            name: 'welcome'
           });
         }
       })["catch"](function (error) {
@@ -47648,46 +47644,34 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: " px-4 inline-block float-right",
-                  class:
-                    this.$route.path === "/dashboard"
-                      ? "border-t border-lime-500 rounded-lg"
-                      : "hidden",
-                },
-                [
-                  _c(
+              _vm.userLoggedIn
+                ? _c(
                     "div",
-                    { staticClass: "pt-1" },
+                    { staticClass: "ml-3 inline-block float-right" },
                     [
-                      _vm.userLoggedIn
-                        ? _c(
-                            "router-link",
-                            {
-                              attrs: {
-                                to: { name: "dashboard" },
-                                href: "/api/user",
-                              },
-                            },
-                            [
-                              _c("font-awesome-icon", {
-                                attrs: { icon: ["fas", "chart-line"] },
-                              }),
-                              _vm._v(" "),
-                              _c("h3", { staticClass: "inline-block pl-3" }, [
-                                _vm._v(_vm._s(this.user.first_name)),
-                              ]),
-                            ],
-                            1
-                          )
-                        : _vm._e(),
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "dashboard" },
+                            href: "/api/user",
+                          },
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "chart-line"] },
+                          }),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "inline-block pl-1" }, [
+                            _vm._v(_vm._s(_vm.user.firstName)),
+                          ]),
+                        ],
+                        1
+                      ),
                     ],
                     1
-                  ),
-                ]
-              ),
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",

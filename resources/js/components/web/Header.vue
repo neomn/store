@@ -32,14 +32,12 @@
                         </router-link>
                     </div>
                 </div>
-                <div class=" px-4 inline-block float-right"
-                     v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': 'hidden'">
-                    <div class="pt-1">
-                        <router-link v-if="userLoggedIn" :to="{name:'dashboard'}" href="/api/user">
-                            <font-awesome-icon :icon="['fas', 'chart-line']"/>
-                            <h3 class="inline-block pl-3">{{ this.user.first_name }}</h3>
-                        </router-link>
-                    </div>
+                <!--  user dashboard-->
+                <div v-if="userLoggedIn" class="ml-3 inline-block float-right">
+                    <router-link :to="{name:'dashboard'}" href="/api/user">
+                        <font-awesome-icon :icon="['fas', 'chart-line']"/>
+                        <h3 class="inline-block pl-1">{{user.firstName }}</h3>
+                    </router-link>
                 </div>
                 <div class=" px-4 inline-block float-right "
                      v-bind:class="(this.$route.path === '/shopping-cart')? 'border-t border-lime-500 rounded-lg': ''">

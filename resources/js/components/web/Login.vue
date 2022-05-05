@@ -69,10 +69,8 @@ export default {
                     console.log(response.data.user)
                     if (!isEmpty(response.data.user)) {
                         console.log('saving user data in local storage\n')
-                        localStorage.setItem('user.firstName',response.data.user.first_name)
-                        localStorage.setItem('user.lastName',response.data.user.last_name)
-                        localStorage.setItem('user.email',response.data.user.email)
-                        this.$router.push({name: 'dashboard'})
+                        localStorage.setItem('loggedInUser' ,JSON.stringify(response.data.user))
+                        this.$router.push({name: 'welcome'})
                     }
                 })
                 .catch(function (error) {
@@ -84,7 +82,6 @@ export default {
                 })
         },
         redirectIfAuthenticated() {
-
             axios.post('/login')
                 .then(response => {
                     console.log('redirect if authenticated >>> ')
