@@ -597,6 +597,12 @@ select {
 .top-20 {
   top: 5rem;
 }
+.top-4 {
+  top: 1rem;
+}
+.top-1 {
+  top: 0.25rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -794,6 +800,9 @@ select {
 }
 .mt-12 {
   margin-top: 3rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 .block {
   display: block;
@@ -1102,6 +1111,9 @@ select {
 }
 .place-self-center {
   place-self: center;
+}
+.self-start {
+  align-self: flex-start;
 }
 .self-end {
   align-self: flex-end;
@@ -1491,11 +1503,22 @@ select {
   --tw-gradient-from: #334155;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(51 65 85 / 0));
 }
+.from-slate-300 {
+  --tw-gradient-from: #cbd5e1;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(203 213 225 / 0));
+}
+.from-slate-500 {
+  --tw-gradient-from: #64748b;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(100 116 139 / 0));
+}
 .to-cyan-300 {
   --tw-gradient-to: #67e8f9;
 }
 .to-red-300 {
   --tw-gradient-to: #fca5a5;
+}
+.to-slate-800 {
+  --tw-gradient-to: #1e293b;
 }
 .bg-contain {
   background-size: contain;

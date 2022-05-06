@@ -20962,6 +20962,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   data: function data() {
@@ -48888,34 +48892,45 @@ var render = function () {
     "div",
     {
       staticClass:
-        "w-1/6 h-screen mt-10  flex flex-col border-2 border-red-600 overflow-hidden",
+        "fixed left-0 top-10 h-full w-1/6 border-2 border-yellow-500 overflow-hidden",
     },
     [
       _c(
         "div",
         {
           staticClass:
-            "w-full flex flex-col justify-item-start border-2 border-lime-300 ",
-        },
-        _vm._l(_vm.sideBarItems, function (item) {
-          return _c("ul", [_c("li", [_vm._v(_vm._s(item))])])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            " justify-self-end mx-8 text-2xl text-gray-300 rounded-lg border-4 border-red-700",
-          on: { click: _vm.logout },
+            " relative flex flex-col w-1/6 h-full mt-10 border bg-slate-700 overflow-hidden",
         },
         [
-          _c("router-link", { attrs: { to: { name: "welcome" } } }, [
-            _vm._v("\n            Log Out\n        "),
-          ]),
-        ],
-        1
+          _c(
+            "div",
+            { staticClass: " w-full border-2 border-lime-300 " },
+            _vm._l(_vm.sideBarItems, function (item) {
+              return _c("ul", [_c("li", [_vm._v(_vm._s(item))])])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                " absolute bottom-10 self-center w-5/6 text-center mx-8 text-2xl text-gray-300 rounded-lg border-4 border-red-700",
+            },
+            [
+              _c(
+                "button",
+                { on: { click: _vm.logout } },
+                [
+                  _c("router-link", { attrs: { to: { name: "welcome" } } }, [
+                    _vm._v("\n                    Log Out\n                "),
+                  ]),
+                ],
+                1
+              ),
+            ]
+          ),
+        ]
       ),
     ]
   )
