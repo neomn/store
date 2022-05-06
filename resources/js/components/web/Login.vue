@@ -18,7 +18,7 @@
                     </ul>
                 </div>
                 <!-- form -->
-                <form class="flex flex-col justify-center" action="#" @submit.prevent="login">
+                <form class="flex flex-col h-full overflow-hidden" action="#" @submit.prevent="login">
                     <div class="text-left relative">
                         <div class=" rounded-md">
                             <div class="flex flex-col py-10">
@@ -33,9 +33,8 @@
                             </div>
                         </div>
                     </div>
-                    <button
-                        class=" justify-center border-2 border-red-600 rounded-lg "
-                        type="submit">login
+                    <button class=" justify-self-end  border-2 border-red-600 rounded-lg "
+                            type="submit">login
                     </button>
                 </form>
             </div>
@@ -92,6 +91,7 @@ export default {
             console.log('login >> ')
             axios.post('/login', this.formData)
                 .then(response => {
+                    console.log(response)
                     console.log('response >> \n')
                     console.log(response.data.user)
                     if (!isEmpty(response.data.user)) {

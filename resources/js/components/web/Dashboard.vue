@@ -1,15 +1,7 @@
 <template>
-
     <div class="bg-slate-900 min-h-screen text-gray-200">
-
-        <aside class="bg-gray-800 border-r border-gray-200 float-left w-44 min-h-screen ">
-            <router-link :to="{ name:'welcome' }">
-                <button class="fixed bottom-5 left-8 justify-center border-gray-200 rounded-lg bg-red-700 px-4 py-1"
-                        @click="logout"> Log Out
-                </button>
-            </router-link>
-        </aside>
-
+        <Header/>
+        <SideBar/>
     </div>
 </template>
 
@@ -17,8 +9,12 @@
 
 
 <script>
+import Header from "../web/Header";
+import Sidebar from "../admin/Sidebar";
+import SideBar from "./SideBar";
 export default {
     name: "Dashboard",
+    components: {SideBar, Sidebar, Header},
     data() {
         return {
 
@@ -55,16 +51,7 @@ export default {
                     console.log(error.response.status);
                 })
         },
-        logout() {
-            localStorage.removeItem('loggedInUser')
-            axios.post('/logout')
-                .then(response => {
-                    console.log(response)
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
-        }
+
     }
 }
 </script>
