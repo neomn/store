@@ -62,7 +62,7 @@
             </div>
 
             <!-- top sells  -->
-            <div class="mt-20 m-8 p-1 rounded-lg bg-gradient-to-b from-lime-500 ">
+            <div class="mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-lime-500 ">
                 <div class=" relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800"
                      v-bind:class="(this.displayAllTopSells)?'h-auto':'h-1/2'">
                     <div class="inline-flex ml-4 ">
@@ -117,7 +117,7 @@
             </div>
 
             <!-- favorite productContainer  -->
-            <div class="mt-20 m-8 p-1 rounded-lg bg-gradient-to-b from-red-600 ">
+            <div class="mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-red-600 ">
                 <div class=" relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800"
                      v-bind:class="(this.displayAllFavorite)?'h-auto':'h-1/2'">
                     <div class="inline-flex ml-4 ">

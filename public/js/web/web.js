@@ -49298,7 +49298,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "mt-20 m-8 p-1 rounded-lg bg-gradient-to-b from-lime-500 ",
+              "mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-lime-500 ",
           },
           [
             _c(
@@ -49419,7 +49419,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "mt-20 m-8 p-1 rounded-lg bg-gradient-to-b from-red-600 ",
+              "mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-red-600 ",
           },
           [
             _c(
