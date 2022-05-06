@@ -20970,6 +20970,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   data: function data() {
@@ -48899,7 +48945,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed left-0 top-12 h-full w-1/6 border-r border-lime-300   overflow-hidden",
+        "fixed flex left-0 top-12 h-full w-1/6 border-r border-lime-300   overflow-hidden",
     },
     [
       _c(
@@ -48909,23 +48955,135 @@ var render = function () {
             " relative flex flex-col w-full h-full bg-slate-800 overflow-hidden",
         },
         [
-          _c(
-            "div",
-            { staticClass: " w-full " },
-            _vm._l(_vm.sideBarItems, function (item) {
-              return _c("ul", [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      " flex justify-center items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
-                  },
-                  [_c("li", [_vm._v(_vm._s(item))])]
-                ),
-              ])
-            }),
-            0
-          ),
+          _c("div", { staticClass: " w-full " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+              },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "inline pr-2" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "envelope"] },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Orders History")]),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: " w-full " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+              },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "inline pr-2" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "envelope"] },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Inbox")]),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: " w-full " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+              },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "inline pr-2" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "envelope"] },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Inbox")]),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: " w-full " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+              },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "inline pr-2" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "envelope"] },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Personal Info")]),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: " w-full " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+              },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "inline pr-2" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "envelope"] },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Settings")]),
+                ]),
+              ]
+            ),
+          ]),
           _vm._v(" "),
           _c(
             "div",
