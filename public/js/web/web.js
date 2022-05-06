@@ -20958,8 +20958,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
+  data: function data() {
+    return {
+      sideBarItems: ['inbox', 'orders', 'favorites', 'profile']
+    };
+  },
   methods: {
     logout: function logout() {
       localStorage.removeItem('loggedInUser');
@@ -48875,29 +48884,41 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "aside",
-      {
-        staticClass:
-          " min-h-screen bg-gray-800 border-r border-gray-200 float-left  ",
-      },
-      [
-        _c("router-link", { attrs: { to: { name: "welcome" } } }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "fixed bottom-5 left-8 justify-center border-gray-200 rounded-lg bg-red-700 px-4 py-1",
-              on: { click: _vm.logout },
-            },
-            [_vm._v(" Log Out\n            ")]
-          ),
-        ]),
-      ],
-      1
-    ),
-  ])
+  return _c(
+    "div",
+    {
+      staticClass:
+        "w-1/6 h-screen mt-10  flex flex-col border-2 border-red-600 overflow-hidden",
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-full flex flex-col justify-item-start border-2 border-lime-300 ",
+        },
+        _vm._l(_vm.sideBarItems, function (item) {
+          return _c("ul", [_c("li", [_vm._v(_vm._s(item))])])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            " justify-self-end mx-8 text-2xl text-gray-300 rounded-lg border-4 border-red-700",
+          on: { click: _vm.logout },
+        },
+        [
+          _c("router-link", { attrs: { to: { name: "welcome" } } }, [
+            _vm._v("\n            Log Out\n        "),
+          ]),
+        ],
+        1
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
