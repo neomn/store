@@ -1,13 +1,17 @@
 <template>
-    <div class="fixed left-0 top-10 h-full w-1/6 border-2 border-yellow-500 overflow-hidden">
-        <div class=" relative flex flex-col w-1/6 h-full mt-10 border bg-slate-700 overflow-hidden">
-            <div class=" w-full border-2 border-lime-300 ">
+    <div class="fixed left-0 top-12 h-full w-1/6 border-r border-lime-300   overflow-hidden">
+        <div class=" relative flex flex-col w-full h-full bg-slate-800 overflow-hidden">
+            <div class=" w-full ">
                 <ul v-for="item in sideBarItems">
-                    <li>{{ item }}</li>
+                    <div class=" flex justify-center items-center h-10 border-b rounded-lg text-center text-zinc-300 ">
+
+                        <li>{{ item }}</li>
+                    </div>
                 </ul>
             </div>
             <div
-                class=" absolute bottom-10 self-center w-5/6 text-center mx-8 text-2xl text-gray-300 rounded-lg border-4 border-red-700">
+                class=" absolute bottom-16 self-center w-5/6 h-8 text-center
+                text-red-600 rounded-lg border-2 border-red-600">
                 <button @click="logout">
                     <router-link :to="{ name:'welcome' }">
                         Log Out

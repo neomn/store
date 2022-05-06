@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed top-0 w-full border-b border-lime-300 bg-slate-900">
+    <div class="fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900">
         <div class="HeaderImage">
             <!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
         </div>

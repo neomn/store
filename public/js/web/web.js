@@ -20966,6 +20966,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   data: function data() {
@@ -47967,7 +47971,10 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "fixed top-0 w-full border-b border-lime-300 bg-slate-900" },
+    {
+      staticClass:
+        "fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900",
+    },
     [
       _c("div", { staticClass: "HeaderImage" }),
       _vm._v(" "),
@@ -48892,21 +48899,30 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed left-0 top-10 h-full w-1/6 border-2 border-yellow-500 overflow-hidden",
+        "fixed left-0 top-12 h-full w-1/6 border-r border-lime-300   overflow-hidden",
     },
     [
       _c(
         "div",
         {
           staticClass:
-            " relative flex flex-col w-1/6 h-full mt-10 border bg-slate-700 overflow-hidden",
+            " relative flex flex-col w-full h-full bg-slate-800 overflow-hidden",
         },
         [
           _c(
             "div",
-            { staticClass: " w-full border-2 border-lime-300 " },
+            { staticClass: " w-full " },
             _vm._l(_vm.sideBarItems, function (item) {
-              return _c("ul", [_c("li", [_vm._v(_vm._s(item))])])
+              return _c("ul", [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      " flex justify-center items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+                  },
+                  [_c("li", [_vm._v(_vm._s(item))])]
+                ),
+              ])
             }),
             0
           ),
@@ -48915,7 +48931,7 @@ var render = function () {
             "div",
             {
               staticClass:
-                " absolute bottom-10 self-center w-5/6 text-center mx-8 text-2xl text-gray-300 rounded-lg border-4 border-red-700",
+                " absolute bottom-16 self-center w-5/6 h-8 text-center\n            text-red-600 rounded-lg border-2 border-red-600",
             },
             [
               _c(
