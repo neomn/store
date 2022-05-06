@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-slate-900 min-h-screen text-gray-200">
+    <div class="bg-slate-800 min-h-screen text-gray-200">
         <Header/>
         <SideBar/>
     </div>

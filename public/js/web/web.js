@@ -21016,6 +21016,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   data: function data() {
@@ -47953,7 +47957,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-slate-900 min-h-screen text-gray-200" },
+    { staticClass: "bg-slate-800 min-h-screen text-gray-200" },
     [_c("Header"), _vm._v(" "), _c("SideBar")],
     1
   )
@@ -48945,14 +48949,13 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed flex left-0 top-12 h-full w-1/6 border-r border-lime-300   overflow-hidden",
+        "fixed flex left-0 top-12 h-full w-1/6  rounded-lg bg-slate-900 overflow-hidden",
     },
     [
       _c(
         "div",
         {
-          staticClass:
-            " relative flex flex-col w-full h-full bg-slate-800 overflow-hidden",
+          staticClass: " relative flex flex-col w-full h-full overflow-hidden",
         },
         [
           _c("div", { staticClass: " w-full " }, [
@@ -48960,16 +48963,16 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+                  " flex justify-start  items-center h-10 mb-1 pl-2 rounded-lg bg-slate-900 text-center text-zinc-300 ",
               },
               [
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2" },
+                    { staticClass: "inline pr-2 text-orange-500" },
                     [
                       _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "envelope"] },
+                        attrs: { icon: ["fas", "receipt"] },
                       }),
                     ],
                     1
@@ -48981,18 +48984,54 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
+          _c("div", {
+            staticClass:
+              "w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+          }),
+          _vm._v(" "),
           _c("div", { staticClass: " w-full " }, [
             _c(
               "div",
               {
                 staticClass:
-                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+                  " flex justify-start pl-2 items-center h-10 mb-1 bg-slate-900 rounded-lg text-center text-zinc-300 ",
               },
               [
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2" },
+                    { staticClass: "inline pr-2 text-red-700" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "heart"] },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Favorite Products")]),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", {
+            staticClass:
+              "w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: " w-full " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " flex justify-start pl-2 items-center h-10  rounded-lg text-center text-zinc-300 ",
+              },
+              [
+                _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "inline pr-2 text-lime-300" },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "envelope"] },
@@ -49007,47 +49046,26 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: " w-full " }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
-              },
-              [
-                _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "inline pr-2" },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "envelope"] },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Inbox")]),
-                ]),
-              ]
-            ),
-          ]),
+          _c("div", {
+            staticClass:
+              "w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+          }),
           _vm._v(" "),
           _c("div", { staticClass: " w-full " }, [
             _c(
               "div",
               {
                 staticClass:
-                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+                  " flex justify-start pl-2 items-center h-10  rounded-lg text-center text-zinc-300 ",
               },
               [
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2" },
+                    { staticClass: "inline pr-2 text-indigo-500" },
                     [
                       _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "envelope"] },
+                        attrs: { icon: ["fas", "user"] },
                       }),
                     ],
                     1
@@ -49059,21 +49077,26 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
+          _c("div", {
+            staticClass:
+              "w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+          }),
+          _vm._v(" "),
           _c("div", { staticClass: " w-full " }, [
             _c(
               "div",
               {
                 staticClass:
-                  " flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ",
+                  " flex justify-start pl-2 items-center h-10 rounded-lg text-center text-zinc-300 ",
               },
               [
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2" },
+                    { staticClass: "inline pr-2 text-amber-500" },
                     [
                       _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "envelope"] },
+                        attrs: { icon: ["fas", "cogs"] },
                       }),
                     ],
                     1

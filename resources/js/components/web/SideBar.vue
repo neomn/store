@@ -1,56 +1,60 @@
 <template>
-    <div class="fixed flex left-0 top-12 h-full w-1/6 border-r border-lime-300   overflow-hidden">
-        <div class=" relative flex flex-col w-full h-full bg-slate-800 overflow-hidden">
+    <div class="fixed flex left-0 top-12 h-full w-1/6  rounded-lg bg-slate-900 overflow-hidden">
+        <div class=" relative flex flex-col w-full h-full overflow-hidden">
             <!-- Orders History-->
             <div class=" w-full ">
-                <div class=" flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ">
+                <div class=" flex justify-start  items-center h-10 mb-1 pl-2 rounded-lg bg-slate-900 text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2">
-                            <font-awesome-icon :icon="['fas' , 'envelope']"/>
+                        <div class="inline pr-2 text-orange-500">
+                            <font-awesome-icon :icon="['fas' , 'receipt']"/>
                         </div>
                         <span>Orders History</span>
                     </div>
                 </div>
             </div>
+            <div class="w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900"></div>
+            <!-- favorite products-->
+            <div class=" w-full ">
+                <div class=" flex justify-start pl-2 items-center h-10 mb-1 bg-slate-900 rounded-lg text-center text-zinc-300 ">
+                    <div>
+                        <div class="inline pr-2 text-red-700">
+                            <font-awesome-icon :icon="['fas' , 'heart']"/>
+                        </div>
+                        <span>Favorite Products</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900"></div>
             <!-- inbox-->
             <div class=" w-full ">
-                <div class=" flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ">
+                <div class=" flex justify-start pl-2 items-center h-10  rounded-lg text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2">
+                        <div class="inline pr-2 text-lime-300">
                             <font-awesome-icon :icon="['fas' , 'envelope']"/>
                         </div>
                         <span>Inbox</span>
                     </div>
                 </div>
             </div>
-            <!-- inbox-->
-            <div class=" w-full ">
-                <div class=" flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ">
-                    <div>
-                        <div class="inline pr-2">
-                            <font-awesome-icon :icon="['fas' , 'envelope']"/>
-                        </div>
-                        <span>Inbox</span>
-                    </div>
-                </div>
-            </div>
+            <div class="w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900"></div>
             <!-- personal info-->
             <div class=" w-full ">
-                <div class=" flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ">
+                <div class=" flex justify-start pl-2 items-center h-10  rounded-lg text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2">
-                            <font-awesome-icon :icon="['fas' , 'envelope']"/>
+                        <div class="inline pr-2 text-indigo-500">
+                            <font-awesome-icon :icon="['fas' , 'user']"/>
                         </div>
                         <span>Personal Info</span>
                     </div>
                 </div>
             </div>
+            <div class="w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900"></div>
             <!-- settings -->
             <div class=" w-full ">
-                <div class=" flex justify-start pl-2 items-center h-10 border-b rounded-lg text-center text-zinc-300 ">
+                <div class=" flex justify-start pl-2 items-center h-10 rounded-lg text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2">
-                            <font-awesome-icon :icon="['fas' , 'envelope']"/>
+                        <div class="inline pr-2 text-amber-500">
+                            <font-awesome-icon :icon="['fas' , 'cogs']"/>
                         </div>
                         <span>Settings</span>
                     </div>
