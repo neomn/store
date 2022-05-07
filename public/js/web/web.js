@@ -20586,7 +20586,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       product_number: this.$route.params.product_number,
-      product: []
+      product: {}
     };
   },
   mounted: function mounted() {
@@ -48444,7 +48444,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "text-gray-300" },
+    {},
     [
       _c("Header"),
       _vm._v(" "),
@@ -48455,7 +48455,7 @@ var render = function () {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _c("div", { staticClass: "ml-4" }, [
+      _c("div", { staticClass: "ml-4 text-gray-300" }, [
         _c("h1", { staticClass: "pb-3" }, [
           _vm._v(" product number is " + _vm._s(_vm.product_number) + " "),
         ]),

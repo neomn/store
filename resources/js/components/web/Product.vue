@@ -1,9 +1,9 @@
 <template>
-    <div class="text-gray-300">
+    <div class="">
         <Header/>
         <img :src="product.image" alt="product image" class="w-screen h-60">
         <br>
-        <div class="ml-4">
+        <div class="ml-4 text-gray-300">
             <h1 class="pb-3"> product number is {{ product_number }} </h1>
             <h1 class="pb-3"> product name is {{ product.name }} </h1>
             <h1 class="pb-3"> available count is {{ product.available_count }} </h1>
@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             product_number: this.$route.params.product_number,
-            product: [],
+            product: {},
         }
     },
 
