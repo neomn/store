@@ -600,6 +600,9 @@ select {
 .m-2 {
   margin: 0.5rem;
 }
+.m-16 {
+  margin: 4rem;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -710,9 +713,6 @@ select {
 }
 .mt-20 {
   margin-top: 5rem;
-}
-.mb-36 {
-  margin-bottom: 9rem;
 }
 .block {
   display: block;
@@ -897,6 +897,9 @@ select {
 }
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -1133,18 +1136,6 @@ select {
   --tw-gradient-from: #0f172a;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(15 23 42 / 0));
 }
-.from-violet-900 {
-  --tw-gradient-from: #4c1d95;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(76 29 149 / 0));
-}
-.from-yellow-700 {
-  --tw-gradient-from: #a16207;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(161 98 7 / 0));
-}
-.from-blue-900 {
-  --tw-gradient-from: #1e3a8a;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(30 58 138 / 0));
-}
 .from-yellow-500 {
   --tw-gradient-from: #eab308;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(234 179 8 / 0));
@@ -1278,9 +1269,6 @@ select {
 }
 .pr-2 {
   padding-right: 0.5rem;
-}
-.pr-8 {
-  padding-right: 2rem;
 }
 .text-left {
   text-align: left;

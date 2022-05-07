@@ -49173,7 +49173,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "mt-20 m-8 p-1 rounded-lg bg-gradient-to-b from-yellow-500 ",
+              "mt-20 m-16 p-1 rounded-lg bg-gradient-to-b from-yellow-500 ",
           },
           [
             _c(
@@ -49198,7 +49198,7 @@ var render = function () {
                         "div",
                         {
                           staticClass:
-                            " m-2 grid grid-cols-7 gap-x-8 gap-y-16  ",
+                            " m-2 grid grid-cols-6 gap-x-8 gap-y-16  ",
                         },
                         _vm._l(_vm.newProducts, function (product) {
                           return _c(
@@ -49298,7 +49298,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-lime-500 ",
+              "mt-8 m-16 p-1 rounded-lg bg-gradient-to-b from-lime-500 ",
           },
           [
             _c(
@@ -49323,7 +49323,7 @@ var render = function () {
                         "div",
                         {
                           staticClass:
-                            " m-2 grid grid-cols-7 gap-x-8 gap-y-16 ",
+                            " m-2 grid grid-cols-6 gap-x-8 gap-y-16 ",
                         },
                         _vm._l(_vm.topSells, function (product) {
                           return _c(
@@ -49419,7 +49419,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-red-600 ",
+              "mt-8 m-16 p-1 rounded-lg bg-gradient-to-b from-red-600 ",
           },
           [
             _c(
@@ -49444,7 +49444,7 @@ var render = function () {
                         "div",
                         {
                           staticClass:
-                            " m-2 grid grid-cols-7 gap-x-8 gap-y-16 ",
+                            " m-2 grid grid-cols-6 gap-x-8 gap-y-16 ",
                         },
                         _vm._l(_vm.favoriteProducts, function (product) {
                           return _c(

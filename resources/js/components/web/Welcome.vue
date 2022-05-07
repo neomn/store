@@ -7,7 +7,7 @@
         <div>
 
             <!-- new productContainer  -->
-            <div class="mt-20 m-8 p-1 rounded-lg bg-gradient-to-b from-yellow-500 ">
+            <div class="mt-20 m-16 p-1 rounded-lg bg-gradient-to-b from-yellow-500 ">
                 <div class=" relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800"
                      v-bind:class="(this.displayAllNew)?'h-auto':'h-1/2'">
                     <div class="inline-flex ml-4 ">
@@ -17,7 +17,7 @@
                     </div>
                     <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden">
                         <div class="flex justify-center ">
-                            <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16  ">
+                            <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16  ">
                                 <div v-for="product in newProducts"
                                      class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
 
@@ -62,7 +62,7 @@
             </div>
 
             <!-- top sells  -->
-            <div class="mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-lime-500 ">
+            <div class="mt-8 m-16 p-1 rounded-lg bg-gradient-to-b from-lime-500 ">
                 <div class=" relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800"
                      v-bind:class="(this.displayAllTopSells)?'h-auto':'h-1/2'">
                     <div class="inline-flex ml-4 ">
@@ -72,7 +72,7 @@
                     </div>
                     <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden">
                         <div class="flex justify-center ">
-                            <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16 ">
+                            <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 ">
                                 <div v-for="product in topSells"
                                      class=" w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ">
 
@@ -117,7 +117,7 @@
             </div>
 
             <!-- favorite productContainer  -->
-            <div class="mt-8 m-8 p-1 rounded-lg bg-gradient-to-b from-red-600 ">
+            <div class="mt-8 m-16 p-1 rounded-lg bg-gradient-to-b from-red-600 ">
                 <div class=" relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800"
                      v-bind:class="(this.displayAllFavorite)?'h-auto':'h-1/2'">
                     <div class="inline-flex ml-4 ">
@@ -127,7 +127,7 @@
                     </div>
                     <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden">
                         <div class="flex justify-center ">
-                            <div class=" m-2 grid grid-cols-7 gap-x-8 gap-y-16 ">
+                            <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 ">
                                 <div v-for="product in favoriteProducts"
                                      class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
 
