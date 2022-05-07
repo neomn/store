@@ -48970,7 +48970,7 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  " flex justify-start items-center h-10 py-1 pl-2 rounded-lg bg-slate-900 text-center text-zinc-300 ",
+                  " flex justify-start items-center h-auto py-1 pl-2 rounded-lg bg-slate-900 text-center text-zinc-300 ",
               },
               [
                 _c("div", [
@@ -48993,7 +48993,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", {
             staticClass:
-              " w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+              " w-5/6 h-[1px]  bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
           }),
           _vm._v(" "),
           _c("div", { staticClass: " w-full " }, [
@@ -49001,7 +49001,7 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  " flex justify-start pl-2 items-center h-10 py-1 bg-slate-900 rounded-lg text-center text-zinc-300 ",
+                  " flex justify-start pl-2 items-center h-auto py-1 bg-slate-900 rounded-lg text-center text-zinc-300 ",
               },
               [
                 _c("div", [
@@ -49024,7 +49024,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", {
             staticClass:
-              "w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+              "w-5/6 h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
           }),
           _vm._v(" "),
           _c("div", { staticClass: " w-full " }, [
@@ -49032,7 +49032,7 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  " flex justify-start pl-2 items-center h-10 py-1 rounded-lg text-center text-zinc-300 ",
+                  " flex justify-start pl-2 items-center h-auto py-1 rounded-lg text-center text-zinc-300 ",
               },
               [
                 _c("div", [
@@ -49055,7 +49055,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", {
             staticClass:
-              "w-full h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+              "w-5/6 h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
           }),
           _vm._v(" "),
           _c("div", { staticClass: " w-full " }, [
@@ -49063,7 +49063,7 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  " flex justify-start pl-2 items-center h-10 py-1 rounded-lg text-center text-zinc-300 ",
+                  " flex justify-start pl-2 items-center h-auto py-1 rounded-lg text-center text-zinc-300 ",
               },
               [
                 _c("div", [
@@ -49086,7 +49086,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", {
             staticClass:
-              "w-full h-[1px]  bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
+              "w-5/6 h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
           }),
           _vm._v(" "),
           _c("div", { staticClass: " w-full " }, [
