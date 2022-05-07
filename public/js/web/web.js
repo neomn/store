@@ -21213,35 +21213,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -49208,29 +49179,44 @@ var render = function () {
                                 "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
                             },
                             [
-                              _c("img", {
-                                staticClass:
-                                  " h-24 w-full rounded-tl-lg rounded-tr-lg",
-                                attrs: {
-                                  src: product.image,
-                                  alt: "product image",
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "product",
+                                      params: {
+                                        product_number: product.number,
+                                      },
+                                    },
+                                  },
                                 },
-                              }),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "pt-1 pl-1 " }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(product.name) +
-                                    " "
-                                ),
-                                _c("br"),
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(product.price) +
-                                    " "
-                                ),
-                                _c("br"),
-                              ]),
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      " h-24 w-full rounded-tl-lg rounded-tr-lg",
+                                    attrs: {
+                                      src: product.image,
+                                      alt: "product image",
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pt-1 pl-1 " }, [
+                                    _vm._v(
+                                      "\n                                        " +
+                                        _vm._s(product.name) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                                        " +
+                                        _vm._s(product.price) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                  ]),
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -49262,7 +49248,8 @@ var render = function () {
                                   ]),
                                 ]
                               ),
-                            ]
+                            ],
+                            1
                           )
                         }),
                         0
@@ -49333,29 +49320,44 @@ var render = function () {
                                 " w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ",
                             },
                             [
-                              _c("img", {
-                                staticClass:
-                                  " h-24 w-full rounded-tl-lg rounded-tr-lg",
-                                attrs: {
-                                  src: product.image,
-                                  alt: "product image",
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "product",
+                                      params: {
+                                        product_number: product.number,
+                                      },
+                                    },
+                                  },
                                 },
-                              }),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "pt-1 pl-1" }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(product.name) +
-                                    " "
-                                ),
-                                _c("br"),
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(product.price) +
-                                    " "
-                                ),
-                                _c("br"),
-                              ]),
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      " h-24 w-full rounded-tl-lg rounded-tr-lg",
+                                    attrs: {
+                                      src: product.image,
+                                      alt: "product image",
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pt-1 pl-1" }, [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(product.name) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(product.price) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                  ]),
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -49387,7 +49389,8 @@ var render = function () {
                                   ]),
                                 ]
                               ),
-                            ]
+                            ],
+                            1
                           )
                         }),
                         0
@@ -49454,29 +49457,44 @@ var render = function () {
                                 "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
                             },
                             [
-                              _c("img", {
-                                staticClass:
-                                  " h-24 w-full rounded-tl-lg rounded-tr-lg",
-                                attrs: {
-                                  src: product.image,
-                                  alt: "product image",
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "product",
+                                      params: {
+                                        product_number: product.number,
+                                      },
+                                    },
+                                  },
                                 },
-                              }),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "pt-1 pl-1" }, [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(product.name) +
-                                    " "
-                                ),
-                                _c("br"),
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(product.price) +
-                                    " "
-                                ),
-                                _c("br"),
-                              ]),
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      " h-24 w-full rounded-tl-lg rounded-tr-lg",
+                                    attrs: {
+                                      src: product.image,
+                                      alt: "product image",
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pt-1 pl-1" }, [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(product.name) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(product.price) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                  ]),
+                                ]
+                              ),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -49508,7 +49526,8 @@ var render = function () {
                                   ]),
                                 ]
                               ),
-                            ]
+                            ],
+                            1
                           )
                         }),
                         0

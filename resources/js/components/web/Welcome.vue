@@ -20,18 +20,16 @@
                             <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16  ">
                                 <div v-for="product in newProducts"
                                      class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
-
-                                    <!--card image-->
-                                    <img :src="product.image" alt="product image"
-                                         class=" h-24 w-full rounded-tl-lg rounded-tr-lg">
-
-                                    <!--card body-->
-                                    <div class="pt-1 pl-1 ">
-                                        <!--                                    {{ product.number }} <br>-->
-                                        {{ product.name }} <br>
-                                        {{ product.price }} <br>
-                                    </div>
-
+                                    <router-link :to="{name: 'product' , params:{product_number: product.number}}">
+                                        <!--card image-->
+                                        <img :src="product.image" alt="product image"
+                                             class=" h-24 w-full rounded-tl-lg rounded-tr-lg">
+                                        <!--card body-->
+                                        <div class="pt-1 pl-1 ">
+                                            {{ product.name }} <br>
+                                            {{ product.price }} <br>
+                                        </div>
+                                    </router-link>
                                     <!--card buttons-->
                                     <div class="w-full rounded text-center absolute bottom-0 ">
                                         <div>
@@ -40,15 +38,7 @@
                                                 add to cart
                                             </button>
                                         </div>
-                                        <!--                                    <div>-->
-                                        <!--                                        <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
-                                        <!--                                            <button class=" w-full  rounded-lg bg-yellow-300 text-zinc-800"> show-->
-                                        <!--                                                details-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </router-link>-->
-                                        <!--                                    </div>-->
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -75,18 +65,17 @@
                             <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 ">
                                 <div v-for="product in topSells"
                                      class=" w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ">
-
+                                    <router-link :to="{name: 'product' , params:{product_number: product.number}}">
                                     <!--card image-->
                                     <img :src="product.image" alt="product image"
                                          class=" h-24 w-full rounded-tl-lg rounded-tr-lg">
 
                                     <!--card body-->
                                     <div class="pt-1 pl-1">
-                                        <!--                                    {{ product.number }} <br>-->
                                         {{ product.name }} <br>
                                         {{ product.price }} <br>
                                     </div>
-
+                                    </router-link>
                                     <!--card buttons-->
                                     <div class="w-full rounded text-center absolute bottom-0 ">
                                         <div>
@@ -95,15 +84,7 @@
                                                 add to cart
                                             </button>
                                         </div>
-                                        <!--                                    <div>-->
-                                        <!--                                        <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
-                                        <!--                                            <button class=" w-full  rounded-lg bg-yellow-300 text-zinc-800"> show-->
-                                        <!--                                                details-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </router-link>-->
-                                        <!--                                    </div>-->
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -130,18 +111,16 @@
                             <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 ">
                                 <div v-for="product in favoriteProducts"
                                      class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
-
+                                    <router-link :to="{name: 'product' , params:{product_number: product.number}}">
                                     <!--card image-->
                                     <img :src="product.image" alt="product image"
                                          class=" h-24 w-full rounded-tl-lg rounded-tr-lg">
-
                                     <!--card body-->
                                     <div class="pt-1 pl-1">
-                                        <!--                                    {{ product.number }} <br>-->
                                         {{ product.name }} <br>
                                         {{ product.price }} <br>
                                     </div>
-
+                                    </router-link>
                                     <!--card buttons-->
                                     <div class="w-full rounded text-center absolute bottom-0 ">
                                         <div>
@@ -150,13 +129,6 @@
                                                 add to cart
                                             </button>
                                         </div>
-                                        <!--                                    <div>-->
-                                        <!--                                        <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
-                                        <!--                                            <button class=" w-full  rounded-lg bg-yellow-300 text-zinc-800"> show-->
-                                        <!--                                                details-->
-                                        <!--                                            </button>-->
-                                        <!--                                        </router-link>-->
-                                        <!--                                    </div>-->
                                     </div>
 
                                 </div>
@@ -170,7 +142,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- footer component-->
