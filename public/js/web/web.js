@@ -20224,8 +20224,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {};
   },
   mounted: function mounted() {
+    var _this = this;
+
     console.log(this.initDashboard().then(function (message) {
-      console.log(message);
+      if (message === false) _this.$router.push('login');
     })); // this.initDashboard()
   },
   methods: {

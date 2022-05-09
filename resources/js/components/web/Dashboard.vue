@@ -22,7 +22,8 @@ export default {
     },
     mounted() {
         console.log(this.initDashboard().then((message)=>{
-            console.log(message)
+            if (message === false)
+                this.$router.push('login')
         }))
         // this.initDashboard()
     },
