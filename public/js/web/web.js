@@ -20224,7 +20224,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {};
   },
   mounted: function mounted() {
-    console.log(this.initDashboard()); // this.initDashboard()
+    console.log(this.initDashboard().then(function (message) {
+      console.log(message);
+    })); // this.initDashboard()
   },
   methods: {
     initDashboard: function initDashboard() {
@@ -20238,14 +20240,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log('\n');
                   console.log('initDashboard > -------------- ');
                   console.log(response.data);
+                  return true;
                 })["catch"](function (error) {
                   console.log('\n');
                   console.log('initDashboard error > ');
                   console.log(error.response.data.message);
                   console.log(error.response.status);
+                  return false;
                 });
 
               case 2:
+                return _context.abrupt("return", _context.sent);
+
+              case 3:
               case "end":
                 return _context.stop();
             }

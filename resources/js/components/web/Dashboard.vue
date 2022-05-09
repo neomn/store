@@ -21,22 +21,26 @@ export default {
         }
     },
     mounted() {
-        console.log(this.initDashboard())
+        console.log(this.initDashboard().then((message)=>{
+            console.log(message)
+        }))
         // this.initDashboard()
     },
     methods: {
         async initDashboard() {
-            await axios.get('api/dashboard')
+            return await axios.get('api/dashboard')
                 .then(response => {
                     console.log('\n')
                     console.log('initDashboard > -------------- ')
                     console.log(response.data)
+                    return true
                 })
                 .catch(function (error) {
                     console.log('\n')
                     console.log('initDashboard error > ')
                     console.log(error.response.data.message);
                     console.log(error.response.status);
+                    return false
                 })
         },
     }
