@@ -103,15 +103,12 @@ export default {
                     console.log(response)
                     if ( response.status === 200 && response.data.user){
                         localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
-                    } else if (response.status === 200 && response.data === 'redirect to dashboard' ){
-                        // user already logged in so redirect to user dashboard
+                    } else if (response.status === 200 && response.data === 'user logged in'){
                         console.log('redirect to dashboard')
                         this.$router.push('dashboard')
-                    } else if (response.status === 200 && response.data === 'redirect to admin panel' ){
-                        // admin already logged in so redirect to admin panel
+                    } else if (response.status === 200 && response.data === 'admin logged in'){
                         console.log('redirect to admin panel')
                     } else if (response.status === 200 && response.data === 'invalid credentials' ){
-                        // admin already logged in so redirect to admin panel
                         console.log('invalid credentials')
                         localStorage.removeItem('loggedInUser')
                     }

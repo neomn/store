@@ -21,8 +21,11 @@ export default {
         }
     },
     mounted() {
-        // this.initCSRFToken()
-        this.initDashboard()
+        console.log(this.userLoggedIn())
+        if (this.userLoggedIn()) {
+            this.initDashboard()
+        }else console.log('user is not logged in ')
+            // this.$router.push('login')
     },
     methods: {
         // initCSRFToken() {
@@ -50,6 +53,25 @@ export default {
                     console.log(error.response.data.message);
                     console.log(error.response.status);
                 })
+        },
+        async userLoggedIn() {
+            console.log('\n')
+             let temp = await axios.post('/login')
+                .then(response => {
+                    console.log('userLoggedIn > -----------------')
+                    console.log('status > \n')
+                    console.log(response.status)
+                    console.log('response > \n')
+                    console.log(response)
+                    return response.status === 200 && response.data === 'user logged in'
+                })
+                .catch(function (error) {
+                    console.log('userLoggedIn error > ---------------- \n')
+                    console.log(error)
+                    localStorage.removeItem('loggedInUser')
+                    return false
+                })
+            return temp
         },
 
     }
