@@ -20224,66 +20224,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {};
   },
   mounted: function mounted() {
-    console.log(this.userLoggedIn());
-
-    if (this.userLoggedIn()) {
-      this.initDashboard();
-    } else console.log('user is not logged in '); // this.$router.push('login')
-
+    console.log(this.initDashboard()); // this.initDashboard()
   },
   methods: {
-    // initCSRFToken() {
-    //     axios.get('/sanctum/csrf-cookie')
-    //         .then(response => {
-    //             console.log('initializing csrf token >>>> ')
-    //             console.log(response)
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error)
-    //         })
-    // },
     initDashboard: function initDashboard() {
-      axios.get('api/dashboard').then(function (response) {
-        console.log('\n');
-        console.log('---------------------------------');
-        console.log('dashboard get request to api/dashboard >>> ');
-        console.log(response.data);
-      })["catch"](function (error) {
-        console.log('\n');
-        console.log('---------------------------------');
-        console.log('dashboard get request to api/dashboard error >>> ');
-        console.log(error.response.data.message);
-        console.log(error.response.status);
-      });
-    },
-    userLoggedIn: function userLoggedIn() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var temp;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log('\n');
-                _context.next = 3;
-                return axios.post('/login').then(function (response) {
-                  console.log('userLoggedIn > -----------------');
-                  console.log('status > \n');
-                  console.log(response.status);
-                  console.log('response > \n');
-                  console.log(response);
-                  return response.status === 200 && response.data === 'user logged in';
+                _context.next = 2;
+                return axios.get('api/dashboard').then(function (response) {
+                  console.log('\n');
+                  console.log('initDashboard > -------------- ');
+                  console.log(response.data);
                 })["catch"](function (error) {
-                  console.log('userLoggedIn error > ---------------- \n');
-                  console.log(error);
-                  localStorage.removeItem('loggedInUser');
-                  return false;
+                  console.log('\n');
+                  console.log('initDashboard error > ');
+                  console.log(error.response.data.message);
+                  console.log(error.response.status);
                 });
 
-              case 3:
-                temp = _context.sent;
-                return _context.abrupt("return", temp);
-
-              case 5:
+              case 2:
               case "end":
                 return _context.stop();
             }
