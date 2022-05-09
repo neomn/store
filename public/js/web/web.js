@@ -20442,8 +20442,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.initCSRFToken();
-    this.login();
-    this.redirectIfAuthenticated(); // this.$watch(
+    this.login(); // this.redirectIfAuthenticated()
+    // this.$watch(
     //     () => this.formData.email, (newValue, oldValue) => {
     //         this.validateEmail()
     //     }
@@ -20470,6 +20470,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     login: function login() {
+      var _this = this;
+
       console.log('\n');
       axios.post('/login', this.formData).then(function (response) {
         console.log('login > -----------------');
@@ -20479,34 +20481,26 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response);
 
         if (response.status === 200 && response.data.user) {
-          console.log(true);
           localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
-          return true;
-        }
+        } else if (response.status === 200 && response.data === 'redirect to dashboard') {
+          // user already logged in so redirect to user dashboard
+          console.log('redirect to dashboard');
 
-        console.log(false);
-        return false; // console.log('response >> \n')
-        // console.log(response.data.user)
-        // if (!isEmpty(response.data.user)) {
-        //     console.log('saving user data in local storage\n')
-        //     localStorage.setItem('loggedInUser', )
-        //     this.$router.push({name: 'welcome'})
-        // }
+          _this.$router.push('dashboard');
+        } else if (response.status === 200 && response.data === 'redirect to admin panel') {
+          // admin already logged in so redirect to admin panel
+          console.log('redirect to admin panel');
+        } else if (response.status === 200 && response.data === 'invalid credentials') {
+          // admin already logged in so redirect to admin panel
+          console.log('invalid credentials');
+          localStorage.removeItem('loggedInUser');
+        }
       })["catch"](function (error) {
-        // localStorage.removeItem('user.firstName')
-        // localStorage.removeItem('user.lastName')
-        // localStorage.removeItem('user.email')
         console.log('login error > ---------------- \n');
         console.log(error);
-        return false;
+        localStorage.removeItem('loggedInUser');
       });
     },
-    redirectIfAuthenticated: function redirectIfAuthenticated() {},
-    // isAuthenticated() {
-    //     console.log('isAuthenticated > ')
-    //     console.log(localStorage.getItem('loggedInUser') !== null)
-    //     return localStorage.getItem('loggedInUser') !== null
-    // },
     validateEmail: function validateEmail() {},
     validatePassword: function validatePassword() {}
   }

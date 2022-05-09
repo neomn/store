@@ -57,7 +57,7 @@ class AuthenticatedSessionController extends Controller
             return response($userData);
         }
 
-        return response('authentication failed');
+        return response('invalid credentials');
     }
 
     /**
