@@ -20228,6 +20228,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
     console.log(this.initDashboard().then(function (message) {
       if (message === false) _this.$router.push('login');
+    })["catch"](function (error) {
+      console.log(error);
     })); // this.initDashboard()
   },
   methods: {
@@ -20511,6 +20513,8 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response.status === 200 && response.data.user) {
           localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
+
+          _this.$router.push('dashboard');
         } else if (response.status === 200 && response.data === 'user logged in') {
           console.log('redirect to dashboard');
 

@@ -24,6 +24,8 @@ export default {
         console.log(this.initDashboard().then((message)=>{
             if (message === false)
                 this.$router.push('login')
+        }).catch((error)=>{
+           console.log(error)
         }))
         // this.initDashboard()
     },

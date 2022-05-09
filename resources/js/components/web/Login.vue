@@ -103,6 +103,7 @@ export default {
                     console.log(response)
                     if ( response.status === 200 && response.data.user){
                         localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
+                        this.$router.push('dashboard')
                     } else if (response.status === 200 && response.data === 'user logged in'){
                         console.log('redirect to dashboard')
                         this.$router.push('dashboard')
