@@ -69,11 +69,11 @@ export default {
         }
     },
     mounted() {
-        this.retrieveLoggedInUserFromLocalStorage()
+        // this.retrieveLoggedInUserFromLocalStorage()
     },
     methods: {
         checkIfLoggedIn() {
-            console.log('checkIfLoggedIn > ')
+            console.log('isAuthenticated > ')
             console.log(localStorage.getItem('loggedInUser') !== null)
             return localStorage.getItem('loggedInUser') !== null
         },

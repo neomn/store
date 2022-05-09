@@ -30,7 +30,10 @@ class RedirectIfAuthenticated
 
 
         if (Auth::guard('web')->check())
-            return response('user already logged in');
+            return response('redirect to dashboard');
+
+        if (Auth::guard('admin')->check())
+            return response('redirect to admin panel');
 
         return $next($request);
     }

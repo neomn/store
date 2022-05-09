@@ -60,75 +60,71 @@ export default {
     },
     mounted() {
         this.initCSRFToken()
+        this.login()
         this.redirectIfAuthenticated()
-        this.checkIfLoggedIn()
 
-        this.$watch(
-            () => this.formData.email, (newValue, oldValue) => {
-                this.validateEmail()
-            }
-        )
-        this.$watch(
-            () => this.formData.password, (newValue, oldValue) => {
-                this.validatePassword()
-            }
-        )
+        // this.$watch(
+        //     () => this.formData.email, (newValue, oldValue) => {
+        //         this.validateEmail()
+        //     }
+        // )
+        // this.$watch(
+        //     () => this.formData.password, (newValue, oldValue) => {
+        //         this.validatePassword()
+        //     }
+        // )
     },
     methods: {
         initCSRFToken() {
             axios.get('/sanctum/csrf-cookie')
                 .then(response => {
-                    console.log('initializing csrf token >>>> ')
-                    console.log(response)
+                    console.log('\n')
+                    console.log('initCSRFToken > ------------ ')
+                    console.log(response.status)
+                    console.log(true)
+                    if (response.status === 204)
+                        return true
                 })
                 .catch(function (error) {
+                    console.log('error > \n')
                     console.log(error)
+                    console.log(false)
+                    return false
                 })
         },
         login() {
             console.log('\n')
-            console.log('-------------------------')
-            console.log('login >> ')
             axios.post('/login', this.formData)
                 .then(response => {
-                    console.log(response)
-                    console.log('response >> \n')
-                    console.log(response.data.user)
-                    if (!isEmpty(response.data.user)) {
-                        console.log('saving user data in local storage\n')
-                        localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
-                        this.$router.push({name: 'welcome'})
-                    }
+                    console.log('login > -----------------')
+                    console.log('status > \n')
+                    console.log(response.status)
+                    return response.status === 200
+                    // console.log('response >> \n')
+                    // console.log(response.data.user)
+                    // if (!isEmpty(response.data.user)) {
+                    //     console.log('saving user data in local storage\n')
+                    //     localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
+                    //     this.$router.push({name: 'welcome'})
+                    // }
                 })
                 .catch(function (error) {
-                    localStorage.removeItem('user.firstName')
-                    localStorage.removeItem('user.lastName')
-                    localStorage.removeItem('user.email')
-                    console.log('error >> \n')
+                    // localStorage.removeItem('user.firstName')
+                    // localStorage.removeItem('user.lastName')
+                    // localStorage.removeItem('user.email')
+                    console.log('login error > ---------------- \n')
                     console.log(error)
+                    return false
                 })
         },
         redirectIfAuthenticated() {
-            axios.post('/login')
-                .then(response => {
-                    console.log('redirect if authenticated >>> ')
-                    console.log(response.data)
-                    this.loginResponse = response.data
 
-                    if (this.loginResponse === 'user already logged in') {
-                        console.log('redirecting to welcome')
-                        this.$router.push({name: 'welcome'})
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
         },
-        checkIfLoggedIn() {
-            console.log('checkIfLoggedIn > ')
-            console.log(localStorage.getItem('loggedInUser') !== null)
-            return localStorage.getItem('loggedInUser') !== null
-        },
+        // isAuthenticated() {
+        //     console.log('isAuthenticated > ')
+        //     console.log(localStorage.getItem('loggedInUser') !== null)
+        //     return localStorage.getItem('loggedInUser') !== null
+        // },
         validateEmail() {
 
         },

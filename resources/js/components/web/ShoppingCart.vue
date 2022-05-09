@@ -116,7 +116,7 @@ export default {
         },
         checkIfLoggedIn() {
             console.log('\n')
-            console.log('checkIfLoggedIn > ---------------- \n')
+            console.log('isAuthenticated > ---------------- \n')
             console.log(!isEmpty(localStorage.getItem('user.firstName')))
             return !isEmpty(localStorage.getItem('user.firstName'))
         },

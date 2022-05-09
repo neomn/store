@@ -20344,12 +20344,11 @@ __webpack_require__.r(__webpack_exports__);
       loggedInUser: {}
     };
   },
-  mounted: function mounted() {
-    this.retrieveLoggedInUserFromLocalStorage();
+  mounted: function mounted() {// this.retrieveLoggedInUserFromLocalStorage()
   },
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
-      console.log('checkIfLoggedIn > ');
+      console.log('isAuthenticated > ');
       console.log(localStorage.getItem('loggedInUser') !== null);
       return localStorage.getItem('loggedInUser') !== null;
     },
@@ -20442,82 +20441,62 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
     this.initCSRFToken();
-    this.redirectIfAuthenticated();
-    this.checkIfLoggedIn();
-    this.$watch(function () {
-      return _this.formData.email;
-    }, function (newValue, oldValue) {
-      _this.validateEmail();
-    });
-    this.$watch(function () {
-      return _this.formData.password;
-    }, function (newValue, oldValue) {
-      _this.validatePassword();
-    });
+    this.login();
+    this.redirectIfAuthenticated(); // this.$watch(
+    //     () => this.formData.email, (newValue, oldValue) => {
+    //         this.validateEmail()
+    //     }
+    // )
+    // this.$watch(
+    //     () => this.formData.password, (newValue, oldValue) => {
+    //         this.validatePassword()
+    //     }
+    // )
   },
   methods: {
     initCSRFToken: function initCSRFToken() {
       axios.get('/sanctum/csrf-cookie').then(function (response) {
-        console.log('initializing csrf token >>>> ');
-        console.log(response);
+        console.log('\n');
+        console.log('initCSRFToken > ------------ ');
+        console.log(response.status);
+        console.log(true);
+        if (response.status === 204) return true;
       })["catch"](function (error) {
+        console.log('error > \n');
         console.log(error);
+        console.log(false);
+        return false;
       });
     },
     login: function login() {
-      var _this2 = this;
-
       console.log('\n');
-      console.log('-------------------------');
-      console.log('login >> ');
       axios.post('/login', this.formData).then(function (response) {
-        console.log(response);
-        console.log('response >> \n');
-        console.log(response.data.user);
-
-        if (!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(response.data.user)) {
-          console.log('saving user data in local storage\n');
-          localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
-
-          _this2.$router.push({
-            name: 'welcome'
-          });
-        }
+        console.log('login > -----------------');
+        console.log('status > \n');
+        console.log(response.status);
+        return response.status === 200; // console.log('response >> \n')
+        // console.log(response.data.user)
+        // if (!isEmpty(response.data.user)) {
+        //     console.log('saving user data in local storage\n')
+        //     localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
+        //     this.$router.push({name: 'welcome'})
+        // }
       })["catch"](function (error) {
-        localStorage.removeItem('user.firstName');
-        localStorage.removeItem('user.lastName');
-        localStorage.removeItem('user.email');
-        console.log('error >> \n');
+        // localStorage.removeItem('user.firstName')
+        // localStorage.removeItem('user.lastName')
+        // localStorage.removeItem('user.email')
+        console.log('login error > ---------------- \n');
         console.log(error);
+        return false;
       });
     },
-    redirectIfAuthenticated: function redirectIfAuthenticated() {
-      var _this3 = this;
-
-      axios.post('/login').then(function (response) {
-        console.log('redirect if authenticated >>> ');
-        console.log(response.data);
-        _this3.loginResponse = response.data;
-
-        if (_this3.loginResponse === 'user already logged in') {
-          console.log('redirecting to welcome');
-
-          _this3.$router.push({
-            name: 'welcome'
-          });
-        }
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    checkIfLoggedIn: function checkIfLoggedIn() {
-      console.log('checkIfLoggedIn > ');
-      console.log(localStorage.getItem('loggedInUser') !== null);
-      return localStorage.getItem('loggedInUser') !== null;
-    },
+    redirectIfAuthenticated: function redirectIfAuthenticated() {},
+    // isAuthenticated() {
+    //     console.log('isAuthenticated > ')
+    //     console.log(localStorage.getItem('loggedInUser') !== null)
+    //     return localStorage.getItem('loggedInUser') !== null
+    // },
     validateEmail: function validateEmail() {},
     validatePassword: function validatePassword() {}
   }
@@ -20865,7 +20844,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
       console.log('\n');
-      console.log('checkIfLoggedIn > ---------------- \n');
+      console.log('isAuthenticated > ---------------- \n');
       console.log(!(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName')));
       return !(0,lodash__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(localStorage.getItem('user.firstName'));
     },
@@ -21294,7 +21273,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     checkIfLoggedIn: function checkIfLoggedIn() {
-      console.log('checkIfLoggedIn > ');
+      console.log('isAuthenticated > ');
       console.log(localStorage.getItem('loggedInUser') !== null);
       return localStorage.getItem('loggedInUser') !== null;
     },
