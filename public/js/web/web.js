@@ -20475,11 +20475,21 @@ __webpack_require__.r(__webpack_exports__);
         console.log('login > -----------------');
         console.log('status > \n');
         console.log(response.status);
-        return response.status === 200; // console.log('response >> \n')
+        console.log('response > \n');
+        console.log(response);
+
+        if (response.status === 200 && response.data.user) {
+          console.log(true);
+          localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
+          return true;
+        }
+
+        console.log(false);
+        return false; // console.log('response >> \n')
         // console.log(response.data.user)
         // if (!isEmpty(response.data.user)) {
         //     console.log('saving user data in local storage\n')
-        //     localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
+        //     localStorage.setItem('loggedInUser', )
         //     this.$router.push({name: 'welcome'})
         // }
       })["catch"](function (error) {
