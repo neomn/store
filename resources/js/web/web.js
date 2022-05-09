@@ -17,8 +17,6 @@ import Categories from "../components/web/Categories";
 import AboutUs from "../components/web/AboutUs";
 import ShoppingCart from "../components/web/ShoppingCart";
 import Register from "../components/web/Register";
-import Panel from "../components/admin/Panel";
-
 
 require('./bootstrap');
 window.Vue = require('vue');
@@ -44,7 +42,6 @@ const routes = [
     {path: '/register', name: 'register', component: Register},
     {path: '/dashboard', name: 'dashboard', component: Dashboard},
     {path: '/:catchAll(.*)', name: '404' , component: NotFound},
-    {path: '/panel', name: 'panel' , component: Panel},
 ];
 
 const router = new VueRouter({
