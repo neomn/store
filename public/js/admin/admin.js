@@ -51194,27 +51194,23 @@ vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('font-awesome-icon', _fort
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].config.productionTip = false;
 vue__WEBPACK_IMPORTED_MODULE_8__["default"].component('App', (__webpack_require__(/*! ../components/admin/App */ "./resources/js/components/admin/App.vue")["default"]));
 var routes = [{
-  path: '/admin/App',
-  name: 'app',
-  component: _components_admin_App__WEBPACK_IMPORTED_MODULE_2__["default"]
-}, {
-  path: '/admin/panel',
+  path: '/panel',
   name: 'panel',
   component: _components_admin_Panel__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
-  path: '/admin/productContainer',
+  path: '/productContainer',
   name: 'products',
   component: _components_admin_Products__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  path: '/admin/users',
+  path: '/users',
   name: 'users',
   component: _components_admin_Users__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
-  path: '/admin/analytics',
+  path: '/analytics',
   name: 'analytics',
   component: _components_admin_Analytics__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, {
-  path: '/admin/settings',
+  path: '/settings',
   name: 'settings',
   component: _components_admin_Settings__WEBPACK_IMPORTED_MODULE_7__["default"]
 }];

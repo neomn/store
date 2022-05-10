@@ -30,12 +30,11 @@ Vue.component('App', require('../components/admin/App').default);
 
 
 const routes=[
-        { path: '/admin/App', name: 'app', component: App},
-        { path: '/admin/panel', name: 'panel', component: Panel},
-        { path: '/admin/productContainer', name: 'products', component: Products},
-        { path: '/admin/users', name: 'users', component: Users},
-        { path: '/admin/analytics', name: 'analytics', component: Analytics},
-        { path: '/admin/settings', name: 'settings', component: Settings},]
+        { path: '/panel', name: 'panel', component: Panel},
+        { path: '/productContainer', name: 'products', component: Products},
+        { path: '/users', name: 'users', component: Users},
+        { path: '/analytics', name: 'analytics', component: Analytics},
+        { path: '/settings', name: 'settings', component: Settings},]
 
 const router = new VueRouter({
     mode:'history',
