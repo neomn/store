@@ -19876,17 +19876,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Sidebar",
   data: function data() {
-    return {
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    return {// csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
     };
   },
-  methods: {}
+  methods: {
+    logout: function logout() {
+      localStorage.removeItem('loggedInUser');
+      axios.post('/logout').then(function (response) {
+        console.log(response);
+        window.location.href = '/';
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -20513,8 +20519,9 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response.status === 200 && response.data.user) {
           localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
-
-          _this.$router.push('dashboard');
+          localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
+          if (response.data.user.type === 'user') _this.$router.push('dashboard');
+          if (response.data.user.type === 'admin') window.local.href = '/panel';
         } else if (response.status === 200 && response.data === 'user logged in') {
           console.log('redirect to dashboard');
 
@@ -21543,7 +21550,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-6b0b3b7e] {\r\n    display: block;\n}\nul div a[data-v-6b0b3b7e] {\r\n    margin-bottom: 10px;\r\n    margin-top: 5px;\n}\nul div button[data-v-6b0b3b7e] {\r\n    margin-top: 15px;\r\n    margin-bottom: 5px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-6b0b3b7e] {\n    display: block;\n}\nul div a[data-v-6b0b3b7e] {\n    margin-bottom: 10px;\n    margin-top: 5px;\n}\nul div button[data-v-6b0b3b7e] {\n    margin-top: 15px;\n    margin-bottom: 5px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48468,26 +48475,16 @@ var render = function () {
           ),
         ]),
         _vm._v(" "),
-        _c("form", { attrs: { action: "/logout", method: "post" } }, [
-          _c("input", {
-            attrs: { type: "hidden", name: "_token" },
-            domProps: { value: _vm.csrf },
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "fixed bottom-3 right-3 ",
-              attrs: { type: "submit" },
-            },
-            [
-              _c("font-awesome-icon", {
-                attrs: { icon: ["fas", "sign-out-alt"] },
-              }),
-            ],
-            1
-          ),
-        ]),
+        _c(
+          "button",
+          { staticClass: "fixed bottom-3 right-3 ", on: { click: _vm.logout } },
+          [
+            _c("font-awesome-icon", {
+              attrs: { icon: ["fas", "sign-out-alt"] },
+            }),
+          ],
+          1
+        ),
       ]),
     ]
   )

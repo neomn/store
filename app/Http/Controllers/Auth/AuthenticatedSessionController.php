@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Resources\Api\web\UserResource;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,6 +39,7 @@ class AuthenticatedSessionController extends Controller
             $userData = [
                 'user' => [
                     'firstName' => $request->user()->firstName,
+                    'type' => 'user',
                 ]
             ];
             return response($userData);
@@ -52,6 +51,7 @@ class AuthenticatedSessionController extends Controller
             $userData = [
                 'user' => [
                     'firstName' => $request->user()->firstName,
+                    'type' => 'admin',
                 ]
             ];
             return response($userData);

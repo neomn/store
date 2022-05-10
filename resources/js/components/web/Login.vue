@@ -59,6 +59,7 @@ export default {
         }
     },
     mounted() {
+
         this.initCSRFToken()
         this.login()
         // this.redirectIfAuthenticated()
@@ -101,9 +102,13 @@ export default {
                     console.log(response.status)
                     console.log('response > \n')
                     console.log(response)
-                    if ( response.status === 200 && response.data.user){
+                    if ( response.status === 200 && response.data.user) {
                         localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
-                        this.$router.push('dashboard')
+                        localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
+                        if (response.data.user.type === 'user')
+                            this.$router.push('dashboard')
+                        if (response.data.user.type === 'admin')
+                            window.local.href = '/panel'
                     } else if (response.status === 200 && response.data === 'user logged in'){
                         console.log('redirect to dashboard')
                         this.$router.push('dashboard')

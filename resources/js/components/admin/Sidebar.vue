@@ -10,13 +10,10 @@
             <div class="hover:bg-gray-900"><a><font-awesome-icon :icon="['fas','chart-bar']"/></a></div>
             <div class="hover:bg-gray-900"><a><font-awesome-icon :icon="['fas','cogs']"/></a></div>
 
-                        <!--Log Out Form-->
-                        <form action="/logout" method="post">
-                            <input type="hidden" name="_token" :value="csrf">
-                            <button type="submit" class="fixed bottom-3 right-3 ">
-                                <font-awesome-icon :icon="['fas','sign-out-alt']"/>
-                            </button>
-                        </form>
+                <button @click="logout" class="fixed bottom-3 right-3 ">
+                    <font-awesome-icon :icon="['fas','sign-out-alt']"/>
+                </button>
+
         </ul>
     </div>
 </template>
@@ -27,10 +24,21 @@ export default {
     name: "Sidebar",
     data() {
         return {
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            // csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         }
     },
     methods:{
+        logout() {
+            localStorage.removeItem('loggedInUser')
+            axios.post('/logout')
+                .then(response => {
+                    console.log(response)
+                    window.location.href='/'
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+        },
 
     }
 }
