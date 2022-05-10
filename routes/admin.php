@@ -9,6 +9,5 @@ Route::view('/panel/{any?}','admin.vue.app')
     ->name('panel');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-//                ->middleware(['AdminLogout','auth'])
     ->name('logout');
 
