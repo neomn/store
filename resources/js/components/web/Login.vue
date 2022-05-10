@@ -109,7 +109,7 @@ export default {
                         this.$router.push('dashboard')
                     } else if (response.status === 200 && response.data === 'admin logged in'){
                         console.log('redirect to admin panel')
-                        this.$router.push('panel')
+                        window.location.href = '/panel'
                     } else if (response.status === 200 && response.data === 'invalid credentials' ){
                         console.log('invalid credentials')
                         localStorage.removeItem('loggedInUser')
