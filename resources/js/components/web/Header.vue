@@ -36,7 +36,8 @@
                     </div>
                 </div>
                 <!--  user dashboard-->
-                <div v-if="loggedInUser" class=" w-auto ml-3 inline-block float-right">
+                <div v-if="loggedInUser" class=" w-auto ml-3 px-2 inline-block float-right"
+                     v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': ''">
                     <router-link :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
                         <h3 class="inline-block pl-1">{{ loggedInUser.firstName }}</h3>
@@ -69,7 +70,11 @@ export default {
         }
     },
     mounted() {
-        // this.retrieveLoggedInUserFromLocalStorage()
+        this.retrieveLoggedInUserFromLocalStorage()
+        // this.$watch(
+        //     ()=>this.$route.path , (newValue , oldValue)=>{
+        //         console.log( 'new path > ' + this.$route.path)
+        //     })
     },
     methods: {
         checkIfLoggedIn() {
@@ -82,8 +87,7 @@ export default {
             if (this.checkIfLoggedIn()) {
                 this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
             } else this.loggedInUser = null
-            console.log('loggInUser > ')
-            console.log(this.loggedInUser)
+            console.log('loggInUser > null ')
         },
     }
 }

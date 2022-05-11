@@ -20373,6 +20373,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -20381,7 +20382,11 @@ __webpack_require__.r(__webpack_exports__);
       loggedInUser: {}
     };
   },
-  mounted: function mounted() {// this.retrieveLoggedInUserFromLocalStorage()
+  mounted: function mounted() {
+    this.retrieveLoggedInUserFromLocalStorage(); // this.$watch(
+    //     ()=>this.$route.path , (newValue , oldValue)=>{
+    //         console.log( 'new path > ' + this.$route.path)
+    //     })
   },
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
@@ -20396,8 +20401,7 @@ __webpack_require__.r(__webpack_exports__);
         this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
       } else this.loggedInUser = null;
 
-      console.log('loggInUser > ');
-      console.log(this.loggedInUser);
+      console.log('loggInUser > null ');
     }
   }
 });
@@ -48904,7 +48908,13 @@ var render = function () {
               _vm.loggedInUser
                 ? _c(
                     "div",
-                    { staticClass: " w-auto ml-3 inline-block float-right" },
+                    {
+                      staticClass: " w-auto ml-3 px-2 inline-block float-right",
+                      class:
+                        this.$route.path === "/dashboard"
+                          ? "border-t border-lime-500 rounded-lg"
+                          : "",
+                    },
                     [
                       _c(
                         "router-link",
@@ -49722,7 +49732,7 @@ var render = function () {
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2 text-orange-500" },
+                    { staticClass: "inline pr-2" },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "receipt"] },
@@ -49753,7 +49763,7 @@ var render = function () {
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2 text-red-700" },
+                    { staticClass: "inline pr-2 " },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "heart"] },
@@ -49784,7 +49794,7 @@ var render = function () {
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2 text-lime-300" },
+                    { staticClass: "inline pr-2" },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "envelope"] },
@@ -49815,7 +49825,7 @@ var render = function () {
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2 text-indigo-500" },
+                    { staticClass: "inline pr-2 " },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "user"] },
@@ -49846,7 +49856,7 @@ var render = function () {
                 _c("div", [
                   _c(
                     "div",
-                    { staticClass: "inline pr-2 text-amber-500" },
+                    { staticClass: "inline pr-2 " },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "cogs"] },

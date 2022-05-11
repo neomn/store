@@ -6,7 +6,7 @@
             <div class=" w-full ">
                 <div class=" flex justify-start items-center h-auto py-1 pl-2 rounded-lg bg-slate-900 text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2 text-orange-500">
+                        <div class="inline pr-2">
                             <font-awesome-icon :icon="['fas' , 'receipt']"/>
                         </div>
                         <span>Orders History</span>
@@ -19,7 +19,7 @@
             <div class=" w-full ">
                 <div class=" flex justify-start pl-2 items-center h-auto py-1 bg-slate-900 rounded-lg text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2 text-red-700">
+                        <div class="inline pr-2 ">
                             <font-awesome-icon :icon="['fas' , 'heart']"/>
                         </div>
                         <span>Favorite Products</span>
@@ -32,7 +32,7 @@
             <div class=" w-full ">
                 <div class=" flex justify-start pl-2 items-center h-auto py-1 rounded-lg text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2 text-lime-300">
+                        <div class="inline pr-2">
                             <font-awesome-icon :icon="['fas' , 'envelope']"/>
                         </div>
                         <span>Inbox</span>
@@ -44,7 +44,7 @@
             <div class=" w-full ">
                 <div class=" flex justify-start pl-2 items-center h-auto py-1 rounded-lg text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2 text-indigo-500">
+                        <div class="inline pr-2 ">
                             <font-awesome-icon :icon="['fas' , 'user']"/>
                         </div>
                         <span>Personal Info</span>
@@ -56,7 +56,7 @@
             <div class=" w-full ">
                 <div class=" flex justify-start pl-2 items-center h-10 py-1 rounded-lg text-center text-zinc-300 ">
                     <div>
-                        <div class="inline pr-2 text-amber-500">
+                        <div class="inline pr-2 ">
                             <font-awesome-icon :icon="['fas' , 'cogs']"/>
                         </div>
                         <span>Settings</span>
