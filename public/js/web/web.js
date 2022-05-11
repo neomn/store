@@ -20501,9 +20501,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   if (response.status === 200 && response.data.user) {
                     localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
-                    localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
                     if (response.data.user.type === 'user') _this.$router.push('dashboard');
-                    if (response.data.user.type === 'admin') window.local.href = '/panel';
+
+                    if (response.data.user.type === 'admin') {
+                      console.log('redirect admin to panel');
+                      window.location.href = '/panel';
+                    }
                   } else if (response.status === 200 && response.data === 'user logged in') {
                     console.log('redirect to dashboard');
 

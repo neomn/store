@@ -77,14 +77,14 @@ export default {
         // )
     },
     methods: {
-       async initCSRFToken() {
+        async initCSRFToken() {
             await axios.get('/sanctum/csrf-cookie')
                 .then(response => {
                     console.log('\n')
                     console.log('initCSRFToken > ------------ ')
                     console.log(response.status)
                     console.log(response.data)
-                    if (response.status === 204){
+                    if (response.status === 204) {
                         console.log(true)
                         return true
                     }
@@ -105,20 +105,21 @@ export default {
                     console.log(response.status)
                     console.log('response > \n')
                     console.log(response)
-                    if ( response.status === 200 && response.data.user) {
-                        localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
+                    if (response.status === 200 && response.data.user) {
                         localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
                         if (response.data.user.type === 'user')
                             this.$router.push('dashboard')
-                        if (response.data.user.type === 'admin')
-                            window.local.href = '/panel'
-                    } else if (response.status === 200 && response.data === 'user logged in'){
+                        if (response.data.user.type === 'admin') {
+                            console.log('redirect admin to panel')
+                            window.location.href = '/panel'
+                        }
+                    } else if (response.status === 200 && response.data === 'user logged in') {
                         console.log('redirect to dashboard')
                         this.$router.push('dashboard')
-                    } else if (response.status === 200 && response.data === 'admin logged in'){
+                    } else if (response.status === 200 && response.data === 'admin logged in') {
                         console.log('redirect to admin panel')
                         window.location.href = '/panel'
-                    } else if (response.status === 200 && response.data === 'invalid credentials' ){
+                    } else if (response.status === 200 && response.data === 'invalid credentials') {
                         console.log('invalid credentials')
                         localStorage.removeItem('loggedInUser')
                     }

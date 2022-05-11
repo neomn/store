@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,9 +48,9 @@ class AuthenticatedSessionController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
             $userData = [
-                'user' => [ '123'
-//                    'firstName' => $request->user()->firstName,
-//                    'type' => 'admin',
+                'user' => [
+                    'firstName' => Auth::guard('admin')->user()->firstName,
+                    'type' => 'admin',
                 ]
             ];
             return response($userData);

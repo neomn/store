@@ -20,6 +20,7 @@ class AdminAuthenticator
         if (Auth::guard('admin')->check())
             return $next($request);
 
-        return redirect()->intended(route('login'));
+//        return redirect()->intended(route('login'));
+        return response('admin authenticator > admin not logged in ');
     }
 }
