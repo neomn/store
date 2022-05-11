@@ -179,7 +179,7 @@ export default {
 
     },
     mounted() {
-        console.log('\n Welcome mounted > ------------------------ \n')
+        console.log('\nWelcome mounted > ------------------------ \n')
         this.initData()
     },
     methods: {

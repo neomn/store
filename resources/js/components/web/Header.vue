@@ -63,6 +63,10 @@
 import {isEmpty} from "lodash";
 
 export default {
+    name: "Header",
+    props: [
+        'deleteLoggedInUser',
+    ],
     data() {
         return {
             HeaderImage: '../resources/img/WelcomeController.jpg',
@@ -72,11 +76,30 @@ export default {
     created() {
         console.log('Header Created > ------------------------ \n')
         this.retrieveLoggedInUserFromLocalStorage()
+        if (this.deleteLoggedInUser)
+            this.deleteUser()
+
+    },
+    beforeMount() {
+        console.log('Header before mount > ------------------------ \n')
     },
     mounted() {
-
-        // this.retrieveLoggedInUserFromLocalStorage()
+        console.log('Header mounted > ------------------------ \n')
+        this.retrieveLoggedInUserFromLocalStorage()
+        if (this.deleteLoggedInUser)
+            this.deleteUser()
     },
+    beforeUpdate() {
+        if (this.deleteLoggedInUser)
+            this.deleteUser()
+    },
+    updated() {
+        console.log('Header updated > ------------------------ \n')
+    },
+    destroyed() {
+        console.log('Header destroyed > ------------------------ \n')
+    },
+
     methods: {
         checkIfLoggedIn() {
             console.log('checkIfLoggedIn > ')
@@ -88,10 +111,12 @@ export default {
             if (this.checkIfLoggedIn()) {
                 this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
             } else this.loggedInUser = null
-            console.log('loggInUser > null ')
+            console.log('loggedInUser >')
+            console.log(this.loggedInUser)
         },
-        refreshHeader(){
-
+        deleteUser(){
+            localStorage.removeItem('loggedInUser')
+            this.loggedInUser = null
         },
     }
 }

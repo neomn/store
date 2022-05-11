@@ -66,9 +66,7 @@
             <div class=" absolute bottom-16 self-center w-5/6 h-8 text-center
                 text-red-600 rounded-lg border-2 border-red-600">
                 <button @click="logout">
-                    <router-link :to="{ name:'welcome' }">
                         Log Out
-                    </router-link>
                 </button>
             </div>
         </div>
@@ -89,14 +87,16 @@ export default {
         }
     },
     methods: {
-        logout() {
-            localStorage.removeItem('loggedInUser')
+        async logout() {
+            await localStorage.removeItem('loggedInUser')
             axios.post('/logout')
                 .then(response => {
                     console.log(response)
+                    this.$router.push({name: 'welcome'})
                 })
                 .catch(function (error) {
                     console.log(error)
+                    localStorage.removeItem('loggedInUser')
                 })
         },
     }

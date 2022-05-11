@@ -1,7 +1,7 @@
 <template>
     <div class="bg-slate-800 min-h-screen text-gray-200">
-        <Header/>
-        <SideBar/>
+        <Header />
+        <SideBar  />
     </div>
 </template>
 
@@ -10,24 +10,23 @@
 
 <script>
 import Header from "../web/Header";
-import Sidebar from "../admin/Sidebar";
-import SideBar from "./SideBar";
+import SideBar from "../web/SideBar";
 export default {
     name: "Dashboard",
-    components: {SideBar, Sidebar, Header},
+    components: {SideBar, Header},
     data() {
         return {
 
         }
     },
     mounted() {
+        // this is how i check for login status in dashboard
         console.log(this.initDashboard().then((message)=>{
             if (message === false)
                 this.$router.push('login')
         }).catch((error)=>{
            console.log(error)
         }))
-        // this.initDashboard()
     },
     methods: {
         async initDashboard() {
