@@ -20322,7 +20322,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
-  props: ['deleteLoggedInUser'],
   data: function data() {
     return {
       HeaderImage: '../resources/img/WelcomeController.jpg',
@@ -20332,21 +20331,6 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     console.log('Header Created > ------------------------ \n');
     this.retrieveLoggedInUserFromLocalStorage();
-    if (this.deleteLoggedInUser) this.deleteUser();
-  },
-  beforeMount: function beforeMount() {
-    console.log('Header before mount > ------------------------ \n');
-  },
-  mounted: function mounted() {
-    console.log('Header mounted > ------------------------ \n');
-    this.retrieveLoggedInUserFromLocalStorage();
-    if (this.deleteLoggedInUser) this.deleteUser();
-  },
-  updated: function updated() {
-    console.log('Header updated > ------------------------ \n');
-  },
-  destroyed: function destroyed() {
-    console.log('Header destroyed > ------------------------ \n');
   },
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
@@ -20363,10 +20347,6 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log('loggedInUser >');
       console.log(this.loggedInUser);
-    },
-    deleteUser: function deleteUser() {
-      localStorage.removeItem('loggedInUser');
-      this.loggedInUser = null;
     }
   }
 });
