@@ -20434,7 +20434,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
   },
-  mounted: function mounted() {
+  created: function created() {
+    console.log('login created > ------------------------');
     this.initCSRFToken();
     this.login(); // this.redirectIfAuthenticated()
     // this.$watch(
@@ -20460,10 +20461,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log('\n');
                   console.log('initCSRFToken > ------------ ');
                   console.log(response.status);
-                  console.log(true);
-                  if (response.status === 204) return true;
+                  console.log(response.data);
+
+                  if (response.status === 204) {
+                    console.log(true);
+                    return true;
+                  }
                 })["catch"](function (error) {
-                  console.log('error > \n');
+                  console.log('initCSRFToken error > ------------ ');
                   console.log(error);
                   console.log(false);
                   return false;

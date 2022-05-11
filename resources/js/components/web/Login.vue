@@ -58,10 +58,11 @@ export default {
             },
         }
     },
-    mounted() {
-
+    created() {
+        console.log('login created > ------------------------')
         this.initCSRFToken()
         this.login()
+
         // this.redirectIfAuthenticated()
 
         // this.$watch(
@@ -82,12 +83,14 @@ export default {
                     console.log('\n')
                     console.log('initCSRFToken > ------------ ')
                     console.log(response.status)
-                    console.log(true)
-                    if (response.status === 204)
+                    console.log(response.data)
+                    if (response.status === 204){
+                        console.log(true)
                         return true
+                    }
                 })
                 .catch(function (error) {
-                    console.log('error > \n')
+                    console.log('initCSRFToken error > ------------ ')
                     console.log(error)
                     console.log(false)
                     return false

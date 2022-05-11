@@ -34,7 +34,6 @@ class AuthenticatedSessionController extends Controller
         $credentials = $request->only(['email', 'password']);
 
         if (Auth::guard('web')->attempt($credentials)) {
-            $request->authenticate();
             $request->session()->regenerate();
             $userData = [
                 'user' => [
@@ -46,12 +45,11 @@ class AuthenticatedSessionController extends Controller
         }
 
         if (Auth::guard('admin')->attempt($credentials)) {
-            $request->authenticate();
             $request->session()->regenerate();
             $userData = [
-                'user' => [
-                    'firstName' => $request->user()->firstName,
-                    'type' => 'admin',
+                'user' => [ '123'
+//                    'firstName' => $request->user()->firstName,
+//                    'type' => 'admin',
                 ]
             ];
             return response($userData);
