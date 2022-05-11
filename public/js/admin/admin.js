@@ -16530,6 +16530,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -16539,8 +16541,88 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Header"
+  name: "Header",
+  data: function data() {
+    return {
+      HeaderImage: '../resources/img/WelcomeController.jpg',
+      loggedInUser: {}
+    };
+  },
+  created: function created() {
+    console.log('Header Created > ------------------------ \n');
+    this.retrieveLoggedInUserFromLocalStorage();
+  },
+  methods: {
+    checkIfLoggedIn: function checkIfLoggedIn() {
+      console.log('checkIfLoggedIn > ');
+      console.log(localStorage.getItem('loggedInUser') !== null);
+      return localStorage.getItem('loggedInUser') !== null;
+    },
+    retrieveLoggedInUserFromLocalStorage: function retrieveLoggedInUserFromLocalStorage() {
+      console.log('retrieveLoggedInUserFromLocalStorage > ');
+
+      if (this.checkIfLoggedIn()) {
+        this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+      } else this.loggedInUser = null;
+
+      console.log('loggedInUser >');
+      console.log(this.loggedInUser);
+    }
+  }
 });
 
 /***/ }),
@@ -16563,6 +16645,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Products__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Products */ "./resources/js/components/admin/Products.vue");
 /* harmony import */ var _Users__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Users */ "./resources/js/components/admin/Users.vue");
 /* harmony import */ var _Analytics__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Analytics */ "./resources/js/components/admin/Analytics.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -35511,27 +35598,206 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass:
+        "fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900",
+    },
+    [
+      _c("div", { staticClass: "HeaderImage" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 " },
+        [
+          _c(
+            "ul",
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "mx-2 px-2",
+                  class:
+                    this.$route.path === "/"
+                      ? " border-t border-lime-500 rounded-lg"
+                      : "",
+                  attrs: { href: "/" },
+                },
+                [_vm._v(" Home\n            ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "mx-2 px-2 ",
+                  class:
+                    this.$route.path === "/categories"
+                      ? "border-t border-lime-500 rounded-lg"
+                      : "",
+                  attrs: { href: "/categories" },
+                },
+                [_vm._v("\n                Categories\n            ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "mx-2 px-2",
+                  class:
+                    this.$route.path === "/about-us"
+                      ? "border-t border-lime-500 rounded-lg"
+                      : "",
+                  attrs: { to: { name: "aboutUs" } },
+                },
+                [_vm._v("\n                About Us\n            ")]
+              ),
+              _vm._v(" "),
+              !_vm.loggedInUser
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "px-4 pt-1 inline-block float-right",
+                      class:
+                        this.$route.path === "/register"
+                          ? "border-t border-lime-500 rounded-lg"
+                          : "",
+                    },
+                    [
+                      _c(
+                        "div",
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "float-right ",
+                              attrs: { to: { name: "register" } },
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "user-plus"] },
+                              }),
+                            ],
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: " px-4 inline-block float-right",
+                  class:
+                    this.$route.path === "/login"
+                      ? "border-t border-lime-500 rounded-lg"
+                      : "",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "pt-1" },
+                    [
+                      !_vm.loggedInUser
+                        ? _c(
+                            "router-link",
+                            {
+                              staticClass: "float-right ",
+                              attrs: {
+                                to: { name: "login" },
+                                href: "/api/user",
+                              },
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "door-open"] },
+                              }),
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                    ],
+                    1
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _vm.loggedInUser
+                ? _c(
+                    "div",
+                    {
+                      staticClass: " w-auto ml-3 px-2 inline-block float-right",
+                      class:
+                        this.$route.path === "/dashboard"
+                          ? "border-t border-lime-500 rounded-lg"
+                          : "",
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "dashboard" },
+                            href: "/api/user",
+                          },
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "chart-line"] },
+                          }),
+                          _vm._v(" "),
+                          _c("h3", { staticClass: "inline-block pl-1" }, [
+                            _vm._v(_vm._s(_vm.loggedInUser.firstName)),
+                          ]),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: " px-4 inline-block float-right ",
+                  class:
+                    this.$route.path === "/shopping-cart"
+                      ? "border-t border-lime-500 rounded-lg"
+                      : "",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "pt-1" },
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: { name: "shoppingCart" } } },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "shopping-cart"] },
+                          }),
+                        ],
+                        1
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              ),
+            ],
+            1
+          ),
+        ]
+      ),
+    ]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-gray-500" }, [
-      _c("ul", [
-        _c(
-          "button",
-          {
-            staticClass:
-              " mx-2 mt-1 mb-1 px-2 dark:border-2 rounded-md border-fuchsia-500 bg-slate-900\n        text-gray-200 hover:border-red-600 hover:text-gray-500",
-          },
-          [_vm._v("Dark Mode")]
-        ),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -35554,43 +35820,12 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "panel", staticClass: "dark" }, [
-    _c("div", { staticClass: "bg-white dark:bg-slate-900 min-h-screen " }, [
-      _c(
-        "header",
-        [
-          _c("Header"),
-          _vm._v(" "),
-          _c("router-link", { attrs: { to: "settings" } }, [
-            _vm._v(" go to settings"),
-          ]),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c(
-            "button",
-            {
-              ref: "darkButton",
-              attrs: { type: "button" },
-              on: { click: _vm.switchDarkmode },
-            },
-            [_vm._v("dark Mode")]
-          ),
-          _vm._v(" "),
-          _c("sidebar", { staticClass: "sidebar" }, [_c("Sidebar")], 1),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("div"),
-      _vm._v(" "),
-      _c("footer", [_c("Footer")], 1),
-    ]),
-  ])
+  return _c(
+    "div",
+    { staticClass: "bg-slate-800" },
+    [_c("Header"), _vm._v(" "), _c("Sidebar")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
