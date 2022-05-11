@@ -17,28 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', WelcomeController::class )->name('welcome');
-//changing top command to use vue js instead of blade
 Route::view('/{any}' , 'web.vue.app')->where('any' , '.*');
-//Route::get('/' , function (){return 'welcome';});
-
-//Route::get('allCategories' , function (){
-//    $allCategories = Category::all();
-//    return view('web.blade.allCategories' , compact('allCategories'));
-//} )->name('allCategories');
-
-//Route::get('product/{product_number}' , function ($product_number){
-//    $product = Product::where('product_number' , $product_number)->first();
-//    dd($product);
-////    return view('' , compact('product'));
-//})->name('display-product');
-
-//Route::view('shopping-card' , 'web.blade.shoppingCard' )->name('shopping-card');
-//Route::view('about-us' , 'web.blade.aboutUs' )->name('about-us');
-//Route::view('contact-us' , 'web.blade.contactUs' )->name('contact-us');
-
-//Route::get('/dashboard', function () {
-//    return view('web.blade.dashboard');
-//})->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
