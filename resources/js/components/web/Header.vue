@@ -89,10 +89,6 @@ export default {
         if (this.deleteLoggedInUser)
             this.deleteUser()
     },
-    beforeUpdate() {
-        if (this.deleteLoggedInUser)
-            this.deleteUser()
-    },
     updated() {
         console.log('Header updated > ------------------------ \n')
     },

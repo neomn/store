@@ -76,8 +76,8 @@ export default {
         // )
     },
     methods: {
-        initCSRFToken() {
-            axios.get('/sanctum/csrf-cookie')
+       async initCSRFToken() {
+            await axios.get('/sanctum/csrf-cookie')
                 .then(response => {
                     console.log('\n')
                     console.log('initCSRFToken > ------------ ')
@@ -93,9 +93,9 @@ export default {
                     return false
                 })
         },
-        login() {
+        async login() {
             console.log('\n')
-            axios.post('/login', this.formData)
+            await axios.post('/login', this.formData)
                 .then(response => {
                     console.log('login > -----------------')
                     console.log('status > \n')
