@@ -69,16 +69,17 @@ export default {
             loggedInUser: {},
         }
     },
-    mounted() {
+    created() {
+        console.log('Header Created > ------------------------ \n')
         this.retrieveLoggedInUserFromLocalStorage()
-        // this.$watch(
-        //     ()=>this.$route.path , (newValue , oldValue)=>{
-        //         console.log( 'new path > ' + this.$route.path)
-        //     })
+    },
+    mounted() {
+
+        // this.retrieveLoggedInUserFromLocalStorage()
     },
     methods: {
         checkIfLoggedIn() {
-            console.log('isAuthenticated > ')
+            console.log('checkIfLoggedIn > ')
             console.log(localStorage.getItem('loggedInUser') !== null)
             return localStorage.getItem('loggedInUser') !== null
         },
@@ -88,6 +89,9 @@ export default {
                 this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
             } else this.loggedInUser = null
             console.log('loggInUser > null ')
+        },
+        refreshHeader(){
+
         },
     }
 }

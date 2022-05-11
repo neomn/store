@@ -20382,15 +20382,15 @@ __webpack_require__.r(__webpack_exports__);
       loggedInUser: {}
     };
   },
-  mounted: function mounted() {
-    this.retrieveLoggedInUserFromLocalStorage(); // this.$watch(
-    //     ()=>this.$route.path , (newValue , oldValue)=>{
-    //         console.log( 'new path > ' + this.$route.path)
-    //     })
+  created: function created() {
+    console.log('Header Created > ------------------------ \n');
+    this.retrieveLoggedInUserFromLocalStorage();
+  },
+  mounted: function mounted() {// this.retrieveLoggedInUserFromLocalStorage()
   },
   methods: {
     checkIfLoggedIn: function checkIfLoggedIn() {
-      console.log('isAuthenticated > ');
+      console.log('checkIfLoggedIn > ');
       console.log(localStorage.getItem('loggedInUser') !== null);
       return localStorage.getItem('loggedInUser') !== null;
     },
@@ -20402,7 +20402,8 @@ __webpack_require__.r(__webpack_exports__);
       } else this.loggedInUser = null;
 
       console.log('loggInUser > null ');
-    }
+    },
+    refreshHeader: function refreshHeader() {}
   }
 });
 
@@ -21259,7 +21260,9 @@ __webpack_require__.r(__webpack_exports__);
       displayAllFavorite: false
     };
   },
+  created: function created() {},
   mounted: function mounted() {
+    console.log('\n Welcome mounted > ------------------------ \n');
     this.initData();
   },
   methods: {
@@ -21269,13 +21272,12 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('api/welcome').then(function (response) {
         _this.favoriteProducts = response.data.favoriteProducts;
         _this.newProducts = response.data.newProducts;
-        _this.topSells = response.data.topSells;
-        console.log('favorite >>> ');
-        console.log(_this.favoriteProducts);
-        console.log('new productContainer >>>');
-        console.log(_this.newProducts);
-        console.log('top Sells >>> ');
-        console.log(_this.topSells);
+        _this.topSells = response.data.topSells; // console.log('favorite >>> ');
+        // console.log(this.favoriteProducts);
+        // console.log('new productContainer >>>');
+        // console.log(this.newProducts);
+        // console.log('top Sells >>> ');
+        // console.log(this.topSells);
       })["catch"](function (error) {
         console.log('error while catching data >>> ' + error);
       });

@@ -175,7 +175,11 @@ export default {
             displayAllFavorite: false,
         }
     },
+    created() {
+
+    },
     mounted() {
+        console.log('\n Welcome mounted > ------------------------ \n')
         this.initData()
     },
     methods: {
@@ -185,12 +189,12 @@ export default {
                     this.favoriteProducts = response.data.favoriteProducts;
                     this.newProducts = response.data.newProducts;
                     this.topSells = response.data.topSells;
-                    console.log('favorite >>> ');
-                    console.log(this.favoriteProducts);
-                    console.log('new productContainer >>>');
-                    console.log(this.newProducts);
-                    console.log('top Sells >>> ');
-                    console.log(this.topSells);
+                    // console.log('favorite >>> ');
+                    // console.log(this.favoriteProducts);
+                    // console.log('new productContainer >>>');
+                    // console.log(this.newProducts);
+                    // console.log('top Sells >>> ');
+                    // console.log(this.topSells);
                 })
                 .catch(function (error) {
                     console.log('error while catching data >>> ' + error);
