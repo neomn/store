@@ -25,7 +25,7 @@
             <div v-for="product in productContainer"
                  class="bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0">
                 <img :src="product.image" alt="product image" class="rounded-lg">
-                <div class="pt-4 pl-4" >
+                <div class="pt-4 pl-4">
                     {{ product.number }} <br>
                     {{ product.name }} <br>
                     {{ product.price }} <br>
@@ -66,9 +66,10 @@ export default {
     ],
     created() {
         console.log('Categories component created > -------------------- \n')
+        this.getAllCategories()
     },
     mounted() {
-        this.getAllCategories()
+
 
         //watch route parameters changes
         this.$watch(
@@ -103,9 +104,9 @@ export default {
     },
     methods: {
         getAllCategories() {
-            console.log('getAllCategories >-------- \n')
             axios.get('/api/categories')
                 .then(response => {
+                    console.log('getAllCategories >-------- \n')
                     this.allCategories = response.data.data
                     console.log(response.data.data)
                     this.initCategoryContainer()
@@ -129,9 +130,8 @@ export default {
             console.log(this.categoryContainer)
         },
         refreshCategoryContainer(queriedCategory) {
-            console.log('refreshCategoryContainer > ------ \n')
+            console.log('refreshCategoryContainer > ------')
             if (queriedCategory) {
-                console.log('\n')
                 console.log('received category to process > ' + queriedCategory + '\n')
                 let preserveContainerContent = this.categoryContainer
                 let categoryIsNotValid = true

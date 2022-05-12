@@ -19975,12 +19975,12 @@ __webpack_require__.r(__webpack_exports__);
   props: ['category'],
   created: function created() {
     console.log('Categories component created > -------------------- \n');
+    this.getAllCategories();
   },
   mounted: function mounted() {
     var _this = this;
 
-    this.getAllCategories(); //watch route parameters changes
-
+    //watch route parameters changes
     this.$watch(function () {
       return _this.$route.params;
     }, function (newParams, previousParams) {
@@ -20015,8 +20015,8 @@ __webpack_require__.r(__webpack_exports__);
     getAllCategories: function getAllCategories() {
       var _this2 = this;
 
-      console.log('getAllCategories >-------- \n');
       axios.get('/api/categories').then(function (response) {
+        console.log('getAllCategories >-------- \n');
         _this2.allCategories = response.data.data;
         console.log(response.data.data);
 
@@ -20046,10 +20046,9 @@ __webpack_require__.r(__webpack_exports__);
     refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
       var _this4 = this;
 
-      console.log('refreshCategoryContainer > ------ \n');
+      console.log('refreshCategoryContainer > ------');
 
       if (queriedCategory) {
-        console.log('\n');
         console.log('received category to process > ' + queriedCategory + '\n');
         var preserveContainerContent = this.categoryContainer;
         var categoryIsNotValid = true;
