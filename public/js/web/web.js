@@ -20102,7 +20102,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       console.log('category categoryId >>> ' + categoryId + '\n'); //request for productContainer
 
-      axios.get('/api/products/' + categoryId).then(function (response) {
+      axios.get('/api/productContainer/' + categoryId).then(function (response) {
         var products = response.data.data;
         console.log('retrieved productContainer  >>> \n');
         console.log(response.data.product);

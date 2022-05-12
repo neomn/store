@@ -184,7 +184,7 @@ export default {
             console.log('category categoryId >>> ' + categoryId + '\n')
 
             //request for productContainer
-            axios.get('/api/products/' + categoryId)
+            axios.get('/api/productContainer/' + categoryId)
                 .then(response => {
                     let products = response.data.data
                     console.log('retrieved productContainer  >>> \n')
