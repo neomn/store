@@ -15,6 +15,7 @@ import Products from "../components/admin/Products";
 import Users from "../components/admin/Users";
 import Analytics from "../components/admin/Analytics";
 import Settings from "../components/admin/Settings";
+import NotFound from "../components/admin/NotFound";
 
 
 require('../web/bootstrap');
@@ -34,7 +35,9 @@ const routes=[
         { path: '/productContainer', name: 'products', component: Products},
         { path: '/users', name: 'users', component: Users},
         { path: '/analytics', name: 'analytics', component: Analytics},
-        { path: '/settings', name: 'settings', component: Settings},]
+        { path: '/settings', name: 'settings', component: Settings},
+        { path: '/:catchAll(.*)', name: '404', component: NotFound},
+]
 
 const router = new VueRouter({
     mode:'history',
