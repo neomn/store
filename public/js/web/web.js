@@ -19973,6 +19973,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: ['category'],
+  created: function created() {
+    console.log('Categories component created > -------------------- \n');
+  },
   mounted: function mounted() {
     var _this = this;
 
@@ -19981,9 +19984,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$watch(function () {
       return _this.$route.params;
     }, function (newParams, previousParams) {
-      console.log('\n');
-      console.log('-------------------------------\n');
-      console.log('this.$route.params watcher > \n');
+      console.log('this.$route.params watcher > ------ \n');
 
       _this.emptyProductsContainer();
 
@@ -20000,9 +20001,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$watch(function () {
       return _this.categoryHasSubCategory();
     }, function (newParams, previousParams) {
-      console.log('\n');
-      console.log('-------------------------------\n');
-      console.log('categoryHasSubCategory watcher > \n');
+      console.log('categoryHasSubCategory watcher > -------- \n');
       console.log(newParams);
 
       if (newParams === false) {
@@ -20016,9 +20015,7 @@ __webpack_require__.r(__webpack_exports__);
     getAllCategories: function getAllCategories() {
       var _this2 = this;
 
-      console.log('\n');
-      console.log('-----------------------------\n');
-      console.log('getAllCategories > \n');
+      console.log('getAllCategories >-------- \n');
       axios.get('/api/categories').then(function (response) {
         _this2.allCategories = response.data.data;
         console.log(response.data.data);
@@ -20037,9 +20034,7 @@ __webpack_require__.r(__webpack_exports__);
     initCategoryContainer: function initCategoryContainer() {
       var _this3 = this;
 
-      console.log('\n');
-      console.log('-------------------------------\n');
-      console.log('initCategoryContainer > \n');
+      console.log('initCategoryContainer > ------ \n');
       this.allCategories.forEach(function (item, index, array) {
         if (item.parent_id === null) {
           //this is how to update vue js state ,check vue js docs ( reactivity )
@@ -20051,9 +20046,7 @@ __webpack_require__.r(__webpack_exports__);
     refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
       var _this4 = this;
 
-      console.log('\n');
-      console.log('-------------------------------\n');
-      console.log('refreshCategoryContainer > \n');
+      console.log('refreshCategoryContainer > ------ \n');
 
       if (queriedCategory) {
         console.log('\n');
@@ -20093,18 +20086,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     categoryHasSubCategory: function categoryHasSubCategory() {
-      console.log('\n');
-      console.log('-------------------------------\n');
-      console.log('categoryHasSubCategory > \n');
+      console.log('categoryHasSubCategory > ------ \n');
       console.log(!(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer));
       return !(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer);
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {
       var _this5 = this;
 
-      console.log('\n');
-      console.log('-------------------------------\n');
-      console.log('getCategoryAssociatedProducts > \n');
+      console.log('getCategoryAssociatedProducts > ------ \n');
       console.log(this.$route.params.category + '\n');
       var category = this.$route.params.category; //get category categoryId
 

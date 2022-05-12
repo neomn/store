@@ -64,15 +64,16 @@ export default {
     props: [
         'category',
     ],
+    created() {
+        console.log('Categories component created > -------------------- \n')
+    },
     mounted() {
         this.getAllCategories()
 
         //watch route parameters changes
         this.$watch(
             () => this.$route.params, (newParams, previousParams) => {
-                console.log('\n')
-                console.log('-------------------------------\n')
-                console.log('this.$route.params watcher > \n')
+                console.log('this.$route.params watcher > ------ \n')
                 this.emptyProductsContainer()
                 console.log('product container is now empty \n')
                 console.log('new params >> ' + newParams.category + '\n')
@@ -91,9 +92,7 @@ export default {
         //watch for categories with no sub category
         this.$watch(
             () => this.categoryHasSubCategory(), (newParams, previousParams) => {
-                console.log('\n')
-                console.log('-------------------------------\n')
-                console.log('categoryHasSubCategory watcher > \n')
+                console.log('categoryHasSubCategory watcher > -------- \n')
                 console.log(newParams)
                 if (newParams === false) {
                     console.log('requesting for category productContainer')
@@ -103,11 +102,8 @@ export default {
         )
     },
     methods: {
-
         getAllCategories() {
-            console.log('\n')
-            console.log('-----------------------------\n')
-            console.log('getAllCategories > \n')
+            console.log('getAllCategories >-------- \n')
             axios.get('/api/categories')
                 .then(response => {
                     this.allCategories = response.data.data
@@ -122,12 +118,8 @@ export default {
                     console.log('error getting categories > ' + error)
                 })
         },
-
-
         initCategoryContainer() {
-            console.log('\n')
-            console.log('-------------------------------\n')
-            console.log('initCategoryContainer > \n')
+            console.log('initCategoryContainer > ------ \n')
             this.allCategories.forEach((item, index, array) => {
                 if (item.parent_id === null) {
                     //this is how to update vue js state ,check vue js docs ( reactivity )
@@ -136,12 +128,8 @@ export default {
             })
             console.log(this.categoryContainer)
         },
-
-
         refreshCategoryContainer(queriedCategory) {
-            console.log('\n')
-            console.log('-------------------------------\n')
-            console.log('refreshCategoryContainer > \n')
+            console.log('refreshCategoryContainer > ------ \n')
             if (queriedCategory) {
                 console.log('\n')
                 console.log('received category to process > ' + queriedCategory + '\n')
@@ -177,20 +165,13 @@ export default {
                 console.log('no category queried')
             }
         },
-
         categoryHasSubCategory() {
-            console.log('\n')
-            console.log('-------------------------------\n')
-            console.log('categoryHasSubCategory > \n')
+            console.log('categoryHasSubCategory > ------ \n')
             console.log(!isEmpty(this.categoryContainer))
             return !isEmpty(this.categoryContainer)
         },
-
-
         getCategoryAssociatedProducts() {
-            console.log('\n')
-            console.log('-------------------------------\n')
-            console.log('getCategoryAssociatedProducts > \n')
+            console.log('getCategoryAssociatedProducts > ------ \n')
             console.log(this.$route.params.category + '\n')
             let category = this.$route.params.category
 
