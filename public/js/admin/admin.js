@@ -16850,118 +16850,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   data: function data() {
@@ -16971,8 +16859,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     logout: function logout() {
-      var _this = this;
-
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
@@ -16984,10 +16870,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 axios.post('/logout').then(function (response) {
                   console.log(response);
-
-                  _this.$router.push({
-                    name: 'welcome'
-                  });
+                  window.location.href = '/';
                 })["catch"](function (error) {
                   console.log(error);
                   localStorage.removeItem('loggedInUser');
@@ -36688,165 +36571,15 @@ var render = function () {
         "div",
         { staticClass: "relative flex flex-col w-full h-full overflow-hidden" },
         [
-          _c("div", { staticClass: " w-full " }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  " flex justify-start items-center h-auto py-1 pl-2 rounded-lg bg-slate-900 text-center text-zinc-300 ",
-              },
-              [
-                _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "inline pr-2" },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "receipt"] },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Orders History")]),
-                ]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", {
-            staticClass:
-              " w-5/6 h-[1px]  bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: " w-full " }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  " flex justify-start pl-2 items-center h-auto py-1 bg-slate-900 rounded-lg text-center text-zinc-300 ",
-              },
-              [
-                _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "inline pr-2 " },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "heart"] },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Favorite Products")]),
-                ]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", {
-            staticClass:
-              "w-5/6 h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: " w-full " }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  " flex justify-start pl-2 items-center h-auto py-1 rounded-lg text-center text-zinc-300 ",
-              },
-              [
-                _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "inline pr-2" },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "envelope"] },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Inbox")]),
-                ]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", {
-            staticClass:
-              "w-5/6 h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: " w-full " }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  " flex justify-start pl-2 items-center h-auto py-1 rounded-lg text-center text-zinc-300 ",
-              },
-              [
-                _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "inline pr-2 " },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "user"] },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Personal Info")]),
-                ]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
-          _c("div", {
-            staticClass:
-              "w-5/6 h-[1px] bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900",
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: " w-full " }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  " flex justify-start pl-2 items-center h-10 py-1 rounded-lg text-center text-zinc-300 ",
-              },
-              [
-                _c("div", [
-                  _c(
-                    "div",
-                    { staticClass: "inline pr-2 " },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "cogs"] },
-                      }),
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Settings")]),
-                ]),
-              ]
-            ),
-          ]),
-          _vm._v(" "),
           _c(
             "div",
             {
               staticClass:
-                " absolute bottom-16 self-center w-5/6 h-8 text-center\n            text-red-600 rounded-lg border-2 border-red-600",
+                " absolute bottom-16 self-center w-5/6 h-8 text-center\n                text-red-600 rounded-lg border-2 border-red-600",
             },
             [
               _c("button", { on: { click: _vm.logout } }, [
-                _vm._v("\n                Log Out\n            "),
+                _vm._v("\n                    Log Out\n                "),
               ]),
             ]
           ),
