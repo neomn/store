@@ -21247,6 +21247,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -49682,7 +49692,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              " relative flex flex-col mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400",
+              " relative flex flex-col mt-4 mx-4  pl-2 rounded-lg bg-amber-400",
             class: this.displayAllNew ? "h-auto" : "h-2/5",
           },
           [
@@ -49700,7 +49710,7 @@ var render = function () {
                     "div",
                     {
                       staticClass:
-                        " m-2 grid grid-cols-2 gap-x-2 gap-y-8\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
+                        " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
                     },
                     _vm._l(_vm.newProducts, function (product) {
                       return _c(
@@ -49809,8 +49819,8 @@ var render = function () {
           "div",
           {
             staticClass:
-              " relative w-auto pl-2 pr-4 mt-8 m-16 p-1 flex flex-col rounded-lg bg-slate-800",
-            class: this.displayAllTopSells ? "h-auto" : "h-1/2",
+              " relative flex flex-col mt-4 mx-4 pl-2 rounded-lg bg-cyan-600",
+            class: this.displayAllTopSells ? "h-auto" : "h-2/5",
           },
           [
             _vm._m(1),
@@ -49819,19 +49829,22 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  " flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden",
+                  " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
               },
               [
                 _c("div", { staticClass: "flex justify-center " }, [
                   _c(
                     "div",
-                    { staticClass: " m-2 grid grid-cols-6 gap-x-8 gap-y-16 " },
+                    {
+                      staticClass:
+                        " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
+                    },
                     _vm._l(_vm.topSells, function (product) {
                       return _c(
                         "div",
                         {
                           staticClass:
-                            " w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ",
+                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800",
                         },
                         [
                           _c(
@@ -49854,7 +49867,7 @@ var render = function () {
                                 },
                               }),
                               _vm._v(" "),
-                              _c("div", { staticClass: "pt-1 pl-1" }, [
+                              _c("div", { staticClass: "pt-1 pl-1 " }, [
                                 _vm._v(
                                   "\n                                    " +
                                     _vm._s(product.name) +
@@ -49883,7 +49896,7 @@ var render = function () {
                                   "button",
                                   {
                                     staticClass:
-                                      " w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800",
+                                      " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t",
                                     on: {
                                       click: function ($event) {
                                         return _vm.addProductTOShoppingCart(
@@ -49913,7 +49926,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
+              { staticClass: " bottom-0 left-1/2  text-zinc-900 text-center" },
               [
                 _c("button", { on: { click: _vm.toggleDisplayTopSells } }, [
                   _vm._v("\n                    Display All\n                "),
@@ -49927,8 +49940,8 @@ var render = function () {
           "div",
           {
             staticClass:
-              " relative w-auto mt-8 m-16 p-1 pl-2 pr-4 flex flex-col rounded-lg bg-red-800",
-            class: this.displayAllFavorite ? "h-auto" : "h-1/2",
+              " relative flex flex-col mt-4 mx-4 mb-16 pl-2 rounded-lg bg-red-600",
+            class: this.displayAllFavorite ? "h-auto" : "h-2/5",
           },
           [
             _vm._m(2),
@@ -49937,19 +49950,22 @@ var render = function () {
               "div",
               {
                 staticClass:
-                  " flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden",
+                  " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
               },
               [
                 _c("div", { staticClass: "flex justify-center " }, [
                   _c(
                     "div",
-                    { staticClass: " m-2 grid grid-cols-6 gap-x-8 gap-y-16 " },
+                    {
+                      staticClass:
+                        " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
+                    },
                     _vm._l(_vm.favoriteProducts, function (product) {
                       return _c(
                         "div",
                         {
                           staticClass:
-                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
+                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800",
                         },
                         [
                           _c(
@@ -49972,7 +49988,7 @@ var render = function () {
                                 },
                               }),
                               _vm._v(" "),
-                              _c("div", { staticClass: "pt-1 pl-1" }, [
+                              _c("div", { staticClass: "pt-1 pl-1 " }, [
                                 _vm._v(
                                   "\n                                    " +
                                     _vm._s(product.name) +
@@ -50001,7 +50017,7 @@ var render = function () {
                                   "button",
                                   {
                                     staticClass:
-                                      " w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800",
+                                      " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t",
                                     on: {
                                       click: function ($event) {
                                         return _vm.addProductTOShoppingCart(
@@ -50031,7 +50047,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
+              { staticClass: " bottom-0 left-1/2  text-zinc-900 text-center" },
               [
                 _c(
                   "button",
@@ -50069,8 +50085,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
-      _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-gray-200 " }, [
-        _vm._v("\n                    Top Sells\n                "),
+      _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-900 " }, [
+        _vm._v("\n                    top sells\n                "),
       ]),
     ])
   },
@@ -50079,8 +50095,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
-      _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-gray-200 " }, [
-        _vm._v("\n                    Favorite Products\n                "),
+      _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-900 " }, [
+        _vm._v("\n                    New Products\n                "),
       ]),
     ])
   },

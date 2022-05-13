@@ -6,7 +6,7 @@
 
         <div class="overflow-hidden">
             <!-- new products Container  -->
-            <div class=" relative flex flex-col mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400"
+            <div class=" relative flex flex-col mt-4 mx-4  pl-2 rounded-lg bg-amber-400"
                  v-bind:class="(this.displayAllNew)?'h-auto':'h-2/5'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-2 rounded-lg text-zinc-900 ">
@@ -16,7 +16,7 @@
                 <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
                     <div class="flex justify-center ">
                         <div
-                            class=" m-2 grid grid-cols-2 gap-x-2 gap-y-8
+                            class=" m-2 grid grid-cols-2 gap-x-2 gap-y-4
                             sm:grid-cols-4
                             md:grid-cols-5
                             lg:grid-cols-6
@@ -55,25 +55,30 @@
             </div>
 
             <!-- top sells  -->
-            <div class=" relative w-auto pl-2 pr-4 mt-8 m-16 p-1 flex flex-col rounded-lg bg-slate-800"
-                 v-bind:class="(this.displayAllTopSells)?'h-auto':'h-1/2'">
+            <div class=" relative flex flex-col mt-4 mx-4 pl-2 rounded-lg bg-cyan-600"
+                 v-bind:class="(this.displayAllTopSells)?'h-auto':'h-2/5'">
                 <div class="inline-flex ml-4 ">
-                    <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
-                        Top Sells
+                    <h1 class="  mt-2 mb-2 rounded-lg text-zinc-900 ">
+                        top sells
                     </h1>
                 </div>
-                <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden">
+                <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
                     <div class="flex justify-center ">
-                        <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 ">
+                        <div
+                            class=" m-2 grid grid-cols-2 gap-x-2 gap-y-4
+                            sm:grid-cols-4
+                            md:grid-cols-5
+                            lg:grid-cols-6
+                            xl:grid-cols-7
+                            2xl:grid-cols-8 ">
                             <div v-for="product in topSells"
-                                 class=" w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ">
+                                 class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800">
                                 <router-link :to="{name: 'product' , params:{product_number: product.number}}">
                                     <!--card image-->
                                     <img :src="product.image" alt="product image"
                                          class=" h-24 w-full rounded-tl-lg rounded-tr-lg">
-
                                     <!--card body-->
-                                    <div class="pt-1 pl-1">
+                                    <div class="pt-1 pl-1 ">
                                         {{ product.name }} <br>
                                         {{ product.price }} <br>
                                     </div>
@@ -82,7 +87,7 @@
                                 <div class="w-full rounded text-center absolute bottom-0 ">
                                     <div>
                                         <button @click="addProductTOShoppingCart(product)"
-                                                class=" w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800">
+                                                class=" w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t">
                                             add to cart
                                         </button>
                                     </div>
@@ -91,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" bottom-0 left-1/2  text-gray-200 text-center">
+                <div class=" bottom-0 left-1/2  text-zinc-900 text-center">
                     <button @click="toggleDisplayTopSells" class="">
                         Display All
                     </button>
@@ -99,24 +104,30 @@
             </div>
 
             <!-- favorite productContainer  -->
-            <div class=" relative w-auto mt-8 m-16 p-1 pl-2 pr-4 flex flex-col rounded-lg bg-red-800"
-                 v-bind:class="(this.displayAllFavorite)?'h-auto':'h-1/2'">
+            <div class=" relative flex flex-col mt-4 mx-4 mb-16 pl-2 rounded-lg bg-red-600"
+                 v-bind:class="(this.displayAllFavorite)?'h-auto':'h-2/5'">
                 <div class="inline-flex ml-4 ">
-                    <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
-                        Favorite Products
+                    <h1 class="  mt-2 mb-2 rounded-lg text-zinc-900 ">
+                        New Products
                     </h1>
                 </div>
-                <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden">
+                <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
                     <div class="flex justify-center ">
-                        <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 ">
+                        <div
+                            class=" m-2 grid grid-cols-2 gap-x-2 gap-y-4
+                            sm:grid-cols-4
+                            md:grid-cols-5
+                            lg:grid-cols-6
+                            xl:grid-cols-7
+                            2xl:grid-cols-8 ">
                             <div v-for="product in favoriteProducts"
-                                 class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
+                                 class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800">
                                 <router-link :to="{name: 'product' , params:{product_number: product.number}}">
                                     <!--card image-->
                                     <img :src="product.image" alt="product image"
                                          class=" h-24 w-full rounded-tl-lg rounded-tr-lg">
                                     <!--card body-->
-                                    <div class="pt-1 pl-1">
+                                    <div class="pt-1 pl-1 ">
                                         {{ product.name }} <br>
                                         {{ product.price }} <br>
                                     </div>
@@ -125,17 +136,16 @@
                                 <div class="w-full rounded text-center absolute bottom-0 ">
                                     <div>
                                         <button @click="addProductTOShoppingCart(product)"
-                                                class=" w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800">
+                                                class=" w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t">
                                             add to cart
                                         </button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class=" bottom-0 left-1/2  text-gray-200 text-center">
+                <div class=" bottom-0 left-1/2  text-zinc-900 text-center">
                     <button @click="toggleDisplayAllFavoriteProducts" class="">
                         Display All
                     </button>
