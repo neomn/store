@@ -5,24 +5,24 @@
         </div>
         <div class=" relative flex h-12 px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ">
             <!-- left side buttons-->
-            <div class=" absolute left-0 flex self-center border">
-                <a href="/" class="mx-2 px-2"
+            <div class=" absolute left-0 flex self-center">
+                <a href="/" class="px-2"
                    v-bind:class="(this.$route.path === '/')? ' border-t border-lime-500 rounded-lg': ''"> Home
                 </a>
-                <a href="/categories" class="mx-2 px-2 "
+                <a href="/categories" class="px-2 "
                    v-bind:class="(this.$route.path === '/categories')? 'border-t border-lime-500 rounded-lg': ''">
                     Categories
                 </a>
-                <router-link :to="{name:'aboutUs'}" class="mx-2 px-2"
+                <router-link :to="{name:'aboutUs'}" class="px-2"
                              v-bind:class="(this.$route.path === '/about-us')? 'border-t border-lime-500 rounded-lg': ''">
                     About Us
                 </router-link>
             </div>
             <!-- right side buttons-->
-            <div class="absolute right-0 flex self-center  border">
+            <div class="absolute right-0 flex self-center ">
                 <!--register-->
                 <div v-if="!loggedInUser"
-                     class="px-4 pt-1 inline-block float-right"
+                     class="px-2 py-1"
                      v-bind:class="(this.$route.path === '/register')? 'border-t border-lime-500 rounded-lg': ''">
                     <div>
                         <router-link :to="{name:'register'}" class="float-right ">
@@ -31,16 +31,16 @@
                     </div>
                 </div>
                 <!--login-->
-                <div class=" px-4 inline-block float-right"
+                <div class=" px-2 py-1"
                      v-bind:class="(this.$route.path === '/login')? 'border-t border-lime-500 rounded-lg': ''">
-                    <div class="pt-1">
+                    <div class="">
                         <router-link v-if="!loggedInUser" :to="{name:'login'}" class="float-right " href="/api/user">
                             <font-awesome-icon :icon="['fas', 'door-open']"/>
                         </router-link>
                     </div>
                 </div>
                 <!--  user dashboard-->
-                <div v-if="loggedInUser" class=" w-auto ml-3 px-2 inline-block float-right"
+                <div v-if="loggedInUser" class=" px-2 py-1 "
                      v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': ''">
                     <router-link :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
@@ -48,9 +48,9 @@
                     </router-link>
                 </div>
                 <!--  shopping cart-->
-                <div class="flex justify-self-end px-4 inline-block float-right "
+                <div class=" px-2 py-1"
                      v-bind:class="(this.$route.path === '/shopping-cart')? 'border-t border-lime-500 rounded-lg': ''">
-                    <div class="pt-1">
+                    <div class="">
                         <router-link :to="{name:'shoppingCart'}">
                             <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
                         </router-link>

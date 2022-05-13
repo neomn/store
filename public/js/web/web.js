@@ -48556,12 +48556,12 @@ var render = function () {
         [
           _c(
             "div",
-            { staticClass: " absolute left-0 flex self-center border" },
+            { staticClass: " absolute left-0 flex self-center" },
             [
               _c(
                 "a",
                 {
-                  staticClass: "mx-2 px-2",
+                  staticClass: "px-2",
                   class:
                     this.$route.path === "/"
                       ? " border-t border-lime-500 rounded-lg"
@@ -48574,7 +48574,7 @@ var render = function () {
               _c(
                 "a",
                 {
-                  staticClass: "mx-2 px-2 ",
+                  staticClass: "px-2 ",
                   class:
                     this.$route.path === "/categories"
                       ? "border-t border-lime-500 rounded-lg"
@@ -48587,7 +48587,7 @@ var render = function () {
               _c(
                 "router-link",
                 {
-                  staticClass: "mx-2 px-2",
+                  staticClass: "px-2",
                   class:
                     this.$route.path === "/about-us"
                       ? "border-t border-lime-500 rounded-lg"
@@ -48600,149 +48600,138 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "absolute right-0 flex self-center  border" },
-            [
-              !_vm.loggedInUser
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "px-4 pt-1 inline-block float-right",
-                      class:
-                        this.$route.path === "/register"
-                          ? "border-t border-lime-500 rounded-lg"
-                          : "",
-                    },
-                    [
-                      _c(
-                        "div",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "float-right ",
-                              attrs: { to: { name: "register" } },
-                            },
-                            [
-                              _c("font-awesome-icon", {
-                                attrs: { icon: ["fas", "user-plus"] },
-                              }),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: " px-4 inline-block float-right",
-                  class:
-                    this.$route.path === "/login"
-                      ? "border-t border-lime-500 rounded-lg"
-                      : "",
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "pt-1" },
-                    [
-                      !_vm.loggedInUser
-                        ? _c(
-                            "router-link",
-                            {
-                              staticClass: "float-right ",
-                              attrs: {
-                                to: { name: "login" },
-                                href: "/api/user",
-                              },
-                            },
-                            [
-                              _c("font-awesome-icon", {
-                                attrs: { icon: ["fas", "door-open"] },
-                              }),
-                            ],
-                            1
-                          )
-                        : _vm._e(),
-                    ],
-                    1
-                  ),
-                ]
-              ),
-              _vm._v(" "),
-              _vm.loggedInUser
-                ? _c(
-                    "div",
-                    {
-                      staticClass: " w-auto ml-3 px-2 inline-block float-right",
-                      class:
-                        this.$route.path === "/dashboard"
-                          ? "border-t border-lime-500 rounded-lg"
-                          : "",
-                    },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "dashboard" },
-                            href: "/api/user",
+          _c("div", { staticClass: "absolute right-0 flex self-center " }, [
+            !_vm.loggedInUser
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "px-2 py-1",
+                    class:
+                      this.$route.path === "/register"
+                        ? "border-t border-lime-500 rounded-lg"
+                        : "",
+                  },
+                  [
+                    _c(
+                      "div",
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "float-right ",
+                            attrs: { to: { name: "register" } },
                           },
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "chart-line"] },
-                          }),
-                          _vm._v(" "),
-                          _c("h3", { staticClass: "inline-block pl-1" }, [
-                            _vm._v(_vm._s(_vm.loggedInUser.firstName)),
-                          ]),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "flex justify-self-end px-4 inline-block float-right ",
-                  class:
-                    this.$route.path === "/shopping-cart"
-                      ? "border-t border-lime-500 rounded-lg"
-                      : "",
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "pt-1" },
-                    [
-                      _c(
-                        "router-link",
-                        { attrs: { to: { name: "shoppingCart" } } },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "shopping-cart"] },
-                          }),
-                        ],
-                        1
-                      ),
-                    ],
-                    1
-                  ),
-                ]
-              ),
-            ]
-          ),
+                          [
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "user-plus"] },
+                            }),
+                          ],
+                          1
+                        ),
+                      ],
+                      1
+                    ),
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: " px-2 py-1",
+                class:
+                  this.$route.path === "/login"
+                    ? "border-t border-lime-500 rounded-lg"
+                    : "",
+              },
+              [
+                _c(
+                  "div",
+                  {},
+                  [
+                    !_vm.loggedInUser
+                      ? _c(
+                          "router-link",
+                          {
+                            staticClass: "float-right ",
+                            attrs: { to: { name: "login" }, href: "/api/user" },
+                          },
+                          [
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "door-open"] },
+                            }),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                  ],
+                  1
+                ),
+              ]
+            ),
+            _vm._v(" "),
+            _vm.loggedInUser
+              ? _c(
+                  "div",
+                  {
+                    staticClass: " px-2 py-1 ",
+                    class:
+                      this.$route.path === "/dashboard"
+                        ? "border-t border-lime-500 rounded-lg"
+                        : "",
+                  },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: { to: { name: "dashboard" }, href: "/api/user" },
+                      },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "chart-line"] },
+                        }),
+                        _vm._v(" "),
+                        _c("h3", { staticClass: "inline-block pl-1" }, [
+                          _vm._v(_vm._s(_vm.loggedInUser.firstName)),
+                        ]),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: " px-2 py-1",
+                class:
+                  this.$route.path === "/shopping-cart"
+                    ? "border-t border-lime-500 rounded-lg"
+                    : "",
+              },
+              [
+                _c(
+                  "div",
+                  {},
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "shoppingCart" } } },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "shopping-cart"] },
+                        }),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            ),
+          ]),
         ]
       ),
     ]
