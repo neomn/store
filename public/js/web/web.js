@@ -49695,7 +49695,7 @@ var render = function () {
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
       _c("div", { staticClass: "overflow-hidden" }, [
-        _c("div", { staticClass: " mt-4 mx-4 p-1 rounded-lg bg-amber-400" }, [
+        _c("div", { staticClass: " my-8 mx-4  p-1 rounded-lg bg-amber-400" }, [
           _c(
             "div",
             {
@@ -49825,12 +49825,12 @@ var render = function () {
           ),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: " mt-4 mx-4 p-1 rounded-lg bg-red-600" }, [
+        _c("div", { staticClass: " my-8 mx-4 p-1 rounded-lg bg-red-600" }, [
           _c(
             "div",
             {
               staticClass: " relative flex flex-col  rounded-lg bg-slate-900 ",
-              class: this.displayAllNew ? "h-auto" : "h-2/5",
+              class: this.displayAllTopSells ? "h-auto" : "h-2/5",
             },
             [
               _vm._m(1),
@@ -49849,7 +49849,7 @@ var render = function () {
                         staticClass:
                           " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
                       },
-                      _vm._l(_vm.newProducts, function (product) {
+                      _vm._l(_vm.topSells, function (product) {
                         return _c(
                           "div",
                           {
@@ -49940,150 +49940,154 @@ var render = function () {
                   staticClass: " bottom-0 left-1/2  text-zinc-100 text-center",
                 },
                 [
-                  _c(
-                    "button",
-                    { on: { click: _vm.toggleDisplayAllNewProducts } },
-                    [
-                      _vm._v(
-                        "\n                        Display All\n                    "
-                      ),
-                    ]
-                  ),
+                  _c("button", { on: { click: _vm.toggleDisplayTopSells } }, [
+                    _vm._v(
+                      "\n                        Display All\n                    "
+                    ),
+                  ]),
                 ]
               ),
             ]
           ),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: " mt-4 mx-4 p-1 rounded-lg bg-lime-300" }, [
-          _c(
-            "div",
-            {
-              staticClass: " relative flex flex-col  rounded-lg bg-slate-900 ",
-              class: this.displayAllNew ? "h-auto" : "h-2/5",
-            },
-            [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
-                },
-                [
-                  _c("div", { staticClass: "flex justify-center " }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
-                      },
-                      _vm._l(_vm.newProducts, function (product) {
-                        return _c(
-                          "div",
-                          {
-                            staticClass:
-                              "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-700",
-                          },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: {
-                                    name: "product",
-                                    params: { product_number: product.number },
-                                  },
-                                },
-                              },
-                              [
-                                _c("img", {
-                                  staticClass:
-                                    " h-24 w-full rounded-tl-lg rounded-tr-lg",
+        _c(
+          "div",
+          { staticClass: " my-8 mb-16  mx-4 p-1  rounded-lg bg-lime-300" },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " relative flex flex-col  rounded-lg bg-slate-900 ",
+                class: this.displayAllFavorite ? "h-auto" : "h-2/5",
+              },
+              [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
+                  },
+                  [
+                    _c("div", { staticClass: "flex justify-center " }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
+                        },
+                        _vm._l(_vm.favoriteProducts, function (product) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass:
+                                "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-700",
+                            },
+                            [
+                              _c(
+                                "router-link",
+                                {
                                   attrs: {
-                                    src: product.image,
-                                    alt: "product image",
-                                  },
-                                }),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "pt-1 pl-1 " }, [
-                                  _vm._v(
-                                    "\n                                        " +
-                                      _vm._s(product.name) +
-                                      " "
-                                  ),
-                                  _c("br"),
-                                  _vm._v(
-                                    "\n                                        " +
-                                      _vm._s(product.price) +
-                                      " "
-                                  ),
-                                  _c("br"),
-                                ]),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "w-full rounded text-center absolute bottom-0 ",
-                              },
-                              [
-                                _c("div", [
-                                  _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t",
-                                      on: {
-                                        click: function ($event) {
-                                          return _vm.addProductTOShoppingCart(
-                                            product
-                                          )
-                                        },
+                                    to: {
+                                      name: "product",
+                                      params: {
+                                        product_number: product.number,
                                       },
                                     },
-                                    [
-                                      _vm._v(
-                                        "\n                                            add to cart\n                                        "
-                                      ),
-                                    ]
-                                  ),
-                                ]),
-                              ]
-                            ),
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    ),
-                  ]),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: " bottom-0 left-1/2  text-zinc-100 text-center",
-                },
-                [
-                  _c(
-                    "button",
-                    { on: { click: _vm.toggleDisplayAllNewProducts } },
-                    [
-                      _vm._v(
-                        "\n                        Display All\n                    "
+                                  },
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      " h-24 w-full rounded-tl-lg rounded-tr-lg",
+                                    attrs: {
+                                      src: product.image,
+                                      alt: "product image",
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "pt-1 pl-1 " }, [
+                                    _vm._v(
+                                      "\n                                        " +
+                                        _vm._s(product.name) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                                        " +
+                                        _vm._s(product.price) +
+                                        " "
+                                    ),
+                                    _c("br"),
+                                  ]),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "w-full rounded text-center absolute bottom-0 ",
+                                },
+                                [
+                                  _c("div", [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t",
+                                        on: {
+                                          click: function ($event) {
+                                            return _vm.addProductTOShoppingCart(
+                                              product
+                                            )
+                                          },
+                                        },
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                            add to cart\n                                        "
+                                        ),
+                                      ]
+                                    ),
+                                  ]),
+                                ]
+                              ),
+                            ],
+                            1
+                          )
+                        }),
+                        0
                       ),
-                    ]
-                  ),
-                ]
-              ),
-            ]
-          ),
-        ]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      " bottom-0 left-1/2  text-zinc-100 text-center",
+                  },
+                  [
+                    _c(
+                      "button",
+                      { on: { click: _vm.toggleDisplayAllFavoriteProducts } },
+                      [
+                        _vm._v(
+                          "\n                        Display All\n                    "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ]
+            ),
+          ]
+        ),
       ]),
       _vm._v(" "),
       _c("Footer"),
@@ -50108,7 +50112,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
       _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-100 " }, [
-        _vm._v("\n                        New Products\n                    "),
+        _vm._v("\n                        Top Sells\n                    "),
       ]),
     ])
   },
@@ -50118,7 +50122,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
       _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-100 " }, [
-        _vm._v("\n                        New Products\n                    "),
+        _vm._v(
+          "\n                        Favorite Products\n                    "
+        ),
       ]),
     ])
   },

@@ -6,7 +6,7 @@
 
         <div class="overflow-hidden">
             <!-- new products Container  -->
-            <div class=" mt-4 mx-4 p-1 rounded-lg bg-amber-400">
+            <div class=" my-8 mx-4  p-1 rounded-lg bg-amber-400">
                 <div class=" relative flex flex-col  rounded-lg bg-slate-900 "
                      v-bind:class="(this.displayAllNew)?'h-auto':'h-2/5'">
                     <div class="inline-flex ml-4 ">
@@ -57,12 +57,12 @@
             </div>
 
             <!-- top sells  -->
-            <div class=" mt-4 mx-4 p-1 rounded-lg bg-red-600">
+            <div class=" my-8 mx-4 p-1 rounded-lg bg-red-600">
                 <div class=" relative flex flex-col  rounded-lg bg-slate-900 "
-                     v-bind:class="(this.displayAllNew)?'h-auto':'h-2/5'">
+                     v-bind:class="(this.displayAllTopSells)?'h-auto':'h-2/5'">
                     <div class="inline-flex ml-4 ">
                         <h1 class="  mt-2 mb-2 rounded-lg text-zinc-100 ">
-                            New Products
+                            Top Sells
                         </h1>
                     </div>
                     <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
@@ -74,7 +74,7 @@
                             lg:grid-cols-6
                             xl:grid-cols-7
                             2xl:grid-cols-8 ">
-                                <div v-for="product in newProducts"
+                                <div v-for="product in topSells"
                                      class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-700">
                                     <router-link :to="{name: 'product' , params:{product_number: product.number}}">
                                         <!--card image-->
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class=" bottom-0 left-1/2  text-zinc-100 text-center">
-                        <button @click="toggleDisplayAllNewProducts" class="">
+                        <button @click="toggleDisplayTopSells" class="">
                             Display All
                         </button>
                     </div>
@@ -108,12 +108,12 @@
             </div>
 
             <!-- favorite productContainer  -->
-            <div class=" mt-4 mx-4 p-1 rounded-lg bg-lime-300">
+            <div class=" my-8 mb-16  mx-4 p-1  rounded-lg bg-lime-300">
                 <div class=" relative flex flex-col  rounded-lg bg-slate-900 "
-                     v-bind:class="(this.displayAllNew)?'h-auto':'h-2/5'">
+                     v-bind:class="(this.displayAllFavorite)?'h-auto':'h-2/5'">
                     <div class="inline-flex ml-4 ">
                         <h1 class="  mt-2 mb-2 rounded-lg text-zinc-100 ">
-                            New Products
+                            Favorite Products
                         </h1>
                     </div>
                     <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
@@ -125,7 +125,7 @@
                             lg:grid-cols-6
                             xl:grid-cols-7
                             2xl:grid-cols-8 ">
-                                <div v-for="product in newProducts"
+                                <div v-for="product in favoriteProducts"
                                      class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-700">
                                     <router-link :to="{name: 'product' , params:{product_number: product.number}}">
                                         <!--card image-->
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class=" bottom-0 left-1/2  text-zinc-100 text-center">
-                        <button @click="toggleDisplayAllNewProducts" class="">
+                        <button @click="toggleDisplayAllFavoriteProducts" class="">
                             Display All
                         </button>
                     </div>
