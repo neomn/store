@@ -49672,7 +49672,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              " relative flex flex-col h-auto mt-20 m-16 p-pr-41 pl-2 rounded-lg bg-amber-300",
+              " relative flex flex-col h-auto mt-20 m-16 p-pr-41 pl-2 rounded-lg bg-amber-400",
             class: this.displayAllNew ? "h-auto" : "h-1/2",
           },
           [
@@ -49694,7 +49694,7 @@ var render = function () {
                         "div",
                         {
                           staticClass:
-                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
+                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800",
                         },
                         [
                           _c(
@@ -49746,7 +49746,7 @@ var render = function () {
                                   "button",
                                   {
                                     staticClass:
-                                      " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-800 bg-green-300 ",
+                                      " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t",
                                     on: {
                                       click: function ($event) {
                                         return _vm.addProductTOShoppingCart(
@@ -49776,7 +49776,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
+              { staticClass: " bottom-0 left-1/2  text-zinc-900 text-center" },
               [
                 _c(
                   "button",
@@ -50046,7 +50046,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
-      _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-gray-200 " }, [
+      _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-zinc-900 " }, [
         _vm._v("\n                    New Products\n                "),
       ]),
     ])

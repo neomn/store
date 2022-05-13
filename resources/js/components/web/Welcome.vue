@@ -6,10 +6,10 @@
 
         <div class="overflow-hidden">
             <!-- new products Container  -->
-            <div class=" relative flex flex-col h-auto mt-20 m-16 p-pr-41 pl-2 rounded-lg bg-amber-300"
+            <div class=" relative flex flex-col h-auto mt-20 m-16 p-pr-41 pl-2 rounded-lg bg-amber-400"
                  v-bind:class="(this.displayAllNew)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
-                    <h1 class="  mt-2 mb-4 rounded-lg text-gray-200 ">
+                    <h1 class="  mt-2 mb-4 rounded-lg text-zinc-900 ">
                         New Products
                     </h1>
                 </div>
@@ -17,7 +17,7 @@
                     <div class="flex justify-center ">
                         <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16  ">
                             <div v-for="product in newProducts"
-                                 class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border">
+                                 class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800">
                                 <router-link :to="{name: 'product' , params:{product_number: product.number}}">
                                     <!--card image-->
                                     <img :src="product.image" alt="product image"
@@ -32,7 +32,7 @@
                                 <div class="w-full rounded text-center absolute bottom-0 ">
                                     <div>
                                         <button @click="addProductTOShoppingCart(product)"
-                                                class=" w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-800 bg-green-300 ">
+                                                class=" w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-300 border-t">
                                             add to cart
                                         </button>
                                     </div>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" bottom-0 left-1/2  text-gray-200 text-center">
+                <div class=" bottom-0 left-1/2  text-zinc-900 text-center">
                     <button @click="toggleDisplayAllNewProducts" class="">
                         Display All
                     </button>
