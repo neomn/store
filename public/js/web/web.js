@@ -49682,8 +49682,8 @@ var render = function () {
           "div",
           {
             staticClass:
-              " relative flex flex-col h-auto mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400",
-            class: this.displayAllNew ? "h-auto" : "h-1/2",
+              " relative flex flex-col mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400",
+            class: this.displayAllNew ? "h-auto" : "h-2/5",
           },
           [
             _vm._m(0),
@@ -50059,7 +50059,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
-      _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-zinc-900 " }, [
+      _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-900 " }, [
         _vm._v("\n                    New Products\n                "),
       ]),
     ])

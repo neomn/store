@@ -6,10 +6,10 @@
 
         <div class="overflow-hidden">
             <!-- new products Container  -->
-            <div class=" relative flex flex-col h-auto mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400"
-                 v-bind:class="(this.displayAllNew)?'h-auto':'h-1/2'">
+            <div class=" relative flex flex-col mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400"
+                 v-bind:class="(this.displayAllNew)?'h-auto':'h-2/5'">
                 <div class="inline-flex ml-4 ">
-                    <h1 class="  mt-2 mb-4 rounded-lg text-zinc-900 ">
+                    <h1 class="  mt-2 mb-2 rounded-lg text-zinc-900 ">
                         New Products
                     </h1>
                 </div>
