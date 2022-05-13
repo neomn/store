@@ -36387,56 +36387,35 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900",
-    },
-    [
-      _c(
-        "div",
-        { staticClass: "px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 " },
-        [
-          _c("a", { staticClass: "mx-2 px-2", attrs: { href: "/" } }, [
-            _vm._v(" Home"),
-          ]),
-          _vm._v(" "),
-          _vm.loggedInUser
-            ? _c(
-                "div",
-                {
-                  staticClass: " w-auto ml-3 px-2 inline-block float-right",
-                  class:
-                    this.$route.path === "/dashboard"
-                      ? "border-t border-lime-500 rounded-lg"
-                      : "",
-                },
-                [
-                  _c(
-                    "router-link",
-                    { attrs: { to: { name: "dashboard" }, href: "/api/user" } },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "chart-line"] },
-                      }),
-                      _vm._v(" "),
-                      _c("h3", { staticClass: "inline-block pl-1" }, [
-                        _vm._v(_vm._s(_vm.loggedInUser.firstName)),
-                      ]),
-                    ],
-                    1
-                  ),
-                ],
-                1
-              )
-            : _vm._e(),
-        ]
-      ),
-    ]
-  )
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900",
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ",
+          },
+          [
+            _c("a", { staticClass: "mx-2 px-2", attrs: { href: "/" } }, [
+              _vm._v(" Home"),
+            ]),
+          ]
+        ),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
