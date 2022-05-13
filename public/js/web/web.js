@@ -21237,6 +21237,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -49688,7 +49690,10 @@ var render = function () {
                 _c("div", { staticClass: "flex justify-center " }, [
                   _c(
                     "div",
-                    { staticClass: " m-2 grid grid-cols-6 gap-x-8 gap-y-16  " },
+                    {
+                      staticClass:
+                        " m-2 grid grid-cols-6 gap-x-8 gap-y-16 xsm:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5\n                                 xl:grid-cols-6 2xl:grid-cols-8 ",
+                    },
                     _vm._l(_vm.newProducts, function (product) {
                       return _c(
                         "div",

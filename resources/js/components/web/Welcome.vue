@@ -15,7 +15,9 @@
                 </div>
                 <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
                     <div class="flex justify-center ">
-                        <div class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16  ">
+                        <div
+                            class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 xsm:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5
+                                     xl:grid-cols-6 2xl:grid-cols-8 ">
                             <div v-for="product in newProducts"
                                  class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800">
                                 <router-link :to="{name: 'product' , params:{product_number: product.number}}">
