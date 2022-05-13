@@ -21237,13 +21237,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -49670,144 +49663,127 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 min-h-screen  bg-slate-800" },
+    { staticClass: "z-0 min-h-screen  bg-slate-700" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _c("div", [
+      _c("div", { staticClass: "overflow-hidden" }, [
         _c(
           "div",
           {
             staticClass:
-              "mt-20 m-16 p-1 rounded-lg bg-gradient-to-b from-yellow-500 ",
+              " relative flex flex-col h-auto mt-20 m-16 p-pr-41 pl-2 rounded-lg bg-amber-300",
+            class: this.displayAllNew ? "h-auto" : "h-1/2",
           },
           [
+            _vm._m(0),
+            _vm._v(" "),
             _c(
               "div",
               {
                 staticClass:
-                  " relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800",
-                class: this.displayAllNew ? "h-auto" : "h-1/2",
+                  " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
               },
               [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      " flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden",
-                  },
-                  [
-                    _c("div", { staticClass: "flex justify-center " }, [
-                      _c(
+                _c("div", { staticClass: "flex justify-center " }, [
+                  _c(
+                    "div",
+                    { staticClass: " m-2 grid grid-cols-6 gap-x-8 gap-y-16  " },
+                    _vm._l(_vm.newProducts, function (product) {
+                      return _c(
                         "div",
                         {
                           staticClass:
-                            " m-2 grid grid-cols-6 gap-x-8 gap-y-16  ",
+                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
                         },
-                        _vm._l(_vm.newProducts, function (product) {
-                          return _c(
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "product",
+                                  params: { product_number: product.number },
+                                },
+                              },
+                            },
+                            [
+                              _c("img", {
+                                staticClass:
+                                  " h-24 w-full rounded-tl-lg rounded-tr-lg",
+                                attrs: {
+                                  src: product.image,
+                                  alt: "product image",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "pt-1 pl-1 " }, [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(product.name) +
+                                    " "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(product.price) +
+                                    " "
+                                ),
+                                _c("br"),
+                              ]),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
                             "div",
                             {
                               staticClass:
-                                "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
+                                "w-full rounded text-center absolute bottom-0 ",
                             },
                             [
-                              _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "product",
-                                      params: {
-                                        product_number: product.number,
+                              _c("div", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-800 bg-green-300 ",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.addProductTOShoppingCart(
+                                          product
+                                        )
                                       },
                                     },
                                   },
-                                },
-                                [
-                                  _c("img", {
-                                    staticClass:
-                                      " h-24 w-full rounded-tl-lg rounded-tr-lg",
-                                    attrs: {
-                                      src: product.image,
-                                      alt: "product image",
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "pt-1 pl-1 " }, [
+                                  [
                                     _vm._v(
-                                      "\n                                        " +
-                                        _vm._s(product.name) +
-                                        " "
+                                      "\n                                        add to cart\n                                    "
                                     ),
-                                    _c("br"),
-                                    _vm._v(
-                                      "\n                                        " +
-                                        _vm._s(product.price) +
-                                        " "
-                                    ),
-                                    _c("br"),
-                                  ]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "w-full rounded text-center absolute bottom-0 ",
-                                },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          " w-full h-8 rounded-bl-lg rounded-br-lg text-zinc-800 bg-green-300 ",
-                                        on: {
-                                          click: function ($event) {
-                                            return _vm.addProductTOShoppingCart(
-                                              product
-                                            )
-                                          },
-                                        },
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            add to cart\n                                        "
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                ]
-                              ),
-                            ],
-                            1
-                          )
-                        }),
-                        0
-                      ),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
+                                  ]
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
+              [
                 _c(
-                  "div",
-                  {
-                    staticClass:
-                      " bottom-0 left-1/2  text-gray-200 text-center",
-                  },
+                  "button",
+                  { on: { click: _vm.toggleDisplayAllNewProducts } },
                   [
-                    _c(
-                      "button",
-                      { on: { click: _vm.toggleDisplayAllNewProducts } },
-                      [
-                        _vm._v(
-                          "\n                        Display All\n                    "
-                        ),
-                      ]
+                    _vm._v(
+                      "\n                    Display All\n                "
                     ),
                   ]
                 ),
@@ -49820,134 +49796,115 @@ var render = function () {
           "div",
           {
             staticClass:
-              "mt-8 m-16 p-1 rounded-lg bg-gradient-to-b from-lime-500 ",
+              " relative w-auto pl-2 pr-4 mt-8 m-16 p-1 flex flex-col rounded-lg bg-slate-800",
+            class: this.displayAllTopSells ? "h-auto" : "h-1/2",
           },
           [
+            _vm._m(1),
+            _vm._v(" "),
             _c(
               "div",
               {
                 staticClass:
-                  " relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800",
-                class: this.displayAllTopSells ? "h-auto" : "h-1/2",
+                  " flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden",
               },
               [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      " flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden",
-                  },
-                  [
-                    _c("div", { staticClass: "flex justify-center " }, [
-                      _c(
+                _c("div", { staticClass: "flex justify-center " }, [
+                  _c(
+                    "div",
+                    { staticClass: " m-2 grid grid-cols-6 gap-x-8 gap-y-16 " },
+                    _vm._l(_vm.topSells, function (product) {
+                      return _c(
                         "div",
                         {
                           staticClass:
-                            " m-2 grid grid-cols-6 gap-x-8 gap-y-16 ",
+                            " w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ",
                         },
-                        _vm._l(_vm.topSells, function (product) {
-                          return _c(
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "product",
+                                  params: { product_number: product.number },
+                                },
+                              },
+                            },
+                            [
+                              _c("img", {
+                                staticClass:
+                                  " h-24 w-full rounded-tl-lg rounded-tr-lg",
+                                attrs: {
+                                  src: product.image,
+                                  alt: "product image",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "pt-1 pl-1" }, [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(product.name) +
+                                    " "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(product.price) +
+                                    " "
+                                ),
+                                _c("br"),
+                              ]),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
                             "div",
                             {
                               staticClass:
-                                " w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border ",
+                                "w-full rounded text-center absolute bottom-0 ",
                             },
                             [
-                              _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "product",
-                                      params: {
-                                        product_number: product.number,
+                              _c("div", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      " w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.addProductTOShoppingCart(
+                                          product
+                                        )
                                       },
                                     },
                                   },
-                                },
-                                [
-                                  _c("img", {
-                                    staticClass:
-                                      " h-24 w-full rounded-tl-lg rounded-tr-lg",
-                                    attrs: {
-                                      src: product.image,
-                                      alt: "product image",
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "pt-1 pl-1" }, [
+                                  [
                                     _vm._v(
-                                      "\n                                    " +
-                                        _vm._s(product.name) +
-                                        " "
+                                      "\n                                        add to cart\n                                    "
                                     ),
-                                    _c("br"),
-                                    _vm._v(
-                                      "\n                                    " +
-                                        _vm._s(product.price) +
-                                        " "
-                                    ),
-                                    _c("br"),
-                                  ]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "w-full rounded text-center absolute bottom-0 ",
-                                },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          " w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800",
-                                        on: {
-                                          click: function ($event) {
-                                            return _vm.addProductTOShoppingCart(
-                                              product
-                                            )
-                                          },
-                                        },
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            add to cart\n                                        "
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                ]
-                              ),
-                            ],
-                            1
-                          )
-                        }),
-                        0
-                      ),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      " bottom-0 left-1/2  text-gray-200 text-center",
-                  },
-                  [
-                    _c("button", { on: { click: _vm.toggleDisplayTopSells } }, [
-                      _vm._v(
-                        "\n                        Display All\n                    "
-                      ),
-                    ]),
-                  ]
-                ),
+                                  ]
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
+              [
+                _c("button", { on: { click: _vm.toggleDisplayTopSells } }, [
+                  _vm._v("\n                    Display All\n                "),
+                ]),
               ]
             ),
           ]
@@ -49957,135 +49914,118 @@ var render = function () {
           "div",
           {
             staticClass:
-              "mt-8 m-16 p-1 rounded-lg bg-gradient-to-b from-red-600 ",
+              " relative w-auto mt-8 m-16 p-1 pl-2 pr-4 flex flex-col rounded-lg bg-red-800",
+            class: this.displayAllFavorite ? "h-auto" : "h-1/2",
           },
           [
+            _vm._m(2),
+            _vm._v(" "),
             _c(
               "div",
               {
                 staticClass:
-                  " relative w-auto pl-2 pr-4 flex flex-col rounded-lg bg-slate-800",
-                class: this.displayAllFavorite ? "h-auto" : "h-1/2",
+                  " flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden",
               },
               [
-                _vm._m(2),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      " flex flex-col text-gray-200 overflow-x-hidden overflow-y-hidden",
-                  },
-                  [
-                    _c("div", { staticClass: "flex justify-center " }, [
-                      _c(
+                _c("div", { staticClass: "flex justify-center " }, [
+                  _c(
+                    "div",
+                    { staticClass: " m-2 grid grid-cols-6 gap-x-8 gap-y-16 " },
+                    _vm._l(_vm.favoriteProducts, function (product) {
+                      return _c(
                         "div",
                         {
                           staticClass:
-                            " m-2 grid grid-cols-6 gap-x-8 gap-y-16 ",
+                            "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
                         },
-                        _vm._l(_vm.favoriteProducts, function (product) {
-                          return _c(
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "product",
+                                  params: { product_number: product.number },
+                                },
+                              },
+                            },
+                            [
+                              _c("img", {
+                                staticClass:
+                                  " h-24 w-full rounded-tl-lg rounded-tr-lg",
+                                attrs: {
+                                  src: product.image,
+                                  alt: "product image",
+                                },
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "pt-1 pl-1" }, [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(product.name) +
+                                    " "
+                                ),
+                                _c("br"),
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(product.price) +
+                                    " "
+                                ),
+                                _c("br"),
+                              ]),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
                             "div",
                             {
                               staticClass:
-                                "  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-transparent border",
+                                "w-full rounded text-center absolute bottom-0 ",
                             },
                             [
-                              _c(
-                                "router-link",
-                                {
-                                  attrs: {
-                                    to: {
-                                      name: "product",
-                                      params: {
-                                        product_number: product.number,
+                              _c("div", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      " w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800",
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.addProductTOShoppingCart(
+                                          product
+                                        )
                                       },
                                     },
                                   },
-                                },
-                                [
-                                  _c("img", {
-                                    staticClass:
-                                      " h-24 w-full rounded-tl-lg rounded-tr-lg",
-                                    attrs: {
-                                      src: product.image,
-                                      alt: "product image",
-                                    },
-                                  }),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "pt-1 pl-1" }, [
+                                  [
                                     _vm._v(
-                                      "\n                                    " +
-                                        _vm._s(product.name) +
-                                        " "
+                                      "\n                                        add to cart\n                                    "
                                     ),
-                                    _c("br"),
-                                    _vm._v(
-                                      "\n                                    " +
-                                        _vm._s(product.price) +
-                                        " "
-                                    ),
-                                    _c("br"),
-                                  ]),
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "w-full rounded text-center absolute bottom-0 ",
-                                },
-                                [
-                                  _c("div", [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          " w-full rounded-bl-lg rounded-br-lg bg-lime-500 text-zinc-800",
-                                        on: {
-                                          click: function ($event) {
-                                            return _vm.addProductTOShoppingCart(
-                                              product
-                                            )
-                                          },
-                                        },
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                            add to cart\n                                        "
-                                        ),
-                                      ]
-                                    ),
-                                  ]),
-                                ]
-                              ),
-                            ],
-                            1
-                          )
-                        }),
-                        0
-                      ),
-                    ]),
-                  ]
-                ),
-                _vm._v(" "),
+                                  ]
+                                ),
+                              ]),
+                            ]
+                          ),
+                        ],
+                        1
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: " bottom-0 left-1/2  text-gray-200 text-center" },
+              [
                 _c(
-                  "div",
-                  {
-                    staticClass:
-                      " bottom-0 left-1/2  text-gray-200 text-center",
-                  },
+                  "button",
+                  { on: { click: _vm.toggleDisplayAllFavoriteProducts } },
                   [
-                    _c(
-                      "button",
-                      { on: { click: _vm.toggleDisplayAllFavoriteProducts } },
-                      [
-                        _vm._v(
-                          "\n                        Display All\n                    "
-                        ),
-                      ]
+                    _vm._v(
+                      "\n                    Display All\n                "
                     ),
                   ]
                 ),
@@ -50107,7 +50047,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
       _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-gray-200 " }, [
-        _vm._v("\n                        New Products\n                    "),
+        _vm._v("\n                    New Products\n                "),
       ]),
     ])
   },
@@ -50117,7 +50057,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
       _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-gray-200 " }, [
-        _vm._v("\n                        Top Sells\n                    "),
+        _vm._v("\n                    Top Sells\n                "),
       ]),
     ])
   },
@@ -50127,9 +50067,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
       _c("h1", { staticClass: "  mt-2 mb-4 rounded-lg text-gray-200 " }, [
-        _vm._v(
-          "\n                        Favorite Products\n                    "
-        ),
+        _vm._v("\n                    Favorite Products\n                "),
       ]),
     ])
   },
