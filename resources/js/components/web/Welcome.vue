@@ -6,7 +6,7 @@
 
         <div class="overflow-hidden">
             <!-- new products Container  -->
-            <div class=" relative flex flex-col h-auto mt-20 m-16 p-pr-41 pl-2 rounded-lg bg-amber-400"
+            <div class=" relative flex flex-col h-auto mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400"
                  v-bind:class="(this.displayAllNew)?'h-auto':'h-1/2'">
                 <div class="inline-flex ml-4 ">
                     <h1 class="  mt-2 mb-4 rounded-lg text-zinc-900 ">
@@ -16,8 +16,12 @@
                 <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
                     <div class="flex justify-center ">
                         <div
-                            class=" m-2 grid grid-cols-6 gap-x-8 gap-y-16 xsm:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5
-                                     xl:grid-cols-6 2xl:grid-cols-8 ">
+                            class=" m-2 grid grid-cols-2 gap-x-2 gap-y-8
+                            sm:grid-cols-4
+                            md:grid-cols-5
+                            lg:grid-cols-6
+                            xl:grid-cols-7
+                            2xl:grid-cols-8 ">
                             <div v-for="product in newProducts"
                                  class="  w-36 h-52  rounded-lg justify-center relative top-0 text-center bg-slate-800">
                                 <router-link :to="{name: 'product' , params:{product_number: product.number}}">

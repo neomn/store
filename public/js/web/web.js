@@ -21239,6 +21239,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -48534,7 +48538,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900",
+        "fixed bottom-0 w-full h-12 border-t border-lime-300 bg-slate-900",
     },
     [
       _c("div", { staticClass: "HeaderImage" }),
@@ -49674,7 +49678,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              " relative flex flex-col h-auto mt-20 m-16 p-pr-41 pl-2 rounded-lg bg-amber-400",
+              " relative flex flex-col h-auto mt-4 mx-4 p-pr-41 pl-2 rounded-lg bg-amber-400",
             class: this.displayAllNew ? "h-auto" : "h-1/2",
           },
           [
@@ -49692,7 +49696,7 @@ var render = function () {
                     "div",
                     {
                       staticClass:
-                        " m-2 grid grid-cols-6 gap-x-8 gap-y-16 xsm:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5\n                                 xl:grid-cols-6 2xl:grid-cols-8 ",
+                        " m-2 grid grid-cols-2 gap-x-2 gap-y-8\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
                     },
                     _vm._l(_vm.newProducts, function (product) {
                       return _c(
