@@ -951,8 +951,14 @@ select {
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
 }
+.place-self-end {
+  place-self: end;
+}
 .place-self-center {
   place-self: center;
+}
+.self-end {
+  align-self: flex-end;
 }
 .self-center {
   align-self: center;
