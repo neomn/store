@@ -14,7 +14,7 @@
                             New Products
                         </h1>
                     </div>
-                    <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
+                    <div class=" flex flex-col text-gray-200 overflow-x-scroll overflow-y-scroll">
                         <div class="flex justify-center ">
                             <div
                                 class=" m-2 grid grid-cols-2 gap-x-2 gap-y-4
@@ -65,7 +65,7 @@
                             Top Sells
                         </h1>
                     </div>
-                    <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
+                    <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-scroll">
                         <div class="flex justify-center ">
                             <div
                                 class=" m-2 grid grid-cols-2 gap-x-2 gap-y-4
@@ -116,7 +116,7 @@
                             Favorite Products
                         </h1>
                     </div>
-                    <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-hidden">
+                    <div class=" flex flex-col text-gray-200 overflow-x-hidden overflow-y-scroll">
                         <div class="flex justify-center ">
                             <div
                                 class=" m-2 grid grid-cols-2 gap-x-2 gap-y-4

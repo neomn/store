@@ -49709,7 +49709,7 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
+                    " flex flex-col text-gray-200 overflow-x-scroll overflow-y-scroll",
                 },
                 [
                   _c("div", { staticClass: "flex justify-center " }, [
@@ -49839,7 +49839,7 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
+                    " flex flex-col text-gray-200 overflow-x-hidden overflow-y-scroll",
                 },
                 [
                   _c("div", { staticClass: "flex justify-center " }, [
@@ -49969,7 +49969,7 @@ var render = function () {
                   "div",
                   {
                     staticClass:
-                      " flex flex-col text-gray-200 overflow-x-hidden overflow-hidden",
+                      " flex flex-col text-gray-200 overflow-x-hidden overflow-y-scroll",
                   },
                   [
                     _c("div", { staticClass: "flex justify-center " }, [
