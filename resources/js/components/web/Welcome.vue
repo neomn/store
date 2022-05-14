@@ -32,7 +32,7 @@
                                         <!--card body-->
                                         <div class="pt-1 pl-1 ">
                                             {{ product.name }} <br>
-                                            {{ product.price }} <br>
+                                            {{ product.price }}  <br>
                                         </div>
                                     </router-link>
                                     <!--card buttons-->
