@@ -6,16 +6,21 @@
         <div class=" relative flex h-12 px-1 pt-2 py-2  rounded text-zinc-300 ">
             <!-- left side buttons-->
             <div class=" absolute left-0 flex self-center">
-                <a href="/" class="px-2"
-                   v-bind:class="(this.$route.path === '/')? ' border-t border-lime-500 rounded-lg': ''"> Home
-                </a>
+                <!--home -->
+                <div class="inline">
+                    <a href="/" class="px-2 text-2xl"
+                       v-bind:class="(this.$route.path === '/')? ' border-t border-lime-500 rounded-lg': ''">
+                        <font-awesome-icon :icon="['fas' , 'home']"/>
+                        Home
+                    </a>
+                </div>
                 <a href="/categories" class="px-2 "
                    v-bind:class="(this.$route.path === '/categories')? 'border-t border-lime-500 rounded-lg': ''">
-                    Categories
+                    <font-awesome-icon :icon="['fab' , 'buffer']"/>
                 </a>
                 <router-link :to="{name:'aboutUs'}" class="px-2"
                              v-bind:class="(this.$route.path === '/about-us')? 'border-t border-lime-500 rounded-lg': ''">
-                    About Us
+                    <font-awesome-icon :icon="['fas' , 'info']"/>
                 </router-link>
             </div>
             <!-- right side buttons-->

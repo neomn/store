@@ -20311,6 +20311,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48575,18 +48580,26 @@ var render = function () {
             "div",
             { staticClass: " absolute left-0 flex self-center" },
             [
-              _c(
-                "a",
-                {
-                  staticClass: "px-2",
-                  class:
-                    this.$route.path === "/"
-                      ? " border-t border-lime-500 rounded-lg"
-                      : "",
-                  attrs: { href: "/" },
-                },
-                [_vm._v(" Home\n            ")]
-              ),
+              _c("div", { staticClass: "inline" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "px-2 text-2xl",
+                    class:
+                      this.$route.path === "/"
+                        ? " border-t border-lime-500 rounded-lg"
+                        : "",
+                    attrs: { href: "/" },
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "home"] },
+                    }),
+                    _vm._v("\n                    Home\n                "),
+                  ],
+                  1
+                ),
+              ]),
               _vm._v(" "),
               _c(
                 "a",
@@ -48598,7 +48611,12 @@ var render = function () {
                       : "",
                   attrs: { href: "/categories" },
                 },
-                [_vm._v("\n                Categories\n            ")]
+                [
+                  _c("font-awesome-icon", {
+                    attrs: { icon: ["fab", "buffer"] },
+                  }),
+                ],
+                1
               ),
               _vm._v(" "),
               _c(
@@ -48611,7 +48629,8 @@ var render = function () {
                       : "",
                   attrs: { to: { name: "aboutUs" } },
                 },
-                [_vm._v("\n                About Us\n            ")]
+                [_c("font-awesome-icon", { attrs: { icon: ["fas", "info"] } })],
+                1
               ),
             ],
             1
