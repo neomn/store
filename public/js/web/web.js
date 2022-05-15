@@ -48559,7 +48559,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed bottom-0 w-full h-12 border-t border-lime-300 bg-slate-900",
+        "fixed bottom-0 w-full h-12 border-t border-lime-300 bg-slate-800",
     },
     [
       _c("div", { staticClass: "HeaderImage" }),
@@ -49690,7 +49690,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 min-h-screen  bg-slate-800" },
+    { staticClass: "z-0 min-h-screen  bg-slate-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),

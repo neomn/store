@@ -1,5 +1,5 @@
 <template>
-    <div class="z-0 min-h-screen  bg-slate-800">
+    <div class="z-0 min-h-screen  bg-slate-900">
 
         <!-- header component-->
         <Header class="z-50"/>
