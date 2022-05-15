@@ -1,9 +1,9 @@
 <template>
-    <div class="fixed bottom-0 w-full h-12 border-t border-lime-300 bg-slate-800">
+    <div class="fixed bottom-0 w-full h-16 rounded-tr-2xl rounded-tl-2xl bg-slate-800">
         <div class="HeaderImage">
             <!--            <img v-bind:src="HeaderImage" width="1260px" alt="welcomeBanner">-->
         </div>
-        <div class=" relative flex h-12 px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ">
+        <div class=" relative flex h-12 px-1 pt-2 py-2  rounded text-zinc-300 ">
             <!-- left side buttons-->
             <div class=" absolute left-0 flex self-center">
                 <a href="/" class="px-2"

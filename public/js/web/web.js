@@ -48559,7 +48559,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed bottom-0 w-full h-12 border-t border-lime-300 bg-slate-800",
+        "fixed bottom-0 w-full h-16 rounded-tr-2xl rounded-tl-2xl bg-slate-800",
     },
     [
       _c("div", { staticClass: "HeaderImage" }),
@@ -48568,7 +48568,7 @@ var render = function () {
         "div",
         {
           staticClass:
-            " relative flex h-12 px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ",
+            " relative flex h-12 px-1 pt-2 py-2  rounded text-zinc-300 ",
         },
         [
           _c(
