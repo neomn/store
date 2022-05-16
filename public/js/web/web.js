@@ -20318,6 +20318,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48566,54 +48569,46 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed bottom-0 w-full h-16 rounded-tr-2xl rounded-tl-2xl bg-slate-800",
+        "fixed bottom-0 flex content-center w-full h-16  rounded-tr-2xl rounded-tl-2xl bg-slate-800",
     },
     [
-      _c("div", { staticClass: "HeaderImage" }),
-      _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            " relative flex h-12 px-1 pt-2 py-2  rounded text-zinc-300 ",
+            "flex justify-center content-center flex-wrap rounded text-zinc-300 text-2xl",
         },
         [
-          _c(
-            "div",
-            { staticClass: " absolute left-0 flex self-center" },
-            [
-              _c("div", { staticClass: "flex contents-center" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "flex px-2 text-2xl",
-                    class:
-                      this.$route.path === "/"
-                        ? " border-t bg-orange-600 rounded-lg"
-                        : "",
-                    attrs: { href: "/" },
-                  },
-                  [
-                    _c("font-awesome-icon", {
-                      attrs: { icon: ["fas", "home"] },
-                    }),
-                    _vm._v(" "),
-                    this.$route.path === "/"
-                      ? _c("div", { staticClass: "flex" }, [
-                          _vm._v(
-                            "\n                        Home\n                    "
-                          ),
-                        ])
-                      : _vm._e(),
-                  ],
-                  1
-                ),
-              ]),
-              _vm._v(" "),
+          _c("div", { staticClass: " flex grow " }, [
+            _c("div", { staticClass: "grow" }, [
               _c(
                 "a",
                 {
-                  staticClass: "px-2 ",
+                  staticClass: "flex px-2",
+                  class:
+                    this.$route.path === "/" ? " bg-orange-600 rounded-lg" : "",
+                  attrs: { href: "/" },
+                },
+                [
+                  _c("font-awesome-icon", { attrs: { icon: ["fas", "home"] } }),
+                  _vm._v(" "),
+                  this.$route.path === "/"
+                    ? _c("div", { staticClass: "flex grow" }, [
+                        _vm._v(
+                          "\n                        Home\n                    "
+                        ),
+                      ])
+                    : _vm._e(),
+                ],
+                1
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: " grow" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "px-2",
                   class:
                     this.$route.path === "/categories"
                       ? "border-t border-lime-500 rounded-lg"
@@ -48627,25 +48622,35 @@ var render = function () {
                 ],
                 1
               ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass: "px-2",
-                  class:
-                    this.$route.path === "/about-us"
-                      ? "border-t border-lime-500 rounded-lg"
-                      : "",
-                  attrs: { to: { name: "aboutUs" } },
-                },
-                [_c("font-awesome-icon", { attrs: { icon: ["fas", "info"] } })],
-                1
-              ),
-            ],
-            1
-          ),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: " grow" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "px-2",
+                    class:
+                      this.$route.path === "/about-us"
+                        ? "border-t border-lime-500 rounded-lg"
+                        : "",
+                    attrs: { to: { name: "aboutUs" } },
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "info"] },
+                    }),
+                  ],
+                  1
+                ),
+              ],
+              1
+            ),
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "absolute right-0 flex self-center " }, [
+          _c("div", { staticClass: "flex grow " }, [
             !_vm.loggedInUser
               ? _c(
                   "div",
@@ -49718,11 +49723,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 min-h-screen bg-slate-900" },
+    { staticClass: "z-0 min-h-screen bg-zinc-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _c("div", { staticClass: "overflow-hidden" }, [
+      _c("div", { staticClass: "overflow-hidden hidden" }, [
         _c("div", { staticClass: " my-8 mx-4  p-1 rounded-lg bg-amber-400" }, [
           _c(
             "div",
@@ -50118,7 +50123,7 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _c("Footer"),
+      _c("Footer", { staticClass: "hidden" }),
     ],
     1
   )
