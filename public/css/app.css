@@ -892,6 +892,9 @@ select {
 .flex-col {
   flex-direction: column;
 }
+.content-center {
+  align-content: center;
+}
 .items-center {
   align-items: center;
 }
@@ -1110,6 +1113,14 @@ select {
 .bg-lime-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(190 242 100 / var(--tw-bg-opacity));
+}
+.bg-lime-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+.bg-orange-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));

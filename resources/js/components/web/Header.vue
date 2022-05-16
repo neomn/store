@@ -7,11 +7,13 @@
             <!-- left side buttons-->
             <div class=" absolute left-0 flex self-center">
                 <!--home -->
-                <div class="inline">
-                    <a href="/" class="px-2 text-2xl"
-                       v-bind:class="(this.$route.path === '/')? ' border-t border-lime-500 rounded-lg': ''">
+                <div class="flex contents-center">
+                    <a href="/" class="flex px-2 text-2xl"
+                       v-bind:class="(this.$route.path === '/')? ' border-t bg-orange-600 rounded-lg': ''">
                         <font-awesome-icon :icon="['fas' , 'home']"/>
-                        Home
+                        <div v-if="this.$route.path === '/'" class="flex">
+                            Home
+                        </div>
                     </a>
                 </div>
                 <a href="/categories" class="px-2 "

@@ -20316,6 +20316,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48580,14 +48582,14 @@ var render = function () {
             "div",
             { staticClass: " absolute left-0 flex self-center" },
             [
-              _c("div", { staticClass: "inline" }, [
+              _c("div", { staticClass: "flex contents-center" }, [
                 _c(
                   "a",
                   {
-                    staticClass: "px-2 text-2xl",
+                    staticClass: "flex px-2 text-2xl",
                     class:
                       this.$route.path === "/"
-                        ? " border-t border-lime-500 rounded-lg"
+                        ? " border-t bg-orange-600 rounded-lg"
                         : "",
                     attrs: { href: "/" },
                   },
@@ -48595,7 +48597,14 @@ var render = function () {
                     _c("font-awesome-icon", {
                       attrs: { icon: ["fas", "home"] },
                     }),
-                    _vm._v("\n                    Home\n                "),
+                    _vm._v(" "),
+                    this.$route.path === "/"
+                      ? _c("div", { staticClass: "flex" }, [
+                          _vm._v(
+                            "\n                        Home\n                    "
+                          ),
+                        ])
+                      : _vm._e(),
                   ],
                   1
                 ),
@@ -49709,7 +49718,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 min-h-screen  bg-slate-900" },
+    { staticClass: "z-0 min-h-screen bg-slate-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
