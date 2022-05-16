@@ -1,10 +1,10 @@
 <template>
-    <div class="z-0 min-h-screen bg-slate-900">
+    <div class="z-0 min-h-screen bg-zinc-900">
 
         <!-- header component-->
         <Header class="z-50"/>
 
-        <div class="overflow-hidden ">
+        <div class="overflow-hidden hidden ">
             <!-- new products Container  -->
             <div class=" my-8 mx-4  p-1 rounded-lg bg-amber-400">
                 <div class=" relative flex flex-col  rounded-lg bg-slate-900 "
@@ -160,6 +160,8 @@
 
         </div>
 
+        <Product :product="newProducts[0]"/>
+
         <!-- footer component-->
         <Footer class="hidden"/>
 
@@ -171,13 +173,14 @@
 <script>
 import Header from './Header.vue';
 import Footer from './Footer';
-import {isEmpty} from "lodash";
+import Product from "./miniComponenets/Product";
 
 export default {
     name: 'web',
     components: {
         Header,
         Footer,
+        Product,
     },
     props: [],
     data() {
