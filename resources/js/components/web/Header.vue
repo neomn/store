@@ -5,9 +5,9 @@
             <div class=" flex grow items-center ">
                 <!--home -->
                 <div class=" flex grow h-10 ">
-                    <a href="/" class="flex grow place-content-center pr-2"
+                    <a href="/" class="flex justify-center items-center grow pr-2"
                        v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
-                        <div class="mt-1 px-1">
+                        <div class="px-1">
                             <font-awesome-icon :icon="['fas' , 'home']"/>
                         </div>
                         <div v-if="this.$route.path === '/'" class="flex ">
@@ -16,10 +16,10 @@
                     </a>
                 </div>
                 <!--categories -->
-                <div class=" flex grow">
-                    <a href="/categories" class="flex grow place-content-center pr-2"
+                <div class=" flex grow h-10 ">
+                    <a href="/categories" class="flex justify-center items-center grow pr-2"
                        v-bind:class="(this.$route.path === '/categories')? ' bg-emerald-600 rounded-lg': ''">
-                        <div class="mt-1 px-1">
+                        <div class="px-1">
                             <font-awesome-icon :icon="['fab' , 'buffer']"/>
                         </div>
                         <div v-if="this.$route.path === '/categories'" class="flex ">
@@ -28,11 +28,16 @@
                     </a>
                 </div>
                 <!-- about us -->
-                <div class=" grow">
-                    <router-link :to="{name:'aboutUs'}" class="px-2"
-                                 v-bind:class="(this.$route.path === '/about-us')? 'border-t border-lime-500 rounded-lg': ''">
-                        <font-awesome-icon :icon="['fas' , 'info']"/>
-                    </router-link>
+                <div class=" flex grow h-10 ">
+                    <RouterLink :to="{name:'aboutUs'}" class="flex justify-center items-center grow pr-2"
+                       v-bind:class="(this.$route.path === '/about-us')? ' bg-emerald-600 rounded-lg': ''">
+                        <div class="px-2">
+                            <font-awesome-icon :icon="['fas' , 'info']"/>
+                        </div>
+                        <div v-if="this.$route.path === '/about-us'" class="flex ">
+                            About Us
+                        </div>
+                    </RouterLink>
                 </div>
             </div>
             <!-- right side buttons-->

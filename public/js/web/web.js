@@ -20327,6 +20327,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48590,7 +48595,7 @@ var render = function () {
               _c(
                 "a",
                 {
-                  staticClass: "flex grow place-content-center pr-2",
+                  staticClass: "flex justify-center items-center grow pr-2",
                   class:
                     this.$route.path === "/"
                       ? " bg-emerald-600 rounded-lg"
@@ -48600,7 +48605,7 @@ var render = function () {
                 [
                   _c(
                     "div",
-                    { staticClass: "mt-1 px-1" },
+                    { staticClass: "px-1" },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "home"] },
@@ -48620,11 +48625,11 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: " flex grow" }, [
+            _c("div", { staticClass: " flex grow h-10 " }, [
               _c(
                 "a",
                 {
-                  staticClass: "flex grow place-content-center pr-2",
+                  staticClass: "flex justify-center items-center grow pr-2",
                   class:
                     this.$route.path === "/categories"
                       ? " bg-emerald-600 rounded-lg"
@@ -48634,7 +48639,7 @@ var render = function () {
                 [
                   _c(
                     "div",
-                    { staticClass: "mt-1 px-1" },
+                    { staticClass: "px-1" },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fab", "buffer"] },
@@ -48656,24 +48661,38 @@ var render = function () {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: " grow" },
+              { staticClass: " flex grow h-10 " },
               [
                 _c(
-                  "router-link",
+                  "RouterLink",
                   {
-                    staticClass: "px-2",
+                    staticClass: "flex justify-center items-center grow pr-2",
                     class:
                       this.$route.path === "/about-us"
-                        ? "border-t border-lime-500 rounded-lg"
+                        ? " bg-emerald-600 rounded-lg"
                         : "",
                     attrs: { to: { name: "aboutUs" } },
                   },
                   [
-                    _c("font-awesome-icon", {
-                      attrs: { icon: ["fas", "info"] },
-                    }),
-                  ],
-                  1
+                    _c(
+                      "div",
+                      { staticClass: "px-2" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "info"] },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    this.$route.path === "/about-us"
+                      ? _c("div", { staticClass: "flex " }, [
+                          _vm._v(
+                            "\n                        About Us\n                    "
+                          ),
+                        ])
+                      : _vm._e(),
+                  ]
                 ),
               ],
               1
