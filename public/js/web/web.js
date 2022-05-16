@@ -20322,6 +20322,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48568,17 +48573,20 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "fixed bottom-0 flex w-full h-14 px-2 bg-slate-700" },
+    {
+      staticClass:
+        "fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-700 to-slate-900",
+    },
     [
       _c(
         "div",
         {
           staticClass:
-            "flex grow justify-center content-center flex-wrap rounded text-zinc-300 text-2xl",
+            "flex grow justify-around items-center rounded text-zinc-300 text-2xl",
         },
         [
-          _c("div", { staticClass: " flex grow " }, [
-            _c("div", { staticClass: " flex grow  " }, [
+          _c("div", { staticClass: " flex grow items-center " }, [
+            _c("div", { staticClass: " flex grow h-10 " }, [
               _c(
                 "a",
                 {
@@ -48612,23 +48620,37 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: " grow" }, [
+            _c("div", { staticClass: " flex grow" }, [
               _c(
                 "a",
                 {
-                  staticClass: "px-2",
+                  staticClass: "flex grow place-content-center pr-2",
                   class:
                     this.$route.path === "/categories"
-                      ? "border-t border-lime-500 rounded-lg"
+                      ? " bg-emerald-600 rounded-lg"
                       : "",
                   attrs: { href: "/categories" },
                 },
                 [
-                  _c("font-awesome-icon", {
-                    attrs: { icon: ["fab", "buffer"] },
-                  }),
-                ],
-                1
+                  _c(
+                    "div",
+                    { staticClass: "mt-1 px-1" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fab", "buffer"] },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  this.$route.path === "/categories"
+                    ? _c("div", { staticClass: "flex " }, [
+                        _vm._v(
+                          "\n                        Categories\n                    "
+                        ),
+                      ])
+                    : _vm._e(),
+                ]
               ),
             ]),
             _vm._v(" "),

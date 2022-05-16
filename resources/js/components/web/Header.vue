@@ -1,10 +1,10 @@
 <template>
-    <div class="fixed bottom-0 flex w-full h-14 px-2 bg-slate-700">
-        <div class="flex grow justify-center content-center flex-wrap rounded text-zinc-300 text-2xl">
+    <div class="fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-700 to-slate-900">
+        <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
             <!-- left side buttons-->
-            <div class=" flex grow ">
+            <div class=" flex grow items-center ">
                 <!--home -->
-                <div class=" flex grow  ">
+                <div class=" flex grow h-10 ">
                     <a href="/" class="flex grow place-content-center pr-2"
                        v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
                         <div class="mt-1 px-1">
@@ -16,10 +16,15 @@
                     </a>
                 </div>
                 <!--categories -->
-                <div class=" grow">
-                    <a href="/categories" class="px-2"
-                       v-bind:class="(this.$route.path === '/categories')? 'border-t border-lime-500 rounded-lg': ''">
-                        <font-awesome-icon :icon="['fab' , 'buffer']"/>
+                <div class=" flex grow">
+                    <a href="/categories" class="flex grow place-content-center pr-2"
+                       v-bind:class="(this.$route.path === '/categories')? ' bg-emerald-600 rounded-lg': ''">
+                        <div class="mt-1 px-1">
+                            <font-awesome-icon :icon="['fab' , 'buffer']"/>
+                        </div>
+                        <div v-if="this.$route.path === '/categories'" class="flex ">
+                            Categories
+                        </div>
                     </a>
                 </div>
                 <!-- about us -->
