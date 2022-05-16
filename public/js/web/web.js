@@ -20321,6 +20321,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48567,10 +48568,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "fixed bottom-0 flex content-center w-full h-16  rounded-tr-2xl rounded-tl-2xl bg-slate-800",
-    },
+    { staticClass: "fixed bottom-0 flex w-full h-14 px-2 bg-slate-700" },
     [
       _c(
         "div",
@@ -48580,17 +48578,28 @@ var render = function () {
         },
         [
           _c("div", { staticClass: " flex grow " }, [
-            _c("div", { staticClass: "grow" }, [
+            _c("div", { staticClass: "  grow " }, [
               _c(
                 "a",
                 {
                   staticClass: "flex px-2",
                   class:
-                    this.$route.path === "/" ? " bg-orange-600 rounded-lg" : "",
+                    this.$route.path === "/"
+                      ? " bg-emerald-600 rounded-lg"
+                      : "",
                   attrs: { href: "/" },
                 },
                 [
-                  _c("font-awesome-icon", { attrs: { icon: ["fas", "home"] } }),
+                  _c(
+                    "div",
+                    { staticClass: "mt-1 px-1" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "home"] },
+                      }),
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   this.$route.path === "/"
                     ? _c("div", { staticClass: "flex grow" }, [
@@ -48599,8 +48608,7 @@ var render = function () {
                         ),
                       ])
                     : _vm._e(),
-                ],
-                1
+                ]
               ),
             ]),
             _vm._v(" "),
@@ -48655,7 +48663,7 @@ var render = function () {
               ? _c(
                   "div",
                   {
-                    staticClass: "px-2 py-1",
+                    staticClass: " grow px-2 py-1",
                     class:
                       this.$route.path === "/register"
                         ? "border-t border-lime-500 rounded-lg"
@@ -48688,7 +48696,7 @@ var render = function () {
             _c(
               "div",
               {
-                staticClass: " px-2 py-1",
+                staticClass: " grow px-2 py-1",
                 class:
                   this.$route.path === "/login"
                     ? "border-t border-lime-500 rounded-lg"
@@ -48724,7 +48732,7 @@ var render = function () {
               ? _c(
                   "div",
                   {
-                    staticClass: " px-2 py-1 ",
+                    staticClass: " grow px-2 py-1 ",
                     class:
                       this.$route.path === "/dashboard"
                         ? "border-t border-lime-500 rounded-lg"
@@ -48755,7 +48763,7 @@ var render = function () {
             _c(
               "div",
               {
-                staticClass: " px-2 py-1",
+                staticClass: " grow px-2 py-1",
                 class:
                   this.$route.path === "/shopping-cart"
                     ? "border-t border-lime-500 rounded-lg"

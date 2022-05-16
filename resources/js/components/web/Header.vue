@@ -1,13 +1,15 @@
 <template>
-    <div class="fixed bottom-0 flex content-center w-full h-16  rounded-tr-2xl rounded-tl-2xl bg-slate-800">
+    <div class="fixed bottom-0 flex w-full h-14 px-2 bg-slate-700">
         <div class="flex justify-center content-center flex-wrap rounded text-zinc-300 text-2xl">
             <!-- left side buttons-->
             <div class=" flex grow ">
                 <!--home -->
-                <div class="grow">
+                <div class="  grow ">
                     <a href="/" class="flex px-2"
-                       v-bind:class="(this.$route.path === '/')? ' bg-orange-600 rounded-lg': ''">
-                        <font-awesome-icon :icon="['fas' , 'home']"/>
+                       v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
+                        <div class="mt-1 px-1">
+                            <font-awesome-icon :icon="['fas' , 'home']"/>
+                        </div>
                         <div v-if="this.$route.path === '/'" class="flex grow">
                             Home
                         </div>
@@ -31,8 +33,7 @@
             <!-- right side buttons-->
             <div class="flex grow ">
                 <!--register-->
-                <div v-if="!loggedInUser"
-                     class="px-2 py-1"
+                <div v-if="!loggedInUser" class=" grow px-2 py-1"
                      v-bind:class="(this.$route.path === '/register')? 'border-t border-lime-500 rounded-lg': ''">
                     <div>
                         <router-link :to="{name:'register'}" class="float-right ">
@@ -41,7 +42,7 @@
                     </div>
                 </div>
                 <!--login-->
-                <div class=" px-2 py-1"
+                <div class=" grow px-2 py-1"
                      v-bind:class="(this.$route.path === '/login')? 'border-t border-lime-500 rounded-lg': ''">
                     <div class="">
                         <router-link v-if="!loggedInUser" :to="{name:'login'}" class="float-right " href="/api/user">
@@ -50,7 +51,7 @@
                     </div>
                 </div>
                 <!--  user dashboard-->
-                <div v-if="loggedInUser" class=" px-2 py-1 "
+                <div v-if="loggedInUser" class=" grow px-2 py-1 "
                      v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': ''">
                     <router-link :to="{name:'dashboard'}" href="/api/user">
                         <font-awesome-icon :icon="['fas', 'chart-line']"/>
@@ -58,7 +59,7 @@
                     </router-link>
                 </div>
                 <!--  shopping cart-->
-                <div class=" px-2 py-1"
+                <div class=" grow px-2 py-1"
                      v-bind:class="(this.$route.path === '/shopping-cart')? 'border-t border-lime-500 rounded-lg': ''">
                     <div class="">
                         <router-link :to="{name:'shoppingCart'}">
