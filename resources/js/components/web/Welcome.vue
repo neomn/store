@@ -160,7 +160,7 @@
 
         </div>
 
-        <Product :product="newProducts[0]"/>
+        <ProductContainer :product="newProducts"/>
 
         <!-- footer component-->
         <Footer class="hidden"/>
@@ -173,14 +173,14 @@
 <script>
 import Header from './Header.vue';
 import Footer from './Footer';
-import Product from "./miniComponenets/Product";
+import ProductContainer from "./miniComponenets/ProductContainer";
 
 export default {
     name: 'web',
     components: {
         Header,
         Footer,
-        Product,
+        ProductContainer,
     },
     props: [],
     data() {

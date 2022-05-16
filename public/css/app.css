@@ -630,6 +630,10 @@ select {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -816,6 +820,15 @@ select {
 .h-64 {
   height: 16rem;
 }
+.h-44 {
+  height: 11rem;
+}
+.h-36 {
+  height: 9rem;
+}
+.h-2\/3 {
+  height: 66.666667%;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -934,6 +947,15 @@ select {
 .flex-col {
   flex-direction: column;
 }
+.content-center {
+  align-content: center;
+}
+.content-start {
+  align-content: flex-start;
+}
+.items-start {
+  align-items: flex-start;
+}
 .items-center {
   align-items: center;
 }
@@ -972,6 +994,9 @@ select {
 .place-self-center {
   place-self: center;
 }
+.self-start {
+  align-self: flex-start;
+}
 .self-center {
   align-self: center;
 }
@@ -983,6 +1008,9 @@ select {
 }
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
 }
 .overflow-x-scroll {
   overflow-x: scroll;
@@ -1086,6 +1114,10 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
+.border-amber-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(252 211 77 / var(--tw-border-opacity));
+}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1184,6 +1216,14 @@ select {
 }
 .fill-current {
   fill: currentColor;
+}
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 .p-6 {
   padding: 1.5rem;
