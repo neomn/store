@@ -160,7 +160,8 @@
 
         </div>
 
-        <ProductContainer :product="newProducts"/>
+        <br>
+        <ProductContainer :products="newProducts" title="New Products" color="amber"/>
 
         <!-- footer component-->
         <Footer class="hidden"/>

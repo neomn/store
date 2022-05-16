@@ -1,13 +1,13 @@
-<template class="">
-    <div class=" w-32 h-44 bg-slate-700 text-zinc-200">
+<template >
+    <div class=" w-32 h-44 bg-slate-800 text-zinc-200">
         <router-link :to="{name: 'product' , params:{product_number: product.number}}">
             <!-- image -->
-            <div class="overflow-hidden h-2/5 border-2 border-red-600  ">
-                <img :src="product[0].image" alt="product-image" class="">
+            <div class="overflow-hidden h-2/5 ">
+                <img :src="product.image" alt="product-image" class="w-full h-16 object-fill">
             </div>
             <!--content -->
             <div class=" text-sm text-center ">
-                <p>{{ product[0].name }}</p>
+                <p>{{ product.name }}</p>
             </div>
         </router-link>
     </div>
