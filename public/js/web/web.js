@@ -48574,15 +48574,15 @@ var render = function () {
         "div",
         {
           staticClass:
-            "flex justify-center content-center flex-wrap rounded text-zinc-300 text-2xl",
+            "flex grow justify-center content-center flex-wrap rounded text-zinc-300 text-2xl",
         },
         [
           _c("div", { staticClass: " flex grow " }, [
-            _c("div", { staticClass: "  grow " }, [
+            _c("div", { staticClass: " flex grow  " }, [
               _c(
                 "a",
                 {
-                  staticClass: "flex px-2",
+                  staticClass: "flex grow place-content-center pr-2",
                   class:
                     this.$route.path === "/"
                       ? " bg-emerald-600 rounded-lg"
@@ -48602,7 +48602,7 @@ var render = function () {
                   ),
                   _vm._v(" "),
                   this.$route.path === "/"
-                    ? _c("div", { staticClass: "flex grow" }, [
+                    ? _c("div", { staticClass: "flex " }, [
                         _vm._v(
                           "\n                        Home\n                    "
                         ),

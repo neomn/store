@@ -1,16 +1,16 @@
 <template>
     <div class="fixed bottom-0 flex w-full h-14 px-2 bg-slate-700">
-        <div class="flex justify-center content-center flex-wrap rounded text-zinc-300 text-2xl">
+        <div class="flex grow justify-center content-center flex-wrap rounded text-zinc-300 text-2xl">
             <!-- left side buttons-->
             <div class=" flex grow ">
                 <!--home -->
-                <div class="  grow ">
-                    <a href="/" class="flex px-2"
+                <div class=" flex grow  ">
+                    <a href="/" class="flex grow place-content-center pr-2"
                        v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
                         <div class="mt-1 px-1">
                             <font-awesome-icon :icon="['fas' , 'home']"/>
                         </div>
-                        <div v-if="this.$route.path === '/'" class="flex grow">
+                        <div v-if="this.$route.path === '/'" class="flex ">
                             Home
                         </div>
                     </a>

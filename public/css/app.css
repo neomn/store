@@ -1337,6 +1337,9 @@ select {
 .pb-12 {
   padding-bottom: 3rem;
 }
+.pr-1 {
+  padding-right: 0.25rem;
+}
 .text-left {
   text-align: left;
 }
