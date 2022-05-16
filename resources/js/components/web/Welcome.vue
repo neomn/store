@@ -1,10 +1,10 @@
 <template>
-    <div class="z-0 min-h-screen bg-zinc-900">
+    <div class="z-0 min-h-screen bg-slate-900">
 
         <!-- header component-->
         <Header class="z-50"/>
 
-        <div class="overflow-hidden hidden">
+        <div class="overflow-hidden ">
             <!-- new products Container  -->
             <div class=" my-8 mx-4  p-1 rounded-lg bg-amber-400">
                 <div class=" relative flex flex-col  rounded-lg bg-slate-900 "

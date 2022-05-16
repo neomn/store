@@ -49757,11 +49757,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 min-h-screen bg-zinc-900" },
+    { staticClass: "z-0 min-h-screen bg-slate-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _c("div", { staticClass: "overflow-hidden hidden" }, [
+      _c("div", { staticClass: "overflow-hidden " }, [
         _c("div", { staticClass: " my-8 mx-4  p-1 rounded-lg bg-amber-400" }, [
           _c(
             "div",
