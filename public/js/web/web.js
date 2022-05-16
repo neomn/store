@@ -20332,6 +20332,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48617,7 +48623,7 @@ var render = function () {
                   this.$route.path === "/"
                     ? _c("div", { staticClass: "flex " }, [
                         _vm._v(
-                          "\n                        Home\n                    "
+                          "\n                            Home\n                        "
                         ),
                       ])
                     : _vm._e(),
@@ -48651,7 +48657,7 @@ var render = function () {
                   this.$route.path === "/categories"
                     ? _c("div", { staticClass: "flex " }, [
                         _vm._v(
-                          "\n                        Categories\n                    "
+                          "\n                            Categories\n                        "
                         ),
                       ])
                     : _vm._e(),
@@ -48664,7 +48670,7 @@ var render = function () {
               { staticClass: " flex grow h-10 " },
               [
                 _c(
-                  "RouterLink",
+                  "routerLink",
                   {
                     staticClass: "flex justify-center items-center grow pr-2",
                     class:
@@ -48686,9 +48692,9 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     this.$route.path === "/about-us"
-                      ? _c("div", { staticClass: "flex " }, [
+                      ? _c("div", { staticClass: "flex text-lg " }, [
                           _vm._v(
-                            "\n                        About Us\n                    "
+                            "\n                            About Us\n                        "
                           ),
                         ])
                       : _vm._e(),
@@ -48700,73 +48706,82 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex grow " }, [
-            !_vm.loggedInUser
-              ? _c(
-                  "div",
+            _c(
+              "div",
+              { staticClass: " flex grow h-10  " },
+              [
+                _c(
+                  "routerLink",
                   {
-                    staticClass: " grow px-2 py-1",
+                    staticClass: "flex justify-center items-center grow pr-2",
                     class:
-                      this.$route.path === "/register"
-                        ? "border-t border-lime-500 rounded-lg"
+                      this.$route.path === "/shopping-cart"
+                        ? " bg-emerald-600 rounded-lg"
                         : "",
+                    attrs: { to: { name: "shoppingCart" } },
                   },
                   [
                     _c(
                       "div",
+                      { staticClass: "px-2" },
                       [
-                        _c(
-                          "router-link",
-                          {
-                            staticClass: "float-right ",
-                            attrs: { to: { name: "register" } },
-                          },
-                          [
-                            _c("font-awesome-icon", {
-                              attrs: { icon: ["fas", "user-plus"] },
-                            }),
-                          ],
-                          1
-                        ),
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "shopping-cart"] },
+                        }),
                       ],
                       1
                     ),
+                    _vm._v(" "),
+                    this.$route.path === "/shopping-cart"
+                      ? _c("div", { staticClass: "flex text-lg " }, [
+                          _vm._v(
+                            "\n                            Shopping Cart\n                        "
+                          ),
+                        ])
+                      : _vm._e(),
                   ]
-                )
-              : _vm._e(),
+                ),
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
-              {
-                staticClass: " grow px-2 py-1",
-                class:
-                  this.$route.path === "/login"
-                    ? "border-t border-lime-500 rounded-lg"
-                    : "",
-              },
+              { staticClass: " flex grow h-10  " },
               [
                 _c(
-                  "div",
-                  {},
+                  "routerLink",
+                  {
+                    staticClass: "flex justify-center items-center grow pr-2",
+                    class:
+                      this.$route.path === "/login"
+                        ? " bg-emerald-600 rounded-lg"
+                        : "",
+                    attrs: { to: { name: "login" } },
+                  },
                   [
-                    !_vm.loggedInUser
-                      ? _c(
-                          "router-link",
-                          {
-                            staticClass: "float-right ",
-                            attrs: { to: { name: "login" }, href: "/api/user" },
-                          },
-                          [
-                            _c("font-awesome-icon", {
-                              attrs: { icon: ["fas", "door-open"] },
-                            }),
-                          ],
-                          1
-                        )
+                    _c(
+                      "div",
+                      { staticClass: "px-2" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "door-open"] },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    this.$route.path === "/login"
+                      ? _c("div", { staticClass: "flex text-lg " }, [
+                          _vm._v(
+                            "\n                            Login\n                        "
+                          ),
+                        ])
                       : _vm._e(),
-                  ],
-                  1
+                  ]
                 ),
-              ]
+              ],
+              1
             ),
             _vm._v(" "),
             _vm.loggedInUser
@@ -48800,36 +48815,6 @@ var render = function () {
                   1
                 )
               : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: " grow px-2 py-1",
-                class:
-                  this.$route.path === "/shopping-cart"
-                    ? "border-t border-lime-500 rounded-lg"
-                    : "",
-              },
-              [
-                _c(
-                  "div",
-                  {},
-                  [
-                    _c(
-                      "router-link",
-                      { attrs: { to: { name: "shoppingCart" } } },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: ["fas", "shopping-cart"] },
-                        }),
-                      ],
-                      1
-                    ),
-                  ],
-                  1
-                ),
-              ]
-            ),
           ]),
         ]
       ),
