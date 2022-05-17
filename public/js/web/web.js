@@ -21520,6 +21520,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProductContainer",
@@ -21533,8 +21535,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     setColor: function setColor(color) {
       var colorString = 'from-' + color; // this.$refs.productContainer.classList.add('bg-gradient-to-r')
-
-      this.$refs.productContainer.classList.add(colorString); // this.$refs.productContainer.classList.add('via-zinc-700')
+      // this.$refs.productContainer.classList.add(colorString)
+      // this.$refs.productContainer.classList.add('via-zinc-700')
       // this.$refs.productContainer.classList.add('to-zinc-900')
     }
   }
@@ -50018,7 +50020,7 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
+                          " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                            sm:grid-cols-4\n                            md:grid-cols-5\n                            lg:grid-cols-6\n                            xl:grid-cols-7\n                            2xl:grid-cols-8 ",
                       },
                       _vm._l(_vm.newProducts, function (product) {
                         return _c(
@@ -50050,13 +50052,13 @@ var render = function () {
                                 _vm._v(" "),
                                 _c("div", { staticClass: "pt-1 pl-1 " }, [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\n                                            " +
                                       _vm._s(product.name) +
                                       " "
                                   ),
                                   _c("br"),
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\n                                            " +
                                       _vm._s(product.price) +
                                       "  "
                                   ),
@@ -50088,7 +50090,7 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                            add to cart\n                                        "
+                                        "\n                                                add to cart\n                                            "
                                       ),
                                     ]
                                   ),
@@ -50116,7 +50118,7 @@ var render = function () {
                     { on: { click: _vm.toggleDisplayAllNewProducts } },
                     [
                       _vm._v(
-                        "\n                        Display All\n                    "
+                        "\n                            Display All\n                        "
                       ),
                     ]
                   ),
@@ -50148,7 +50150,7 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
+                          " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                            sm:grid-cols-4\n                            md:grid-cols-5\n                            lg:grid-cols-6\n                            xl:grid-cols-7\n                            2xl:grid-cols-8 ",
                       },
                       _vm._l(_vm.topSells, function (product) {
                         return _c(
@@ -50180,13 +50182,13 @@ var render = function () {
                                 _vm._v(" "),
                                 _c("div", { staticClass: "pt-1 pl-1 " }, [
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\n                                            " +
                                       _vm._s(product.name) +
                                       " "
                                   ),
                                   _c("br"),
                                   _vm._v(
-                                    "\n                                        " +
+                                    "\n                                            " +
                                       _vm._s(product.price) +
                                       " "
                                   ),
@@ -50218,7 +50220,7 @@ var render = function () {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                                            add to cart\n                                        "
+                                        "\n                                                add to cart\n                                            "
                                       ),
                                     ]
                                   ),
@@ -50243,7 +50245,7 @@ var render = function () {
                 [
                   _c("button", { on: { click: _vm.toggleDisplayTopSells } }, [
                     _vm._v(
-                      "\n                        Display All\n                    "
+                      "\n                            Display All\n                        "
                     ),
                   ]),
                 ]
@@ -50278,7 +50280,7 @@ var render = function () {
                         "div",
                         {
                           staticClass:
-                            " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                        sm:grid-cols-4\n                        md:grid-cols-5\n                        lg:grid-cols-6\n                        xl:grid-cols-7\n                        2xl:grid-cols-8 ",
+                            " m-2 grid grid-cols-2 gap-x-2 gap-y-4\n                            sm:grid-cols-4\n                            md:grid-cols-5\n                            lg:grid-cols-6\n                            xl:grid-cols-7\n                            2xl:grid-cols-8 ",
                         },
                         _vm._l(_vm.favoriteProducts, function (product) {
                           return _c(
@@ -50312,13 +50314,13 @@ var render = function () {
                                   _vm._v(" "),
                                   _c("div", { staticClass: "pt-1 pl-1 " }, [
                                     _vm._v(
-                                      "\n                                        " +
+                                      "\n                                            " +
                                         _vm._s(product.name) +
                                         " "
                                     ),
                                     _c("br"),
                                     _vm._v(
-                                      "\n                                        " +
+                                      "\n                                            " +
                                         _vm._s(product.price) +
                                         " "
                                     ),
@@ -50350,7 +50352,7 @@ var render = function () {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                            add to cart\n                                        "
+                                          "\n                                                add to cart\n                                            "
                                         ),
                                       ]
                                     ),
@@ -50379,7 +50381,7 @@ var render = function () {
                       { on: { click: _vm.toggleDisplayAllFavoriteProducts } },
                       [
                         _vm._v(
-                          "\n                        Display All\n                    "
+                          "\n                            Display All\n                        "
                         ),
                       ]
                     ),
@@ -50401,18 +50403,6 @@ var render = function () {
         },
       }),
       _vm._v(" "),
-      _c("ProductContainer", {
-        attrs: { products: _vm.topSells, title: "Top Sells", color: "red-600" },
-      }),
-      _vm._v(" "),
-      _c("ProductContainer", {
-        attrs: {
-          products: _vm.favoriteProducts,
-          title: "Favorite Products",
-          color: "lime-400",
-        },
-      }),
-      _vm._v(" "),
       _c("Footer", { staticClass: "hidden" }),
     ],
     1
@@ -50425,17 +50415,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
       _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-100 " }, [
-        _vm._v("\n                        New Products\n                    "),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "inline-flex ml-4 " }, [
-      _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-100 " }, [
-        _vm._v("\n                        Top Sells\n                    "),
+        _vm._v(
+          "\n                            New Products\n                        "
+        ),
       ]),
     ])
   },
@@ -50446,7 +50428,19 @@ var staticRenderFns = [
     return _c("div", { staticClass: "inline-flex ml-4 " }, [
       _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-100 " }, [
         _vm._v(
-          "\n                        Favorite Products\n                    "
+          "\n                            Top Sells\n                        "
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "inline-flex ml-4 " }, [
+      _c("h1", { staticClass: "  mt-2 mb-2 rounded-lg text-zinc-100 " }, [
+        _vm._v(
+          "\n                            Favorite Products\n                        "
         ),
       ]),
     ])
@@ -50476,7 +50470,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " w-32 h-44 bg-slate-800 text-zinc-200" },
+    { staticClass: " w-32 h-44 my-2 bg-slate-800 text-zinc-200" },
     [
       _c(
         "router-link",
@@ -50533,10 +50527,10 @@ var render = function () {
     {
       ref: "productContainer",
       staticClass:
-        " flex items-center w-full h-1/4 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n            bg-gradient-to-r via-zinc-700 to-zinc-900 ",
+        " flex items-center w-full h-1/4 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n             bg-gradient-to-r from-slate-700\n        ",
     },
     [
-      _c("div", { staticClass: "w-1/3 self-start mt-10 flex text-zinc-900" }, [
+      _c("div", { staticClass: "w-1/3 self-start mt-10 flex text-zinc-200" }, [
         _c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))]),
       ]),
       _vm._v(" "),
