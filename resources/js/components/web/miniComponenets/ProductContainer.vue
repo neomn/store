@@ -1,6 +1,6 @@
 <template>
     <div ref='productContainer'
-        class=" flex items-center w-full h-1/4 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold
+        class=" flex items-center w-full h-1/3 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold
                  bg-gradient-to-r from-slate-700
             ">
 

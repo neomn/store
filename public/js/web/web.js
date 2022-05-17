@@ -50527,7 +50527,7 @@ var render = function () {
     {
       ref: "productContainer",
       staticClass:
-        " flex items-center w-full h-1/4 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n             bg-gradient-to-r from-slate-700\n        ",
+        " flex items-center w-full h-1/3 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n             bg-gradient-to-r from-slate-700\n        ",
     },
     [
       _c("div", { staticClass: "w-1/3 self-start mt-10 flex text-zinc-200" }, [
