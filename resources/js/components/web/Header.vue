@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-700 to-slate-900">
+    <div class="fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900">
         <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
             <!-- left side buttons-->
             <div class=" flex grow items-center">

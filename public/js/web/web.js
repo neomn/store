@@ -21520,6 +21520,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProductContainer",
@@ -21533,8 +21535,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     setColor: function setColor(color) {
       var colorString = 'from-' + color; // this.$refs.productContainer.classList.add('bg-gradient-to-r')
-
-      this.$refs.productContainer.classList.add(colorString); // this.$refs.productContainer.classList.add('via-zinc-700')
+      // this.$refs.productContainer.classList.add(colorString)
+      // this.$refs.productContainer.classList.add('via-zinc-700')
       // this.$refs.productContainer.classList.add('to-zinc-900')
     }
   }
@@ -48820,7 +48822,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-700 to-slate-900",
+        "fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900",
     },
     [
       _c(
@@ -50476,7 +50478,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " w-32 h-44 bg-slate-800 text-zinc-200" },
+    { staticClass: " w-32 h-5/6 my-2 bg-slate-800 text-zinc-200" },
     [
       _c(
         "router-link",
@@ -50533,10 +50535,10 @@ var render = function () {
     {
       ref: "productContainer",
       staticClass:
-        " flex items-center w-full h-1/4 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n            bg-gradient-to-r via-zinc-700 to-zinc-900 ",
+        " flex items-center w-full h-1/3 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n             bg-gradient-to-r from-slate-700\n        ",
     },
     [
-      _c("div", { staticClass: "w-1/3 self-start mt-10 flex text-zinc-900" }, [
+      _c("div", { staticClass: "w-1/3 self-start mt-10 flex text-zinc-400" }, [
         _c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))]),
       ]),
       _vm._v(" "),
