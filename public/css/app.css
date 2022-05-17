@@ -841,6 +841,9 @@ select {
   height: -moz-fit-content;
   height: fit-content;
 }
+.h-3\/4 {
+  height: 75%;
+}
 .min-h-screen {
   min-height: 100vh;
 }

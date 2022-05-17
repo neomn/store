@@ -50470,7 +50470,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " w-32 h-44 my-2 bg-slate-800 text-zinc-200" },
+    { staticClass: " w-32 h-5/6 my-2 bg-slate-800 text-zinc-200" },
     [
       _c(
         "router-link",
