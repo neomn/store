@@ -2,7 +2,7 @@
     <div class="fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-700 to-slate-900">
         <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
             <!-- left side buttons-->
-            <div class=" flex grow items-center ">
+            <div class=" flex grow items-center">
                 <!--home -->
                 <div class=" flex grow h-10 ">
                     <a href="/" class="flex justify-center items-center grow pr-2"
@@ -10,7 +10,7 @@
                         <div class="px-1">
                             <font-awesome-icon :icon="['fas' , 'home']"/>
                         </div>
-                        <div v-if="this.$route.path === '/'" class="flex ">
+                        <div v-if="this.$route.path === '/'" class="flex text-lg ">
                             Home
                         </div>
                     </a>
@@ -22,7 +22,7 @@
                         <div class="px-1">
                             <font-awesome-icon :icon="['fab' , 'buffer']"/>
                         </div>
-                        <div v-if="this.$route.path === '/categories'" class="flex ">
+                        <div v-if="this.$route.path === '/categories'" class="flex text-lg">
                             Categories
                         </div>
                     </a>
