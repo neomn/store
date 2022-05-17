@@ -21293,6 +21293,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -21516,6 +21518,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProductContainer",
@@ -21523,14 +21527,16 @@ __webpack_require__.r(__webpack_exports__);
     Product: _Product__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ['products', 'title', 'color'],
-  created: function created() {//   console.log('product container created -----------')
-    // this.setColor(this.$props.color)
+  mounted: function mounted() {
+    this.setColor(this.$props.color);
   },
-  methods: {// setColor(color){
-    //     // this.$refs.productContainer.classList.add('bg-gradient-to-r from-'+color+'-400 via-zinc-700 to-zinc-900')
-    //     console.log(this.$refs.abcd)
-    //     console.log('from-'+color+'-400')
-    // }
+  methods: {
+    setColor: function setColor(color) {
+      var colorString = 'from-' + color; // this.$refs.productContainer.classList.add('bg-gradient-to-r')
+
+      this.$refs.productContainer.classList.add(colorString); // this.$refs.productContainer.classList.add('via-zinc-700')
+      // this.$refs.productContainer.classList.add('to-zinc-900')
+    }
   }
 });
 
@@ -50391,7 +50397,19 @@ var render = function () {
         attrs: {
           products: _vm.newProducts,
           title: "New Products",
-          color: "amber",
+          color: "yellow-400",
+        },
+      }),
+      _vm._v(" "),
+      _c("ProductContainer", {
+        attrs: { products: _vm.topSells, title: "Top Sells", color: "red-600" },
+      }),
+      _vm._v(" "),
+      _c("ProductContainer", {
+        attrs: {
+          products: _vm.favoriteProducts,
+          title: "Favorite Products",
+          color: "lime-400",
         },
       }),
       _vm._v(" "),
@@ -50513,12 +50531,12 @@ var render = function () {
   return _c(
     "div",
     {
-      ref: "abcd",
+      ref: "productContainer",
       staticClass:
-        " flex items-center w-full h-1/4 my-2 pl-2 overflow-y-hidden rounded-lg\n        bg-gradient-to-r from-amber-400 via-zinc-700 to-zinc-900 text-lg font-bold",
+        " flex items-center w-full h-1/4 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n            bg-gradient-to-r via-zinc-700 to-zinc-900 ",
     },
     [
-      _c("div", { staticClass: "w-1/3 self-start mt-10 text-zinc-900" }, [
+      _c("div", { staticClass: "w-1/3 self-start mt-10 flex text-zinc-900" }, [
         _c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))]),
       ]),
       _vm._v(" "),

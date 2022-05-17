@@ -161,7 +161,9 @@
         </div>
 
         <br>
-        <ProductContainer :products="newProducts" title="New Products" color="amber"/>
+        <ProductContainer :products="newProducts" title="New Products" color="yellow-400"/>
+        <ProductContainer :products="topSells" title="Top Sells" color="red-600"/>
+        <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400"/>
 
         <!-- footer component-->
         <Footer class="hidden"/>
