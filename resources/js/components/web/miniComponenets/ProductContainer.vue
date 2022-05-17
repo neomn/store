@@ -5,7 +5,7 @@
             ">
 
         <!--title -->
-        <div class="w-1/3 self-start mt-10 flex text-zinc-200">
+        <div class="w-1/3 self-start mt-10 flex text-zinc-400">
             <h1 class="w-44">{{ title }}</h1>
         </div>
         <!-- product -->
