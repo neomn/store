@@ -20349,6 +20349,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48852,6 +48856,17 @@ var render = function () {
                 1
               ),
               _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "pr-2 hidden" },
+                [
+                  _c("font-awesome-icon", {
+                    attrs: { icon: ["fas", "times"] },
+                  }),
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c("div", { staticClass: " flex grow h-10 " }, [
                 _c(
                   "a",
@@ -48990,7 +49005,7 @@ var render = function () {
                       this.$route.path === "/shopping-cart"
                         ? _c("div", { staticClass: "flex text-lg " }, [
                             _vm._v(
-                              "\n                            Shopping Cart\n                        "
+                              "\n                            Cart\n                        "
                             ),
                           ])
                         : _vm._e(),

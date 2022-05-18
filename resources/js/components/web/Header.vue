@@ -9,6 +9,10 @@
                         <div class="pr-2">
                             <font-awesome-icon :icon="['fas' , 'bars']"/>
                         </div>
+                        <!-- close menu  -->
+                        <div class="pr-2 hidden">
+                            <font-awesome-icon :icon="['fas' , 'times']"/>
+                        </div>
                         <!--home -->
                         <div class=" flex grow h-10 ">
                             <a href="/" class="flex justify-center items-center grow pr-2"
@@ -65,7 +69,7 @@
                                     <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
                                 </div>
                                 <div v-if="this.$route.path === '/shopping-cart'" class="flex text-lg ">
-                                    Shopping Cart
+                                    Cart
                                 </div>
                             </routerLink>
                         </div>
