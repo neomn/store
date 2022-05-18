@@ -20345,6 +20345,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -48841,6 +48845,13 @@ var render = function () {
           },
           [
             _c("div", { staticClass: " flex grow items-center" }, [
+              _c(
+                "div",
+                { staticClass: "pr-2" },
+                [_c("font-awesome-icon", { attrs: { icon: ["fas", "bars"] } })],
+                1
+              ),
+              _vm._v(" "),
               _c("div", { staticClass: " flex grow h-10 " }, [
                 _c(
                   "a",

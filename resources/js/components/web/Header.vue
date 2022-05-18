@@ -5,6 +5,10 @@
                 <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
                     <!-- left side buttons-->
                     <div class=" flex grow items-center">
+                        <!-- menu -->
+                        <div class="pr-2">
+                            <font-awesome-icon :icon="['fas' , 'bars']"/>
+                        </div>
                         <!--home -->
                         <div class=" flex grow h-10 ">
                             <a href="/" class="flex justify-center items-center grow pr-2"
