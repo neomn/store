@@ -1160,6 +1160,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(190 242 100 / var(--tw-bg-opacity));
 }
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1173,6 +1177,10 @@ select {
 .from-slate-700 {
   --tw-gradient-from: #334155;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(51 65 85 / 0));
+}
+.from-amber-700 {
+  --tw-gradient-from: #b45309;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(180 83 9 / 0));
 }
 .via-lime-300 {
   --tw-gradient-stops: var(--tw-gradient-from), #bef264, var(--tw-gradient-to, rgb(190 242 100 / 0));

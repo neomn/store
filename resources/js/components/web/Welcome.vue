@@ -164,6 +164,10 @@
         <ProductContainer :products="newProducts" title="New Products" color="yellow-400"/>
         <ProductContainer :products="topSells" title="Top Sells" color="red-600"/>
         <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400"/>
+        <br>
+        <br>
+        <br>
+        <br>
 
         <!-- footer component-->
         <Footer class="hidden"/>

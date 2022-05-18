@@ -21314,6 +21314,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -49107,7 +49111,7 @@ var render = function () {
     ),
     _vm._v(" "),
     _vm.displayMenu
-      ? _c("div", { staticClass: " w-full h-32  bg-slate-700 " })
+      ? _c("div", { staticClass: " w-full h-32  bg-gray-700 " })
       : _vm._e(),
   ])
 }
@@ -50468,6 +50472,14 @@ var render = function () {
           color: "lime-400",
         },
       }),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _c("Footer", { staticClass: "hidden" }),
     ],

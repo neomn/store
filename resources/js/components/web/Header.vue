@@ -97,7 +97,7 @@
                 </div>
             </div>
             <!-- header hidden area -->
-            <div v-if="displayMenu" class=" w-full h-32  bg-slate-700 ">
+            <div v-if="displayMenu" class=" w-full h-32  bg-gray-700 ">
 
             </div>
         </div>
