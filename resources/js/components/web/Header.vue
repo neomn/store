@@ -6,11 +6,11 @@
                     <!-- left side buttons-->
                     <div class=" flex grow items-center">
                         <!-- menu -->
-                        <div class="pr-2">
+                        <div v-if="!displayMenu" @click="toggleMenu" class="pr-2">
                             <font-awesome-icon :icon="['fas' , 'bars']"/>
                         </div>
                         <!-- close menu  -->
-                        <div class="pr-2 hidden">
+                        <div v-if="displayMenu" @click="toggleMenu" class="pr-2 ">
                             <font-awesome-icon :icon="['fas' , 'times']"/>
                         </div>
                         <!--home -->
@@ -75,7 +75,7 @@
                         </div>
                         <!--login-->
                         <div class=" flex grow h-10  ">
-                            <routerLink :to="{name:'login'}" class="flex justify-center items-center grow pr-2"
+                            <routerLink :to="{name:'login'}" class="flex justify-center items-center grow "
                                         v-bind:class="(this.$route.path === '/login')? ' bg-emerald-600 rounded-lg': ''">
                                 <div class="px-2">
                                     <font-awesome-icon :icon="['fas', 'door-open']"/>
@@ -97,8 +97,8 @@
                 </div>
             </div>
             <!-- header hidden area -->
-            <div class=" w-full h-32  bg-slate-700 ">
-                <h1>hidden area</h1>
+            <div v-if="displayMenu" class=" w-full h-32  bg-slate-700 ">
+
             </div>
         </div>
 </template>
@@ -114,6 +114,7 @@ export default {
         return {
             HeaderImage: '../resources/img/WelcomeController.jpg',
             loggedInUser: {},
+            displayMenu: false,
         }
     },
     created() {
@@ -134,6 +135,9 @@ export default {
             console.log('loggedInUser >')
             console.log(this.loggedInUser)
         },
+        toggleMenu(){
+            this.displayMenu = !this.displayMenu
+        }
     }
 }
 </script>

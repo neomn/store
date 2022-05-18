@@ -20359,7 +20359,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       HeaderImage: '../resources/img/WelcomeController.jpg',
-      loggedInUser: {}
+      loggedInUser: {},
+      displayMenu: false
     };
   },
   created: function created() {
@@ -20381,6 +20382,9 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log('loggedInUser >');
       console.log(this.loggedInUser);
+    },
+    toggleMenu: function toggleMenu() {
+      this.displayMenu = !this.displayMenu;
     }
   }
 });
@@ -48849,23 +48853,31 @@ var render = function () {
           },
           [
             _c("div", { staticClass: " flex grow items-center" }, [
-              _c(
-                "div",
-                { staticClass: "pr-2" },
-                [_c("font-awesome-icon", { attrs: { icon: ["fas", "bars"] } })],
-                1
-              ),
+              !_vm.displayMenu
+                ? _c(
+                    "div",
+                    { staticClass: "pr-2", on: { click: _vm.toggleMenu } },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "bars"] },
+                      }),
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "pr-2 hidden" },
-                [
-                  _c("font-awesome-icon", {
-                    attrs: { icon: ["fas", "times"] },
-                  }),
-                ],
-                1
-              ),
+              _vm.displayMenu
+                ? _c(
+                    "div",
+                    { staticClass: "pr-2 ", on: { click: _vm.toggleMenu } },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "times"] },
+                      }),
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c("div", { staticClass: " flex grow h-10 " }, [
                 _c(
@@ -49022,7 +49034,7 @@ var render = function () {
                   _c(
                     "routerLink",
                     {
-                      staticClass: "flex justify-center items-center grow pr-2",
+                      staticClass: "flex justify-center items-center grow ",
                       class:
                         this.$route.path === "/login"
                           ? " bg-emerald-600 rounded-lg"
@@ -49094,19 +49106,12 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
-    _vm._m(0),
+    _vm.displayMenu
+      ? _c("div", { staticClass: " w-full h-32  bg-slate-700 " })
+      : _vm._e(),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " w-full h-32  bg-slate-700 " }, [
-      _c("h1", [_vm._v("hidden area")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
