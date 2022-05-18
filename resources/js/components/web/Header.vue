@@ -1,91 +1,98 @@
 <template>
-    <div class="fixed bottom-0 flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900">
-        <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
-            <!-- left side buttons-->
-            <div class=" flex grow items-center">
-                <!--home -->
-                <div class=" flex grow h-10 ">
-                    <a href="/" class="flex justify-center items-center grow pr-2"
-                       v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
-                        <div class="px-1">
-                            <font-awesome-icon :icon="['fas' , 'home']"/>
+        <div class="flex flex-col fixed bottom-0 w-full">
+            <!-- header -->
+            <div class="flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900">
+                <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
+                    <!-- left side buttons-->
+                    <div class=" flex grow items-center">
+                        <!--home -->
+                        <div class=" flex grow h-10 ">
+                            <a href="/" class="flex justify-center items-center grow pr-2"
+                               v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
+                                <div class="px-1">
+                                    <font-awesome-icon :icon="['fas' , 'home']"/>
+                                </div>
+                                <div v-if="this.$route.path === '/'" class="flex text-lg ">
+                                    Home
+                                </div>
+                            </a>
                         </div>
-                        <div v-if="this.$route.path === '/'" class="flex text-lg ">
-                            Home
+                        <!--categories -->
+                        <div class=" flex grow h-10 ">
+                            <a href="/categories" class="flex justify-center items-center grow pr-2"
+                               v-bind:class="(this.$route.path === '/categories')? ' bg-emerald-600 rounded-lg': ''">
+                                <div class="px-1">
+                                    <font-awesome-icon :icon="['fab' , 'buffer']"/>
+                                </div>
+                                <div v-if="this.$route.path === '/categories'" class="flex text-lg">
+                                    Categories
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                <!--categories -->
-                <div class=" flex grow h-10 ">
-                    <a href="/categories" class="flex justify-center items-center grow pr-2"
-                       v-bind:class="(this.$route.path === '/categories')? ' bg-emerald-600 rounded-lg': ''">
-                        <div class="px-1">
-                            <font-awesome-icon :icon="['fab' , 'buffer']"/>
+                        <!-- about us -->
+                        <div class=" flex grow h-10 ">
+                            <routerLink :to="{name:'aboutUs'}" class="flex justify-center items-center grow pr-2"
+                                        v-bind:class="(this.$route.path === '/about-us')? ' bg-emerald-600 rounded-lg': ''">
+                                <div class="px-2">
+                                    <font-awesome-icon :icon="['fas' , 'info']"/>
+                                </div>
+                                <div v-if="this.$route.path === '/about-us'" class="flex text-lg ">
+                                    About Us
+                                </div>
+                            </routerLink>
                         </div>
-                        <div v-if="this.$route.path === '/categories'" class="flex text-lg">
-                            Categories
+                    </div>
+                    <!-- right side buttons-->
+                    <div class="flex grow ">
+                        <!--                &lt;!&ndash;register&ndash;&gt;-->
+                        <!--                <div v-if="!loggedInUser" class=" grow px-2 py-1"-->
+                        <!--                     v-bind:class="(this.$route.path === '/register')? 'border-t border-lime-500 rounded-lg': ''">-->
+                        <!--                    <div>-->
+                        <!--                        <router-link :to="{name:'register'}" class="float-right ">-->
+                        <!--                            <font-awesome-icon :icon="['fas' , 'user-plus']"/>-->
+                        <!--                        </router-link>-->
+                        <!--                    </div>-->
+                        <!--                </div>-->
+                        <!--  shopping cart-->
+                        <div class=" flex grow h-10  ">
+                            <routerLink :to="{name:'shoppingCart'}" class="flex justify-center items-center grow pr-2"
+                                        v-bind:class="(this.$route.path === '/shopping-cart')? ' bg-emerald-600 rounded-lg': ''">
+                                <div class="px-2">
+                                    <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
+                                </div>
+                                <div v-if="this.$route.path === '/shopping-cart'" class="flex text-lg ">
+                                    Shopping Cart
+                                </div>
+                            </routerLink>
                         </div>
-                    </a>
-                </div>
-                <!-- about us -->
-                <div class=" flex grow h-10 ">
-                    <routerLink :to="{name:'aboutUs'}" class="flex justify-center items-center grow pr-2"
-                       v-bind:class="(this.$route.path === '/about-us')? ' bg-emerald-600 rounded-lg': ''">
-                        <div class="px-2">
-                            <font-awesome-icon :icon="['fas' , 'info']"/>
+                        <!--login-->
+                        <div class=" flex grow h-10  ">
+                            <routerLink :to="{name:'login'}" class="flex justify-center items-center grow pr-2"
+                                        v-bind:class="(this.$route.path === '/login')? ' bg-emerald-600 rounded-lg': ''">
+                                <div class="px-2">
+                                    <font-awesome-icon :icon="['fas', 'door-open']"/>
+                                </div>
+                                <div v-if="this.$route.path === '/login'" class="flex text-lg ">
+                                    Login
+                                </div>
+                            </routerLink>
                         </div>
-                        <div v-if="this.$route.path === '/about-us'" class="flex text-lg ">
-                            About Us
+                        <!--  user dashboard-->
+                        <div v-if="loggedInUser" class=" grow px-2 py-1 "
+                             v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': ''">
+                            <router-link :to="{name:'dashboard'}" href="/api/user">
+                                <font-awesome-icon :icon="['fas', 'chart-line']"/>
+                                <h3 class="inline-block pl-1">{{ loggedInUser.firstName }}</h3>
+                            </router-link>
                         </div>
-                    </routerLink>
+                    </div>
                 </div>
             </div>
-            <!-- right side buttons-->
-            <div class="flex grow ">
-<!--                &lt;!&ndash;register&ndash;&gt;-->
-<!--                <div v-if="!loggedInUser" class=" grow px-2 py-1"-->
-<!--                     v-bind:class="(this.$route.path === '/register')? 'border-t border-lime-500 rounded-lg': ''">-->
-<!--                    <div>-->
-<!--                        <router-link :to="{name:'register'}" class="float-right ">-->
-<!--                            <font-awesome-icon :icon="['fas' , 'user-plus']"/>-->
-<!--                        </router-link>-->
-<!--                    </div>-->
-<!--                </div>-->
-                <!--  shopping cart-->
-                <div class=" flex grow h-10  ">
-                    <routerLink :to="{name:'shoppingCart'}" class="flex justify-center items-center grow pr-2"
-                                v-bind:class="(this.$route.path === '/shopping-cart')? ' bg-emerald-600 rounded-lg': ''">
-                        <div class="px-2">
-                            <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
-                        </div>
-                        <div v-if="this.$route.path === '/shopping-cart'" class="flex text-lg ">
-                            Shopping Cart
-                        </div>
-                    </routerLink>
-                </div>
-                <!--login-->
-                <div class=" flex grow h-10  ">
-                    <routerLink :to="{name:'login'}" class="flex justify-center items-center grow pr-2"
-                                v-bind:class="(this.$route.path === '/login')? ' bg-emerald-600 rounded-lg': ''">
-                        <div class="px-2">
-                            <font-awesome-icon :icon="['fas', 'door-open']"/>
-                        </div>
-                        <div v-if="this.$route.path === '/login'" class="flex text-lg ">
-                            Login
-                        </div>
-                    </routerLink>
-                </div>
-                <!--  user dashboard-->
-                <div v-if="loggedInUser" class=" grow px-2 py-1 "
-                     v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': ''">
-                    <router-link :to="{name:'dashboard'}" href="/api/user">
-                        <font-awesome-icon :icon="['fas', 'chart-line']"/>
-                        <h3 class="inline-block pl-1">{{ loggedInUser.firstName }}</h3>
-                    </router-link>
-                </div>
+            <!-- header hidden area -->
+            <div class=" w-full h-32  bg-slate-700 ">
+                <h1>hidden area</h1>
             </div>
         </div>
-    </div>
 </template>
 
 <!---------------------------------------------------------------------->
