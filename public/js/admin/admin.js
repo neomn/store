@@ -16920,6 +16920,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -16929,7 +16942,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       sideBarItems: {
         users: {
           title: 'users',
-          items: ['create']
+          items: ['create'],
+          expand: false
         },
         categories: {
           title: 'categories',
@@ -16998,6 +17012,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       this.displaySidebar = !this.displaySidebar;
+    },
+    toggleExpand: function toggleExpand(item) {
+      item.expand = !item.expand;
     }
   }
 });
@@ -36938,42 +36955,71 @@ var render = function () {
             staticClass:
               " absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden\n            text-zinc-300",
           },
-          _vm._l(_vm.sideBarItems, function (item) {
-            return _c(
+          [
+            _c(
               "div",
-              {
-                staticClass: " flex w-full h-12 pl-2 border-b border-lime-300",
-              },
-              [
-                _c(
-                  "button",
-                  { staticClass: "w-full h-full pl-2  text-2xl text-left " },
-                  [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(item.title) +
-                        "\n                "
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "flex justify-center items-center h-full w-1/6",
-                  },
-                  [
-                    _c("font-awesome-icon", {
-                      attrs: { icon: ["fas", "angle-down"] },
-                    }),
-                  ],
-                  1
-                ),
-              ]
-            )
-          }),
-          0
+              { staticClass: " flex flex-col w-full h-12 pl-2 " },
+              _vm._l(_vm.sideBarItems, function (item) {
+                return _c("div", [
+                  _c(
+                    "div",
+                    { staticClass: "flex w-full border-2 border-lime-300" },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "w-5/6 h-full pl-2  text-2xl text-left ",
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(item.title) +
+                              "\n                        "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      item.items.length !== 0
+                        ? _c(
+                            "div",
+                            {
+                              staticClass:
+                                " flex justify-center items-center h-full w-1/6 border",
+                              on: {
+                                click: function ($event) {
+                                  return _vm.toggleExpand(item)
+                                },
+                              },
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "angle-down"] },
+                              }),
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  item.expand
+                    ? _c(
+                        "div",
+                        { staticClass: "border-2 border-red-600 w-full pl-4" },
+                        [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(item.items) +
+                              "\n                    "
+                          ),
+                        ]
+                      )
+                    : _vm._e(),
+                ])
+              }),
+              0
+            ),
+          ]
         ),
         _vm._v(" "),
         _c(

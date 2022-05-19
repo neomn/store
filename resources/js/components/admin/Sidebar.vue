@@ -5,18 +5,31 @@
             <!-- sidebar items -->
             <div class=" absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden
                 text-zinc-300">
-                <!-- root buttons -->
-                <div v-for="item in sideBarItems"
-                    class=" flex w-full h-12 pl-2 border-b border-lime-300">
-                    <button class="w-full h-full pl-2  text-2xl text-left ">
-                        {{ item.title }}
-                    </button>
-                    <!-- expand icon -->
-                    <div class="flex justify-center items-center h-full w-1/6">
-                        <font-awesome-icon :icon="['fas', 'angle-down']"/>
+
+                <div class=" flex flex-col w-full h-12 pl-2 ">
+                    <!-- top level buttons and expandable area -->
+                    <div v-for="item in sideBarItems" >
+                        <!-- buttons  -->
+                        <div class="flex w-full border-2 border-lime-300">
+                            <button class="w-5/6 h-full pl-2  text-2xl text-left ">
+                                {{ item.title }}
+                            </button>
+                            <!-- expand icon -->
+                            <div v-if="(item.items.length !== 0)"
+                                 @click="toggleExpand(item)"
+                                 class=" flex justify-center items-center h-full w-1/6 border">
+                                <font-awesome-icon :icon="['fas', 'angle-down']"/>
+                            </div>
+                        </div>
+                        <!-- expandable area -->
+                        <div v-if="item.expand"
+                             class="border-2 border-red-600 w-full pl-4">
+                            {{ item.items }}
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- logout button -->
             <div class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
                 <button @click="logout">
@@ -37,7 +50,7 @@ export default {
         return {
             displaySidebar: false,
             sideBarItems: {
-                users: {title: 'users', items: ['create',]},
+                users: {title: 'users', items: ['create',] , expand: false },
                 categories: {title: 'categories', items: []},
                 products: {title: 'products', items: []},
                 admins: {title: 'admins', items: []},
@@ -74,6 +87,9 @@ export default {
             }
             this.displaySidebar = !this.displaySidebar
         },
+        toggleExpand(item){
+            item.expand = !item.expand
+        }
     }
 }
 </script>
