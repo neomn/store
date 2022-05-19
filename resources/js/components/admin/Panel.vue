@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen bg-slate-700">
         <Header/>
-        <Sidebar/>
+<!--        <Sidebar/>-->
     </div>
 </template>
 

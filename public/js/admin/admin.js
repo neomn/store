@@ -16561,13 +16561,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
   data: function data() {
     return {
       HeaderImage: '../resources/img/WelcomeController.jpg',
-      loggedInUser: {}
+      loggedInUser: {},
+      displayMenu: false
     };
   },
   created: function created() {
@@ -16589,6 +16650,9 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log('loggedInUser >');
       console.log(this.loggedInUser);
+    },
+    toggleMenu: function toggleMenu() {
+      this.displayMenu = !this.displayMenu;
     }
   }
 });
@@ -36366,35 +36430,207 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+  return _c("div", { staticClass: "flex flex-col fixed bottom-0 w-full" }, [
+    _c(
       "div",
       {
         staticClass:
-          "fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900",
+          "flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900",
       },
       [
         _c(
           "div",
           {
-            staticClass: "px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ",
+            staticClass:
+              "flex grow justify-around items-center rounded text-zinc-300 text-2xl",
           },
           [
-            _c("a", { staticClass: "mx-2 px-2", attrs: { href: "/" } }, [
-              _vm._v(" Home"),
+            _c("div", { staticClass: " flex grow items-center" }, [
+              !_vm.displayMenu
+                ? _c(
+                    "div",
+                    { staticClass: "pr-2", on: { click: _vm.toggleMenu } },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "bars"] },
+                      }),
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.displayMenu
+                ? _c(
+                    "div",
+                    { staticClass: "pr-2 ", on: { click: _vm.toggleMenu } },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "times"] },
+                      }),
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: " flex grow h-10 " }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "flex justify-center items-center grow pr-2",
+                    class:
+                      this.$route.path === "/"
+                        ? " bg-emerald-600 rounded-lg"
+                        : "",
+                    attrs: { href: "/" },
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "px-1" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "home"] },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    this.$route.path === "/"
+                      ? _c("div", { staticClass: "flex text-lg " }, [
+                          _vm._v(
+                            "\n                            Home\n                        "
+                          ),
+                        ])
+                      : _vm._e(),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: " flex grow h-10 " }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "flex justify-center items-center grow pr-2",
+                    class:
+                      this.$route.path === "/categories"
+                        ? " bg-emerald-600 rounded-lg"
+                        : "",
+                    attrs: { href: "/categories" },
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "px-1" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fab", "buffer"] },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    this.$route.path === "/categories"
+                      ? _c("div", { staticClass: "flex text-lg" }, [
+                          _vm._v(
+                            "\n                            Categories\n                        "
+                          ),
+                        ])
+                      : _vm._e(),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: " flex grow h-10 " },
+                [
+                  _c(
+                    "routerLink",
+                    {
+                      staticClass: "flex justify-center items-center grow pr-2",
+                      class:
+                        this.$route.path === "/about-us"
+                          ? " bg-emerald-600 rounded-lg"
+                          : "",
+                      attrs: { to: { name: "aboutUs" } },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "px-2" },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "info"] },
+                          }),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      this.$route.path === "/about-us"
+                        ? _c("div", { staticClass: "flex text-lg " }, [
+                            _vm._v(
+                              "\n                            About Us\n                        "
+                            ),
+                          ])
+                        : _vm._e(),
+                    ]
+                  ),
+                ],
+                1
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex grow " }, [
+              _c(
+                "div",
+                { staticClass: " flex grow h-10  " },
+                [
+                  _c(
+                    "routerLink",
+                    {
+                      staticClass: "flex justify-center items-center grow pr-2",
+                      class:
+                        this.$route.path === "/shopping-cart"
+                          ? " bg-emerald-600 rounded-lg"
+                          : "",
+                      attrs: { to: { name: "shoppingCart" } },
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "px-2" },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "shopping-cart"] },
+                          }),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      this.$route.path === "/shopping-cart"
+                        ? _c("div", { staticClass: "flex text-lg " }, [
+                            _vm._v(
+                              "\n                            Cart\n                        "
+                            ),
+                          ])
+                        : _vm._e(),
+                    ]
+                  ),
+                ],
+                1
+              ),
             ]),
           ]
         ),
       ]
-    )
-  },
-]
+    ),
+    _vm._v(" "),
+    _vm.displayMenu
+      ? _c("div", { staticClass: " w-full h-32  bg-gray-700 " })
+      : _vm._e(),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -36445,7 +36681,7 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "min-h-screen bg-slate-700" },
-    [_c("Header"), _vm._v(" "), _c("Sidebar")],
+    [_c("Header")],
     1
   )
 }
