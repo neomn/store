@@ -36692,7 +36692,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "min-h-screen bg-slate-700" },
+    { staticClass: "min-h-screen bg-slate-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
@@ -36893,7 +36893,7 @@ var render = function () {
     {
       ref: "sidebar",
       staticClass:
-        "fixed flex left-0 top-12 h-full w-0  rounded-lg bg-slate-900 overflow-hidden",
+        "fixed flex left-0 top-0 min-h-screen w-0  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden",
     },
     [
       _c(

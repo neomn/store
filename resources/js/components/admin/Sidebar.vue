@@ -1,5 +1,5 @@
 <template>
-    <div ref="sidebar" class="fixed flex left-0 top-12 h-full w-0  rounded-lg bg-slate-900 overflow-hidden">
+    <div ref="sidebar" class="fixed flex left-0 top-0 min-h-screen w-0  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden">
         <div class="relative flex flex-col w-full h-full overflow-hidden">
 
             <!-- logout button -->

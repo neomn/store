@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-slate-700">
+    <div class="min-h-screen bg-slate-900">
 
         <Header class="z-50" />
 
