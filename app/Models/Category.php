@@ -13,6 +13,6 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
     public function image(){
-        return $this->hasOne(Image::class);
+        return $this->hasOne(Image::class) ;
     }
 }
