@@ -1,25 +1,4 @@
 <template>
-<!--    <div class="dark" ref="panel">-->
-<!--        <div class="bg-white dark:bg-slate-900 min-h-screen ">-->
-<!--            <header>-->
-<!--                <Header/>-->
-<!--                <router-link to="settings"> go to settings</router-link>-->
-<!--            </header>-->
-<!--            <div>-->
-<!--                <button type="button" ref="darkButton" @click="switchDarkmode">dark Mode</button>-->
-<!--                <sidebar class="sidebar">-->
-<!--                    <Sidebar/>-->
-<!--                </sidebar>-->
-<!--            </div>-->
-<!--            <div>-->
-
-<!--            </div>-->
-<!--            <footer>-->
-<!--                <Footer/>-->
-<!--            </footer>-->
-<!--        </div>-->
-<!--    </div>-->
-
     <div class="min-h-screen bg-slate-700">
         <Header/>
         <Sidebar/>
