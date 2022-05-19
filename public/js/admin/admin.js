@@ -16912,6 +16912,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -36610,7 +36613,7 @@ var render = function () {
                     {
                       staticClass: "flex justify-center items-center grow pr-2",
                       class:
-                        this.$route.path === "/panel"
+                        this.$route.path === "/"
                           ? " bg-emerald-600 rounded-lg"
                           : "",
                       attrs: { to: { name: "" } },
@@ -36627,15 +36630,13 @@ var render = function () {
                         1
                       ),
                       _vm._v(" "),
-                      this.$route.path === "/shopping-cart"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
-                            _vm._v(
-                              "\n                                " +
-                                _vm._s(_vm.loggedInUser.firstName) +
-                                "\n                            "
-                            ),
-                          ])
-                        : _vm._e(),
+                      _c("div", { staticClass: "flex text-lg " }, [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.loggedInUser.firstName) +
+                            "\n                            "
+                        ),
+                      ]),
                     ]
                   ),
                 ],
@@ -36902,35 +36903,59 @@ var render = function () {
         "fixed flex left-0  min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden",
     },
     [
-      _c("div", { staticClass: "relative w-full" }, [
+      _c("div", { staticClass: "relative flex justify-center w-full" }, [
+        _vm._m(0),
+        _vm._v(" "),
         _c(
           "div",
           {
             staticClass:
-              " absolute top-0 flex flex-col items-center justify-start w-full h-full overflow-hidden",
+              " absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600",
           },
           [
-            _c("div", { staticClass: "w-full " }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  " absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600",
-              },
-              [
-                _c("button", { on: { click: _vm.logout } }, [
-                  _vm._v("\n                    Log Out\n                "),
-                ]),
-              ]
-            ),
+            _c("button", { on: { click: _vm.logout } }, [
+              _vm._v("\n                Log Out\n            "),
+            ]),
           ]
         ),
       ]),
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          " absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden\n            text-zinc-300",
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              "w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left  ",
+          },
+          [_vm._v("users")]
+        ),
+        _vm._v(" "),
+        _c("button", [_vm._v("categories")]),
+        _vm._v(" "),
+        _c("button", [_vm._v("products")]),
+        _vm._v(" "),
+        _c("button", [_vm._v("admins")]),
+        _vm._v(" "),
+        _c("button", [_vm._v("analytics")]),
+        _vm._v(" "),
+        _c("button", [_vm._v("settings")]),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 

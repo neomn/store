@@ -55,11 +55,11 @@
                     <!-- profile -->
                     <div class=" flex grow h-10  ">
                         <routerLink :to="{name:''}" class="flex justify-center items-center grow pr-2"
-                                    v-bind:class="(this.$route.path === '/panel')? ' bg-emerald-600 rounded-lg': ''">
+                                    v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
                             <div class="px-2">
                                 <font-awesome-icon :icon="['fas', 'user']"/>
                             </div>
-                            <div v-if="this.$route.path === '/shopping-cart'" class="flex text-lg ">
+                            <div class="flex text-lg ">
                                 {{loggedInUser.firstName}}
                             </div>
                         </routerLink>

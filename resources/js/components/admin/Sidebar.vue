@@ -1,19 +1,22 @@
 <template>
     <div ref="sidebar"
          class="fixed flex left-0  min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden">
-        <div class="relative w-full">
-            <div class=" absolute top-0 flex flex-col items-center justify-start w-full h-full overflow-hidden">
-                <!-- sidebar items -->
-                <div class="w-full ">
-
-                </div>
-                <!-- logout button -->
-                <div
-                    class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
-                    <button @click="logout">
-                        Log Out
-                    </button>
-                </div>
+        <div class="relative flex justify-center w-full">
+            <!-- sidebar items -->
+            <div class=" absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden
+                text-zinc-300">
+                <button class="w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left  ">users</button>
+                <button>categories</button>
+                <button>products</button>
+                <button>admins</button>
+                <button>analytics</button>
+                <button>settings</button>
+            </div>
+            <!-- logout button -->
+            <div class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
+                <button @click="logout">
+                    Log Out
+                </button>
             </div>
         </div>
     </div>

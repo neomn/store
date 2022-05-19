@@ -948,6 +948,9 @@ select {
 .content-center {
   align-content: center;
 }
+.items-start {
+  align-items: flex-start;
+}
 .items-center {
   align-items: center;
 }
@@ -1197,6 +1200,10 @@ select {
   --tw-gradient-from: #b45309;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(180 83 9 / 0));
 }
+.from-slate-800 {
+  --tw-gradient-from: #1e293b;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(30 41 59 / 0));
+}
 .via-lime-300 {
   --tw-gradient-stops: var(--tw-gradient-from), #bef264, var(--tw-gradient-to, rgb(190 242 100 / 0));
 }
@@ -1211,6 +1218,9 @@ select {
 }
 .to-zinc-900 {
   --tw-gradient-to: #18181b;
+}
+.to-slate-800 {
+  --tw-gradient-to: #1e293b;
 }
 .fill-current {
   fill: currentColor;
