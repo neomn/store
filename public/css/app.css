@@ -582,6 +582,9 @@ select {
 .bottom-20 {
   bottom: 5rem;
 }
+.bottom-8 {
+  bottom: 2rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -941,6 +944,9 @@ select {
 }
 .flex-col {
   flex-direction: column;
+}
+.content-center {
+  align-content: center;
 }
 .items-center {
   align-items: center;

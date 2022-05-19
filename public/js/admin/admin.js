@@ -16906,6 +16906,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -36692,7 +36698,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "min-h-screen bg-slate-900" },
+    { staticClass: "min-h-screen w-full bg-slate-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
@@ -36893,27 +36899,34 @@ var render = function () {
     {
       ref: "sidebar",
       staticClass:
-        "fixed flex left-0 top-0 min-h-screen w-0  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden",
+        "fixed flex left-0  min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden",
     },
     [
-      _c(
-        "div",
-        { staticClass: "relative flex flex-col w-full h-full overflow-hidden" },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                " absolute bottom-16 self-center w-5/6 h-8 text-center\n            text-red-600 rounded-lg border-2 border-red-600",
-            },
-            [
-              _c("button", { on: { click: _vm.logout } }, [
-                _vm._v("\n                Log Out\n            "),
-              ]),
-            ]
-          ),
-        ]
-      ),
+      _c("div", { staticClass: "relative w-full" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              " absolute top-0 flex flex-col items-center justify-start w-full h-full overflow-hidden",
+          },
+          [
+            _c("div", { staticClass: "w-full " }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  " absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600",
+              },
+              [
+                _c("button", { on: { click: _vm.logout } }, [
+                  _vm._v("\n                    Log Out\n                "),
+                ]),
+              ]
+            ),
+          ]
+        ),
+      ]),
     ]
   )
 }
