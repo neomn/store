@@ -16911,6 +16911,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -36931,12 +36940,37 @@ var render = function () {
           },
           _vm._l(_vm.sideBarItems, function (item) {
             return _c(
-              "button",
+              "div",
               {
-                staticClass:
-                  "w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ",
+                staticClass: " flex w-full h-12 pl-2 border-b border-lime-300",
               },
-              [_vm._v(_vm._s(item.title))]
+              [
+                _c(
+                  "button",
+                  { staticClass: "w-full h-full pl-2  text-2xl text-left " },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(item.title) +
+                        "\n                "
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex justify-center items-center h-full w-1/6",
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "angle-down"] },
+                    }),
+                  ],
+                  1
+                ),
+              ]
             )
           }),
           0

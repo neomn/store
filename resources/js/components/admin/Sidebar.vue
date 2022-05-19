@@ -5,8 +5,17 @@
             <!-- sidebar items -->
             <div class=" absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden
                 text-zinc-300">
-                <button v-for="item in sideBarItems"
-                    class="w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ">{{item.title}}</button>
+                <!-- root buttons -->
+                <div v-for="item in sideBarItems"
+                    class=" flex w-full h-12 pl-2 border-b border-lime-300">
+                    <button class="w-full h-full pl-2  text-2xl text-left ">
+                        {{ item.title }}
+                    </button>
+                    <!-- expand icon -->
+                    <div class="flex justify-center items-center h-full w-1/6">
+                        <font-awesome-icon :icon="['fas', 'angle-down']"/>
+                    </div>
+                </div>
             </div>
             <!-- logout button -->
             <div class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
@@ -28,7 +37,7 @@ export default {
         return {
             displaySidebar: false,
             sideBarItems: {
-                users: { title: 'users', items: ['create',]},
+                users: {title: 'users', items: ['create',]},
                 categories: {title: 'categories', items: []},
                 products: {title: 'products', items: []},
                 admins: {title: 'admins', items: []},
