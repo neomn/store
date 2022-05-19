@@ -5,12 +5,7 @@
             <!-- sidebar items -->
             <div class=" absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden
                 text-zinc-300">
-                <button class="w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left  ">users</button>
-                <button>categories</button>
-                <button>products</button>
-                <button>admins</button>
-                <button>analytics</button>
-                <button>settings</button>
+                <button class="w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ">users</button>
             </div>
             <!-- logout button -->
             <div class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
@@ -31,12 +26,18 @@ export default {
     data() {
         return {
             displaySidebar: false,
-            sideBarItems: [
-                'inbox',
-                'orders',
-                'favorites',
-                'profile',
-            ],
+            sideBarItems: {
+                users: {
+                    items: [
+                        'create',
+                    ]
+                },
+                categories: {},
+                products: {},
+                admins: {},
+                analytics: {},
+                settings: {},
+            },
         }
     },
     mounted() {

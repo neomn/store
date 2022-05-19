@@ -16910,18 +16910,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
   data: function data() {
     return {
       displaySidebar: false,
-      sideBarItems: ['inbox', 'orders', 'favorites', 'profile']
+      sideBarItems: {
+        users: {
+          items: ['create']
+        },
+        categories: {},
+        products: {},
+        admins: {},
+        analytics: {},
+        settings: {}
+      }
     };
   },
   mounted: function mounted() {
@@ -36938,20 +36942,10 @@ var staticRenderFns = [
           "button",
           {
             staticClass:
-              "w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left  ",
+              "w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ",
           },
           [_vm._v("users")]
         ),
-        _vm._v(" "),
-        _c("button", [_vm._v("categories")]),
-        _vm._v(" "),
-        _c("button", [_vm._v("products")]),
-        _vm._v(" "),
-        _c("button", [_vm._v("admins")]),
-        _vm._v(" "),
-        _c("button", [_vm._v("analytics")]),
-        _vm._v(" "),
-        _c("button", [_vm._v("settings")]),
       ]
     )
   },
