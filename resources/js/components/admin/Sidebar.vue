@@ -5,7 +5,8 @@
             <!-- sidebar items -->
             <div class=" absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden
                 text-zinc-300">
-                <button class="w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ">users</button>
+                <button v-for="item in sideBarItems"
+                    class="w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ">{{item.title}}</button>
             </div>
             <!-- logout button -->
             <div class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
@@ -27,16 +28,12 @@ export default {
         return {
             displaySidebar: false,
             sideBarItems: {
-                users: {
-                    items: [
-                        'create',
-                    ]
-                },
-                categories: {},
-                products: {},
-                admins: {},
-                analytics: {},
-                settings: {},
+                users: { title: 'users', items: ['create',]},
+                categories: {title: 'categories', items: []},
+                products: {title: 'products', items: []},
+                admins: {title: 'admins', items: []},
+                analytics: {title: 'analytics', items: []},
+                settings: {title: 'settings', items: []},
             },
         }
     },
@@ -59,16 +56,14 @@ export default {
                 })
         },
         toggleSidebar() {
-            console.log('sidebar > toggleSidebar')
             if (this.displaySidebar) {
-                this.displaySidebar = !this.displaySidebar
                 this.$refs.sidebar.classList.remove('w-2/3')
                 this.$refs.sidebar.classList.add('w-0')
             } else if (!this.displaySidebar) {
-                this.displaySidebar = !this.displaySidebar
                 this.$refs.sidebar.classList.remove('w-0')
                 this.$refs.sidebar.classList.add('w-2/3')
             }
+            this.displaySidebar = !this.displaySidebar
         },
     }
 }

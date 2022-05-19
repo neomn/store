@@ -16910,6 +16910,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -16918,13 +16919,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       displaySidebar: false,
       sideBarItems: {
         users: {
+          title: 'users',
           items: ['create']
         },
-        categories: {},
-        products: {},
-        admins: {},
-        analytics: {},
-        settings: {}
+        categories: {
+          title: 'categories',
+          items: []
+        },
+        products: {
+          title: 'products',
+          items: []
+        },
+        admins: {
+          title: 'admins',
+          items: []
+        },
+        analytics: {
+          title: 'analytics',
+          items: []
+        },
+        settings: {
+          title: 'settings',
+          items: []
+        }
       }
     };
   },
@@ -16963,17 +16980,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     toggleSidebar: function toggleSidebar() {
-      console.log('sidebar > toggleSidebar');
-
       if (this.displaySidebar) {
-        this.displaySidebar = !this.displaySidebar;
         this.$refs.sidebar.classList.remove('w-2/3');
         this.$refs.sidebar.classList.add('w-0');
       } else if (!this.displaySidebar) {
-        this.displaySidebar = !this.displaySidebar;
         this.$refs.sidebar.classList.remove('w-0');
         this.$refs.sidebar.classList.add('w-2/3');
       }
+
+      this.displaySidebar = !this.displaySidebar;
     }
   }
 });
@@ -36908,7 +36923,24 @@ var render = function () {
     },
     [
       _c("div", { staticClass: "relative flex justify-center w-full" }, [
-        _vm._m(0),
+        _c(
+          "div",
+          {
+            staticClass:
+              " absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden\n            text-zinc-300",
+          },
+          _vm._l(_vm.sideBarItems, function (item) {
+            return _c(
+              "button",
+              {
+                staticClass:
+                  "w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ",
+              },
+              [_vm._v(_vm._s(item.title))]
+            )
+          }),
+          0
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -36926,30 +36958,7 @@ var render = function () {
     ]
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          " absolute top-0 flex flex-col items-start justify-start  w-full h-5/6  overflow-hidden\n            text-zinc-300",
-      },
-      [
-        _c(
-          "button",
-          {
-            staticClass:
-              "w-full h-12 pl-2 border-b border-lime-300 text-2xl text-left ",
-          },
-          [_vm._v("users")]
-        ),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
