@@ -16651,8 +16651,9 @@ __webpack_require__.r(__webpack_exports__);
       console.log('loggedInUser >');
       console.log(this.loggedInUser);
     },
-    toggleMenu: function toggleMenu() {
+    toggleSidebar: function toggleSidebar() {
       this.displayMenu = !this.displayMenu;
+      this.$root.$emit('sidebar');
     }
   }
 });
@@ -16706,6 +16707,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -16726,7 +16730,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showProducts: false
+      showProducts: false,
+      displaySidebar: false
     };
   },
   mounted: function mounted() {
@@ -16901,25 +16906,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
+  props: ['display'],
   data: function data() {
     return {
+      displaySidebar: false,
       sideBarItems: ['inbox', 'orders', 'favorites', 'profile']
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$root.$on('sidebar', function () {
+      _this.toggleSidebar();
+    });
   },
   methods: {
     logout: function logout() {
@@ -16947,6 +16948,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    toggleSidebar: function toggleSidebar() {
+      console.log('sidebar > toggleSidebar');
+
+      if (this.displaySidebar) {
+        this.displaySidebar = !this.displaySidebar;
+        this.$refs.sidebar.classList.remove('w-2/3');
+        this.$refs.sidebar.classList.add('w-0');
+      } else if (!this.displaySidebar) {
+        this.displaySidebar = !this.displaySidebar;
+        this.$refs.sidebar.classList.remove('w-0');
+        this.$refs.sidebar.classList.add('w-2/3');
+      }
     }
   }
 });
@@ -36449,7 +36463,7 @@ var render = function () {
               !_vm.displayMenu
                 ? _c(
                     "div",
-                    { staticClass: "pr-2", on: { click: _vm.toggleMenu } },
+                    { staticClass: "pr-2", on: { click: _vm.toggleSidebar } },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "bars"] },
@@ -36462,7 +36476,7 @@ var render = function () {
               _vm.displayMenu
                 ? _c(
                     "div",
-                    { staticClass: "pr-2 ", on: { click: _vm.toggleMenu } },
+                    { staticClass: "pr-2 ", on: { click: _vm.toggleSidebar } },
                     [
                       _c("font-awesome-icon", {
                         attrs: { icon: ["fas", "times"] },
@@ -36498,7 +36512,7 @@ var render = function () {
                     this.$route.path === "/"
                       ? _c("div", { staticClass: "flex text-lg " }, [
                           _vm._v(
-                            "\n                            Home\n                        "
+                            "\n                                Home\n                            "
                           ),
                         ])
                       : _vm._e(),
@@ -36532,7 +36546,7 @@ var render = function () {
                     this.$route.path === "/categories"
                       ? _c("div", { staticClass: "flex text-lg" }, [
                           _vm._v(
-                            "\n                            Categories\n                        "
+                            "\n                                Categories\n                            "
                           ),
                         ])
                       : _vm._e(),
@@ -36569,7 +36583,7 @@ var render = function () {
                       this.$route.path === "/about-us"
                         ? _c("div", { staticClass: "flex text-lg " }, [
                             _vm._v(
-                              "\n                            About Us\n                        "
+                              "\n                                About Us\n                            "
                             ),
                           ])
                         : _vm._e(),
@@ -36590,10 +36604,10 @@ var render = function () {
                     {
                       staticClass: "flex justify-center items-center grow pr-2",
                       class:
-                        this.$route.path === "/shopping-cart"
+                        this.$route.path === "/panel"
                           ? " bg-emerald-600 rounded-lg"
                           : "",
-                      attrs: { to: { name: "shoppingCart" } },
+                      attrs: { to: { name: "" } },
                     },
                     [
                       _c(
@@ -36601,7 +36615,7 @@ var render = function () {
                         { staticClass: "px-2" },
                         [
                           _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "shopping-cart"] },
+                            attrs: { icon: ["fas", "user"] },
                           }),
                         ],
                         1
@@ -36610,7 +36624,9 @@ var render = function () {
                       this.$route.path === "/shopping-cart"
                         ? _c("div", { staticClass: "flex text-lg " }, [
                             _vm._v(
-                              "\n                            Cart\n                        "
+                              "\n                                " +
+                                _vm._s(_vm.loggedInUser.firstName) +
+                                "\n                            "
                             ),
                           ])
                         : _vm._e(),
@@ -36624,10 +36640,6 @@ var render = function () {
         ),
       ]
     ),
-    _vm._v(" "),
-    _vm.displayMenu
-      ? _c("div", { staticClass: " w-full h-32  bg-gray-700 " })
-      : _vm._e(),
   ])
 }
 var staticRenderFns = []
@@ -36681,7 +36693,11 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "min-h-screen bg-slate-700" },
-    [_c("Header")],
+    [
+      _c("Header", { staticClass: "z-50" }),
+      _vm._v(" "),
+      _c("Sidebar", { staticClass: "z-40" }),
+    ],
     1
   )
 }
@@ -36875,8 +36891,9 @@ var render = function () {
   return _c(
     "div",
     {
+      ref: "sidebar",
       staticClass:
-        "fixed flex left-0 top-12 h-full w-1/6  rounded-lg bg-slate-900 overflow-hidden",
+        "fixed flex left-0 top-12 h-full w-0  rounded-lg bg-slate-900 overflow-hidden",
     },
     [
       _c(
@@ -36887,11 +36904,11 @@ var render = function () {
             "div",
             {
               staticClass:
-                " absolute bottom-16 self-center w-5/6 h-8 text-center\n                text-red-600 rounded-lg border-2 border-red-600",
+                " absolute bottom-16 self-center w-5/6 h-8 text-center\n            text-red-600 rounded-lg border-2 border-red-600",
             },
             [
               _c("button", { on: { click: _vm.logout } }, [
-                _vm._v("\n                    Log Out\n                "),
+                _vm._v("\n                Log Out\n            "),
               ]),
             ]
           ),

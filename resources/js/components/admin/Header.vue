@@ -6,11 +6,11 @@
                 <!-- left side buttons-->
                 <div class=" flex grow items-center">
                     <!-- menu -->
-                    <div v-if="!displayMenu" @click="toggleMenu" class="pr-2">
+                    <div v-if="!displayMenu" @click="toggleSidebar" class="pr-2">
                         <font-awesome-icon :icon="['fas' , 'bars']"/>
                     </div>
                     <!-- close menu  -->
-                    <div v-if="displayMenu" @click="toggleMenu" class="pr-2 ">
+                    <div v-if="displayMenu" @click="toggleSidebar" class="pr-2 ">
                         <font-awesome-icon :icon="['fas' , 'times']"/>
                     </div>
                     <!--home -->
@@ -52,15 +52,15 @@
                 </div>
                 <!-- right side buttons-->
                 <div class="flex grow ">
-                    <!--  shopping cart-->
+                    <!-- profile -->
                     <div class=" flex grow h-10  ">
-                        <routerLink :to="{name:'shoppingCart'}" class="flex justify-center items-center grow pr-2"
-                                    v-bind:class="(this.$route.path === '/shopping-cart')? ' bg-emerald-600 rounded-lg': ''">
+                        <routerLink :to="{name:''}" class="flex justify-center items-center grow pr-2"
+                                    v-bind:class="(this.$route.path === '/panel')? ' bg-emerald-600 rounded-lg': ''">
                             <div class="px-2">
-                                <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
+                                <font-awesome-icon :icon="['fas', 'user']"/>
                             </div>
                             <div v-if="this.$route.path === '/shopping-cart'" class="flex text-lg ">
-                                Cart
+                                {{loggedInUser.firstName}}
                             </div>
                         </routerLink>
                     </div>
@@ -68,9 +68,9 @@
             </div>
         </div>
         <!-- header hidden area -->
-        <div v-if="displayMenu" class=" w-full h-32  bg-gray-700 ">
+<!--        <div v-if="displayMenu" class=" w-full h-32  bg-gray-700 ">-->
 
-        </div>
+<!--        </div>-->
     </div>
 </template>
 
@@ -106,8 +106,9 @@ export default {
             console.log('loggedInUser >')
             console.log(this.loggedInUser)
         },
-        toggleMenu(){
+        toggleSidebar(){
             this.displayMenu = !this.displayMenu
+            this.$root.$emit('sidebar')
         }
     }
 }

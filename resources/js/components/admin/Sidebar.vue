@@ -1,19 +1,6 @@
 <template>
-    <div class="fixed flex left-0 top-12 h-full w-1/6  rounded-lg bg-slate-900 overflow-hidden">
+    <div ref="sidebar" class="fixed flex left-0 top-12 h-full w-0  rounded-lg bg-slate-900 overflow-hidden">
         <div class="relative flex flex-col w-full h-full overflow-hidden">
-
-<!--            &lt;!&ndash; Orders History&ndash;&gt;-->
-<!--            <div class=" w-full ">-->
-<!--                <div class=" flex justify-start items-center h-auto py-1 pl-2 rounded-lg bg-slate-900 text-center text-zinc-300 ">-->
-<!--                    <div>-->
-<!--                        <div class="inline pr-2">-->
-<!--                            <font-awesome-icon :icon="['fas' , 'receipt']"/>-->
-<!--                        </div>-->
-<!--                        <span>Orders History</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class=" w-5/6 h-[1px]  bg-gradient-to-r from-slate-900 via-lime-300 to-slate-900"></div>-->
 
             <!-- logout button -->
             <div class=" absolute bottom-16 self-center w-5/6 h-8 text-center
@@ -29,8 +16,12 @@
 <script>
 export default {
     name: "SideBar",
+    props: [
+        'display'
+    ],
     data() {
         return {
+            displaySidebar: false,
             sideBarItems: [
                 'inbox',
                 'orders',
@@ -38,6 +29,11 @@ export default {
                 'profile',
             ],
         }
+    },
+    mounted() {
+        this.$root.$on('sidebar' , ()=>{
+            this.toggleSidebar()
+        })
     },
     methods: {
         async logout() {
@@ -51,6 +47,19 @@ export default {
                     console.log(error)
                     localStorage.removeItem('loggedInUser')
                 })
+        },
+        toggleSidebar(){
+            console.log('sidebar > toggleSidebar')
+            if (this.displaySidebar){
+                this.displaySidebar = !this.displaySidebar
+                this.$refs.sidebar.classList.remove('w-2/3')
+                this.$refs.sidebar.classList.add('w-0')
+            }
+            else if (!this.displaySidebar){
+                this.displaySidebar = !this.displaySidebar
+                this.$refs.sidebar.classList.remove('w-0')
+                this.$refs.sidebar.classList.add('w-2/3')
+            }
         },
     }
 }

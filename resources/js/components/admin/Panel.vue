@@ -1,7 +1,10 @@
 <template>
     <div class="min-h-screen bg-slate-700">
-        <Header/>
-<!--        <Sidebar/>-->
+
+        <Header class="z-50" />
+
+        <Sidebar class="z-40" />
+
     </div>
 </template>
 
@@ -29,6 +32,7 @@ export default {
     data() {
         return {
             showProducts: false,
+            displaySidebar: false,
         }
 
     },
@@ -58,7 +62,7 @@ export default {
                 this.$refs.panel.classList.remove('dark')
             } else this.$refs.panel.classList.add('dark')
 
-        }
+        },
     },
 }
 </script>
