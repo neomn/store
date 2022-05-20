@@ -3,9 +3,10 @@
          class="fixed flex left-0 min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden">
         <!-- sidebar contents  -->
         <div class="relative flex justify-center w-full">
-            <!-- top level buttons and expandable area -->
-            <div class=" absolute top-0 flex flex-col justify-start w-full h-5/6 overflow-hidden
-                text-zinc-300">
+            <!-- top section -->
+            <div class=" absolute top-0 flex flex-col justify-start w-full h-5/6 overflow-x-hidden overflow-y-scroll
+                text-zinc-300 ">
+                <!-- top level buttons and expandable area -->
                 <div v-for="item in sideBarItems">
                     <!-- buttons  -->
                     <div class="flex w-full px-2 py-4 border-b">
@@ -31,7 +32,7 @@
                 </div>
             </div>
             <!-- bottom section -->
-            <div class=" absolute bottom-0 flex justify-center w-full h-28 bg-slate-800 ">
+            <div class=" absolute bottom-0 flex justify-center w-full h-28 bg-slate-800">
                 <!-- logout button -->
                 <div @click="logout"
                      class=" w-5/6 h-8 mt-2 text-center text-red-600 rounded-lg border-2 border-red-600">

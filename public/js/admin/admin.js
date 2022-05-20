@@ -16936,6 +16936,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -36956,7 +36957,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              " absolute top-0 flex flex-col justify-start w-full h-5/6 overflow-hidden\n            text-zinc-300",
+              " absolute top-0 flex flex-col justify-start w-full h-5/6 overflow-x-hidden overflow-y-scroll\n            text-zinc-300 ",
           },
           _vm._l(_vm.sideBarItems, function (item) {
             return _c("div", [
@@ -37023,7 +37024,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              " absolute bottom-0 flex justify-center w-full h-28 bg-slate-800 ",
+              " absolute bottom-0 flex justify-center w-full h-28 bg-slate-800",
           },
           [
             _c(
