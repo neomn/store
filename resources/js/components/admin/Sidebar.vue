@@ -22,22 +22,26 @@
                     <div v-if="item.expand">
                         <div>
                             <div v-for=" subItem in item.items"
+                                 @click=""
                                  class=" flex flex-col justify-center items-start w-full h-10 pl-8 bg-slate-700 border-b">
-                                <button class="">{{ subItem.toString() }}</button>
+                                <span class="">{{ subItem.toString() }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- logout button -->
-            <div class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
-                <button @click="logout">
-                    Log Out
-                </button>
+            <!-- bottom section -->
+            <div class=" absolute bottom-0 flex justify-center w-full h-28 bg-slate-800 ">
+                <!-- logout button -->
+                <div @click="logout"
+                     class=" w-5/6 h-8 mt-2 text-center text-red-600 rounded-lg border-2 border-red-600">
+                    <span>Log Out</span>
+                </div>
             </div>
         </div>
     </div>
 </template>
+
 
 <script>
 export default {
@@ -93,7 +97,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
 

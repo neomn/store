@@ -573,6 +573,9 @@ select {
 .left-1\/2 {
   left: 50%;
 }
+.bottom-8 {
+  bottom: 2rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -807,6 +810,9 @@ select {
 }
 .h-4\/5 {
   height: 80%;
+}
+.h-28 {
+  height: 7rem;
 }
 .min-h-screen {
   min-height: 100vh;
