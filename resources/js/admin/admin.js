@@ -16,6 +16,7 @@ import Users from "../components/admin/Users";
 import Analytics from "../components/admin/Analytics";
 import Settings from "../components/admin/Settings";
 import NotFound from "../components/admin/NotFound";
+import Categories from "../components/admin/Categories";
 
 
 require('../web/bootstrap');
@@ -32,6 +33,7 @@ Vue.component('App', require('../components/admin/App').default);
 const routes=[
         { path: '/panel', name: 'panel', component: Panel},
         { path: '/panel/products', name: 'products', component: Products},
+        { path: '/panel/categories', name: 'categories', component: Categories},
         { path: '/panel/users', name: 'users', component: Users},
         { path: '/panel/analytics', name: 'analytics', component: Analytics},
         { path: '/panel/settings', name: 'settings', component: Settings},
