@@ -8,7 +8,7 @@
                 text-zinc-300">
                 <div v-for="item in sideBarItems">
                     <!-- buttons  -->
-                    <div class="flex w-full ">
+                    <div class="flex w-full px-2 py-4 border-b">
                         <button class="h-full grow pl-2  text-2xl text-left  ">
                             {{ item.title }}
                         </button>
@@ -19,9 +19,12 @@
                         </div>
                     </div>
                     <!-- expandable area -->
-                    <div v-if="item.expand" class="">
-                        <div v-for=" subItem in item.items" class=" w-full h-10 pl-4 px-4 bg-slate-700 border-b">
-                            {{ subItem.toString() }}
+                    <div v-if="item.expand">
+                        <div>
+                            <div v-for=" subItem in item.items"
+                                 class=" flex flex-col justify-center items-start w-full h-10 pl-8 bg-slate-700 border-b">
+                                <button class="">{{ subItem.toString() }}</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,7 +49,7 @@ export default {
         return {
             displaySidebar: false,
             sideBarItems: {
-                users: {title: 'users', items: ['create', 'details'], expand: false},
+                users: {title: 'users', items: ['create', 'details'], expand: true},
                 categories: {title: 'categories', items: []},
                 products: {title: 'products', items: []},
                 admins: {title: 'admins', items: []},

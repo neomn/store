@@ -16929,6 +16929,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -16939,7 +16942,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         users: {
           title: 'users',
           items: ['create', 'details'],
-          expand: false
+          expand: true
         },
         categories: {
           title: 'categories',
@@ -36953,7 +36956,7 @@ var render = function () {
           },
           _vm._l(_vm.sideBarItems, function (item) {
             return _c("div", [
-              _c("div", { staticClass: "flex w-full " }, [
+              _c("div", { staticClass: "flex w-full px-2 py-4 border-b" }, [
                 _c(
                   "button",
                   { staticClass: "h-full grow pl-2  text-2xl text-left  " },
@@ -36989,27 +36992,26 @@ var render = function () {
               ]),
               _vm._v(" "),
               item.expand
-                ? _c(
-                    "div",
-                    {},
-                    _vm._l(item.items, function (subItem) {
-                      return _c(
-                        "div",
-                        {
-                          staticClass:
-                            " w-full h-10 pl-4 px-4 bg-slate-700 border-b",
-                        },
-                        [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(subItem.toString()) +
-                              "\n                    "
-                          ),
-                        ]
-                      )
-                    }),
-                    0
-                  )
+                ? _c("div", [
+                    _c(
+                      "div",
+                      _vm._l(item.items, function (subItem) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass:
+                              " flex flex-col justify-center items-start w-full h-10 pl-8 bg-slate-700 border-b",
+                          },
+                          [
+                            _c("button", {}, [
+                              _vm._v(_vm._s(subItem.toString())),
+                            ]),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                  ])
                 : _vm._e(),
             ])
           }),
