@@ -16944,30 +16944,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       displaySidebar: false,
       sideBarItems: {
-        users: {
-          title: 'users',
-          items: ['create', 'details'],
-          expand: true
+        products: {
+          title: 'products',
+          items: ['add', 'edit', 'delete'],
+          expand: false
         },
         categories: {
           title: 'categories',
-          items: []
+          items: ['add', 'edit', 'delete'],
+          expand: false
         },
-        products: {
-          title: 'products',
-          items: []
+        users: {
+          title: 'users',
+          items: ['add', 'edit', 'delete'],
+          expand: false
         },
         admins: {
           title: 'admins',
-          items: []
+          items: ['add', 'edit', 'delete'],
+          expand: false
         },
         analytics: {
           title: 'analytics',
-          items: []
+          items: [],
+          expand: false
         },
         settings: {
           title: 'settings',
-          items: []
+          items: [],
+          expand: false
         }
       }
     };
@@ -36949,7 +36954,7 @@ var render = function () {
     {
       ref: "sidebar",
       staticClass:
-        "fixed flex left-0 min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden",
+        "fixed flex left-0 min-h-screen w-0  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden",
     },
     [
       _c("div", { staticClass: "relative flex justify-center w-full" }, [

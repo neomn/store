@@ -1,6 +1,6 @@
 <template>
     <div ref="sidebar"
-         class="fixed flex left-0 min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden">
+         class="fixed flex left-0 min-h-screen w-0  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden">
         <!-- sidebar contents  -->
         <div class="relative flex justify-center w-full">
             <!-- top section -->
@@ -54,12 +54,12 @@ export default {
         return {
             displaySidebar: false,
             sideBarItems: {
-                users: {title: 'users', items: ['create', 'details'], expand: true},
-                categories: {title: 'categories', items: []},
-                products: {title: 'products', items: []},
-                admins: {title: 'admins', items: []},
-                analytics: {title: 'analytics', items: []},
-                settings: {title: 'settings', items: []},
+                products: {title: 'products', items: ['add','edit','delete'], expand: false},
+                categories: {title: 'categories', items: ['add','edit','delete'], expand: false},
+                users: {title: 'users', items: ['add','edit','delete'], expand: false},
+                admins: {title: 'admins', items: ['add','edit','delete'], expand: false},
+                analytics: {title: 'analytics', items: [], expand: false},
+                settings: {title: 'settings', items: [], expand: false},
             },
         }
     },
