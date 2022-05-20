@@ -10,9 +10,11 @@
                 <div v-for="item in sideBarItems">
                     <!-- buttons  -->
                     <div class="flex w-full px-2 py-4 border-b">
-                        <button class="h-full grow pl-2  text-2xl text-left  ">
-                            {{ item.title }}
-                        </button>
+                        <router-link :to="{name: item.title}">
+                            <button class="h-full grow pl-2  text-2xl text-left  ">
+                                {{ item.title }}
+                            </button>
+                        </router-link>
                         <!-- expand icon -->
                         <div v-if="(item.items.length !== 0)" @click="toggleExpand(item)"
                              class=" flex justify-center items-center w-1/6  ">
@@ -54,10 +56,10 @@ export default {
         return {
             displaySidebar: false,
             sideBarItems: {
-                products: {title: 'products', items: ['add','edit','delete'], expand: false},
-                categories: {title: 'categories', items: ['add','edit','delete'], expand: false},
-                users: {title: 'users', items: ['add','edit','delete'], expand: false},
-                admins: {title: 'admins', items: ['add','edit','delete'], expand: false},
+                products: {title: 'products', items: ['add', 'edit', 'delete'], expand: false},
+                categories: {title: 'categories', items: ['add', 'edit', 'delete'], expand: false},
+                users: {title: 'users', items: ['add', 'edit', 'delete'], expand: false},
+                admins: {title: 'admins', items: ['add', 'edit', 'delete'], expand: false},
                 analytics: {title: 'analytics', items: [], expand: false},
                 settings: {title: 'settings', items: [], expand: false},
             },
@@ -93,7 +95,10 @@ export default {
         },
         toggleExpand(item) {
             item.expand = !item.expand
-        }
+        },
+        handleSidebarClickedItem() {
+
+        },
     }
 }
 </script>

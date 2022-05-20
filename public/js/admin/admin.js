@@ -16518,12 +16518,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ "./resources/js/components/admin/Header.vue");
+/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/components/admin/Sidebar.vue");
 //
 //
 //
 //
+//
+//
+//
+//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Categories"
+  name: "Categories",
+  components: {
+    SideBar: _Sidebar__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Header: _Header__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -16955,6 +16967,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SideBar",
   props: ['display'],
@@ -17042,7 +17056,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     toggleExpand: function toggleExpand(item) {
       item.expand = !item.expand;
-    }
+    },
+    handleSidebarClickedItem: function handleSidebarClickedItem() {}
   }
 });
 
@@ -36141,7 +36156,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    { staticClass: " w-full min-h-screen bg-slate-900 " },
+    [
+      _c("Header", { staticClass: "z-50" }),
+      _vm._v(" "),
+      _c("SideBar", { staticClass: "z-40" }),
+      _vm._v(" "),
+      _c("h1", [_vm._v("this is categories component")]),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -36661,40 +36687,47 @@ var render = function () {
           },
           _vm._l(_vm.sideBarItems, function (item) {
             return _c("div", [
-              _c("div", { staticClass: "flex w-full px-2 py-4 border-b" }, [
-                _c(
-                  "button",
-                  { staticClass: "h-full grow pl-2  text-2xl text-left  " },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(item.title) +
-                        "\n                    "
+              _c(
+                "div",
+                { staticClass: "flex w-full px-2 py-4 border-b" },
+                [
+                  _c("router-link", { attrs: { to: { name: item.title } } }, [
+                    _c(
+                      "button",
+                      { staticClass: "h-full grow pl-2  text-2xl text-left  " },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(item.title) +
+                            "\n                        "
+                        ),
+                      ]
                     ),
-                  ]
-                ),
-                _vm._v(" "),
-                item.items.length !== 0
-                  ? _c(
-                      "div",
-                      {
-                        staticClass:
-                          " flex justify-center items-center w-1/6  ",
-                        on: {
-                          click: function ($event) {
-                            return _vm.toggleExpand(item)
+                  ]),
+                  _vm._v(" "),
+                  item.items.length !== 0
+                    ? _c(
+                        "div",
+                        {
+                          staticClass:
+                            " flex justify-center items-center w-1/6  ",
+                          on: {
+                            click: function ($event) {
+                              return _vm.toggleExpand(item)
+                            },
                           },
                         },
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: ["fas", "angle-down"] },
-                        }),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-              ]),
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "angle-down"] },
+                          }),
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                ],
+                1
+              ),
               _vm._v(" "),
               item.expand
                 ? _c("div", [
