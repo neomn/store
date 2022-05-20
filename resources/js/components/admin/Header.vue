@@ -10,7 +10,7 @@
                         <font-awesome-icon :icon="['fas' , 'bars']"/>
                     </div>
                     <!-- close menu  -->
-                    <div v-if="displayMenu" @click="toggleSidebar" class="pr-2 ">
+                    <div v-if="displayMenu" @click="toggleSidebar" class="pr-2 text-red-500 ">
                         <font-awesome-icon :icon="['fas' , 'times']"/>
                     </div>
                     <!--home -->

@@ -1,10 +1,7 @@
 <template>
     <div class="min-h-screen w-full bg-slate-900">
-
         <Header class="z-50" />
-
         <Sidebar class="z-40" />
-
     </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-    <div class="products">
+    <div>
         <Header/>
         <Sidebar/>
-
+        <h1>this is products</h1>
         <!--productContainer table-->
         <div dir="rtl" class="rtl ">
             <table class="table-fixed fixed right-10 top-10 mx-auto inset-x-0 rounded-md bg-slate-400">
@@ -44,7 +44,7 @@ import Sidebar from "./Sidebar";
 console.log('this is productContainer')
 
 export default {
-    name: "Products",
+    name: "products",
     components: {Sidebar, Header},
     data() {
         return {
@@ -69,9 +69,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.products{
-    background-color: #2d3748;
-}
-</style>

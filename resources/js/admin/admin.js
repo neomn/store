@@ -29,14 +29,13 @@ Vue.config.productionTip = false
 
 Vue.component('App', require('../components/admin/App').default);
 
-
 const routes=[
         { path: '/panel', name: 'panel', component: Panel},
-        { path: '/productContainer', name: 'products', component: Products},
-        { path: '/users', name: 'users', component: Users},
-        { path: '/analytics', name: 'analytics', component: Analytics},
-        { path: '/settings', name: 'settings', component: Settings},
-        { path: '/:catchAll(.*)', name: '404', component: NotFound},
+        { path: '/panel/products', name: 'products', component: Products},
+        { path: '/panel/users', name: 'users', component: Users},
+        { path: '/panel/analytics', name: 'analytics', component: Analytics},
+        { path: '/panel/settings', name: 'settings', component: Settings},
+        { path: '/panel/:catchAll(.*)', name: '404', component: NotFound},
 ]
 
 const router = new VueRouter({
