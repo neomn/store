@@ -1,36 +1,31 @@
 <template>
     <div ref="sidebar"
-         class="fixed flex left-0  min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden">
+         class="fixed flex left-0 min-h-screen w-2/3  rounded-tr-lg rounded-br-lg bg-slate-800 overflow-hidden">
+        <!-- sidebar contents  -->
         <div class="relative flex justify-center w-full">
-            <!-- sidebar items -->
-            <div class=" absolute top-0 flex flex-col items-start justify-start  w-full h-5/6 overflow-hidden
+            <!-- top level buttons and expandable area -->
+            <div class=" absolute top-0 flex flex-col justify-start w-full h-5/6 overflow-hidden
                 text-zinc-300">
-
-                <div class=" flex flex-col w-full h-full border">
-                    <!-- top level buttons and expandable area -->
-                    <div v-for="item in sideBarItems">
-                        <!-- buttons  -->
-                        <div class="flex w-full border ">
-                            <button class="w-5/6 h-full pl-2  text-2xl text-left ">
-                                {{ item.title }}
-                            </button>
-                            <!-- expand icon -->
-                            <div v-if="(item.items.length !== 0)"
-                                 @click="toggleExpand(item)"
-                                 class=" flex justify-center items-center h-full w-1/6 border ">
-                                    <font-awesome-icon :icon="['fas', 'angle-down']"/>
-                            </div>
+                <div v-for="item in sideBarItems">
+                    <!-- buttons  -->
+                    <div class="flex w-full ">
+                        <button class="h-full grow pl-2  text-2xl text-left  ">
+                            {{ item.title }}
+                        </button>
+                        <!-- expand icon -->
+                        <div v-if="(item.items.length !== 0)" @click="toggleExpand(item)"
+                             class=" flex justify-center items-center w-1/6  ">
+                            <font-awesome-icon :icon="['fas', 'angle-down']"/>
                         </div>
-                        <!-- expandable area -->
-                        <div v-if="item.expand" class="">
-                            <div v-for=" subItem in item.items"  class=" w-full h-10 pl-4 px-4 bg-slate-700 border-b">
-                                {{ subItem.toString() }}
-                            </div>
+                    </div>
+                    <!-- expandable area -->
+                    <div v-if="item.expand" class="">
+                        <div v-for=" subItem in item.items" class=" w-full h-10 pl-4 px-4 bg-slate-700 border-b">
+                            {{ subItem.toString() }}
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- logout button -->
             <div class=" absolute bottom-20 w-5/6 h-8 text-center text-red-600 rounded-lg border-2 border-red-600">
                 <button @click="logout">
