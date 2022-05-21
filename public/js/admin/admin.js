@@ -16545,7 +16545,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     retrieveAllCategories: function retrieveAllCategories() {
       axios.get('/admin-api/categories').then(function (response) {
-        console.log(response.data);
+        console.log(response);
       })["catch"](function (error) {
         console.log(error);
       });
