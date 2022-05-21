@@ -16528,6 +16528,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -16537,15 +16554,19 @@ __webpack_require__.r(__webpack_exports__);
     Header: _Header__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      categories: {}
+    };
   },
   mounted: function mounted() {
     this.retrieveAllCategories();
   },
   methods: {
     retrieveAllCategories: function retrieveAllCategories() {
+      var _this = this;
+
       axios.get('/admin-api/categories').then(function (response) {
-        console.log(response);
+        _this.categories = response.data.categories;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -36173,18 +36194,39 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " w-full min-h-screen bg-slate-900 " },
+    { staticClass: " w-full h-screen bg-slate-900  " },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
       _c("SideBar", { staticClass: "z-40" }),
       _vm._v(" "),
-      _c("h1", [_vm._v("this is categories component")]),
+      _vm._m(0),
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "flex flex-col w-full h-full justify-start items-center bg-slate-900 ",
+      },
+      [
+        _c("div", { staticClass: " w-11/12 h-12 m-4 rounded-lg bg-slate-800" }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            " flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-800 bg-slate-800",
+        }),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
