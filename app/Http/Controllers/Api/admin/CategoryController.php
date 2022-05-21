@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response('this is category controller index ');
+//        return response('this is category controller index ');
+        Category::all()
     }
 
     /**
