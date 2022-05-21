@@ -19,11 +19,17 @@ export default {
         }
     },
     mounted(){
-
+        this.retrieveAllCategories()
     },
     methods: {
         retrieveAllCategories(){
-            axios.get('/')
+            axios.get('/admin-api/categories')
+            .then(response=>{
+                console.log(response.data)
+            })
+            .catch(error=>{
+                console.log(error)
+            })
         }
     },
 }

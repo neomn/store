@@ -16539,10 +16539,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {};
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.retrieveAllCategories();
+  },
   methods: {
     retrieveAllCategories: function retrieveAllCategories() {
-      axios.get('/');
+      axios.get('/admin-api/categories').then(function (response) {
+        console.log(response.data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
