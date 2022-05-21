@@ -12,7 +12,20 @@ import SideBar from "./Sidebar";
 
 export default {
     name: "Categories",
-    components: {SideBar, Header}
+    components: {SideBar, Header},
+    data(){
+        return {
+
+        }
+    },
+    mounted(){
+
+    },
+    methods: {
+        retrieveAllCategories(){
+            axios.get('/')
+        }
+    },
 }
 </script>
 
