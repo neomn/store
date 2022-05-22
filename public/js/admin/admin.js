@@ -16700,18 +16700,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -36512,45 +36500,6 @@ var render = function () {
                   ]
                 ),
               ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: " flex grow h-10 " },
-                [
-                  _c(
-                    "routerLink",
-                    {
-                      staticClass: "flex justify-center items-center grow pr-2",
-                      class:
-                        this.$route.path === "/about-us"
-                          ? " bg-emerald-600 rounded-lg"
-                          : "",
-                      attrs: { to: { name: "aboutUs" } },
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "px-2" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "info"] },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      this.$route.path === "/about-us"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
-                            _vm._v(
-                              "\n                                About Us\n                            "
-                            ),
-                          ])
-                        : _vm._e(),
-                    ]
-                  ),
-                ],
-                1
-              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "flex grow " }, [

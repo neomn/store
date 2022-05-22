@@ -37,18 +37,6 @@
                             </div>
                         </a>
                     </div>
-                    <!-- about us -->
-                    <div class=" flex grow h-10 ">
-                        <routerLink :to="{name:'aboutUs'}" class="flex justify-center items-center grow pr-2"
-                                    v-bind:class="(this.$route.path === '/about-us')? ' bg-emerald-600 rounded-lg': ''">
-                            <div class="px-2">
-                                <font-awesome-icon :icon="['fas' , 'info']"/>
-                            </div>
-                            <div v-if="this.$route.path === '/about-us'" class="flex text-lg ">
-                                About Us
-                            </div>
-                        </routerLink>
-                    </div>
                 </div>
                 <!-- right side buttons-->
                 <div class="flex grow ">
