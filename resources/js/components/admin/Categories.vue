@@ -59,11 +59,12 @@ export default {
             // while (Object.keys(categoryArray).length > 0 ){
                 categoryArray.forEach((category, index) => {
                     if ( this.itIsRootCategory(category)){
-                        this.categories[index] = category
+                        this.categories[category.category] = {}
                         categoryArray =  this.removeFirstElement(categoryArray)
                     }
                     else if (Object.keys(this.categories).length > 0){
-
+                        // let parent = this.findCategoryParent( category , this.categories)
+                        // categoryArray = this.removeFirstElement(categoryArray)
                     }
                 })
             // }
@@ -81,6 +82,14 @@ export default {
                 return element !== undefined
             })
             return categoryArray
+        },
+        findCategoryParent(category , categories){
+            let parent
+            categories.forEach(parentCategory=>{
+                if (category.parent_id === parentCategory.id)
+                    parent = parentCategory
+            })
+            return parent
         },
 
     },

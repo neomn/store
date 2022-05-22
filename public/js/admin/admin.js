@@ -16605,9 +16605,11 @@ __webpack_require__.r(__webpack_exports__);
 
       categoryArray.forEach(function (category, index) {
         if (_this2.itIsRootCategory(category)) {
-          _this2.categories[index] = category;
+          _this2.categories[category.category] = {};
           categoryArray = _this2.removeFirstElement(categoryArray);
-        } else if (Object.keys(_this2.categories).length > 0) {}
+        } else if (Object.keys(_this2.categories).length > 0) {// let parent = this.findCategoryParent( category , this.categories)
+          // categoryArray = this.removeFirstElement(categoryArray)
+        }
       }); // }
 
       console.log(this.categories);
@@ -16622,6 +16624,13 @@ __webpack_require__.r(__webpack_exports__);
         return element !== undefined;
       });
       return categoryArray;
+    },
+    findCategoryParent: function findCategoryParent(category, categories) {
+      var parent;
+      categories.forEach(function (parentCategory) {
+        if (category.parent_id === parentCategory.id) parent = parentCategory;
+      });
+      return parent;
     }
   }
 });
