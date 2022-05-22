@@ -16589,8 +16589,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/admin-api/categories').then(function (response) {
-        console.log('retrieveAllCategories >'); // this.categories = response.data.categories
-
+        console.log('retrieveAllCategories >');
         console.log(response.data.categories);
 
         _this.castCategoriesToObject(response.data.categories);
@@ -16602,28 +16601,27 @@ __webpack_require__.r(__webpack_exports__);
     castCategoriesToObject: function castCategoriesToObject(categoryArray) {
       var _this2 = this;
 
-      console.log('castCategoriesToObject >'); //find root categories
+      console.log('castCategoriesToObject >'); // while (Object.keys(categoryArray).length > 0 ){
 
       categoryArray.forEach(function (category, index) {
-        if (category.parent_id === null) {
-          _this2.categories[index] = category; // remove root categories from categoryArray
-
-          delete categoryArray[index];
-        }
-      }); // clear undefined items from categoryArray
-
-      categoryArray = categoryArray.filter(function (element) {
-        return element !== undefined;
-      }); // find sub categories
-      // this.categories.forEach((rootCategory, rootIndex) => {
-      //     categoryArray.forEach((category, index) => {
-      //         if (category.parent_id === rootCategory.id)
-      //             this.categories[rootIndex]. = category
-      //     })
-      // })
+        if (_this2.itIsRootCategory(category)) {
+          _this2.categories[index] = category;
+          categoryArray = _this2.removeFirstElement(categoryArray);
+        } else if (Object.keys(_this2.categories).length > 0) {}
+      }); // }
 
       console.log(this.categories);
       console.log(categoryArray); // console.log(Object.keys(this.categories).length)
+    },
+    itIsRootCategory: function itIsRootCategory(category) {
+      return category.parent_id === null;
+    },
+    removeFirstElement: function removeFirstElement(categoryArray) {
+      delete categoryArray[0];
+      categoryArray = categoryArray.filter(function (element) {
+        return element !== undefined;
+      });
+      return categoryArray;
     }
   }
 });

@@ -45,7 +45,6 @@ export default {
             axios.get('/admin-api/categories')
                 .then(response => {
                     console.log('retrieveAllCategories >')
-                    // this.categories = response.data.categories
                     console.log(response.data.categories)
                     this.castCategoriesToObject(response.data.categories)
                 })
@@ -56,31 +55,34 @@ export default {
         },
         castCategoriesToObject(categoryArray) {
             console.log('castCategoriesToObject >')
-            //find root categories
-            categoryArray.forEach((category, index) => {
-                if (category.parent_id === null) {
-                    this.categories[index] = category
-                    // remove root categories from categoryArray
-                    delete categoryArray[index]
-                }
-            })
-            // clear undefined items from categoryArray
-            categoryArray = categoryArray.filter(element => {
-                return element !== undefined
-            })
 
-            // find sub categories
-            // this.categories.forEach((rootCategory, rootIndex) => {
-            //     categoryArray.forEach((category, index) => {
-            //         if (category.parent_id === rootCategory.id)
-            //             this.categories[rootIndex]. = category
-            //     })
-            // })
+            // while (Object.keys(categoryArray).length > 0 ){
+                categoryArray.forEach((category, index) => {
+                    if ( this.itIsRootCategory(category)){
+                        this.categories[index] = category
+                        categoryArray =  this.removeFirstElement(categoryArray)
+                    }
+                    else if (Object.keys(this.categories).length > 0){
+
+                    }
+                })
+            // }
 
             console.log(this.categories)
             console.log(categoryArray)
             // console.log(Object.keys(this.categories).length)
         },
+        itIsRootCategory(category){
+            return category.parent_id === null
+        },
+        removeFirstElement(categoryArray){
+            delete categoryArray[0]
+            categoryArray = categoryArray.filter(element => {
+                return element !== undefined
+            })
+            return categoryArray
+        },
+
     },
 }
 </script>
