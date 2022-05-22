@@ -2,7 +2,6 @@
     <div>
         <Header/>
         <Sidebar/>
-        <h1>this is products</h1>
         <!--productContainer table-->
         <div dir="rtl" class="rtl ">
             <table class="table-fixed fixed right-10 top-10 mx-auto inset-x-0 rounded-md bg-slate-400">
@@ -40,8 +39,6 @@
 <script>
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-
-console.log('this is productContainer')
 
 export default {
     name: "products",

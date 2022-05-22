@@ -93,6 +93,7 @@ export default {
             } else this.loggedInUser = null
             console.log('loggedInUser >')
             console.log(this.loggedInUser)
+            console.log('----------------------------\n\n')
         },
         toggleSidebar(){
             this.displayMenu = !this.displayMenu

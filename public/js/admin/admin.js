@@ -16729,6 +16729,7 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log('loggedInUser >');
       console.log(this.loggedInUser);
+      console.log('----------------------------\n\n');
     },
     toggleSidebar: function toggleSidebar() {
       this.displayMenu = !this.displayMenu;
@@ -16889,10 +16890,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
-console.log('this is productContainer');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "products",
   components: {
@@ -16941,7 +16940,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-console.log('this is settings');
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Settings"
 });
@@ -36637,8 +36635,6 @@ var render = function () {
       _vm._v(" "),
       _c("Sidebar"),
       _vm._v(" "),
-      _c("h1", [_vm._v("this is products")]),
-      _vm._v(" "),
       _c("div", { staticClass: "rtl ", attrs: { dir: "rtl" } }, [
         _c(
           "table",
@@ -36763,16 +36759,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div")
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("this is settings")])])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
