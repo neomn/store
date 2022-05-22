@@ -11,12 +11,13 @@
             </div>
 
             <!-- display all categories-->
-            <div class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-800 bg-slate-800">
-<!--                <div v-for="category in categories" class=" w-5/6  bg-amber-400">-->
-<!--                    <div>-->
-<!--                        {{ category.category }}-->
-<!--                    </div>-->
-<!--                </div>-->
+            <div
+                class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-800 bg-slate-800">
+                <!--                <div v-for="category in categories" class=" w-5/6  bg-amber-400">-->
+                <!--                    <div>-->
+                <!--                        {{ category.category }}-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
         </div>
 
@@ -36,19 +37,38 @@ export default {
         }
     },
     mounted() {
+        console.log('Categories.vue mounted > ---------')
         this.retrieveAllCategories()
     },
     methods: {
         retrieveAllCategories() {
             axios.get('/admin-api/categories')
                 .then(response => {
-                    this.categories = JSON.parse(response.data.categories)
-                    console.log(this.categories)
+                    console.log('retrieveAllCategories >')
+                    // this.categories = response.data.categories
+                    console.log(response.data.categories)
+                    this.castCategoriesToObject(response.data.categories)
                 })
                 .catch(error => {
+                    console.log('error >')
                     console.log(error)
                 })
-        }
+        },
+        castCategoriesToObject(categoryArray) {
+            console.log('castCategoriesToObject >')
+            //find root categories
+            categoryArray.forEach((category , index) => {
+                if (category.parent_id === null)
+                    this.categories[index] = category
+            })
+            // find sub categories
+            categoryArray.forEach((category , index) => {
+
+            })
+
+            console.log(this.categories)
+            console.log(Object.keys(this.categories).length)
+        },
     },
 }
 </script>

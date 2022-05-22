@@ -16566,6 +16566,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -16580,6 +16581,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    console.log('Categories.vue mounted > ---------');
     this.retrieveAllCategories();
   },
   methods: {
@@ -16587,11 +16589,28 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/admin-api/categories').then(function (response) {
-        _this.categories = JSON.parse(response.data.categories);
-        console.log(_this.categories);
+        console.log('retrieveAllCategories >'); // this.categories = response.data.categories
+
+        console.log(response.data.categories);
+
+        _this.castCategoriesToObject(response.data.categories);
       })["catch"](function (error) {
+        console.log('error >');
         console.log(error);
       });
+    },
+    castCategoriesToObject: function castCategoriesToObject(categoryArray) {
+      var _this2 = this;
+
+      console.log('castCategoriesToObject >'); //find root categories
+
+      categoryArray.forEach(function (category, index) {
+        if (category.parent_id === null) _this2.categories[index] = category;
+      }); // find sub categories
+
+      categoryArray.forEach(function (category, index) {});
+      console.log(this.categories);
+      console.log(Object.keys(this.categories).length);
     }
   }
 });
