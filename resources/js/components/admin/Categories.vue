@@ -57,17 +57,25 @@ export default {
         castCategoriesToObject(categoryArray) {
             console.log('castCategoriesToObject >')
             //find root categories
-            categoryArray.forEach((category , index) => {
-                if (category.parent_id === null)
+            categoryArray.forEach((category, index) => {
+                if (category.parent_id === null) {
                     this.categories[index] = category
+                    // remove root categories from categoryArray
+                    delete categoryArray[index]
+                }
             })
-            // find sub categories
-            categoryArray.forEach((category , index) => {
 
-            })
+            // find sub categories
+            // this.categories.forEach((rootCategory, rootIndex) => {
+            //     categoryArray.forEach((category, index) => {
+            //         if (category.parent_id === rootCategory.id)
+            //             this.categories[rootIndex]. = category
+            //     })
+            // })
 
             console.log(this.categories)
-            console.log(Object.keys(this.categories).length)
+            console.log(categoryArray)
+            // console.log(Object.keys(this.categories).length)
         },
     },
 }

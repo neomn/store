@@ -16605,12 +16605,21 @@ __webpack_require__.r(__webpack_exports__);
       console.log('castCategoriesToObject >'); //find root categories
 
       categoryArray.forEach(function (category, index) {
-        if (category.parent_id === null) _this2.categories[index] = category;
-      }); // find sub categories
+        if (category.parent_id === null) {
+          _this2.categories[index] = category; // remove root categories from categoryArray
 
-      categoryArray.forEach(function (category, index) {});
+          delete categoryArray[index];
+        }
+      }); // find sub categories
+      // this.categories.forEach((rootCategory, rootIndex) => {
+      //     categoryArray.forEach((category, index) => {
+      //         if (category.parent_id === rootCategory.id)
+      //             this.categories[rootIndex]. = category
+      //     })
+      // })
+
       console.log(this.categories);
-      console.log(Object.keys(this.categories).length);
+      console.log(categoryArray); // console.log(Object.keys(this.categories).length)
     }
   }
 });
