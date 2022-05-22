@@ -42,7 +42,8 @@ export default {
         retrieveAllCategories() {
             axios.get('/admin-api/categories')
                 .then(response => {
-                    this.categories = response.data.categories
+                    this.categories = JSON.parse(response.data.categories)
+                    console.log(this.categories)
                 })
                 .catch(error => {
                     console.log(error)
