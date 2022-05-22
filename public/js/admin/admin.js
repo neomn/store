@@ -16610,6 +16610,10 @@ __webpack_require__.r(__webpack_exports__);
 
           delete categoryArray[index];
         }
+      }); // clear undefined items from categoryArray
+
+      categoryArray = categoryArray.filter(function (element) {
+        return element !== undefined;
       }); // find sub categories
       // this.categories.forEach((rootCategory, rootIndex) => {
       //     categoryArray.forEach((category, index) => {

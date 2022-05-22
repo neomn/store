@@ -64,6 +64,10 @@ export default {
                     delete categoryArray[index]
                 }
             })
+            // clear undefined items from categoryArray
+            categoryArray = categoryArray.filter(element => {
+                return element !== undefined
+            })
 
             // find sub categories
             // this.categories.forEach((rootCategory, rootIndex) => {
