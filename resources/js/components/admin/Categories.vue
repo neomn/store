@@ -54,30 +54,28 @@ export default {
                 })
         },
         objectifyCategoryArray(categoryArray) {
-            console.log('castCategoriesToObject >')
+            console.log('objectifyCategoryArray >')
             categoryArray.forEach((category, index) => {
                 if (this.itIsRootCategory(category)) {
                     this.objectifiedCategories[index] = category
                     categoryArray = this.removeElementFromArray(category , categoryArray)
-                    console.log(this.objectifiedCategories)
-                    console.log(categoryArray)
                 }
             })
-            // console.log('root categories objectified')
-            // console.log(this.objectifiedCategories)
-            // console.log(categoryArray)
-            // while (categoryArray.length > 0){
-            //     console.log('categoryArrayLength > ' + categoryArray.length)
-            //     console.log(categoryArray)
-            //     categoryArray.forEach((category , index) => {
-            //         this.putCategoryIntoCategoryObject(category)
-            //         categoryArray = this.removeElementFromArray(index , categoryArray)
-            //     })
-            // }
-            // console.log('all categories objectified')
-            // console.log(this.objectifiedCategories)
-            // console.log(categoryArray)
-            // console.log('------------------------------')
+            console.log('root categories objectified')
+            console.log(this.objectifiedCategories)
+            console.log(categoryArray)
+            while (categoryArray.length > 0){
+                console.log('categoryArrayLength > ' + categoryArray.length)
+                console.log(categoryArray)
+                categoryArray.forEach((category , index) => {
+                    this.putCategoryIntoCategoryObject(category)
+                    categoryArray = this.removeElementFromArray(category , categoryArray)
+                })
+            }
+            console.log('all categories objectified')
+            console.log(this.objectifiedCategories)
+            console.log(categoryArray)
+            console.log('------------------------------')
         },
         itIsRootCategory(category) {
             return category.parent_id === null

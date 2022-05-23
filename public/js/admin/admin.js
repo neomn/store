@@ -16601,29 +16601,31 @@ __webpack_require__.r(__webpack_exports__);
     objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
       var _this2 = this;
 
-      console.log('castCategoriesToObject >');
+      console.log('objectifyCategoryArray >');
       categoryArray.forEach(function (category, index) {
         if (_this2.itIsRootCategory(category)) {
           _this2.objectifiedCategories[index] = category;
           categoryArray = _this2.removeElementFromArray(category, categoryArray);
-          console.log(_this2.objectifiedCategories);
-          console.log(categoryArray);
         }
-      }); // console.log('root categories objectified')
-      // console.log(this.objectifiedCategories)
-      // console.log(categoryArray)
-      // while (categoryArray.length > 0){
-      //     console.log('categoryArrayLength > ' + categoryArray.length)
-      //     console.log(categoryArray)
-      //     categoryArray.forEach((category , index) => {
-      //         this.putCategoryIntoCategoryObject(category)
-      //         categoryArray = this.removeElementFromArray(index , categoryArray)
-      //     })
-      // }
-      // console.log('all categories objectified')
-      // console.log(this.objectifiedCategories)
-      // console.log(categoryArray)
-      // console.log('------------------------------')
+      });
+      console.log('root categories objectified');
+      console.log(this.objectifiedCategories);
+      console.log(categoryArray);
+
+      while (categoryArray.length > 0) {
+        console.log('categoryArrayLength > ' + categoryArray.length);
+        console.log(categoryArray);
+        categoryArray.forEach(function (category, index) {
+          _this2.putCategoryIntoCategoryObject(category);
+
+          categoryArray = _this2.removeElementFromArray(category, categoryArray);
+        });
+      }
+
+      console.log('all categories objectified');
+      console.log(this.objectifiedCategories);
+      console.log(categoryArray);
+      console.log('------------------------------');
     },
     itIsRootCategory: function itIsRootCategory(category) {
       return category.parent_id === null;
