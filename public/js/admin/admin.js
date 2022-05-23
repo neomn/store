@@ -16601,7 +16601,12 @@ __webpack_require__.r(__webpack_exports__);
     objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
       var _this2 = this;
 
-      console.log('objectifyCategoryArray >');
+      console.log('objectifyCategoryArray >'); //set an empty subCategory array to all elements
+
+      categoryArray.forEach(function (item, index) {
+        item.sub = [];
+      }); //objectify root elements
+
       categoryArray.forEach(function (category, index) {
         if (_this2.itIsRootCategory(category)) {
           _this2.objectifiedCategories[index] = category;
@@ -16637,21 +16642,25 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
+      var _this3 = this;
+
       console.log('putting ' + category.category + ' into categoryObject');
+      console.log(categoryObject);
       var objectified = false;
       categoryObject.forEach(function (item, index) {
         if (category.parent_id === item.id) {
           console.log('parent founded');
-          item.sub = [];
+          console.log(item.category + ' < ' + category.category);
           item.sub[index] = category;
           objectified = true;
         }
       });
 
       if (!objectified) {
-        console.log('test'); // categoryObject.forEach((item, index) => {
-        //     this.putCategoryIntoCategoryObject(category, item.sub[index])
-        // })
+        console.log('parent not found ');
+        categoryObject.forEach(function (item, index) {
+          _this3.putCategoryIntoCategoryObject(category, item.sub);
+        });
       }
     }
   }

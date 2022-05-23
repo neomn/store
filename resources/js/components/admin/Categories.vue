@@ -55,6 +55,11 @@ export default {
         },
         objectifyCategoryArray(categoryArray) {
             console.log('objectifyCategoryArray >')
+            //set an empty subCategory array to all elements
+            categoryArray.forEach((item, index) => {
+                item.sub = []
+            })
+            //objectify root elements
             categoryArray.forEach((category, index) => {
                 if (this.itIsRootCategory(category)) {
                     this.objectifiedCategories[index] = category
@@ -88,20 +93,21 @@ export default {
         },
         putCategoryIntoCategoryObject(category, categoryObject) {
             console.log('putting ' + category.category + ' into categoryObject')
+            console.log(categoryObject)
             let objectified = false
             categoryObject.forEach((item, index) => {
                 if (category.parent_id === item.id) {
                     console.log('parent founded')
-                    item.sub = []
+                    console.log(item.category + ' < ' + category.category)
                     item.sub[index] = category
                     objectified = true
                 }
             })
-            if (!objectified){
-                console.log('test')
-                // categoryObject.forEach((item, index) => {
-                //     this.putCategoryIntoCategoryObject(category, item.sub[index])
-                // })
+            if (!objectified) {
+                console.log('parent not found ')
+                categoryObject.forEach((item, index) => {
+                    this.putCategoryIntoCategoryObject(category, item.sub)
+                })
             }
 
         },
