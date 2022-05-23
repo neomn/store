@@ -16616,7 +16616,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log('categoryArrayLength > ' + categoryArray.length);
         console.log(categoryArray);
         categoryArray.forEach(function (category, index) {
-          _this2.putCategoryIntoCategoryObject(category);
+          _this2.putCategoryIntoCategoryObject(category, _this2.objectifiedCategories);
 
           categoryArray = _this2.removeElementFromArray(category, categoryArray);
         });
@@ -16631,12 +16631,28 @@ __webpack_require__.r(__webpack_exports__);
       return category.parent_id === null;
     },
     removeElementFromArray: function removeElementFromArray(category, categoryArray) {
+      console.log('removing ' + category.category);
       return categoryArray.filter(function (element) {
         return element !== category;
       });
     },
-    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category) {
+    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
       console.log('putting ' + category.category + ' into categoryObject');
+      var objectified = false;
+      categoryObject.forEach(function (item, index) {
+        if (category.parent_id === item.id) {
+          console.log('parent founded');
+          item.sub = [];
+          item.sub[index] = category;
+          objectified = true;
+        }
+      });
+
+      if (!objectified) {
+        console.log('test'); // categoryObject.forEach((item, index) => {
+        //     this.putCategoryIntoCategoryObject(category, item.sub[index])
+        // })
+      }
     }
   }
 });

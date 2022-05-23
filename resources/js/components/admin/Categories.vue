@@ -58,18 +58,18 @@ export default {
             categoryArray.forEach((category, index) => {
                 if (this.itIsRootCategory(category)) {
                     this.objectifiedCategories[index] = category
-                    categoryArray = this.removeElementFromArray(category , categoryArray)
+                    categoryArray = this.removeElementFromArray(category, categoryArray)
                 }
             })
             console.log('root categories objectified')
             console.log(this.objectifiedCategories)
             console.log(categoryArray)
-            while (categoryArray.length > 0){
+            while (categoryArray.length > 0) {
                 console.log('categoryArrayLength > ' + categoryArray.length)
                 console.log(categoryArray)
-                categoryArray.forEach((category , index) => {
-                    this.putCategoryIntoCategoryObject(category)
-                    categoryArray = this.removeElementFromArray(category , categoryArray)
+                categoryArray.forEach((category, index) => {
+                    this.putCategoryIntoCategoryObject(category, this.objectifiedCategories)
+                    categoryArray = this.removeElementFromArray(category, categoryArray)
                 })
             }
             console.log('all categories objectified')
@@ -80,13 +80,30 @@ export default {
         itIsRootCategory(category) {
             return category.parent_id === null
         },
-        removeElementFromArray(category , categoryArray ) {
+        removeElementFromArray(category, categoryArray) {
+            console.log('removing ' + category.category)
             return categoryArray.filter(element => {
                 return element !== category
             })
         },
-        putCategoryIntoCategoryObject(category) {
+        putCategoryIntoCategoryObject(category, categoryObject) {
             console.log('putting ' + category.category + ' into categoryObject')
+            let objectified = false
+            categoryObject.forEach((item, index) => {
+                if (category.parent_id === item.id) {
+                    console.log('parent founded')
+                    item.sub = []
+                    item.sub[index] = category
+                    objectified = true
+                }
+            })
+            if (!objectified){
+                console.log('test')
+                // categoryObject.forEach((item, index) => {
+                //     this.putCategoryIntoCategoryObject(category, item.sub[index])
+                // })
+            }
+
         },
     },
 }
