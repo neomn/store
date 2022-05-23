@@ -58,23 +58,37 @@ export default {
             categoryArray.forEach((category, index) => {
                 if (this.itIsRootCategory(category)) {
                     this.objectifiedCategories[index] = category
-                    categoryArray = this.removeElementFromArray(index , categoryArray)
+                    categoryArray = this.removeElementFromArray(category , categoryArray)
+                    console.log(this.objectifiedCategories)
+                    console.log(categoryArray)
                 }
             })
-            console.log(this.objectifiedCategories)
-            console.log(categoryArray)
+            // console.log('root categories objectified')
+            // console.log(this.objectifiedCategories)
+            // console.log(categoryArray)
+            // while (categoryArray.length > 0){
+            //     console.log('categoryArrayLength > ' + categoryArray.length)
+            //     console.log(categoryArray)
+            //     categoryArray.forEach((category , index) => {
+            //         this.putCategoryIntoCategoryObject(category)
+            //         categoryArray = this.removeElementFromArray(index , categoryArray)
+            //     })
+            // }
+            // console.log('all categories objectified')
+            // console.log(this.objectifiedCategories)
+            // console.log(categoryArray)
+            // console.log('------------------------------')
         },
         itIsRootCategory(category) {
             return category.parent_id === null
         },
-        removeElementFromArray(index , categoryArray ) {
-            delete categoryArray[index]
+        removeElementFromArray(category , categoryArray ) {
             return categoryArray.filter(element => {
-                return element !== undefined
+                return element !== category
             })
         },
-        putCategoryIntoCategoryObject() {
-
+        putCategoryIntoCategoryObject(category) {
+            console.log('putting ' + category.category + ' into categoryObject')
         },
     },
 }

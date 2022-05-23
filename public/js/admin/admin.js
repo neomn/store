@@ -16605,22 +16605,37 @@ __webpack_require__.r(__webpack_exports__);
       categoryArray.forEach(function (category, index) {
         if (_this2.itIsRootCategory(category)) {
           _this2.objectifiedCategories[index] = category;
-          categoryArray = _this2.removeElementFromArray(index, categoryArray);
+          categoryArray = _this2.removeElementFromArray(category, categoryArray);
+          console.log(_this2.objectifiedCategories);
+          console.log(categoryArray);
         }
-      });
-      console.log(this.objectifiedCategories);
-      console.log(categoryArray);
+      }); // console.log('root categories objectified')
+      // console.log(this.objectifiedCategories)
+      // console.log(categoryArray)
+      // while (categoryArray.length > 0){
+      //     console.log('categoryArrayLength > ' + categoryArray.length)
+      //     console.log(categoryArray)
+      //     categoryArray.forEach((category , index) => {
+      //         this.putCategoryIntoCategoryObject(category)
+      //         categoryArray = this.removeElementFromArray(index , categoryArray)
+      //     })
+      // }
+      // console.log('all categories objectified')
+      // console.log(this.objectifiedCategories)
+      // console.log(categoryArray)
+      // console.log('------------------------------')
     },
     itIsRootCategory: function itIsRootCategory(category) {
       return category.parent_id === null;
     },
-    removeElementFromArray: function removeElementFromArray(index, categoryArray) {
-      delete categoryArray[index];
+    removeElementFromArray: function removeElementFromArray(category, categoryArray) {
       return categoryArray.filter(function (element) {
-        return element !== undefined;
+        return element !== category;
       });
     },
-    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject() {}
+    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category) {
+      console.log('putting ' + category.category + ' into categoryObject');
+    }
   }
 });
 
