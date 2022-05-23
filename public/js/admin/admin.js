@@ -16577,7 +16577,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      categories: []
+      objectifiedCategories: []
     };
   },
   mounted: function mounted() {
@@ -16592,55 +16592,35 @@ __webpack_require__.r(__webpack_exports__);
         console.log('retrieveAllCategories >');
         console.log(response.data.categories);
 
-        _this.castCategoriesToObject(response.data.categories);
+        _this.objectifyCategoryArray(response.data.categories);
       })["catch"](function (error) {
         console.log('error >');
         console.log(error);
       });
     },
-    castCategoriesToObject: function castCategoriesToObject(categoryArray) {
+    objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
       var _this2 = this;
 
-      console.log('castCategoriesToObject >'); // while (Object.keys(categoryArray).length > 0 ){
-
+      console.log('castCategoriesToObject >');
       categoryArray.forEach(function (category, index) {
         if (_this2.itIsRootCategory(category)) {
-          _this2.categories[index] = category;
-          categoryArray = _this2.removeFirstElement(categoryArray);
-        } else if (_this2.categories.length > 0) {
-          _this2.putCategoryIntoCategoryObject(category);
-
-          _this2.removeFirstElement(categoryArray);
+          _this2.objectifiedCategories[index] = category;
+          categoryArray = _this2.removeElementFromArray(index, categoryArray);
         }
-      }); // }
-
-      console.log(this.categories);
-      console.log(categoryArray); // console.log(Object.keys(this.categories).length)
+      });
+      console.log(this.objectifiedCategories);
+      console.log(categoryArray);
     },
     itIsRootCategory: function itIsRootCategory(category) {
       return category.parent_id === null;
     },
-    removeFirstElement: function removeFirstElement(categoryArray) {
-      delete categoryArray[0];
-      categoryArray = categoryArray.filter(function (element) {
+    removeElementFromArray: function removeElementFromArray(index, categoryArray) {
+      delete categoryArray[index];
+      return categoryArray.filter(function (element) {
         return element !== undefined;
       });
-      return categoryArray;
     },
-    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, sub) {
-      this.categories.forEach(function (item, index) {
-        if (item['sub'] !== undefined) {// console.log('item has sub')
-          // this.putCategoryIntoCategoryObject(category , sub )
-        } else {
-          console.log('item has not sub');
-
-          if (category.parent_id === item.id) {
-            item.sub = [];
-            item.sub[index] = category;
-          }
-        }
-      });
-    }
+    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject() {}
   }
 });
 

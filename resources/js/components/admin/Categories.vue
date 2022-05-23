@@ -3,17 +3,17 @@
         <Header class="z-50"/>
         <SideBar class="z-40"/>
 
-        <!-- categories component content-->
+        <!-- objectifiedCategories component content-->
         <div class="flex flex-col w-full h-full justify-start items-center bg-slate-900 ">
             <!-- search box-->
             <div class=" w-11/12 h-12 m-4 rounded-lg bg-slate-800">
 
             </div>
 
-            <!-- display all categories-->
+            <!-- display all objectifiedCategories-->
             <div
                 class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-800 bg-slate-800">
-                <!--                <div v-for="category in categories" class=" w-5/6  bg-amber-400">-->
+                <!--                <div v-for="category in objectifiedCategories" class=" w-5/6  bg-amber-400">-->
                 <!--                    <div>-->
                 <!--                        {{ category.category }}-->
                 <!--                    </div>-->
@@ -33,7 +33,7 @@ export default {
     components: {SideBar, Header},
     data() {
         return {
-            categories: []
+            objectifiedCategories: []
         }
     },
     mounted() {
@@ -46,55 +46,35 @@ export default {
                 .then(response => {
                     console.log('retrieveAllCategories >')
                     console.log(response.data.categories)
-                    this.castCategoriesToObject(response.data.categories)
+                    this.objectifyCategoryArray(response.data.categories)
                 })
                 .catch(error => {
                     console.log('error >')
                     console.log(error)
                 })
         },
-        castCategoriesToObject(categoryArray) {
+        objectifyCategoryArray(categoryArray) {
             console.log('castCategoriesToObject >')
-
-            // while (Object.keys(categoryArray).length > 0 ){
             categoryArray.forEach((category, index) => {
                 if (this.itIsRootCategory(category)) {
-                    this.categories[index] = category
-                    categoryArray = this.removeFirstElement(categoryArray)
-                } else if (this.categories.length > 0) {
-                    this.putCategoryIntoCategoryObject(category)
-                    this.removeFirstElement(categoryArray)
+                    this.objectifiedCategories[index] = category
+                    categoryArray = this.removeElementFromArray(index , categoryArray)
                 }
             })
-            // }
-
-            console.log(this.categories)
+            console.log(this.objectifiedCategories)
             console.log(categoryArray)
-            // console.log(Object.keys(this.categories).length)
         },
         itIsRootCategory(category) {
             return category.parent_id === null
         },
-        removeFirstElement(categoryArray) {
-            delete categoryArray[0]
-            categoryArray = categoryArray.filter(element => {
+        removeElementFromArray(index , categoryArray ) {
+            delete categoryArray[index]
+            return categoryArray.filter(element => {
                 return element !== undefined
             })
-            return categoryArray
         },
-        putCategoryIntoCategoryObject(category , sub) {
-            this.categories.forEach((item, index) => {
-                if (item['sub'] !== undefined) {
-                    // console.log('item has sub')
-                    // this.putCategoryIntoCategoryObject(category , sub )
-                } else {
-                    console.log('item has not sub')
-                    if (category.parent_id === item.id){
-                        item.sub = []
-                        item.sub[index] = category
-                    }
-                }
-            })
+        putCategoryIntoCategoryObject() {
+
         },
     },
 }
