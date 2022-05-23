@@ -99,7 +99,7 @@ export default {
                 if (category.parent_id === item.id) {
                     console.log('parent founded')
                     console.log(item.category + ' < ' + category.category)
-                    item.sub[index] = category
+                    item.sub.push (category)
                     objectified = true
                 }
             })
