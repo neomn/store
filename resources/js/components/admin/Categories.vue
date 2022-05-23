@@ -12,12 +12,8 @@
 
             <!-- display all objectifiedCategories-->
             <div
-                class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-800 bg-slate-800">
-                <!--                <div v-for="category in objectifiedCategories" class=" w-5/6  bg-amber-400">-->
-                <!--                    <div>-->
-                <!--                        {{ category.category }}-->
-                <!--                    </div>-->
-                <!--                </div>-->
+                class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800">
+
             </div>
         </div>
 
@@ -99,7 +95,7 @@ export default {
                 if (category.parent_id === item.id) {
                     console.log('parent founded')
                     console.log(item.category + ' < ' + category.category)
-                    item.sub.push (category)
+                    item.sub.push(category)
                     objectified = true
                 }
             })
@@ -109,7 +105,6 @@ export default {
                     this.putCategoryIntoCategoryObject(category, item.sub)
                 })
             }
-
         },
     },
 }

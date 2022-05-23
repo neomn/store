@@ -16563,10 +16563,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -36396,7 +36392,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", {
           staticClass:
-            " flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-800 bg-slate-800",
+            " flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800",
         }),
       ]
     )
