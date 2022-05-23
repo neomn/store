@@ -13,9 +13,8 @@
             <!-- display all objectifiedCategories-->
             <div
                 class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800">
-                <h1> {{ objectifiedCategories.length }}</h1>
                 <div v-for="category in objectifiedCategories" class="border">
-
+                    <h1> {{ category.category }}</h1>
 <!--                    <div class="">-->
 <!--                        {{category.id}}-->
 <!--                    </div>-->

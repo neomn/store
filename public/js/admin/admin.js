@@ -16571,7 +16571,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -36399,16 +36398,12 @@ var render = function () {
               staticClass:
                 " flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800",
             },
-            [
-              _c("h1", [
-                _vm._v(" " + _vm._s(_vm.objectifiedCategories.length)),
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.objectifiedCategories, function (category) {
-                return _c("div", { staticClass: "border" })
-              }),
-            ],
-            2
+            _vm._l(_vm.objectifiedCategories, function (category) {
+              return _c("div", { staticClass: "border" }, [
+                _c("h1", [_vm._v(" " + _vm._s(category.category))]),
+              ])
+            }),
+            0
           ),
         ]
       ),
