@@ -16563,6 +16563,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -16579,6 +16588,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Categories.vue mounted > ---------');
     this.retrieveAllCategories();
+    console.log(this.objectifiedCategories);
   },
   methods: {
     retrieveAllCategories: function retrieveAllCategories() {
@@ -16605,7 +16615,8 @@ __webpack_require__.r(__webpack_exports__);
 
       categoryArray.forEach(function (category, index) {
         if (_this2.itIsRootCategory(category)) {
-          _this2.objectifiedCategories[index] = category;
+          _this2.objectifiedCategories.push(category);
+
           categoryArray = _this2.removeElementFromArray(category, categoryArray);
         }
       });
@@ -36371,33 +36382,41 @@ var render = function () {
       _vm._v(" "),
       _c("SideBar", { staticClass: "z-40" }),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex flex-col w-full h-full justify-start items-center bg-slate-900 ",
+        },
+        [
+          _c("div", {
+            staticClass: " w-11/12 h-12 m-4 rounded-lg bg-slate-800",
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                " flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800",
+            },
+            [
+              _c("h1", [
+                _vm._v(" " + _vm._s(_vm.objectifiedCategories.length)),
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.objectifiedCategories, function (category) {
+                return _c("div", { staticClass: "border" })
+              }),
+            ],
+            2
+          ),
+        ]
+      ),
     ],
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "flex flex-col w-full h-full justify-start items-center bg-slate-900 ",
-      },
-      [
-        _c("div", { staticClass: " w-11/12 h-12 m-4 rounded-lg bg-slate-800" }),
-        _vm._v(" "),
-        _c("div", {
-          staticClass:
-            " flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800",
-        }),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

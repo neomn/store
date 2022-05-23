@@ -3,7 +3,7 @@
         <Header class="z-50"/>
         <SideBar class="z-40"/>
 
-        <!-- objectifiedCategories component content-->
+        <!-- body contents-->
         <div class="flex flex-col w-full h-full justify-start items-center bg-slate-900 ">
             <!-- search box-->
             <div class=" w-11/12 h-12 m-4 rounded-lg bg-slate-800">
@@ -13,7 +13,16 @@
             <!-- display all objectifiedCategories-->
             <div
                 class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800">
+                <h1> {{ objectifiedCategories.length }}</h1>
+                <div v-for="category in objectifiedCategories" class="border">
 
+<!--                    <div class="">-->
+<!--                        {{category.id}}-->
+<!--                    </div>-->
+<!--                    <div>-->
+
+<!--                    </div>-->
+                </div>
             </div>
         </div>
 
@@ -35,6 +44,8 @@ export default {
     mounted() {
         console.log('Categories.vue mounted > ---------')
         this.retrieveAllCategories()
+        console.log(this.objectifiedCategories)
+
     },
     methods: {
         retrieveAllCategories() {
@@ -58,7 +69,7 @@ export default {
             //objectify root elements
             categoryArray.forEach((category, index) => {
                 if (this.itIsRootCategory(category)) {
-                    this.objectifiedCategories[index] = category
+                    this.objectifiedCategories.push(category)
                     categoryArray = this.removeElementFromArray(category, categoryArray)
                 }
             })
