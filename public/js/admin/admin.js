@@ -16577,7 +16577,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      categories: {}
+      categories: []
     };
   },
   mounted: function mounted() {
@@ -16605,10 +16605,12 @@ __webpack_require__.r(__webpack_exports__);
 
       categoryArray.forEach(function (category, index) {
         if (_this2.itIsRootCategory(category)) {
-          _this2.categories[category.category] = {};
+          _this2.categories[index] = category;
           categoryArray = _this2.removeFirstElement(categoryArray);
-        } else if (Object.keys(_this2.categories).length > 0) {// let parent = this.findCategoryParent( category , this.categories)
-          // categoryArray = this.removeFirstElement(categoryArray)
+        } else if (_this2.categories.length > 0) {
+          _this2.putCategoryIntoCategoryObject(category);
+
+          _this2.removeFirstElement(categoryArray);
         }
       }); // }
 
@@ -16625,12 +16627,19 @@ __webpack_require__.r(__webpack_exports__);
       });
       return categoryArray;
     },
-    findCategoryParent: function findCategoryParent(category, categories) {
-      var parent;
-      categories.forEach(function (parentCategory) {
-        if (category.parent_id === parentCategory.id) parent = parentCategory;
+    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, sub) {
+      this.categories.forEach(function (item, index) {
+        if (item['sub'] !== undefined) {// console.log('item has sub')
+          // this.putCategoryIntoCategoryObject(category , sub )
+        } else {
+          console.log('item has not sub');
+
+          if (category.parent_id === item.id) {
+            item.sub = [];
+            item.sub[index] = category;
+          }
+        }
       });
-      return parent;
     }
   }
 });

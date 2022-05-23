@@ -33,7 +33,7 @@ export default {
     components: {SideBar, Header},
     data() {
         return {
-            categories: {}
+            categories: []
         }
     },
     mounted() {
@@ -57,41 +57,45 @@ export default {
             console.log('castCategoriesToObject >')
 
             // while (Object.keys(categoryArray).length > 0 ){
-                categoryArray.forEach((category, index) => {
-                    if ( this.itIsRootCategory(category)){
-                        this.categories[category.category] = {}
-                        categoryArray =  this.removeFirstElement(categoryArray)
-                    }
-                    else if (Object.keys(this.categories).length > 0){
-                        // let parent = this.findCategoryParent( category , this.categories)
-                        // categoryArray = this.removeFirstElement(categoryArray)
-                    }
-                })
+            categoryArray.forEach((category, index) => {
+                if (this.itIsRootCategory(category)) {
+                    this.categories[index] = category
+                    categoryArray = this.removeFirstElement(categoryArray)
+                } else if (this.categories.length > 0) {
+                    this.putCategoryIntoCategoryObject(category)
+                    this.removeFirstElement(categoryArray)
+                }
+            })
             // }
 
             console.log(this.categories)
             console.log(categoryArray)
             // console.log(Object.keys(this.categories).length)
         },
-        itIsRootCategory(category){
+        itIsRootCategory(category) {
             return category.parent_id === null
         },
-        removeFirstElement(categoryArray){
+        removeFirstElement(categoryArray) {
             delete categoryArray[0]
             categoryArray = categoryArray.filter(element => {
                 return element !== undefined
             })
             return categoryArray
         },
-        findCategoryParent(category , categories){
-            let parent
-            categories.forEach(parentCategory=>{
-                if (category.parent_id === parentCategory.id)
-                    parent = parentCategory
+        putCategoryIntoCategoryObject(category , sub) {
+            this.categories.forEach((item, index) => {
+                if (item['sub'] !== undefined) {
+                    // console.log('item has sub')
+                    // this.putCategoryIntoCategoryObject(category , sub )
+                } else {
+                    console.log('item has not sub')
+                    if (category.parent_id === item.id){
+                        item.sub = []
+                        item.sub[index] = category
+                    }
+                }
             })
-            return parent
         },
-
     },
 }
 </script>
