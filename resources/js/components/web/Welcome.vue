@@ -4,6 +4,11 @@
         <!-- header component-->
         <Header class="z-50"/>
 
+        <!--  top image slider -->
+        <div>
+            <img src="" alt="image slider">
+        </div>
+
         <div class="overflow-hidden hidden ">
             <!-- new products Container  -->
             <div class=" my-8 mx-4  p-1 rounded-lg bg-amber-400">

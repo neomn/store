@@ -21318,6 +21318,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -50055,6 +50060,8 @@ var render = function () {
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "overflow-hidden hidden " }, [
         _c("div", { staticClass: " my-8 mx-4  p-1 rounded-lg bg-amber-400" }, [
           _c(
@@ -50064,7 +50071,7 @@ var render = function () {
               class: this.displayAllNew ? "h-auto" : "h-2/5",
             },
             [
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c(
                 "div",
@@ -50194,7 +50201,7 @@ var render = function () {
               class: this.displayAllTopSells ? "h-auto" : "h-2/5",
             },
             [
-              _vm._m(1),
+              _vm._m(2),
               _vm._v(" "),
               _c(
                 "div",
@@ -50324,7 +50331,7 @@ var render = function () {
                 class: this.displayAllFavorite ? "h-auto" : "h-2/5",
               },
               [
-                _vm._m(2),
+                _vm._m(3),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -50487,6 +50494,12 @@ var render = function () {
   )
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("img", { attrs: { src: "", alt: "image slider" } })])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

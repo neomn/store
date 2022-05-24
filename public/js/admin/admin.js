@@ -16571,6 +16571,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -16606,7 +16607,7 @@ __webpack_require__.r(__webpack_exports__);
     objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
       var _this2 = this;
 
-      console.log('objectifyCategoryArray >'); //set an empty subCategory array to all elements
+      console.log('objectifyCategoryArray >'); //assign an empty subCategory array to all elements
 
       categoryArray.forEach(function (item, index) {
         item.sub = [];
@@ -16621,7 +16622,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       console.log('root categories objectified');
       console.log(this.objectifiedCategories);
-      console.log(categoryArray);
+      console.log(categoryArray); //objectify remaining elements
 
       while (categoryArray.length > 0) {
         console.log('categoryArrayLength > ' + categoryArray.length);
@@ -36401,6 +36402,8 @@ var render = function () {
             _vm._l(_vm.objectifiedCategories, function (category) {
               return _c("div", { staticClass: "border" }, [
                 _c("h1", [_vm._v(" " + _vm._s(category.category))]),
+                _vm._v(" "),
+                _c("h1", [_vm._v(" " + _vm._s(category))]),
               ])
             }),
             0

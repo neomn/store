@@ -14,7 +14,8 @@
             <div
                 class=" flex flex-col justify-center items-center w-11/12 h-full mb-20 rounded-lg text-zinc-200 bg-slate-800">
                 <div v-for="category in objectifiedCategories" class="border">
-                    <h1> {{ category.category }}</h1>
+                    <h1> {{ category.category}}</h1>
+                    <h1> {{ category}}</h1>
 <!--                    <div class="">-->
 <!--                        {{category.id}}-->
 <!--                    </div>-->
@@ -61,7 +62,7 @@ export default {
         },
         objectifyCategoryArray(categoryArray) {
             console.log('objectifyCategoryArray >')
-            //set an empty subCategory array to all elements
+            //assign an empty subCategory array to all elements
             categoryArray.forEach((item, index) => {
                 item.sub = []
             })
@@ -75,6 +76,7 @@ export default {
             console.log('root categories objectified')
             console.log(this.objectifiedCategories)
             console.log(categoryArray)
+            //objectify remaining elements
             while (categoryArray.length > 0) {
                 console.log('categoryArrayLength > ' + categoryArray.length)
                 console.log(categoryArray)
