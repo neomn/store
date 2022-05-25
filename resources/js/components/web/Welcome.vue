@@ -6,15 +6,12 @@
 
         <!--  top image slider -->
         <div class=" w-full ">
-            <img src="/resources/img/Welcome.jpg" alt="image slider" class=" w-full h-44 object-fill">
+            <img src="/resources/img/Welcome.jpg" alt="image slider" class=" w-full h-52 object-fill">
         </div>
 
-        <br>
-        <ProductContainer :products="newProducts" title="New Products" color="yellow-400"/>
-        <ProductContainer :products="topSells" title="Top Sells" color="red-600"/>
-        <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400"/>
-        <br>
-        <br>
+        <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4"/>
+        <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
+        <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400" class="my-4"/>
         <br>
         <br>
 

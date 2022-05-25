@@ -21164,9 +21164,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -49907,9 +49904,8 @@ var render = function () {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
       _c("ProductContainer", {
+        staticClass: "my-4",
         attrs: {
           products: _vm.newProducts,
           title: "New Products",
@@ -49918,20 +49914,18 @@ var render = function () {
       }),
       _vm._v(" "),
       _c("ProductContainer", {
+        staticClass: "my-4",
         attrs: { products: _vm.topSells, title: "Top Sells", color: "red-600" },
       }),
       _vm._v(" "),
       _c("ProductContainer", {
+        staticClass: "my-4",
         attrs: {
           products: _vm.favoriteProducts,
           title: "Favorite Products",
           color: "lime-400",
         },
       }),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
@@ -49949,7 +49943,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: " w-full " }, [
       _c("img", {
-        staticClass: " w-full h-44 object-fill",
+        staticClass: " w-full h-52 object-fill",
         attrs: { src: "/resources/img/Welcome.jpg", alt: "image slider" },
       }),
     ])
@@ -50042,14 +50036,14 @@ var render = function () {
     {
       ref: "productContainer",
       staticClass:
-        " flex justify-center items-center w-full h-1/3 overflow-y-hidden text-lg font-bold",
+        " flex justify-center items-center w-full h-1/3 overflow-y-hidden text-lg font-bold ",
     },
     [
       _c(
         "div",
         {
           staticClass:
-            " flex w-11/12 h-5/6 p-2 overflow-x-scroll rounded-lg bg-slate-700 ",
+            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg bg-slate-700 ",
         },
         [
           _c(
