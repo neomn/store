@@ -21550,7 +21550,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProductContainer",
@@ -50564,7 +50563,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " w-32 h-5/6 my-2 bg-slate-800 text-zinc-200" },
+    { staticClass: " w-32 h-full  bg-slate-800 rounded-lg text-zinc-200 " },
     [
       _c(
         "router-link",
@@ -50577,12 +50576,18 @@ var render = function () {
           },
         },
         [
-          _c("div", { staticClass: "overflow-hidden h-2/5 " }, [
-            _c("img", {
-              staticClass: "w-full h-16 object-fill",
-              attrs: { src: _vm.product.image, alt: "product-image" },
-            }),
-          ]),
+          _c(
+            "div",
+            {
+              staticClass: "overflow-hidden h-2/5 rounded-tl-lg rounded-tr-lg ",
+            },
+            [
+              _c("img", {
+                staticClass: "w-full h-16 object-fill",
+                attrs: { src: _vm.product.image, alt: "product-image" },
+              }),
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: " text-sm text-center " }, [
             _c("p", [_vm._v(_vm._s(_vm.product.name))]),
@@ -50621,7 +50626,7 @@ var render = function () {
     {
       ref: "productContainer",
       staticClass:
-        " flex justify-center items-center w-full h-1/3 overflow-y-hidden text-lg font-bold\n          ",
+        " flex justify-center items-center w-full h-1/3 overflow-y-hidden text-lg font-bold",
     },
     [
       _c(
