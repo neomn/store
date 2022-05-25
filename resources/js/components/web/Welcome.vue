@@ -5,7 +5,7 @@
         <Header class="z-50"/>
 
         <!--  top image slider -->
-        <div class=" w-full border">
+        <div class=" w-full ">
             <img src="/resources/img/Welcome.jpg" alt="image slider" class=" w-full h-44 object-fill">
         </div>
 

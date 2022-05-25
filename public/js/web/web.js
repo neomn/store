@@ -21563,7 +21563,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setColor: function setColor(color) {
-      var colorString = 'from-' + color; // this.$refs.productContainer.classList.add('bg-gradient-to-r')
+      var colorString = 'bg-' + color;
+      this.$refs.productContainer.classlist.add(colorString); // this.$refs.productContainer.classList.add('bg-gradient-to-r')
       // this.$refs.productContainer.classList.add(colorString)
       // this.$refs.productContainer.classList.add('via-zinc-700')
       // this.$refs.productContainer.classList.add('to-zinc-900')
@@ -50499,7 +50500,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " w-full border" }, [
+    return _c("div", { staticClass: " w-full " }, [
       _c("img", {
         staticClass: " w-full h-44 object-fill",
         attrs: { src: "/resources/img/Welcome.jpg", alt: "image slider" },
@@ -50620,23 +50621,34 @@ var render = function () {
     {
       ref: "productContainer",
       staticClass:
-        " flex items-center w-full h-1/3 my-2 pl-2 overflow-y-hidden rounded-lg text-lg font-bold\n             bg-gradient-to-r from-slate-700\n        ",
+        " flex justify-center items-center w-full h-1/3 overflow-y-hidden text-lg font-bold\n          ",
     },
     [
-      _c("div", { staticClass: "w-1/3 self-start mt-10 flex text-zinc-400" }, [
-        _c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))]),
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.products, function (item) {
-        return _c(
-          "div",
-          { staticClass: "mx-1" },
-          [_c("Product", { attrs: { product: item } })],
-          1
-        )
-      }),
-    ],
-    2
+      _c(
+        "div",
+        {
+          staticClass:
+            " flex w-11/12 h-5/6 p-2 overflow-x-scroll rounded-lg bg-slate-700 ",
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-400" },
+            [_c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))])]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.products, function (item) {
+            return _c(
+              "div",
+              { staticClass: "mx-1" },
+              [_c("Product", { attrs: { product: item } })],
+              1
+            )
+          }),
+        ],
+        2
+      ),
+    ]
   )
 }
 var staticRenderFns = []
