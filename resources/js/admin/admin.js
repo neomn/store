@@ -16,6 +16,8 @@ import Users from "../components/admin/Users";
 import Analytics from "../components/admin/Analytics";
 import Settings from "../components/admin/Settings";
 import NotFound from "../components/admin/NotFound";
+import Categories from "../components/admin/Categories";
+import Admins from "../components/admin/Admins";
 
 
 require('../web/bootstrap');
@@ -29,14 +31,15 @@ Vue.config.productionTip = false
 
 Vue.component('App', require('../components/admin/App').default);
 
-
 const routes=[
         { path: '/panel', name: 'panel', component: Panel},
-        { path: '/productContainer', name: 'products', component: Products},
-        { path: '/users', name: 'users', component: Users},
-        { path: '/analytics', name: 'analytics', component: Analytics},
-        { path: '/settings', name: 'settings', component: Settings},
-        { path: '/:catchAll(.*)', name: '404', component: NotFound},
+        { path: '/panel/products', name: 'products', component: Products},
+        { path: '/panel/categories', name: 'categories', component: Categories},
+        { path: '/panel/users', name: 'users', component: Users},
+        { path: '/panel/admins', name: 'admins', component: Admins},
+        { path: '/panel/analytics', name: 'analytics', component: Analytics},
+        { path: '/panel/settings', name: 'settings', component: Settings},
+        { path: '/panel/:catchAll(.*)', name: '404', component: NotFound},
 ]
 
 const router = new VueRouter({

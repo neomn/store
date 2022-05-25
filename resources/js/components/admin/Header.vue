@@ -1,16 +1,64 @@
 <template>
-    <div class="fixed top-0 w-full h-12 border-b border-lime-300 bg-slate-900">
-        <div class="px-1 pt-2 py-2  bg-slate-900  rounded text-zinc-300 ">
-            <a href="/" class="mx-2 px-2"> Home</a>
-            <!--  user dashboard-->
-<!--            <div v-if="loggedInUser" class=" w-auto ml-3 px-2 inline-block float-right"-->
-<!--                 v-bind:class="(this.$route.path === '/dashboard')? 'border-t border-lime-500 rounded-lg': ''">-->
-<!--                <router-link :to="{name:'dashboard'}" href="/api/user">-->
-<!--                    <font-awesome-icon :icon="['fas', 'chart-line']"/>-->
-<!--                    <h3 class="inline-block pl-1">{{ loggedInUser.firstName }}</h3>-->
-<!--                </router-link>-->
-<!--            </div>-->
+    <div class="flex flex-col fixed bottom-0 w-full">
+        <!-- header -->
+        <div class="flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900">
+            <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
+                <!-- left side buttons-->
+                <div class=" flex grow items-center">
+                    <!-- menu -->
+                    <div v-if="!displayMenu" @click="toggleSidebar" class="pr-2">
+                        <font-awesome-icon :icon="['fas' , 'bars']"/>
+                    </div>
+                    <!-- close menu  -->
+                    <div v-if="displayMenu" @click="toggleSidebar" class="pr-2 text-red-500 ">
+                        <font-awesome-icon :icon="['fas' , 'times']"/>
+                    </div>
+                    <!--home -->
+                    <div class=" flex grow h-10 ">
+                        <a href="/" class="flex justify-center items-center grow pr-2"
+                           v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
+                            <div class="px-1">
+                                <font-awesome-icon :icon="['fas' , 'home']"/>
+                            </div>
+                            <div v-if="this.$route.path === '/'" class="flex text-lg ">
+                                Home
+                            </div>
+                        </a>
+                    </div>
+                    <!--categories -->
+                    <div class=" flex grow h-10 ">
+                        <a href="/categories" class="flex justify-center items-center grow pr-2"
+                           v-bind:class="(this.$route.path === '/categories')? ' bg-emerald-600 rounded-lg': ''">
+                            <div class="px-1">
+                                <font-awesome-icon :icon="['fab' , 'buffer']"/>
+                            </div>
+                            <div v-if="this.$route.path === '/categories'" class="flex text-lg">
+                                Categories
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- right side buttons-->
+                <div class="flex grow ">
+                    <!-- profile -->
+                    <div class=" flex grow h-10  ">
+                        <routerLink :to="{name:''}" class="flex justify-center items-center grow pr-2"
+                                    v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
+                            <div class="px-2">
+                                <font-awesome-icon :icon="['fas', 'user']"/>
+                            </div>
+                            <div class="flex text-lg ">
+                                {{loggedInUser.firstName}}
+                            </div>
+                        </routerLink>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- header hidden area -->
+<!--        <div v-if="displayMenu" class=" w-full h-32  bg-gray-700 ">-->
+
+<!--        </div>-->
     </div>
 </template>
 
@@ -25,6 +73,7 @@ export default {
         return {
             HeaderImage: '../resources/img/WelcomeController.jpg',
             loggedInUser: {},
+            displayMenu: false,
         }
     },
     created() {
@@ -44,7 +93,12 @@ export default {
             } else this.loggedInUser = null
             console.log('loggedInUser >')
             console.log(this.loggedInUser)
+            console.log('----------------------------\n\n')
         },
+        toggleSidebar(){
+            this.displayMenu = !this.displayMenu
+            this.$root.$emit('sidebar')
+        }
     }
 }
 </script>
