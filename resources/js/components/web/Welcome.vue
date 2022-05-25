@@ -54,6 +54,7 @@ export default {
     mounted() {
         console.log('\nWelcome mounted > ------------------------ \n')
         this.initData()
+        this.viewportOrientation()
     },
     methods: {
         initData: function () {
@@ -72,6 +73,21 @@ export default {
                 .catch(function (error) {
                     console.log('error while catching data >>> ' + error);
                 });
+        },
+        viewportOrientation(){
+            if (screen.availHeight < screen.availWidth){
+                console.log('horizontal')
+            } else {
+                console.log('vertical')
+            }
+            window.addEventListener('orientationchange', function(event) {
+                /* update layout per new orientation */
+                if (screen.availHeight < screen.availWidth){
+                    console.log('horizontal')
+                } else {
+                    console.log('vertical')
+                }
+            });
         },
         addProductTOShoppingCart(product) {
             console.log('\n')

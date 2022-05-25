@@ -21191,6 +21191,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('\nWelcome mounted > ------------------------ \n');
     this.initData();
+    this.viewportOrientation();
   },
   methods: {
     initData: function initData() {
@@ -21207,6 +21208,22 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(this.topSells);
       })["catch"](function (error) {
         console.log('error while catching data >>> ' + error);
+      });
+    },
+    viewportOrientation: function viewportOrientation() {
+      if (screen.availHeight < screen.availWidth) {
+        console.log('horizontal');
+      } else {
+        console.log('vertical');
+      }
+
+      window.addEventListener('orientationchange', function (event) {
+        /* update layout per new orientation */
+        if (screen.availHeight < screen.availWidth) {
+          console.log('horizontal');
+        } else {
+          console.log('vertical');
+        }
       });
     },
     addProductTOShoppingCart: function addProductTOShoppingCart(product) {
