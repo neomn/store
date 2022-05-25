@@ -21342,7 +21342,8 @@ __webpack_require__.r(__webpack_exports__);
       topSells: [],
       displayAllNew: false,
       displayAllTopSells: false,
-      displayAllFavorite: false
+      displayAllFavorite: false,
+      topImageSlider: {}
     };
   },
   created: function created() {},
@@ -50125,7 +50126,7 @@ var render = function () {
                                   _vm._v(
                                     "\n                                        " +
                                       _vm._s(product.price) +
-                                      "  "
+                                      " "
                                   ),
                                   _c("br"),
                                 ]),
@@ -50498,7 +50499,12 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("img", { attrs: { src: "", alt: "image slider" } })])
+    return _c("div", { staticClass: " w-full border" }, [
+      _c("img", {
+        staticClass: " w-full h-44 object-fill",
+        attrs: { src: "/resources/img/Welcome.jpg", alt: "image slider" },
+      }),
+    ])
   },
   function () {
     var _vm = this

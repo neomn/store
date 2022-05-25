@@ -5,8 +5,8 @@
         <Header class="z-50"/>
 
         <!--  top image slider -->
-        <div>
-            <img src="" alt="image slider">
+        <div class=" w-full border">
+            <img src="/resources/img/Welcome.jpg" alt="image slider" class=" w-full h-44 object-fill">
         </div>
 
         <div class="overflow-hidden hidden ">
@@ -37,7 +37,7 @@
                                         <!--card body-->
                                         <div class="pt-1 pl-1 ">
                                             {{ product.name }} <br>
-                                            {{ product.price }}  <br>
+                                            {{ product.price }} <br>
                                         </div>
                                     </router-link>
                                     <!--card buttons-->
@@ -204,6 +204,7 @@ export default {
             displayAllNew: false,
             displayAllTopSells: false,
             displayAllFavorite: false,
+            topImageSlider: {},
         }
     },
     created() {
