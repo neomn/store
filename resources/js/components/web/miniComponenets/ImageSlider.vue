@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class=" w-full ">
-            <img ref="slider" :src="this.$refs.slider" alt="image slider" class=" w-full h-52 object-fill">
+            <img ref="slider" :src="images[0]" alt="image slider" class=" w-full h-52 object-fill">
         </div>
     </div>
 </template>
@@ -28,7 +28,8 @@ export default {
     },
     methods: {
         slider(){
-            console.log(this.pickImage())
+            this.$refs.slider.src = this.pickImage()
+            // console.log(this.pickImage())
         },
         pickImage(){
             if (this.currentlyDisplayingImage < this.images.length-1){

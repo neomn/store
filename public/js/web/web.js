@@ -21380,7 +21380,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     slider: function slider() {
-      console.log(this.pickImage());
+      this.$refs.slider.src = this.pickImage(); // console.log(this.pickImage())
     },
     pickImage: function pickImage() {
       if (this.currentlyDisplayingImage < this.images.length - 1) {
@@ -50105,7 +50105,7 @@ var render = function () {
       _c("img", {
         ref: "slider",
         staticClass: " w-full h-52 object-fill",
-        attrs: { src: this.$refs.slider, alt: "image slider" },
+        attrs: { src: _vm.images[0], alt: "image slider" },
       }),
     ]),
   ])
