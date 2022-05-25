@@ -21163,10 +21163,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -21360,6 +21356,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -50017,7 +50017,7 @@ var render = function () {
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _vm._m(0),
+      _c("ImageSlider"),
       _vm._v(" "),
       _c("ProductContainer", {
         staticClass: "my-4",
@@ -50051,19 +50051,7 @@ var render = function () {
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " w-full " }, [
-      _c("img", {
-        staticClass: " w-full h-52 object-fill",
-        attrs: { src: "/resources/img/Welcome.jpg", alt: "image slider" },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50086,9 +50074,23 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: " w-full " }, [
+        _c("img", {
+          staticClass: " w-full h-52 object-fill",
+          attrs: { src: "/resources/img/Welcome.jpg", alt: "image slider" },
+        }),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

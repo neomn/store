@@ -5,11 +5,7 @@
         <Header class="z-50"/>
 
         <!--  top image slider -->
-        <div class=" w-full ">
-            <img src="/resources/img/Welcome.jpg" alt="image slider" class=" w-full h-52 object-fill">
-        </div>
-
-
+        <ImageSlider/>
 
         <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4"/>
         <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
