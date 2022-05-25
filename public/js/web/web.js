@@ -21365,7 +21365,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "ImageSlider"
+  name: "ImageSlider",
+  data: function data() {
+    return {
+      currentlyDisplayingImage: 0,
+      images: ['/resources/img/Welcome.jpg', '/storage/images/products/electronicsAndRobotics/arduino/arduino.png', '/storage/images/products/electronicsAndRobotics/esp/esp.png', '/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png']
+    };
+  },
+  mounted: function mounted() {
+    // this.slider()
+    setInterval(this.slider, 3000);
+    console.log(this.images);
+    console.log(this.images.length);
+  },
+  methods: {
+    slider: function slider() {
+      console.log(this.pickImage());
+    },
+    pickImage: function pickImage() {
+      if (this.currentlyDisplayingImage < this.images.length - 1) {
+        this.currentlyDisplayingImage++;
+        return this.images[this.currentlyDisplayingImage];
+      } else {
+        this.currentlyDisplayingImage = 0;
+        return this.images[this.currentlyDisplayingImage];
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -50074,23 +50100,17 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: " w-full " }, [
+      _c("img", {
+        ref: "slider",
+        staticClass: " w-full h-52 object-fill",
+        attrs: { src: this.$refs.slider, alt: "image slider" },
+      }),
+    ]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: " w-full " }, [
-        _c("img", {
-          staticClass: " w-full h-52 object-fill",
-          attrs: { src: "/resources/img/Welcome.jpg", alt: "image slider" },
-        }),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
