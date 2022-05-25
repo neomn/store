@@ -9,6 +9,8 @@
             <img src="/resources/img/Welcome.jpg" alt="image slider" class=" w-full h-52 object-fill">
         </div>
 
+
+
         <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4"/>
         <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
         <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400" class="my-4"/>
@@ -27,6 +29,7 @@
 import Header from './Header.vue';
 import Footer from './Footer';
 import ProductContainer from "./miniComponenets/ProductContainer";
+import ImageSlider from "./miniComponenets/ImageSlider";
 
 export default {
     name: 'web',
@@ -34,6 +37,7 @@ export default {
         Header,
         Footer,
         ProductContainer,
+        ImageSlider
     },
     props: [],
     data() {
