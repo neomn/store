@@ -1,8 +1,6 @@
 <template>
-    <div class="bg-slate-900">
-        <h1>
-            this is Footer
-        </h1>
+    <div class="text-zinc-200  w-full h-56">
+
     </div>
 </template>
 

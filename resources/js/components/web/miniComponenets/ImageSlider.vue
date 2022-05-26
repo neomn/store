@@ -6,9 +6,9 @@
         <div class=" absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ">
             <span ref="imageTitle"></span>
         </div>
-        <div class="absolute bottom-2 flex justify-around items-center w-1/2 h-6 rounded-lg  ">
-            <div v-for="(image , index) in images" :key="index" :ref="'img'+index" class="w-8 h-4 rounded-lg border">
-
+        <div class="absolute bottom-1 flex justify-around items-center w-1/2 h-6 rounded-lg  ">
+            <div v-for="(image , index) in images" :key="index" :ref="'img'+index"
+                 class="w-6 h-4 rounded-lg border">
             </div>
         </div>
     </div>
@@ -50,7 +50,6 @@ export default {
         setImageNavigatorLocation(index) {
             for (let i = 0; i < this.images.length; i++) {
                 let item = 'img' + i
-                console.log(item)
                 this.$refs[item][0].classList.remove('backdrop-blur', 'bg-white/60')
             }
             if (this.firstTime){
@@ -58,7 +57,6 @@ export default {
                 this.firstTime = false
             }
             let item = 'img' + index
-            console.log(this.$refs[item][0])
             this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60')
         },
     },

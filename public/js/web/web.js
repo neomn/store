@@ -20225,8 +20225,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Footer"
 });
@@ -21153,16 +21151,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -21403,8 +21391,6 @@ __webpack_require__.r(__webpack_exports__);
       for (var i = 0; i < this.images.length; i++) {
         var _item = 'img' + i;
 
-        console.log(_item);
-
         this.$refs[_item][0].classList.remove('backdrop-blur', 'bg-white/60');
       }
 
@@ -21414,7 +21400,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var item = 'img' + index;
-      console.log(this.$refs[item][0]);
       this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60');
     }
   }
@@ -48821,18 +48806,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "text-zinc-200  w-full h-56" })
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-slate-900" }, [
-      _c("h1", [_vm._v("\n        this is Footer\n    ")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50065,7 +50041,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 min-h-screen bg-zinc-900" },
+    { staticClass: "z-0 min-h-screen bg-slate-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
@@ -50094,11 +50070,7 @@ var render = function () {
         },
       }),
       _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("Footer", { staticClass: "hidden" }),
+      _c("Footer"),
     ],
     1
   )
@@ -50148,14 +50120,14 @@ var render = function () {
       "div",
       {
         staticClass:
-          "absolute bottom-2 flex justify-around items-center w-1/2 h-6 rounded-lg  ",
+          "absolute bottom-1 flex justify-around items-center w-1/2 h-6 rounded-lg  ",
       },
       _vm._l(_vm.images, function (image, index) {
         return _c("div", {
           key: index,
           ref: "img" + index,
           refInFor: true,
-          staticClass: "w-8 h-4 rounded-lg border",
+          staticClass: "w-6 h-4 rounded-lg border",
         })
       }),
       0
@@ -50250,7 +50222,7 @@ var render = function () {
     {
       ref: "productContainer",
       staticClass:
-        " flex justify-center items-center w-full h-1/3 overflow-y-hidden text-lg font-bold ",
+        " flex justify-center items-center w-full h-56 overflow-y-hidden text-lg font-bold ",
     },
     [
       _c(
