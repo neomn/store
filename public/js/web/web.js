@@ -21368,6 +21368,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ImageSlider",
   data: function data() {
@@ -21377,14 +21381,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    // this.slider()
     setInterval(this.slider, 3000);
-    console.log(this.images);
-    console.log(this.images.length);
+    this.setImageNavigatorLocation();
   },
   methods: {
     slider: function slider() {
-      this.$refs.slider.src = this.pickImage(); // console.log(this.pickImage())
+      this.$refs.slider.src = this.pickImage();
+      this.setImageNavigatorLocation(this.currentlyDisplayingImage);
     },
     pickImage: function pickImage() {
       if (this.currentlyDisplayingImage < this.images.length - 1) {
@@ -21394,6 +21397,19 @@ __webpack_require__.r(__webpack_exports__);
         this.currentlyDisplayingImage = 0;
         return this.images[this.currentlyDisplayingImage];
       }
+    },
+    setImageNavigatorLocation: function setImageNavigatorLocation(index) {
+      for (var i = 0; i < this.images.length; i++) {
+        var _item = 'img' + i;
+
+        console.log(_item);
+
+        this.$refs[_item][0].classList.remove('backdrop-blur', 'bg-white/60');
+      }
+
+      var item = 'img' + index;
+      console.log(this.$refs[item][0]);
+      this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60');
     }
   }
 });
@@ -50105,22 +50121,40 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: " relative flex justify-center w-full  " }, [
-    _c("img", {
-      ref: "slider",
-      staticClass: " w-full h-52 object-fill border",
-      attrs: { src: _vm.images[0], alt: "image slider" },
-    }),
+    _c("div", { staticClass: "w-full " }, [
+      _c("img", {
+        ref: "slider",
+        staticClass: " w-full h-52 object-fill ",
+        attrs: { src: _vm.images[0], alt: "image slider" },
+      }),
+    ]),
     _vm._v(" "),
     _c(
       "div",
       {
         staticClass:
-          " absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-200 border ",
+          " absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ",
       },
-      [_c("span", { ref: "imageTitle" }, [_vm._v("test")])]
+      [_c("span", { ref: "imageTitle" })]
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "absolute bottom-2 w-5/6 h-6 rounded-lg border" }),
+    _c(
+      "div",
+      {
+        staticClass:
+          "absolute bottom-2 flex justify-around items-center w-1/2 h-6 rounded-lg  ",
+      },
+      _vm._l(_vm.images, function (image, index) {
+        return _c("div", {
+          key: index,
+          ref: "img" + index,
+          refInFor: true,
+          staticClass:
+            "w-8 h-4 'backdrop-blur' 'bg-white/60' rounded-lg border",
+        })
+      }),
+      0
+    ),
   ])
 }
 var staticRenderFns = []
