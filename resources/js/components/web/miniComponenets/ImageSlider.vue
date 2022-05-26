@@ -1,8 +1,11 @@
 <template>
         <div class=" relative flex justify-center w-full  ">
             <img ref="slider" :src="images[0]" alt="image slider" class=" w-full h-52 object-fill border">
-            <div class=" absolute bottom-4 right-8 p-1 rounded-lg text-center text-zinc-200 border ">
+            <div class=" absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-200 border ">
                 <span ref="imageTitle">test</span>
+            </div>
+            <div class="absolute bottom-2 w-5/6 h-6 rounded-lg border">
+
             </div>
         </div>
 </template>

@@ -21365,6 +21365,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ImageSlider",
   data: function data() {
@@ -50112,10 +50115,12 @@ var render = function () {
       "div",
       {
         staticClass:
-          " absolute bottom-4 right-8 p-1 rounded-lg text-center text-zinc-200 border ",
+          " absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-200 border ",
       },
       [_c("span", { ref: "imageTitle" }, [_vm._v("test")])]
     ),
+    _vm._v(" "),
+    _c("div", { staticClass: "absolute bottom-2 w-5/6 h-6 rounded-lg border" }),
   ])
 }
 var staticRenderFns = []
