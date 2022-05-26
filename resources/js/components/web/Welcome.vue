@@ -7,9 +7,7 @@
         <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400" class="my-4"/>
         <Footer/>
         <br>
-        <br>
-        <br>
-        <br>
+
     </div>
 </template>
 

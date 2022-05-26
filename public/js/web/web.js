@@ -20248,6 +20248,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Footer"
 });
@@ -21161,8 +21168,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/web/Footer.vue");
 /* harmony import */ var _miniComponenets_ProductContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./miniComponenets/ProductContainer */ "./resources/js/components/web/miniComponenets/ProductContainer.vue");
 /* harmony import */ var _miniComponenets_ImageSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./miniComponenets/ImageSlider */ "./resources/js/components/web/miniComponenets/ImageSlider.vue");
-//
-//
 //
 //
 //
@@ -48842,15 +48847,27 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " flex flex-col justify-start w-full h-96 " },
+      { staticClass: " flex flex-col justify-start w-full h-auto " },
       [
-        _c("div", { staticClass: "w-full h-32 " }),
+        _c("div", { staticClass: " flex flex-col  w-full h-auto " }, [
+          _c(
+            "div",
+            { staticClass: " ml-8 text-zinc-200 text-lg font-bold border" },
+            [_c("span", [_vm._v(" follow Neola on social media")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: " flex items-center w-full h-auto border" },
+            [_c("div", { staticClass: " w-11/12 h-40 bg-slate-800" })]
+          ),
+        ]),
         _vm._v(" "),
         _c(
           "div",
           {
             staticClass:
-              "relative flex flex-col items-center w-full h-52 text-zinc-200  ",
+              "relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16 ",
           },
           [
             _c(
@@ -50156,12 +50173,6 @@ var render = function () {
       }),
       _vm._v(" "),
       _c("Footer"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("br"),
       _vm._v(" "),
       _c("br"),
     ],
