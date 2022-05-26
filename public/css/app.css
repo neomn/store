@@ -567,6 +567,15 @@ select {
 .bottom-16 {
   bottom: 4rem;
 }
+.bottom-8 {
+  bottom: 2rem;
+}
+.bottom-4 {
+  bottom: 1rem;
+}
+.right-8 {
+  right: 2rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -963,6 +972,9 @@ select {
 .self-center {
   align-self: center;
 }
+.justify-self-start {
+  justify-self: start;
+}
 .justify-self-end {
   justify-self: end;
 }
@@ -1131,6 +1143,17 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
 }
+.bg-transparent {
+  background-color: transparent;
+}
+.bg-lime-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(190 242 100 / var(--tw-bg-opacity));
+}
+.bg-lime-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(101 163 13 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1175,6 +1198,9 @@ select {
 }
 .p-4 {
   padding: 1rem;
+}
+.p-1 {
+  padding: 0.25rem;
 }
 .px-4 {
   padding-left: 1rem;

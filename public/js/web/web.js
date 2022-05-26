@@ -21364,6 +21364,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ImageSlider",
   data: function data() {
@@ -50100,14 +50101,21 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: " w-full " }, [
-      _c("img", {
-        ref: "slider",
-        staticClass: " w-full h-52 object-fill",
-        attrs: { src: _vm.images[0], alt: "image slider" },
-      }),
-    ]),
+  return _c("div", { staticClass: " relative flex justify-center w-full  " }, [
+    _c("img", {
+      ref: "slider",
+      staticClass: " w-full h-52 object-fill border",
+      attrs: { src: _vm.images[0], alt: "image slider" },
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          " absolute bottom-4 right-8 p-1 rounded-lg text-center text-zinc-200 border ",
+      },
+      [_c("span", { ref: "imageTitle" }, [_vm._v("test")])]
+    ),
   ])
 }
 var staticRenderFns = []
