@@ -7,7 +7,7 @@
             <span ref="imageTitle"></span>
         </div>
         <div class="absolute bottom-2 flex justify-around items-center w-1/2 h-6 rounded-lg  ">
-            <div v-for="(image , index) in images" :key="index" :ref="'img'+index" class="w-8 h-4 'backdrop-blur' 'bg-white/60' rounded-lg border">
+            <div v-for="(image , index) in images" :key="index" :ref="'img'+index" class="w-8 h-4 rounded-lg border">
 
             </div>
         </div>
@@ -20,6 +20,7 @@ export default {
     data() {
         return {
             currentlyDisplayingImage: 0,
+            firstTime: true,
             images: [
                 '/resources/img/Welcome.jpg',
                 '/storage/images/products/electronicsAndRobotics/arduino/arduino.png',
@@ -52,6 +53,10 @@ export default {
                 console.log(item)
                 this.$refs[item][0].classList.remove('backdrop-blur', 'bg-white/60')
             }
+            if (this.firstTime){
+                this.$refs.img0[0].classList.add('backdrop-blur', 'bg-white/60')
+                this.firstTime = false
+            }
             let item = 'img' + index
             console.log(this.$refs[item][0])
             this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60')
@@ -60,6 +65,3 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
