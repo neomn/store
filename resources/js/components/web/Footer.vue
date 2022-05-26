@@ -1,16 +1,25 @@
 <template>
-    <div class="relative flex flex-col justify-start text-zinc-200  w-full h-96 ">
-        <span></span>
+    <div class=" flex flex-col justify-start w-full h-96 ">
+
+        <!-- social media -->
+        <div class="w-full h-32 border">
+
+        </div>
 
         <!-- certificates -->
-        <div class="absolute bottom-0 flex justify-center w-full h-44 ">
-            <div class="">
-                <img src="/storage/images/certificates/enamad.png" alt="enamad"
-                     class="w-40 h-40 object-fill ">
+        <div class="relative w-full h-52  text-zinc-200 border">
+            <div >
+                <span> Certificates  </span>
             </div>
-            <div class="">
-                <img src="/storage/images/certificates/samandehi.png" alt="samandehi"
-                     class="w-40 h-44 object-fill ">
+            <div class="absolute bottom-0 flex justify-center w-full h-44 ">
+                <div class="">
+                    <img src="/storage/images/certificates/enamad.png" alt="enamad"
+                         class="w-40 h-40 object-fill ">
+                </div>
+                <div class="">
+                    <img src="/storage/images/certificates/samandehi.png" alt="samandehi"
+                         class="w-40 h-44 object-fill ">
+                </div>
             </div>
         </div>
     </div>
