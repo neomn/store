@@ -20255,6 +20255,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Footer"
 });
@@ -48847,20 +48849,35 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " flex flex-col justify-start w-full h-auto " },
+      { staticClass: " flex flex-col justify-start w-full h-auto  " },
       [
-        _c("div", { staticClass: " flex flex-col  w-full h-auto " }, [
-          _c(
-            "div",
-            { staticClass: " ml-8 text-zinc-200 text-lg font-bold border" },
-            [_c("span", [_vm._v(" follow Neola on social media")])]
-          ),
+        _c("div", { staticClass: " flex flex-col  w-full h-auto my-6  " }, [
+          _c("div", { staticClass: " ml-8 text-zinc-200 text-lg font-bold " }, [
+            _c("span"),
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: " flex items-center w-full h-auto border" },
-            [_c("div", { staticClass: " w-11/12 h-40 bg-slate-800" })]
-          ),
+          _c("div", { staticClass: " flex justify-center w-full h-auto " }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  " flex justify-center items-center w-11/12 h-auto rounded-lg  ",
+              },
+              [
+                _c("div", {
+                  staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 ",
+                }),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 ",
+                }),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 ",
+                }),
+              ]
+            ),
+          ]),
         ]),
         _vm._v(" "),
         _c(

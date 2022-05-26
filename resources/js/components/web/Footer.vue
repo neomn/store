@@ -1,14 +1,16 @@
 <template>
-    <div class=" flex flex-col justify-start w-full h-auto ">
+    <div class=" flex flex-col justify-start w-full h-auto  ">
 
         <!-- social media -->
-        <div class=" flex flex-col  w-full h-auto ">
-            <div class=" ml-8 text-zinc-200 text-lg font-bold border">
-                <span> follow Neola on social media</span>
+        <div class=" flex flex-col  w-full h-auto my-6  ">
+            <div class=" ml-8 text-zinc-200 text-lg font-bold ">
+                <span> </span>
             </div>
-            <div class=" flex items-center w-full h-auto border">
-                <div class=" w-11/12 h-40 bg-slate-800">
-
+            <div class=" flex justify-center w-full h-auto ">
+                <div class=" flex justify-center items-center w-11/12 h-auto rounded-lg  ">
+                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 "></div>
+                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 "></div>
+                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 "></div>
                 </div>
             </div>
         </div>

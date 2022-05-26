@@ -646,6 +646,18 @@ select {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -868,6 +880,15 @@ select {
 .h-36 {
   height: 9rem;
 }
+.h-1\/2 {
+  height: 50%;
+}
+.h-2\/3 {
+  height: 66.666667%;
+}
+.h-1\/4 {
+  height: 25%;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -937,6 +958,9 @@ select {
 .w-36 {
   width: 9rem;
 }
+.w-16 {
+  width: 4rem;
+}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -997,6 +1021,9 @@ select {
 }
 .flex-col {
   flex-direction: column;
+}
+.content-center {
+  align-content: center;
 }
 .items-start {
   align-items: flex-start;
