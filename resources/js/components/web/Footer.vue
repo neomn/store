@@ -2,23 +2,25 @@
     <div class=" flex flex-col justify-start w-full h-96 ">
 
         <!-- social media -->
-        <div class="w-full h-32 border">
+        <div class="w-full h-32 ">
 
         </div>
 
         <!-- certificates -->
-        <div class="relative w-full h-52  text-zinc-200 border">
-            <div >
-                <span> Certificates  </span>
-            </div>
-            <div class="absolute bottom-0 flex justify-center w-full h-44 ">
-                <div class="">
-                    <img src="/storage/images/certificates/enamad.png" alt="enamad"
-                         class="w-40 h-40 object-fill ">
+        <div class="relative flex flex-col items-center w-full h-52 text-zinc-200  ">
+            <div class="flex flex-col w-11/12 h-52 rounded-lg border " >
+                <div class=" h-10 ml-6 text-lg font-bold ">
+                    <span> Certificates  </span>
                 </div>
-                <div class="">
-                    <img src="/storage/images/certificates/samandehi.png" alt="samandehi"
-                         class="w-40 h-44 object-fill ">
+                <div class="flex justify-center w-full h-44  ">
+                    <div class=" m-2 rounded-lg bg-slate-800">
+                        <img src="/storage/images/certificates/enamad.png" alt="enamad"
+                             class="w-36 h-40 object-fill  ">
+                    </div>
+                    <div class="m-2 rounded-lg bg-slate-800">
+                        <img src="/storage/images/certificates/samandehi.png" alt="samandehi"
+                             class="w-36 h-40 object-fill ">
+                    </div>
                 </div>
             </div>
         </div>

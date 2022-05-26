@@ -20246,6 +20246,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Footer"
 });
@@ -48842,40 +48844,48 @@ var staticRenderFns = [
       "div",
       { staticClass: " flex flex-col justify-start w-full h-96 " },
       [
-        _c("div", { staticClass: "w-full h-32 border" }),
+        _c("div", { staticClass: "w-full h-32 " }),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "relative w-full h-52  text-zinc-200 border" },
+          {
+            staticClass:
+              "relative flex flex-col items-center w-full h-52 text-zinc-200  ",
+          },
           [
-            _c("div", [_c("span", [_vm._v(" Certificates  ")])]),
-            _vm._v(" "),
             _c(
               "div",
-              {
-                staticClass:
-                  "absolute bottom-0 flex justify-center w-full h-44 ",
-              },
+              { staticClass: "flex flex-col w-11/12 h-52 rounded-lg border " },
               [
-                _c("div", {}, [
-                  _c("img", {
-                    staticClass: "w-40 h-40 object-fill ",
-                    attrs: {
-                      src: "/storage/images/certificates/enamad.png",
-                      alt: "enamad",
-                    },
-                  }),
+                _c("div", { staticClass: " h-10 ml-6 text-lg font-bold " }, [
+                  _c("span", [_vm._v(" Certificates  ")]),
                 ]),
                 _vm._v(" "),
-                _c("div", {}, [
-                  _c("img", {
-                    staticClass: "w-40 h-44 object-fill ",
-                    attrs: {
-                      src: "/storage/images/certificates/samandehi.png",
-                      alt: "samandehi",
-                    },
-                  }),
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "flex justify-center w-full h-44  " },
+                  [
+                    _c("div", { staticClass: " m-2 rounded-lg bg-slate-800" }, [
+                      _c("img", {
+                        staticClass: "w-36 h-40 object-fill  ",
+                        attrs: {
+                          src: "/storage/images/certificates/enamad.png",
+                          alt: "enamad",
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "m-2 rounded-lg bg-slate-800" }, [
+                      _c("img", {
+                        staticClass: "w-36 h-40 object-fill ",
+                        attrs: {
+                          src: "/storage/images/certificates/samandehi.png",
+                          alt: "samandehi",
+                        },
+                      }),
+                    ]),
+                  ]
+                ),
               ]
             ),
           ]
