@@ -20225,6 +20225,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Footer"
 });
@@ -21151,6 +21163,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -21650,7 +21666,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e]{\n    position: fixed;\n    bottom: 0;\n    width: 1300px;\n    display: inline;\n    text-align: center;\n}\nh1[data-v-1abcd33e]{\n    color:white;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\n    position: fixed;\n    bottom: 0;\n    width: 1300px;\n    display: inline;\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\n    color: white;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48806,9 +48822,51 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "text-zinc-200  w-full h-56" })
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "relative flex flex-col justify-start text-zinc-200  w-full h-96 ",
+      },
+      [
+        _c("span"),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "absolute bottom-0 flex justify-center w-full h-44 " },
+          [
+            _c("div", {}, [
+              _c("img", {
+                staticClass: "w-40 h-40 object-fill ",
+                attrs: {
+                  src: "/storage/images/certificates/enamad.png",
+                  alt: "enamad",
+                },
+              }),
+            ]),
+            _vm._v(" "),
+            _c("div", {}, [
+              _c("img", {
+                staticClass: "w-40 h-44 object-fill ",
+                attrs: {
+                  src: "/storage/images/certificates/samandehi.png",
+                  alt: "samandehi",
+                },
+              }),
+            ]),
+          ]
+        ),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -50041,7 +50099,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 min-h-screen bg-slate-900" },
+    { staticClass: "z-0 flex flex-col min-h-screen bg-slate-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
@@ -50071,6 +50129,14 @@ var render = function () {
       }),
       _vm._v(" "),
       _c("Footer"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
     ],
     1
   )

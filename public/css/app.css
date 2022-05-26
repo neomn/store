@@ -585,6 +585,12 @@ select {
 .bottom-1 {
   bottom: 0.25rem;
 }
+.bottom-20 {
+  bottom: 5rem;
+}
+.bottom-10 {
+  bottom: 2.5rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -829,6 +835,15 @@ select {
 .h-56 {
   height: 14rem;
 }
+.h-80 {
+  height: 20rem;
+}
+.h-96 {
+  height: 24rem;
+}
+.h-40 {
+  height: 10rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -891,6 +906,9 @@ select {
 }
 .w-1\/2 {
   width: 50%;
+}
+.w-40 {
+  width: 10rem;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -989,6 +1007,9 @@ select {
 }
 .self-start {
   align-self: flex-start;
+}
+.self-end {
+  align-self: flex-end;
 }
 .self-center {
   align-self: center;
@@ -1204,6 +1225,9 @@ select {
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+}
+.bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.1);
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));

@@ -1,11 +1,15 @@
 <template>
-    <div class="z-0 min-h-screen bg-slate-900">
+    <div class="z-0 flex flex-col min-h-screen bg-slate-900">
         <Header class="z-50"/>
         <ImageSlider/>
         <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4"/>
         <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
         <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400" class="my-4"/>
         <Footer/>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 </template>
 
