@@ -21,7 +21,7 @@
             <!--image-->
             <img :src="imageUrl" alt="offer" class="absolute right-0 w-60 h-52   ">
             <!--description-->
-            <div class=" absolute bottom-0 w-60 p-4 text-sm text-zinc-200 ">
+            <div class=" absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 ">
                 <span>buy the most popular Arduino with an special discount</span>
             </div>
         </div>

@@ -49057,7 +49057,7 @@ var staticRenderFns = [
                   "div",
                   { staticClass: "flex justify-center w-full h-44  " },
                   [
-                    _c("div", { staticClass: " m-2 rounded-lg bg-slate-800" }, [
+                    _c("div", { staticClass: " m-2 rounded-lg bg-slate-700" }, [
                       _c("img", {
                         staticClass: "w-36 h-40 object-fill  ",
                         attrs: {
@@ -49067,7 +49067,7 @@ var staticRenderFns = [
                       }),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "m-2 rounded-lg bg-slate-800" }, [
+                    _c("div", { staticClass: "m-2 rounded-lg bg-slate-700" }, [
                       _c("img", {
                         staticClass: "w-36 h-40 object-fill ",
                         attrs: {
@@ -50318,7 +50318,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 flex flex-col min-h-screen bg-slate-900" },
+    { staticClass: "z-0 flex flex-col min-h-screen bg-slate-800" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
@@ -50493,7 +50493,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " absolute bottom-0 w-60 p-4 text-sm text-zinc-200 " },
+      { staticClass: " absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 " },
       [
         _c("span", [
           _vm._v("buy the most popular Arduino with an special discount"),

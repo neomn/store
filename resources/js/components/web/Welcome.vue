@@ -1,5 +1,5 @@
 <template>
-    <div class="z-0 flex flex-col min-h-screen bg-slate-900">
+    <div class="z-0 flex flex-col min-h-screen bg-slate-800">
         <Header class="z-50"/>
         <ImageSlider/>
         <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4 mt-10"/>
