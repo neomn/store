@@ -600,6 +600,33 @@ select {
 .top-32 {
   top: 8rem;
 }
+.top-8 {
+  top: 2rem;
+}
+.top-6 {
+  top: 1.5rem;
+}
+.right-6 {
+  right: 1.5rem;
+}
+.top-2 {
+  top: 0.5rem;
+}
+.right-2 {
+  right: 0.5rem;
+}
+.top-4 {
+  top: 1rem;
+}
+.left-4 {
+  left: 1rem;
+}
+.left-6 {
+  left: 1.5rem;
+}
+.left-5 {
+  left: 1.25rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -978,6 +1005,9 @@ select {
 }
 .w-80 {
   width: 20rem;
+}
+.w-60 {
+  width: 15rem;
 }
 .min-w-0 {
   min-width: 0px;
