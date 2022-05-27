@@ -20257,6 +20257,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Footer"
 });
@@ -48851,7 +48857,7 @@ var staticRenderFns = [
       "div",
       { staticClass: " flex flex-col justify-start w-full h-auto  " },
       [
-        _c("div", { staticClass: " flex flex-col  w-full h-auto my-6  " }, [
+        _c("div", { staticClass: " flex flex-col  w-full h-auto my-10  " }, [
           _c("div", { staticClass: " ml-8 text-zinc-200 text-lg font-bold " }, [
             _c("span"),
           ]),
@@ -48864,17 +48870,44 @@ var staticRenderFns = [
                   " flex justify-center items-center w-11/12 h-auto rounded-lg  ",
               },
               [
-                _c("div", {
-                  staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 ",
-                }),
+                _c(
+                  "div",
+                  { staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 " },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/storage/images/socialMedia/instagram.png",
+                        alt: "instagram",
+                      },
+                    }),
+                  ]
+                ),
                 _vm._v(" "),
-                _c("div", {
-                  staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 ",
-                }),
+                _c(
+                  "div",
+                  { staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 " },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/storage/images/socialMedia/linkedin.png",
+                        alt: "linked-in",
+                      },
+                    }),
+                  ]
+                ),
                 _vm._v(" "),
-                _c("div", {
-                  staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 ",
-                }),
+                _c(
+                  "div",
+                  { staticClass: " w-16 h-16 mx-4 rounded-lg bg-slate-800 " },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/storage/images/socialMedia/telegram.png",
+                        alt: "telegram",
+                      },
+                    }),
+                  ]
+                ),
               ]
             ),
           ]),

@@ -2,15 +2,21 @@
     <div class=" flex flex-col justify-start w-full h-auto  ">
 
         <!-- social media -->
-        <div class=" flex flex-col  w-full h-auto my-6  ">
+        <div class=" flex flex-col  w-full h-auto my-10  ">
             <div class=" ml-8 text-zinc-200 text-lg font-bold ">
                 <span> </span>
             </div>
             <div class=" flex justify-center w-full h-auto ">
                 <div class=" flex justify-center items-center w-11/12 h-auto rounded-lg  ">
-                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 "></div>
-                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 "></div>
-                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 "></div>
+                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 ">
+                        <img src="/storage/images/socialMedia/instagram.png" alt="instagram">
+                    </div>
+                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 ">
+                        <img src="/storage/images/socialMedia/linkedin.png" alt="linked-in">
+                    </div>
+                    <div class=" w-16 h-16 mx-4 rounded-lg bg-slate-800 ">
+                        <img src="/storage/images/socialMedia/telegram.png" alt="telegram">
+                    </div>
                 </div>
             </div>
         </div>
