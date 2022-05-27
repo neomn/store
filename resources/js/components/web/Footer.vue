@@ -28,11 +28,11 @@
                     <span> Certificates  </span>
                 </div>
                 <div class="flex justify-center w-full h-44  ">
-                    <div class=" m-2 rounded-lg bg-slate-700">
+                    <div class=" m-2 rounded-lg bg-slate-800">
                         <img src="/storage/images/certificates/enamad.png" alt="enamad"
                              class="w-36 h-40 object-fill  ">
                     </div>
-                    <div class="m-2 rounded-lg bg-slate-700">
+                    <div class="m-2 rounded-lg bg-slate-800">
                         <img src="/storage/images/certificates/samandehi.png" alt="samandehi"
                              class="w-36 h-40 object-fill ">
                     </div>
