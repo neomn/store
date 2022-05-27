@@ -2,8 +2,10 @@
     <div class="z-0 flex flex-col min-h-screen bg-slate-900">
         <Header class="z-50"/>
         <ImageSlider/>
-        <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4"/>
+        <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4 mt-10"/>
+        <Offer/>
         <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
+        <Offer/>
         <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400" class="my-4"/>
         <Footer/>
         <br>
@@ -18,10 +20,12 @@ import Header from './Header.vue';
 import Footer from './Footer';
 import ProductContainer from "./miniComponenets/ProductContainer";
 import ImageSlider from "./miniComponenets/ImageSlider";
+import Offer from "./miniComponenets/Offer";
 
 export default {
     name: 'web',
     components: {
+        Offer,
         Header,
         Footer,
         ProductContainer,
