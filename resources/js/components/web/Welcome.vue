@@ -3,7 +3,7 @@
         <Header class="z-50"/>
         <ImageSlider/>
         <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4 mt-10"/>
-        <Offer/>
+        <Offer image-url="/storage/images/products/electronicsAndRobotics/arduino/Arduino-uno-R3.png"/>
         <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
         <Offer/>
         <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400" class="my-4"/>

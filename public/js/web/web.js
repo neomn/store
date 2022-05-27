@@ -21469,8 +21469,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Offer"
+  name: "Offer",
+  props: ['imageUrl', 'discount']
 });
 
 /***/ }),
@@ -50308,7 +50317,12 @@ var render = function () {
         },
       }),
       _vm._v(" "),
-      _c("Offer"),
+      _c("Offer", {
+        attrs: {
+          "image-url":
+            "/storage/images/products/electronicsAndRobotics/arduino/Arduino-uno-R3.png",
+        },
+      }),
       _vm._v(" "),
       _c("ProductContainer", {
         staticClass: "my-4",
@@ -50415,7 +50429,26 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {})
+  return _c(
+    "div",
+    { staticClass: "relative flex justify-start w-full h-60 " },
+    [
+      _c("div", { staticClass: " w-11/12 max-w-sm min-w-{100px} h-52 m-4 " }, [
+        _c("img", {
+          staticClass: "w-80 h-52",
+          attrs: { src: _vm.imageUrl, alt: "offer" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "absolute top-32 right-10 w-auto h-10  border" },
+        [_vm._v("\n        discount\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", [_vm._v("\n        title\n    ")]),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
