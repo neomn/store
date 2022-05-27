@@ -21492,6 +21492,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Offer",
   props: ['imageUrl', 'discountPercentage']
@@ -50444,12 +50445,15 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: " flex justify-center w-full h-60  " }, [
-    _c("div", { staticClass: " flex w-11/12 max-w-lg  h-52 m-4 border " }, [
+    _c("div", { staticClass: " relative w-11/12 max-w-lg  h-52 m-4  border" }, [
       _c(
         "div",
-        { staticClass: " flex flex-col w-1/3 overflow-hidden pl-4 border " },
+        {
+          staticClass:
+            " absolute top-0 flex flex-col items-center w-1/3 overflow-hidden ",
+        },
         [
-          _c("div", { staticClass: " flex justify-center  " }, [
+          _c("div", { staticClass: " flex justify-center" }, [
             _c("div", { staticClass: " w-20 h-20 " }, [
               _c("div", { staticClass: " relative w-auto h-10 " }, [
                 _c("img", {
@@ -50469,15 +50473,15 @@ var render = function () {
           ]),
           _vm._v(" "),
           _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
         ]
       ),
       _vm._v(" "),
       _c("img", {
-        staticClass: "w-60 h-52 ",
+        staticClass: "absolute right-0 w-60 h-52 border  ",
         attrs: { src: _vm.imageUrl, alt: "offer" },
       }),
+      _vm._v(" "),
+      _vm._m(1),
     ]),
   ])
 }
@@ -50494,11 +50498,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-44 text-sm text-zinc-200 " }, [
-      _c("span", [
-        _vm._v("buy the most popular Arduino with an special discount"),
-      ]),
-    ])
+    return _c(
+      "div",
+      { staticClass: " absolute bottom-0 w-44 text-sm text-zinc-200 " },
+      [
+        _c("span", [
+          _vm._v("buy the most popular Arduino with an special discount"),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true
