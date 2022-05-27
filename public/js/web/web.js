@@ -21491,6 +21491,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Offer",
   props: ['imageUrl', 'discountPercentage']
@@ -50442,45 +50443,42 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " flex justify-center w-full h-60 " }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          " relative flex w-11/12 max-w-sm min-w-{100px} h-52 m-4 border ",
-      },
-      [
-        _c("div", [
-          _c("img", {
-            staticClass: "w-60 h-52",
-            attrs: { src: _vm.imageUrl, alt: "offer" },
-          }),
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("div", { staticClass: "absolute top-2 right-2  w-20 h-20 " }, [
-            _c("div", { staticClass: " relative w-auto h-10 " }, [
-              _c("img", {
-                attrs: {
-                  src: "/storage/images/other/discount.png",
-                  alt: "discount",
-                },
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "absolute top-4  left-5 text-zinc-200" },
-                [_c("h1", [_vm._v(_vm._s(_vm.discountPercentage))])]
-              ),
+  return _c("div", { staticClass: " flex justify-center w-full h-60  " }, [
+    _c("div", { staticClass: " flex w-11/12 max-w-lg  h-52 m-4 border " }, [
+      _c(
+        "div",
+        { staticClass: " flex flex-col w-1/3 overflow-hidden pl-4 border " },
+        [
+          _c("div", { staticClass: " flex justify-center  " }, [
+            _c("div", { staticClass: " w-20 h-20 " }, [
+              _c("div", { staticClass: " relative w-auto h-10 " }, [
+                _c("img", {
+                  attrs: {
+                    src: "/storage/images/other/discount.png",
+                    alt: "discount",
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "absolute top-4  left-5 text-zinc-200" },
+                  [_c("h1", [_vm._v(_vm._s(_vm.discountPercentage))])]
+                ),
+              ]),
             ]),
           ]),
           _vm._v(" "),
           _vm._m(0),
           _vm._v(" "),
           _vm._m(1),
-        ]),
-      ]
-    ),
+        ]
+      ),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "w-60 h-52 ",
+        attrs: { src: _vm.imageUrl, alt: "offer" },
+      }),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -50488,7 +50486,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-zinc-200" }, [
+    return _c("div", { staticClass: " text-zinc-200" }, [
       _c("h3", [_vm._v("Arduino Uno R3")]),
     ])
   },
@@ -50496,15 +50494,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "w-44 relative bottom-4 text-sm text-zinc-200 border" },
-      [
-        _c("span", [
-          _vm._v("buy the most popular Arduino with an special discount"),
-        ]),
-      ]
-    )
+    return _c("div", { staticClass: "w-44 text-sm text-zinc-200 " }, [
+      _c("span", [
+        _vm._v("buy the most popular Arduino with an special discount"),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
