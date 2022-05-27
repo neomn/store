@@ -21493,6 +21493,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Offer",
   props: ['imageUrl', 'discountPercentage']
@@ -50446,6 +50447,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: " flex justify-center w-full h-60  " }, [
     _c("div", { staticClass: " relative w-11/12 max-w-lg  h-52 m-4  " }, [
+      _c("img", {
+        staticClass: " absolute right-0 w-60 h-52   ",
+        attrs: { src: _vm.imageUrl, alt: "offer" },
+      }),
+      _vm._v(" "),
       _c("div", { staticClass: " absolute top-0  overflow-hidden " }, [
         _c("div", { staticClass: " flex justify-center " }, [
           _c("div", { staticClass: " w-20 h-20 " }, [
@@ -50469,11 +50475,6 @@ var render = function () {
         _vm._m(0),
       ]),
       _vm._v(" "),
-      _c("img", {
-        staticClass: "absolute right-0 w-60 h-52   ",
-        attrs: { src: _vm.imageUrl, alt: "offer" },
-      }),
-      _vm._v(" "),
       _vm._m(1),
     ]),
   ])
@@ -50483,7 +50484,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "  text-zinc-200" }, [
+    return _c("div", { staticClass: "text-zinc-200" }, [
       _c("h3", [_vm._v("Arduino Uno R3")]),
     ])
   },
