@@ -50494,7 +50494,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 " },
+      {
+        staticClass:
+          " absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 hidden ",
+      },
       [
         _c("span", [
           _vm._v("buy the most popular Arduino with an special discount"),
