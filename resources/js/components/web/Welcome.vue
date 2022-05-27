@@ -1,25 +1,13 @@
 <template>
-    <div class="z-0 min-h-screen bg-zinc-900">
-
-        <!-- header component-->
+    <div class="z-0 flex flex-col min-h-screen bg-slate-800">
         <Header class="z-50"/>
-
-        <!--  top image slider -->
-        <div class=" w-full ">
-            <img src="/resources/img/Welcome.jpg" alt="image slider" class=" w-full h-44 object-fill">
-        </div>
-
+        <ImageSlider/>
+        <ProductContainer :products="newProducts" title="New Products" color="yellow-400" class="my-4 mt-10"/>
+        <Offer image-url="/storage/images/products/electronicsAndRobotics/arduino/Arduino-uno-R3.png" discount-percentage="25"/>
+        <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
+        <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400" class="my-4"/>
+        <Footer/>
         <br>
-        <ProductContainer :products="newProducts" title="New Products" color="yellow-400"/>
-        <ProductContainer :products="topSells" title="Top Sells" color="red-600"/>
-        <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-400"/>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <!-- footer component-->
-        <Footer class="hidden"/>
 
     </div>
 </template>
@@ -30,13 +18,17 @@
 import Header from './Header.vue';
 import Footer from './Footer';
 import ProductContainer from "./miniComponenets/ProductContainer";
+import ImageSlider from "./miniComponenets/ImageSlider";
+import Offer from "./miniComponenets/Offer";
 
 export default {
     name: 'web',
     components: {
+        Offer,
         Header,
         Footer,
         ProductContainer,
+        ImageSlider
     },
     props: [],
     data() {
@@ -57,6 +49,7 @@ export default {
     mounted() {
         console.log('\nWelcome mounted > ------------------------ \n')
         this.initData()
+        this.viewportOrientation()
     },
     methods: {
         initData: function () {
@@ -75,6 +68,21 @@ export default {
                 .catch(function (error) {
                     console.log('error while catching data >>> ' + error);
                 });
+        },
+        viewportOrientation(){
+            if (screen.availHeight < screen.availWidth){
+                console.log('horizontal')
+            } else {
+                console.log('vertical')
+            }
+            window.addEventListener('orientationchange', function(event) {
+                /* update layout per new orientation */
+                if (screen.availHeight < screen.availWidth){
+                    console.log('horizontal')
+                } else {
+                    console.log('vertical')
+                }
+            });
         },
         addProductTOShoppingCart(product) {
             console.log('\n')
