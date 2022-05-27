@@ -23,7 +23,7 @@
 
         <!-- certificates -->
         <div class="relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16 ">
-            <div class="flex flex-col w-11/12 h-52 rounded-lg border ">
+            <div class="flex flex-col w-11/12 h-52 rounded-lg  ">
                 <div class=" h-10 ml-6 text-lg font-bold ">
                     <span> Certificates  </span>
                 </div>

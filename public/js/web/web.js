@@ -49047,7 +49047,7 @@ var staticRenderFns = [
           [
             _c(
               "div",
-              { staticClass: "flex flex-col w-11/12 h-52 rounded-lg border " },
+              { staticClass: "flex flex-col w-11/12 h-52 rounded-lg  " },
               [
                 _c("div", { staticClass: " h-10 ml-6 text-lg font-bold " }, [
                   _c("span", [_vm._v(" Certificates  ")]),
@@ -50445,39 +50445,32 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: " flex justify-center w-full h-60  " }, [
-    _c("div", { staticClass: " relative w-11/12 max-w-lg  h-52 m-4  border" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            " absolute top-0 flex flex-col items-center w-1/3 overflow-hidden ",
-        },
-        [
-          _c("div", { staticClass: " flex justify-center" }, [
-            _c("div", { staticClass: " w-20 h-20 " }, [
-              _c("div", { staticClass: " relative w-auto h-10 " }, [
-                _c("img", {
-                  attrs: {
-                    src: "/storage/images/other/discount.png",
-                    alt: "discount",
-                  },
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "absolute top-4  left-5 text-zinc-200" },
-                  [_c("h1", [_vm._v(_vm._s(_vm.discountPercentage))])]
-                ),
-              ]),
+    _c("div", { staticClass: " relative w-11/12 max-w-lg  h-52 m-4  " }, [
+      _c("div", { staticClass: " absolute top-0  overflow-hidden " }, [
+        _c("div", { staticClass: " flex justify-center " }, [
+          _c("div", { staticClass: " w-20 h-20 " }, [
+            _c("div", { staticClass: " relative w-auto h-10 " }, [
+              _c("img", {
+                attrs: {
+                  src: "/storage/images/other/discount.png",
+                  alt: "discount",
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "absolute top-4  left-5 text-zinc-200" },
+                [_c("h1", [_vm._v(_vm._s(_vm.discountPercentage))])]
+              ),
             ]),
           ]),
-          _vm._v(" "),
-          _vm._m(0),
-        ]
-      ),
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+      ]),
       _vm._v(" "),
       _c("img", {
-        staticClass: "absolute right-0 w-60 h-52 border  ",
+        staticClass: "absolute right-0 w-60 h-52   ",
         attrs: { src: _vm.imageUrl, alt: "offer" },
       }),
       _vm._v(" "),
@@ -50490,7 +50483,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " text-zinc-200" }, [
+    return _c("div", { staticClass: "  text-zinc-200" }, [
       _c("h3", [_vm._v("Arduino Uno R3")]),
     ])
   },
@@ -50500,7 +50493,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " absolute bottom-0 w-44 text-sm text-zinc-200 " },
+      { staticClass: " absolute bottom-0 w-60 p-4 text-sm text-zinc-200 " },
       [
         _c("span", [
           _vm._v("buy the most popular Arduino with an special discount"),
