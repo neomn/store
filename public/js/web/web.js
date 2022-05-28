@@ -21434,6 +21434,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     setImageNavigatorLocation: function setImageNavigatorLocation(index) {
+      //remove current location effect from all navigators
       for (var i = 0; i < this.images.length; i++) {
         var _item = 'img' + i;
 
@@ -21446,7 +21447,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var item = 'img' + index;
-      this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60');
+      if (this.$refs[item] !== undefined) this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60');
     }
   }
 });

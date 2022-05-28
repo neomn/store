@@ -46,16 +46,18 @@ export default {
             }
         },
         setImageNavigatorLocation(index) {
+            //remove current location effect from all navigators
             for (let i = 0; i < this.images.length; i++) {
                 let item = 'img' + i
                 this.$refs[item][0].classList.remove('backdrop-blur', 'bg-white/60')
             }
-            if (this.firstTime){
+            if (this.firstTime) {
                 this.$refs.img0[0].classList.add('backdrop-blur', 'bg-white/60')
                 this.firstTime = false
             }
             let item = 'img' + index
-            this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60')
+            if (this.$refs[item] !== undefined)
+                this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60')
         },
     },
 }
