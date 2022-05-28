@@ -20389,6 +20389,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -49109,270 +49111,264 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col fixed bottom-0 w-full" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900",
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex grow justify-around items-center rounded text-zinc-300 text-2xl",
-          },
-          [
-            _c("div", { staticClass: " flex grow items-center" }, [
-              !_vm.displayMenu
-                ? _c(
-                    "div",
-                    { staticClass: "pr-2", on: { click: _vm.toggleMenu } },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "bars"] },
-                      }),
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.displayMenu
-                ? _c(
-                    "div",
-                    { staticClass: "pr-2 ", on: { click: _vm.toggleMenu } },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "times"] },
-                      }),
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: " flex grow h-10 " }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "flex justify-center items-center grow pr-2",
-                    class: this.$route.path === "/" ? " border rounded-lg" : "",
-                    attrs: { href: "/" },
-                  },
+    _c("div", { staticClass: "flex w-full h-14 px-2 bg-gray-900" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex grow justify-around items-center rounded text-zinc-300 text-2xl",
+        },
+        [
+          _c("div", { staticClass: " flex grow items-center" }, [
+            !_vm.displayMenu
+              ? _c(
+                  "div",
+                  { staticClass: "pr-2", on: { click: _vm.toggleMenu } },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "px-1" },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: ["fas", "home"] },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    this.$route.path === "/"
-                      ? _c("div", { staticClass: "flex text-lg " }, [
-                          _vm._v(
-                            "\n                            Home\n                        "
-                          ),
-                        ])
-                      : _vm._e(),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: " flex grow h-10 " }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "flex justify-center items-center grow pr-2",
-                    class:
-                      this.$route.path === "/categories"
-                        ? " border rounded-lg"
-                        : "",
-                    attrs: { href: "/categories" },
-                  },
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "bars"] },
+                    }),
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.displayMenu
+              ? _c(
+                  "div",
+                  { staticClass: "pr-2 ", on: { click: _vm.toggleMenu } },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "px-1" },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: ["fab", "buffer"] },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    this.$route.path === "/categories"
-                      ? _c("div", { staticClass: "flex text-lg" }, [
-                          _vm._v(
-                            "\n                            Categories\n                        "
-                          ),
-                        ])
-                      : _vm._e(),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "times"] },
+                    }),
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: " flex grow h-10 " }, [
               _c(
-                "div",
-                { staticClass: " flex grow h-10 " },
+                "a",
+                {
+                  staticClass: "flex justify-center items-center grow pr-2",
+                  class: this.$route.path === "/" ? " border rounded-lg" : "",
+                  attrs: { href: "/" },
+                },
                 [
                   _c(
-                    "routerLink",
-                    {
-                      staticClass: "flex justify-center items-center grow pr-2",
-                      class:
-                        this.$route.path === "/about-us"
-                          ? " border rounded-lg"
-                          : "",
-                      attrs: { to: { name: "aboutUs" } },
-                    },
+                    "div",
+                    { staticClass: "px-1 text-md" },
                     [
-                      _c(
-                        "div",
-                        { staticClass: "px-2" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "info"] },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      this.$route.path === "/about-us"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
-                            _vm._v(
-                              "\n                            About Us\n                        "
-                            ),
-                          ])
-                        : _vm._e(),
-                    ]
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fas", "home"] },
+                      }),
+                    ],
+                    1
                   ),
-                ],
-                1
+                  _vm._v(" "),
+                  this.$route.path === "/"
+                    ? _c("div", { staticClass: "flex text-sm " }, [
+                        _vm._v(
+                          "\n                            Home\n                        "
+                        ),
+                      ])
+                    : _vm._e(),
+                ]
               ),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "flex grow " }, [
+            _c("div", { staticClass: " flex grow h-10 " }, [
               _c(
-                "div",
-                { staticClass: " flex grow h-10  " },
+                "a",
+                {
+                  staticClass: "flex justify-center items-center grow pr-2",
+                  class:
+                    this.$route.path === "/categories"
+                      ? " border rounded-lg"
+                      : "",
+                  attrs: { href: "/categories" },
+                },
                 [
                   _c(
-                    "routerLink",
-                    {
-                      staticClass: "flex justify-center items-center grow pr-2",
-                      class:
-                        this.$route.path === "/shopping-cart"
-                          ? " border rounded-lg"
-                          : "",
-                      attrs: { to: { name: "shoppingCart" } },
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "px-2" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "shopping-cart"] },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      this.$route.path === "/shopping-cart"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
-                            _vm._v(
-                              "\n                            Cart\n                        "
-                            ),
-                          ])
-                        : _vm._e(),
-                    ]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: " flex grow h-10  " },
-                [
-                  _c(
-                    "routerLink",
-                    {
-                      staticClass: "flex justify-center items-center grow ",
-                      class:
-                        this.$route.path === "/login"
-                          ? " border rounded-lg"
-                          : "",
-                      attrs: { to: { name: "login" } },
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "px-2" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "door-open"] },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      this.$route.path === "/login"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
-                            _vm._v(
-                              "\n                            Login\n                        "
-                            ),
-                          ])
-                        : _vm._e(),
-                    ]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm.loggedInUser
-                ? _c(
                     "div",
-                    {
-                      staticClass: " grow px-2 py-1 ",
-                      class:
-                        this.$route.path === "/dashboard"
-                          ? "border-t border-lime-500 rounded-lg"
-                          : "",
-                    },
+                    { staticClass: "px-1 text-md" },
                     [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "dashboard" },
-                            href: "/api/user",
-                          },
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "chart-line"] },
-                          }),
-                          _vm._v(" "),
-                          _c("h3", { staticClass: "inline-block pl-1" }, [
-                            _vm._v(_vm._s(_vm.loggedInUser.firstName)),
-                          ]),
-                        ],
-                        1
-                      ),
+                      _c("font-awesome-icon", {
+                        attrs: { icon: ["fab", "buffer"] },
+                      }),
                     ],
                     1
-                  )
-                : _vm._e(),
+                  ),
+                  _vm._v(" "),
+                  this.$route.path === "/categories"
+                    ? _c("div", { staticClass: "flex text-sm " }, [
+                        _vm._v(
+                          "\n                            Categories\n                        "
+                        ),
+                      ])
+                    : _vm._e(),
+                ]
+              ),
             ]),
-          ]
-        ),
-      ]
-    ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: " flex grow h-10 " },
+              [
+                _c(
+                  "routerLink",
+                  {
+                    staticClass: "flex justify-center items-center grow pr-2",
+                    class:
+                      this.$route.path === "/about-us"
+                        ? " border rounded-lg"
+                        : "",
+                    attrs: { to: { name: "aboutUs" } },
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "px-2 text-md" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "info"] },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    this.$route.path === "/about-us"
+                      ? _c("div", { staticClass: "flex text-sm " }, [
+                          _vm._v(
+                            "\n                            About Us\n                        "
+                          ),
+                        ])
+                      : _vm._e(),
+                  ]
+                ),
+              ],
+              1
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex grow " }, [
+            _c(
+              "div",
+              { staticClass: " flex grow h-10  " },
+              [
+                _c(
+                  "routerLink",
+                  {
+                    staticClass: "flex justify-center items-center grow pr-2",
+                    class:
+                      this.$route.path === "/shopping-cart"
+                        ? " border rounded-lg"
+                        : "",
+                    attrs: { to: { name: "shoppingCart" } },
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "px-2 text-md" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "shopping-cart"] },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    this.$route.path === "/shopping-cart"
+                      ? _c("div", { staticClass: "flex text-sm " }, [
+                          _vm._v(
+                            "\n                            Cart\n                        "
+                          ),
+                        ])
+                      : _vm._e(),
+                  ]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: " flex grow h-10  " },
+              [
+                _c(
+                  "routerLink",
+                  {
+                    staticClass: "flex justify-center items-center grow ",
+                    class:
+                      this.$route.path === "/login" ? " border rounded-lg" : "",
+                    attrs: { to: { name: "login" } },
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "px-2 text-md" },
+                      [
+                        _c("font-awesome-icon", {
+                          attrs: { icon: ["fas", "door-open"] },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    this.$route.path === "/login"
+                      ? _c("div", { staticClass: "flex text-sm " }, [
+                          _vm._v(
+                            "\n                            Login\n                        "
+                          ),
+                        ])
+                      : _vm._e(),
+                  ]
+                ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.loggedInUser
+              ? _c(
+                  "div",
+                  {
+                    staticClass: " grow px-2 py-1 ",
+                    class:
+                      this.$route.path === "/dashboard"
+                        ? "border-t border-lime-500 rounded-lg"
+                        : "",
+                  },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: { to: { name: "dashboard" }, href: "/api/user" },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "text-md" },
+                          [
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "chart-line"] },
+                            }),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("h3", { staticClass: "inline-block pl-1" }, [
+                          _vm._v(_vm._s(_vm.loggedInUser.firstName)),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                )
+              : _vm._e(),
+          ]),
+        ]
+      ),
+    ]),
     _vm._v(" "),
     _vm.displayMenu
       ? _c("div", { staticClass: " w-full h-32  bg-gray-700 " })

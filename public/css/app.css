@@ -1172,6 +1172,10 @@ select {
 .bg-white\/60 {
   background-color: rgb(255 255 255 / 0.6);
 }
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
