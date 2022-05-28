@@ -1,14 +1,15 @@
 <template>
-    <div class="z-0 flex flex-col min-h-screen bg-gray-900">
-        <Header class="z-50"/>
+    <div class="flex flex-col">
+        <background />
+        <Header/>
         <ImageSlider/>
-        <ProductContainer :products="newProducts" title="New Products" color="yellow-600" class="my-4 mt-10"/>
-        <Offer imageUrl="/storage/images/products/electronicsAndRobotics/arduino/Arduino-uno-R3.png" discountPercentage="25"/>
-        <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
-        <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-500" class="my-4"/>
+        <ProductContainer :products="newProducts" title="New Products" color="yellow-600" class="z-20 my-4 mt-10"/>
+        <Offer imageUrl="/storage/images/products/electronicsAndRobotics/arduino/Uno-R3.png"
+               discountPercentage="25"/>
+        <ProductContainer :products="topSells" title="Top Sells" color="red-600" />
+        <ProductContainer :products="favoriteProducts" title="Favorite Products" />
         <Footer/>
         <br>
-
     </div>
 </template>
 
@@ -20,10 +21,12 @@ import Footer from './Footer';
 import ProductContainer from "./miniComponenets/ProductContainer";
 import ImageSlider from "./miniComponenets/ImageSlider";
 import Offer from "./miniComponenets/Offer";
+import Background from "./Background";
 
 export default {
     name: 'web',
     components: {
+        Background,
         Offer,
         Header,
         Footer,
@@ -69,15 +72,15 @@ export default {
                     console.log('error while catching data >>> ' + error);
                 });
         },
-        viewportOrientation(){
-            if (screen.availHeight < screen.availWidth){
+        viewportOrientation() {
+            if (screen.availHeight < screen.availWidth) {
                 console.log('horizontal')
             } else {
                 console.log('vertical')
             }
-            window.addEventListener('orientationchange', function(event) {
+            window.addEventListener('orientationchange', function (event) {
                 /* update layout per new orientation */
-                if (screen.availHeight < screen.availWidth){
+                if (screen.availHeight < screen.availWidth) {
                     console.log('horizontal')
                 } else {
                     console.log('vertical')
