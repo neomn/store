@@ -16,7 +16,7 @@
                         <!--home -->
                         <div class=" flex grow h-10 ">
                             <a href="/" class="flex justify-center items-center grow pr-2"
-                               v-bind:class="(this.$route.path === '/')? ' bg-emerald-600 rounded-lg': ''">
+                               v-bind:class="(this.$route.path === '/')? ' border rounded-lg': ''">
                                 <div class="px-1">
                                     <font-awesome-icon :icon="['fas' , 'home']"/>
                                 </div>
@@ -28,7 +28,7 @@
                         <!--categories -->
                         <div class=" flex grow h-10 ">
                             <a href="/categories" class="flex justify-center items-center grow pr-2"
-                               v-bind:class="(this.$route.path === '/categories')? ' bg-emerald-600 rounded-lg': ''">
+                               v-bind:class="(this.$route.path === '/categories')? ' border rounded-lg': ''">
                                 <div class="px-1">
                                     <font-awesome-icon :icon="['fab' , 'buffer']"/>
                                 </div>
@@ -40,7 +40,7 @@
                         <!-- about us -->
                         <div class=" flex grow h-10 ">
                             <routerLink :to="{name:'aboutUs'}" class="flex justify-center items-center grow pr-2"
-                                        v-bind:class="(this.$route.path === '/about-us')? ' bg-emerald-600 rounded-lg': ''">
+                                        v-bind:class="(this.$route.path === '/about-us')? ' border rounded-lg': ''">
                                 <div class="px-2">
                                     <font-awesome-icon :icon="['fas' , 'info']"/>
                                 </div>
@@ -64,7 +64,7 @@
                         <!--  shopping cart-->
                         <div class=" flex grow h-10  ">
                             <routerLink :to="{name:'shoppingCart'}" class="flex justify-center items-center grow pr-2"
-                                        v-bind:class="(this.$route.path === '/shopping-cart')? ' bg-emerald-600 rounded-lg': ''">
+                                        v-bind:class="(this.$route.path === '/shopping-cart')? ' border rounded-lg': ''">
                                 <div class="px-2">
                                     <font-awesome-icon :icon="['fas', 'shopping-cart']"/>
                                 </div>
@@ -76,7 +76,7 @@
                         <!--login-->
                         <div class=" flex grow h-10  ">
                             <routerLink :to="{name:'login'}" class="flex justify-center items-center grow "
-                                        v-bind:class="(this.$route.path === '/login')? ' bg-emerald-600 rounded-lg': ''">
+                                        v-bind:class="(this.$route.path === '/login')? ' border rounded-lg': ''">
                                 <div class="px-2">
                                     <font-awesome-icon :icon="['fas', 'door-open']"/>
                                 </div>

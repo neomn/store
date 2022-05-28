@@ -21743,7 +21743,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\n    position: fixed;\n    bottom: 0;\n    width: 1300px;\n    display: inline;\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\n    color: white;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\r\n    position: fixed;\r\n    bottom: 0;\r\n    width: 1300px;\r\n    display: inline;\r\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\r\n    color: white;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49155,10 +49155,7 @@ var render = function () {
                   "a",
                   {
                     staticClass: "flex justify-center items-center grow pr-2",
-                    class:
-                      this.$route.path === "/"
-                        ? " bg-emerald-600 rounded-lg"
-                        : "",
+                    class: this.$route.path === "/" ? " border rounded-lg" : "",
                     attrs: { href: "/" },
                   },
                   [
@@ -49191,7 +49188,7 @@ var render = function () {
                     staticClass: "flex justify-center items-center grow pr-2",
                     class:
                       this.$route.path === "/categories"
-                        ? " bg-emerald-600 rounded-lg"
+                        ? " border rounded-lg"
                         : "",
                     attrs: { href: "/categories" },
                   },
@@ -49228,7 +49225,7 @@ var render = function () {
                       staticClass: "flex justify-center items-center grow pr-2",
                       class:
                         this.$route.path === "/about-us"
-                          ? " bg-emerald-600 rounded-lg"
+                          ? " border rounded-lg"
                           : "",
                       attrs: { to: { name: "aboutUs" } },
                     },
@@ -49269,7 +49266,7 @@ var render = function () {
                       staticClass: "flex justify-center items-center grow pr-2",
                       class:
                         this.$route.path === "/shopping-cart"
-                          ? " bg-emerald-600 rounded-lg"
+                          ? " border rounded-lg"
                           : "",
                       attrs: { to: { name: "shoppingCart" } },
                     },
@@ -49308,7 +49305,7 @@ var render = function () {
                       staticClass: "flex justify-center items-center grow ",
                       class:
                         this.$route.path === "/login"
-                          ? " bg-emerald-600 rounded-lg"
+                          ? " border rounded-lg"
                           : "",
                       attrs: { to: { name: "login" } },
                     },
