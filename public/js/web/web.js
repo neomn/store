@@ -21578,12 +21578,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setColor: function setColor(color) {
-      var colorString = 'bg-' + color;
-      console.log(colorString); // this.$refs.productContainer.classList.add(colorString)
-      // this.$refs.productContainer.classList.add('bg-gradient-to-r')
-      // this.$refs.productContainer.classList.add(colorString)
-      // this.$refs.productContainer.classList.add('via-zinc-700')
-      // this.$refs.productContainer.classList.add('to-zinc-900')
+      var colorString = 'bg-' + color; // this.$refs.productContainer.classList.add(colorString)
     }
   }
 });
@@ -50321,7 +50316,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 flex flex-col min-h-screen bg-slate-900" },
+    { staticClass: "z-0 flex flex-col min-h-screen bg-gray-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
@@ -50332,15 +50327,15 @@ var render = function () {
         attrs: {
           products: _vm.newProducts,
           title: "New Products",
-          color: "yellow-400",
+          color: "yellow-600",
         },
       }),
       _vm._v(" "),
       _c("Offer", {
         attrs: {
-          "image-url":
+          imageUrl:
             "/storage/images/products/electronicsAndRobotics/arduino/Arduino-uno-R3.png",
-          "discount-percentage": "25",
+          discountPercentage: "25",
         },
       }),
       _vm._v(" "),
@@ -50354,7 +50349,7 @@ var render = function () {
         attrs: {
           products: _vm.favoriteProducts,
           title: "Favorite Products",
-          color: "lime-400",
+          color: "lime-500",
         },
       }),
       _vm._v(" "),
@@ -50480,8 +50475,6 @@ var render = function () {
         _vm._v(" "),
         _vm._m(0),
       ]),
-      _vm._v(" "),
-      _vm._m(1),
     ]),
   ])
 }
@@ -50493,23 +50486,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: " pt-4  text-zinc-200" }, [
       _c("h3", [_vm._v("Arduino Uno R3")]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          " absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 hidden ",
-      },
-      [
-        _c("span", [
-          _vm._v("buy the most popular Arduino with an special discount"),
-        ]),
-      ]
-    )
   },
 ]
 render._withStripped = true
@@ -50606,7 +50582,7 @@ var render = function () {
         {
           ref: "productContainer",
           staticClass:
-            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg bg-gray-400 ",
+            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg bg-gray-500 ",
         },
         [
           _c(

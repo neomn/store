@@ -21,9 +21,9 @@
                 </div>
             </div>
             <!--description-->
-            <div class=" absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 hidden ">
-                <span>buy the most popular Arduino with an special discount</span>
-            </div>
+<!--            <div class=" absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 hidden ">-->
+<!--                <span>buy the most popular Arduino with an special discount</span>-->
+<!--            </div>-->
         </div>
 
     </div>
@@ -34,7 +34,7 @@ export default {
     name: "Offer",
     props: [
         'imageUrl',
-        'discountPercentage'
+        'discountPercentage',
     ],
 }
 </script>
