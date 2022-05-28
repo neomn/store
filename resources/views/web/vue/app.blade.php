@@ -13,7 +13,7 @@
 
     <title>Document</title>
 </head>
-<body class="bg-slate-800">
+<body>
     <div id="app">
         <App></App>
     </div>

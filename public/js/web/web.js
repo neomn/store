@@ -19889,8 +19889,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "app"
 });
@@ -21601,6 +21599,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['products', 'title', 'color'],
   mounted: function mounted() {
     this.setColor(this.$props.color);
+    console.log('product container mounted');
   },
   methods: {
     setColor: function setColor(color) {
@@ -21767,7 +21766,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\r\n    position: fixed;\r\n    bottom: 0;\r\n    width: 1300px;\r\n    display: inline;\r\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\r\n    color: white;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\n    position: fixed;\n    bottom: 0;\n    width: 1300px;\n    display: inline;\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\n    color: white;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48864,16 +48863,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: " bg-slate-800 min-h-screen " },
-    [
-      _c("img", { staticClass: "bg-slate-800", attrs: { src: "", alt: "" } }),
-      _vm._v(" "),
-      _c("router-view"),
-    ],
-    1
-  )
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48898,7 +48888,10 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " absolute top-0 min-h-screen" })
+  return _c("div", {
+    staticClass:
+      " z-10 fixed top-0 w-full h-full bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-700  ",
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49101,7 +49094,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " flex flex-col justify-start w-full h-auto  " },
+      { staticClass: "z-20 flex flex-col justify-start w-full h-auto  " },
       [
         _c("div", { staticClass: " flex flex-col  w-full h-auto my-10  " }, [
           _c("div", { staticClass: " ml-8 text-zinc-200 text-lg font-bold " }, [
@@ -49231,7 +49224,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-col items-center fixed bottom-4 w-full " },
+    { staticClass: " z-50 fixed bottom-4 flex flex-col items-center  w-full " },
     [
       _c(
         "div",
@@ -50449,16 +50442,16 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 relative" },
+    { staticClass: "flex flex-col" },
     [
       _c("background"),
       _vm._v(" "),
-      _c("Header", { staticClass: "z-50" }),
+      _c("Header"),
       _vm._v(" "),
       _c("ImageSlider"),
       _vm._v(" "),
       _c("ProductContainer", {
-        staticClass: "my-4 mt-10",
+        staticClass: "z-20 my-4 mt-10",
         attrs: {
           products: _vm.newProducts,
           title: "New Products",
@@ -50475,17 +50468,11 @@ var render = function () {
       }),
       _vm._v(" "),
       _c("ProductContainer", {
-        staticClass: "my-4",
         attrs: { products: _vm.topSells, title: "Top Sells", color: "red-600" },
       }),
       _vm._v(" "),
       _c("ProductContainer", {
-        staticClass: "my-4 ",
-        attrs: {
-          products: _vm.favoriteProducts,
-          title: "Favorite Products",
-          color: "lime-500",
-        },
+        attrs: { products: _vm.favoriteProducts, title: "Favorite Products" },
       }),
       _vm._v(" "),
       _c("Footer"),
@@ -50520,7 +50507,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " relative flex justify-center w-full h-72 " },
+    { staticClass: "z-20 relative flex justify-center w-full h-72  " },
     [
       _c("div", { staticClass: "w-11/12 max-w-md h-60 " }, [
         _c("img", {
@@ -50581,7 +50568,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " flex justify-center w-full h-60  " }, [
+  return _c("div", { staticClass: "z-20 flex justify-center w-full h-60  " }, [
     _c("div", { staticClass: " relative w-11/12 max-w-sm  h-52 m-4  " }, [
       _c("img", {
         staticClass: " absolute right-0 w-60 h-52 text-zinc-200 ",
@@ -50709,7 +50696,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        " flex justify-center items-center w-full h-64 overflow-y-hidden text-lg font-bold",
+        " z-20 flex justify-center items-center w-full h-64 my-4 overflow-y-hidden text-lg font-bold  ",
     },
     [
       _c(
@@ -50717,7 +50704,7 @@ var render = function () {
         {
           ref: "productContainer",
           staticClass:
-            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg backdrop-blur bg-white/10 ",
+            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  bg-zinc-500 ",
         },
         [
           _c(

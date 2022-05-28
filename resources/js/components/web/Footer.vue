@@ -1,5 +1,5 @@
 <template>
-    <div class=" flex flex-col justify-start w-full h-auto  ">
+    <div class="z-20 flex flex-col justify-start w-full h-auto  ">
 
         <!-- social media -->
         <div class=" flex flex-col  w-full h-auto my-10  ">

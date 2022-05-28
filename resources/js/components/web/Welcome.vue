@@ -1,15 +1,15 @@
 <template>
-    <div class="z-0 relative">
-            <background/>
-            <Header class="z-50"/>
-            <ImageSlider/>
-            <ProductContainer :products="newProducts" title="New Products" color="yellow-600" class="my-4 mt-10"/>
-            <Offer imageUrl="/storage/images/products/electronicsAndRobotics/arduino/Uno-R3.png"
-                   discountPercentage="25"/>
-            <ProductContainer :products="topSells" title="Top Sells" color="red-600" class="my-4"/>
-            <ProductContainer :products="favoriteProducts" title="Favorite Products" color="lime-500" class="my-4 "/>
-            <Footer/>
-            <br>
+    <div class="flex flex-col">
+        <background />
+        <Header/>
+        <ImageSlider/>
+        <ProductContainer :products="newProducts" title="New Products" color="yellow-600" class="z-20 my-4 mt-10"/>
+        <Offer imageUrl="/storage/images/products/electronicsAndRobotics/arduino/Uno-R3.png"
+               discountPercentage="25"/>
+        <ProductContainer :products="topSells" title="Top Sells" color="red-600" />
+        <ProductContainer :products="favoriteProducts" title="Favorite Products" />
+        <Footer/>
+        <br>
     </div>
 </template>
 
