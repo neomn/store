@@ -1,7 +1,7 @@
 <template>
-    <div class=" relative flex justify-center w-full  ">
-        <div class="w-full ">
-            <img ref="slider" :src="images[0]" alt="image slider" class=" w-full h-52 object-fill ">
+    <div class=" relative flex justify-center w-full h-72 ">
+        <div class="w-11/12 max-w-md h-60 ">
+            <img ref="slider" :src="images[0]" alt="image slider" class=" w-full h-60 object-fill ">
         </div>
         <div class=" absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ">
             <span ref="imageTitle"></span>
@@ -22,9 +22,7 @@ export default {
             currentlyDisplayingImage: 0,
             firstTime: true,
             images: [
-                '/resources/img/Welcome.jpg',
                 '/storage/images/products/electronicsAndRobotics/arduino/arduino.png',
-                '/storage/images/products/electronicsAndRobotics/esp/esp.png',
                 '/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png',
             ]
         }
@@ -48,16 +46,18 @@ export default {
             }
         },
         setImageNavigatorLocation(index) {
+            //remove current location effect from all navigators
             for (let i = 0; i < this.images.length; i++) {
                 let item = 'img' + i
                 this.$refs[item][0].classList.remove('backdrop-blur', 'bg-white/60')
             }
-            if (this.firstTime){
+            if (this.firstTime) {
                 this.$refs.img0[0].classList.add('backdrop-blur', 'bg-white/60')
                 this.firstTime = false
             }
             let item = 'img' + index
-            this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60')
+            if (this.$refs[item] !== undefined)
+                this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60')
         },
     },
 }

@@ -1,9 +1,8 @@
 <template>
-    <div ref='productContainer'
-         class=" flex justify-center items-center w-full h-56 overflow-y-hidden text-lg font-bold ">
-        <div class=" flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg bg-slate-700 ">
+    <div class=" flex justify-center items-center w-full h-64 overflow-y-hidden text-lg font-bold">
+        <div ref='productContainer' class=" flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg bg-gray-500 ">
             <!--title -->
-            <div class="w-1/3 self-start mt-10 flex text-zinc-400">
+            <div class="w-1/3 self-start mt-10 flex text-zinc-900">
                 <h1 class="w-44">{{ title }}</h1>
             </div>
             <!-- product -->
@@ -35,11 +34,7 @@ export default {
     methods: {
         setColor(color) {
             let colorString = 'bg-' + color
-            this.$refs.productContainer.classlist.add(colorString)
-            // this.$refs.productContainer.classList.add('bg-gradient-to-r')
             // this.$refs.productContainer.classList.add(colorString)
-            // this.$refs.productContainer.classList.add('via-zinc-700')
-            // this.$refs.productContainer.classList.add('to-zinc-900')
         }
     },
 }

@@ -20389,6 +20389,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Header",
@@ -21410,7 +21412,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       currentlyDisplayingImage: 0,
       firstTime: true,
-      images: ['/resources/img/Welcome.jpg', '/storage/images/products/electronicsAndRobotics/arduino/arduino.png', '/storage/images/products/electronicsAndRobotics/esp/esp.png', '/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png']
+      images: ['/storage/images/products/electronicsAndRobotics/arduino/arduino.png', '/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png']
     };
   },
   mounted: function mounted() {
@@ -21432,6 +21434,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     setImageNavigatorLocation: function setImageNavigatorLocation(index) {
+      //remove current location effect from all navigators
       for (var i = 0; i < this.images.length; i++) {
         var _item = 'img' + i;
 
@@ -21444,7 +21447,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var item = 'img' + index;
-      this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60');
+      if (this.$refs[item] !== undefined) this.$refs[item][0].classList.add('backdrop-blur', 'bg-white/60');
     }
   }
 });
@@ -21563,7 +21566,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProductContainer",
@@ -21576,11 +21578,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setColor: function setColor(color) {
-      var colorString = 'bg-' + color;
-      this.$refs.productContainer.classlist.add(colorString); // this.$refs.productContainer.classList.add('bg-gradient-to-r')
-      // this.$refs.productContainer.classList.add(colorString)
-      // this.$refs.productContainer.classList.add('via-zinc-700')
-      // this.$refs.productContainer.classList.add('to-zinc-900')
+      var colorString = 'bg-' + color; // this.$refs.productContainer.classList.add(colorString)
     }
   }
 });
@@ -21743,7 +21741,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\n    position: fixed;\n    bottom: 0;\n    width: 1300px;\n    display: inline;\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\n    color: white;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\r\n    position: fixed;\r\n    bottom: 0;\r\n    width: 1300px;\r\n    display: inline;\r\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\r\n    color: white;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49108,14 +49106,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex flex-col fixed bottom-0 w-full" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "flex w-full h-14 px-2 bg-gradient-to-b from-slate-900 via-slate-700 to-slate-900",
-      },
-      [
+  return _c(
+    "div",
+    { staticClass: "flex flex-col fixed bottom-0 w-full border-t" },
+    [
+      _c("div", { staticClass: "flex w-full h-14 px-2 bg-gray-900" }, [
         _c(
           "div",
           {
@@ -49155,16 +49150,13 @@ var render = function () {
                   "a",
                   {
                     staticClass: "flex justify-center items-center grow pr-2",
-                    class:
-                      this.$route.path === "/"
-                        ? " bg-emerald-600 rounded-lg"
-                        : "",
+                    class: this.$route.path === "/" ? " border rounded-lg" : "",
                     attrs: { href: "/" },
                   },
                   [
                     _c(
                       "div",
-                      { staticClass: "px-1" },
+                      { staticClass: "px-1 text-md" },
                       [
                         _c("font-awesome-icon", {
                           attrs: { icon: ["fas", "home"] },
@@ -49174,7 +49166,7 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     this.$route.path === "/"
-                      ? _c("div", { staticClass: "flex text-lg " }, [
+                      ? _c("div", { staticClass: "flex text-sm " }, [
                           _vm._v(
                             "\n                            Home\n                        "
                           ),
@@ -49191,14 +49183,14 @@ var render = function () {
                     staticClass: "flex justify-center items-center grow pr-2",
                     class:
                       this.$route.path === "/categories"
-                        ? " bg-emerald-600 rounded-lg"
+                        ? " border rounded-lg"
                         : "",
                     attrs: { href: "/categories" },
                   },
                   [
                     _c(
                       "div",
-                      { staticClass: "px-1" },
+                      { staticClass: "px-1 text-md" },
                       [
                         _c("font-awesome-icon", {
                           attrs: { icon: ["fab", "buffer"] },
@@ -49208,7 +49200,7 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     this.$route.path === "/categories"
-                      ? _c("div", { staticClass: "flex text-lg" }, [
+                      ? _c("div", { staticClass: "flex text-sm " }, [
                           _vm._v(
                             "\n                            Categories\n                        "
                           ),
@@ -49228,14 +49220,14 @@ var render = function () {
                       staticClass: "flex justify-center items-center grow pr-2",
                       class:
                         this.$route.path === "/about-us"
-                          ? " bg-emerald-600 rounded-lg"
+                          ? " border rounded-lg"
                           : "",
                       attrs: { to: { name: "aboutUs" } },
                     },
                     [
                       _c(
                         "div",
-                        { staticClass: "px-2" },
+                        { staticClass: "px-2 text-md" },
                         [
                           _c("font-awesome-icon", {
                             attrs: { icon: ["fas", "info"] },
@@ -49245,7 +49237,7 @@ var render = function () {
                       ),
                       _vm._v(" "),
                       this.$route.path === "/about-us"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
+                        ? _c("div", { staticClass: "flex text-sm " }, [
                             _vm._v(
                               "\n                            About Us\n                        "
                             ),
@@ -49269,14 +49261,14 @@ var render = function () {
                       staticClass: "flex justify-center items-center grow pr-2",
                       class:
                         this.$route.path === "/shopping-cart"
-                          ? " bg-emerald-600 rounded-lg"
+                          ? " border rounded-lg"
                           : "",
                       attrs: { to: { name: "shoppingCart" } },
                     },
                     [
                       _c(
                         "div",
-                        { staticClass: "px-2" },
+                        { staticClass: "px-2 text-md" },
                         [
                           _c("font-awesome-icon", {
                             attrs: { icon: ["fas", "shopping-cart"] },
@@ -49286,7 +49278,7 @@ var render = function () {
                       ),
                       _vm._v(" "),
                       this.$route.path === "/shopping-cart"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
+                        ? _c("div", { staticClass: "flex text-sm " }, [
                             _vm._v(
                               "\n                            Cart\n                        "
                             ),
@@ -49308,14 +49300,14 @@ var render = function () {
                       staticClass: "flex justify-center items-center grow ",
                       class:
                         this.$route.path === "/login"
-                          ? " bg-emerald-600 rounded-lg"
+                          ? " border rounded-lg"
                           : "",
                       attrs: { to: { name: "login" } },
                     },
                     [
                       _c(
                         "div",
-                        { staticClass: "px-2" },
+                        { staticClass: "px-2 text-md" },
                         [
                           _c("font-awesome-icon", {
                             attrs: { icon: ["fas", "door-open"] },
@@ -49325,7 +49317,7 @@ var render = function () {
                       ),
                       _vm._v(" "),
                       this.$route.path === "/login"
-                        ? _c("div", { staticClass: "flex text-lg " }, [
+                        ? _c("div", { staticClass: "flex text-sm " }, [
                             _vm._v(
                               "\n                            Login\n                        "
                             ),
@@ -49357,15 +49349,21 @@ var render = function () {
                           },
                         },
                         [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "chart-line"] },
-                          }),
+                          _c(
+                            "div",
+                            { staticClass: "text-md" },
+                            [
+                              _c("font-awesome-icon", {
+                                attrs: { icon: ["fas", "chart-line"] },
+                              }),
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
                           _c("h3", { staticClass: "inline-block pl-1" }, [
                             _vm._v(_vm._s(_vm.loggedInUser.firstName)),
                           ]),
-                        ],
-                        1
+                        ]
                       ),
                     ],
                     1
@@ -49374,13 +49372,13 @@ var render = function () {
             ]),
           ]
         ),
-      ]
-    ),
-    _vm._v(" "),
-    _vm.displayMenu
-      ? _c("div", { staticClass: " w-full h-32  bg-gray-700 " })
-      : _vm._e(),
-  ])
+      ]),
+      _vm._v(" "),
+      _vm.displayMenu
+        ? _c("div", { staticClass: " w-full h-32  bg-gray-700 " })
+        : _vm._e(),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50318,7 +50316,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-0 flex flex-col min-h-screen bg-slate-900" },
+    { staticClass: "z-0 flex flex-col min-h-screen bg-gray-900" },
     [
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
@@ -50329,15 +50327,15 @@ var render = function () {
         attrs: {
           products: _vm.newProducts,
           title: "New Products",
-          color: "yellow-400",
+          color: "yellow-600",
         },
       }),
       _vm._v(" "),
       _c("Offer", {
         attrs: {
-          "image-url":
+          imageUrl:
             "/storage/images/products/electronicsAndRobotics/arduino/Arduino-uno-R3.png",
-          "discount-percentage": "25",
+          discountPercentage: "25",
         },
       }),
       _vm._v(" "),
@@ -50351,7 +50349,7 @@ var render = function () {
         attrs: {
           products: _vm.favoriteProducts,
           title: "Favorite Products",
-          color: "lime-400",
+          color: "lime-500",
         },
       }),
       _vm._v(" "),
@@ -50385,41 +50383,45 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " relative flex justify-center w-full  " }, [
-    _c("div", { staticClass: "w-full " }, [
-      _c("img", {
-        ref: "slider",
-        staticClass: " w-full h-52 object-fill ",
-        attrs: { src: _vm.images[0], alt: "image slider" },
-      }),
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          " absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ",
-      },
-      [_c("span", { ref: "imageTitle" })]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "absolute bottom-1 flex justify-around items-center w-1/2 h-6 rounded-lg  ",
-      },
-      _vm._l(_vm.images, function (image, index) {
-        return _c("div", {
-          key: index,
-          ref: "img" + index,
-          refInFor: true,
-          staticClass: "w-6 h-4 rounded-lg border",
-        })
-      }),
-      0
-    ),
-  ])
+  return _c(
+    "div",
+    { staticClass: " relative flex justify-center w-full h-72 " },
+    [
+      _c("div", { staticClass: "w-11/12 max-w-md h-60 " }, [
+        _c("img", {
+          ref: "slider",
+          staticClass: " w-full h-60 object-fill ",
+          attrs: { src: _vm.images[0], alt: "image slider" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            " absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ",
+        },
+        [_c("span", { ref: "imageTitle" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "absolute bottom-1 flex justify-around items-center w-1/2 h-6 rounded-lg  ",
+        },
+        _vm._l(_vm.images, function (image, index) {
+          return _c("div", {
+            key: index,
+            ref: "img" + index,
+            refInFor: true,
+            staticClass: "w-6 h-4 rounded-lg border",
+          })
+        }),
+        0
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50447,7 +50449,7 @@ var render = function () {
   return _c("div", { staticClass: " flex justify-center w-full h-60  " }, [
     _c("div", { staticClass: " relative w-11/12 max-w-sm  h-52 m-4  " }, [
       _c("img", {
-        staticClass: " absolute right-0 w-60 h-52   ",
+        staticClass: " absolute right-0 w-60 h-52 ",
         attrs: { src: _vm.imageUrl, alt: "offer" },
       }),
       _vm._v(" "),
@@ -50473,8 +50475,6 @@ var render = function () {
         _vm._v(" "),
         _vm._m(0),
       ]),
-      _vm._v(" "),
-      _vm._m(1),
     ]),
   ])
 }
@@ -50486,23 +50486,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: " pt-4  text-zinc-200" }, [
       _c("h3", [_vm._v("Arduino Uno R3")]),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          " absolute bottom-0 w-44 pl-2 text-sm text-zinc-200 hidden ",
-      },
-      [
-        _c("span", [
-          _vm._v("buy the most popular Arduino with an special discount"),
-        ]),
-      ]
-    )
   },
 ]
 render._withStripped = true
@@ -50529,7 +50512,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " w-32 h-full  bg-slate-800 rounded-lg text-zinc-200 " },
+    { staticClass: " w-44 h-full  bg-slate-800 rounded-lg text-zinc-200 " },
     [
       _c(
         "router-link",
@@ -50590,21 +50573,21 @@ var render = function () {
   return _c(
     "div",
     {
-      ref: "productContainer",
       staticClass:
-        " flex justify-center items-center w-full h-56 overflow-y-hidden text-lg font-bold ",
+        " flex justify-center items-center w-full h-64 overflow-y-hidden text-lg font-bold",
     },
     [
       _c(
         "div",
         {
+          ref: "productContainer",
           staticClass:
-            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg bg-slate-700 ",
+            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg bg-gray-500 ",
         },
         [
           _c(
             "div",
-            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-400" },
+            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-900" },
             [_c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))])]
           ),
           _vm._v(" "),
