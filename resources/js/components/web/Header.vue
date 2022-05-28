@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col fixed bottom-0 w-full">
+    <div class="flex flex-col fixed bottom-0 w-full border-t">
         <!-- header -->
         <div class="flex w-full h-14 px-2 bg-gray-900">
             <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
