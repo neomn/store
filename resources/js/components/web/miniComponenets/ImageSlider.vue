@@ -1,7 +1,7 @@
 <template>
-    <div class=" relative flex justify-center w-full  ">
-        <div class="w-full ">
-            <img ref="slider" :src="images[0]" alt="image slider" class=" w-full h-52 object-fill ">
+    <div class=" relative flex justify-center w-full h-72 ">
+        <div class="w-full h-60  ">
+            <img ref="slider" :src="images[0]" alt="image slider" class=" w-full h-60 object-fill ">
         </div>
         <div class=" absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ">
             <span ref="imageTitle"></span>

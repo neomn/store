@@ -50378,41 +50378,45 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: " relative flex justify-center w-full  " }, [
-    _c("div", { staticClass: "w-full " }, [
-      _c("img", {
-        ref: "slider",
-        staticClass: " w-full h-52 object-fill ",
-        attrs: { src: _vm.images[0], alt: "image slider" },
-      }),
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          " absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ",
-      },
-      [_c("span", { ref: "imageTitle" })]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "absolute bottom-1 flex justify-around items-center w-1/2 h-6 rounded-lg  ",
-      },
-      _vm._l(_vm.images, function (image, index) {
-        return _c("div", {
-          key: index,
-          ref: "img" + index,
-          refInFor: true,
-          staticClass: "w-6 h-4 rounded-lg border",
-        })
-      }),
-      0
-    ),
-  ])
+  return _c(
+    "div",
+    { staticClass: " relative flex justify-center w-full h-72 " },
+    [
+      _c("div", { staticClass: "w-full h-60  " }, [
+        _c("img", {
+          ref: "slider",
+          staticClass: " w-full h-60 object-fill ",
+          attrs: { src: _vm.images[0], alt: "image slider" },
+        }),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            " absolute bottom-16 right-4 w-2/5 p-1 rounded-lg text-center text-zinc-900  ",
+        },
+        [_c("span", { ref: "imageTitle" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "absolute bottom-1 flex justify-around items-center w-1/2 h-6 rounded-lg  ",
+        },
+        _vm._l(_vm.images, function (image, index) {
+          return _c("div", {
+            key: index,
+            ref: "img" + index,
+            refInFor: true,
+            staticClass: "w-6 h-4 rounded-lg border",
+          })
+        }),
+        0
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
