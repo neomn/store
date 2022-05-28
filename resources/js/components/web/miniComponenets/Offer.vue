@@ -2,7 +2,7 @@
     <div class=" flex justify-center w-full h-60  ">
         <div class=" relative w-11/12 max-w-sm  h-52 m-4  ">
             <!--image-->
-            <img :src="imageUrl" alt="offer" class=" absolute right-0 w-60 h-52 ">
+            <img :src="imageUrl" alt="offer" class=" absolute right-0 w-60 h-52 text-zinc-200 ">
             <div class=" absolute top-0 flex  overflow-hidden ">
                 <!--discount-->
                 <div class=" flex justify-center  ">
@@ -25,7 +25,6 @@
 <!--                <span>buy the most popular Arduino with an special discount</span>-->
 <!--            </div>-->
         </div>
-
     </div>
 </template>
 
