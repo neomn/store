@@ -22,19 +22,19 @@
         </div>
 
         <!-- certificates -->
-        <div class="relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16 ">
-            <div class="flex flex-col w-11/12 h-52 rounded-lg  ">
+        <div class="relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16">
+            <div class="flex flex-col  w-11/12 max-w-md h-52 rounded-lg ">
                 <div class=" h-10 ml-6 text-lg font-bold ">
                     <span> Certificates  </span>
                 </div>
                 <div class="flex justify-center w-full h-44  ">
-                    <div class=" m-2 rounded-lg bg-slate-800">
+                    <div class=" m-2 rounded-lg backdrop-blur bg-white/10 border border-lime-300">
                         <img src="/storage/images/certificates/enamad.png" alt="enamad"
-                             class="w-36 h-40 object-fill  ">
+                             class="w-36 h-36 object-fill  ">
                     </div>
-                    <div class="m-2 rounded-lg bg-slate-800">
+                    <div class="m-2 rounded-lg backdrop-blur bg-white/10 border border-lime-300">
                         <img src="/storage/images/certificates/samandehi.png" alt="samandehi"
-                             class="w-36 h-40 object-fill ">
+                             class="w-full h-full object-fill ">
                     </div>
                 </div>
             </div>

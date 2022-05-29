@@ -21774,7 +21774,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\r\n    position: fixed;\r\n    bottom: 0;\r\n    width: 1300px;\r\n    display: inline;\r\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\r\n    color: white;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\n    position: fixed;\n    bottom: 0;\n    width: 1300px;\n    display: inline;\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\n    color: white;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49190,12 +49190,14 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16 ",
+              "relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16",
           },
           [
             _c(
               "div",
-              { staticClass: "flex flex-col w-11/12 h-52 rounded-lg  " },
+              {
+                staticClass: "flex flex-col  w-11/12 max-w-md h-52 rounded-lg ",
+              },
               [
                 _c("div", { staticClass: " h-10 ml-6 text-lg font-bold " }, [
                   _c("span", [_vm._v(" Certificates  ")]),
@@ -49205,25 +49207,39 @@ var staticRenderFns = [
                   "div",
                   { staticClass: "flex justify-center w-full h-44  " },
                   [
-                    _c("div", { staticClass: " m-2 rounded-lg bg-slate-800" }, [
-                      _c("img", {
-                        staticClass: "w-36 h-40 object-fill  ",
-                        attrs: {
-                          src: "/storage/images/certificates/enamad.png",
-                          alt: "enamad",
-                        },
-                      }),
-                    ]),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          " m-2 rounded-lg backdrop-blur bg-white/10 border border-lime-300",
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "w-36 h-36 object-fill  ",
+                          attrs: {
+                            src: "/storage/images/certificates/enamad.png",
+                            alt: "enamad",
+                          },
+                        }),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "m-2 rounded-lg bg-slate-800" }, [
-                      _c("img", {
-                        staticClass: "w-36 h-40 object-fill ",
-                        attrs: {
-                          src: "/storage/images/certificates/samandehi.png",
-                          alt: "samandehi",
-                        },
-                      }),
-                    ]),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "m-2 rounded-lg backdrop-blur bg-white/10 border border-lime-300",
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "w-full h-full object-fill ",
+                          attrs: {
+                            src: "/storage/images/certificates/samandehi.png",
+                            alt: "samandehi",
+                          },
+                        }),
+                      ]
+                    ),
                   ]
                 ),
               ]

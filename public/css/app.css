@@ -935,6 +935,9 @@ select {
 .h-1\/2 {
   height: 50%;
 }
+.h-36 {
+  height: 9rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1263,6 +1266,10 @@ select {
 .border-red-500 {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+.border-lime-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(190 242 100 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
