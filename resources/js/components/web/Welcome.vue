@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col bg-zinc-900">
         <background />
         <Header/>
         <ImageSlider/>

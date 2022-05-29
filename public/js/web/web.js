@@ -50476,7 +50476,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-col" },
+    { staticClass: "flex flex-col bg-zinc-900" },
     [
       _c("background"),
       _vm._v(" "),
@@ -50738,12 +50738,12 @@ var render = function () {
         {
           ref: "productContainer",
           staticClass:
-            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  bg-zinc-500 ",
+            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  backdrop-blur bg-white/10 ",
         },
         [
           _c(
             "div",
-            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-900" },
+            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-300" },
             [_c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))])]
           ),
           _vm._v(" "),
