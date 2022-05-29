@@ -50478,7 +50478,7 @@ var render = function () {
     "div",
     { staticClass: "flex flex-col bg-zinc-900" },
     [
-      _c("background"),
+      _c("Background"),
       _vm._v(" "),
       _c("Header"),
       _vm._v(" "),
@@ -50546,7 +50546,7 @@ var render = function () {
       _c("div", { staticClass: "w-11/12 max-w-md h-60 " }, [
         _c("img", {
           ref: "slider",
-          staticClass: " w-full h-60 object-fill ",
+          staticClass: " w-full h-60 mt-4 rounded-2xl object-fill  ",
           attrs: { src: _vm.images[0], alt: "image slider" },
         }),
       ]),

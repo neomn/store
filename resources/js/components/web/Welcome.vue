@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col bg-zinc-900">
-        <background />
+        <Background />
         <Header/>
         <ImageSlider/>
         <ProductContainer :products="newProducts" title="New Products" color="yellow-600" class="z-20 my-4 mt-10"/>
