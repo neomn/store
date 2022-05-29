@@ -19912,6 +19912,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Background"
 });
@@ -48888,12 +48896,38 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    staticClass:
-      " z-10 fixed top-0 w-full h-full bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-700  ",
-  })
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          " z-10 fixed top-0 w-full h-full bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-800",
+      },
+      [
+        _c("div", {
+          staticClass:
+            "w-full h-1/3 bg-gradient-to-tl from-zinc-700 via-zinc-900 to-zinc-700 filter blur-2xl opacity-50",
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            "w-full h-1/3 bg-gradient-to-tr from-zinc-700 via-zinc-900 to-zinc-700 filter blur-2xl opacity-40",
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            "w-full h-1/3 bg-gradient-to-br from-zinc-700 via-zinc-900 to-zinc-700 filter blur-2xl opacity-40",
+        }),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -49156,12 +49190,14 @@ var staticRenderFns = [
           "div",
           {
             staticClass:
-              "relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16 ",
+              "relative flex flex-col items-center w-full h-52 text-zinc-200 mb-16",
           },
           [
             _c(
               "div",
-              { staticClass: "flex flex-col w-11/12 h-52 rounded-lg  " },
+              {
+                staticClass: "flex flex-col  w-11/12 max-w-md h-52 rounded-lg ",
+              },
               [
                 _c("div", { staticClass: " h-10 ml-6 text-lg font-bold " }, [
                   _c("span", [_vm._v(" Certificates  ")]),
@@ -49171,25 +49207,39 @@ var staticRenderFns = [
                   "div",
                   { staticClass: "flex justify-center w-full h-44  " },
                   [
-                    _c("div", { staticClass: " m-2 rounded-lg bg-slate-800" }, [
-                      _c("img", {
-                        staticClass: "w-36 h-40 object-fill  ",
-                        attrs: {
-                          src: "/storage/images/certificates/enamad.png",
-                          alt: "enamad",
-                        },
-                      }),
-                    ]),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          " m-2 rounded-lg backdrop-blur bg-white/10 border border-lime-300",
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "w-36 h-36 object-fill  ",
+                          attrs: {
+                            src: "/storage/images/certificates/enamad.png",
+                            alt: "enamad",
+                          },
+                        }),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "m-2 rounded-lg bg-slate-800" }, [
-                      _c("img", {
-                        staticClass: "w-36 h-40 object-fill ",
-                        attrs: {
-                          src: "/storage/images/certificates/samandehi.png",
-                          alt: "samandehi",
-                        },
-                      }),
-                    ]),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "m-2 rounded-lg backdrop-blur bg-white/10 border border-lime-300",
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "w-full h-full object-fill ",
+                          attrs: {
+                            src: "/storage/images/certificates/samandehi.png",
+                            alt: "samandehi",
+                          },
+                        }),
+                      ]
+                    ),
                   ]
                 ),
               ]
@@ -50442,9 +50492,9 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-col" },
+    { staticClass: "flex flex-col bg-zinc-900" },
     [
-      _c("background"),
+      _c("Background"),
       _vm._v(" "),
       _c("Header"),
       _vm._v(" "),
@@ -50512,7 +50562,7 @@ var render = function () {
       _c("div", { staticClass: "w-11/12 max-w-md h-60 " }, [
         _c("img", {
           ref: "slider",
-          staticClass: " w-full h-60 object-fill ",
+          staticClass: " w-full h-60 mt-4 rounded-2xl object-fill  ",
           attrs: { src: _vm.images[0], alt: "image slider" },
         }),
       ]),
@@ -50704,12 +50754,12 @@ var render = function () {
         {
           ref: "productContainer",
           staticClass:
-            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  bg-zinc-500 ",
+            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  backdrop-blur bg-white/10 ",
         },
         [
           _c(
             "div",
-            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-900" },
+            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-300" },
             [_c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))])]
           ),
           _vm._v(" "),
