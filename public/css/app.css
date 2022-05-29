@@ -1016,6 +1016,9 @@ select {
 .w-4\/6 {
   width: 66.666667%;
 }
+.w-96 {
+  width: 24rem;
+}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -1498,6 +1501,10 @@ select {
   --tw-gradient-from: #a1a1aa;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(161 161 170 / 0));
 }
+.from-zinc-500 {
+  --tw-gradient-from: #71717a;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(113 113 122 / 0));
+}
 .via-slate-700 {
   --tw-gradient-stops: var(--tw-gradient-from), #334155, var(--tw-gradient-to, rgb(51 65 85 / 0));
 }
@@ -1875,6 +1882,15 @@ select {
 .opacity-5 {
   opacity: 0.05;
 }
+.opacity-30 {
+  opacity: 0.3;
+}
+.opacity-80 {
+  opacity: 0.8;
+}
+.opacity-40 {
+  opacity: 0.4;
+}
 .mix-blend-multiply {
   mix-blend-mode: multiply;
 }
@@ -1923,6 +1939,10 @@ select {
 }
 .blur {
   --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.blur-2xl {
+  --tw-blur: blur(40px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {

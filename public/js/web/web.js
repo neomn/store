@@ -19912,6 +19912,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Background"
 });
@@ -21766,7 +21774,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\n    position: fixed;\n    bottom: 0;\n    width: 1300px;\n    display: inline;\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\n    color: white;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ndiv.fixed[data-v-1abcd33e] {\r\n    position: fixed;\r\n    bottom: 0;\r\n    width: 1300px;\r\n    display: inline;\r\n    text-align: center;\n}\nh1[data-v-1abcd33e] {\r\n    color: white;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48888,12 +48896,38 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    staticClass:
-      " z-10 fixed top-0 w-full h-full bg-gradient-to-b from-zinc-700 via-zinc-800 to-zinc-700  ",
-  })
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          " z-10 fixed top-0 w-full h-full bg-gradient-to-br from-zinc-800 via-zinc-900 to-zinc-800",
+      },
+      [
+        _c("div", {
+          staticClass:
+            "w-full h-1/3 bg-gradient-to-tl from-zinc-700 via-zinc-900 to-zinc-700 filter blur-2xl opacity-50",
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            "w-full h-1/3 bg-gradient-to-tr from-zinc-700 via-zinc-900 to-zinc-700 filter blur-2xl opacity-40",
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            "w-full h-1/3 bg-gradient-to-br from-zinc-700 via-zinc-900 to-zinc-700 filter blur-2xl opacity-40",
+        }),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
