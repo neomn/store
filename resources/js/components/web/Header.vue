@@ -15,7 +15,7 @@
                     </div>
                     <!--home -->
                     <div class=" flex grow h-10 ">
-                        <a href="/" class="flex justify-center items-center grow pr-2"
+                        <RouterLink :to="{name: 'welcome'}" href="/" class="flex justify-center items-center grow pr-2"
                            v-bind:class="(this.$route.path === '/')? ' border rounded-lg': ''">
                             <div class="px-1 text-md">
                                 <font-awesome-icon :icon="['fas' , 'home']"/>
@@ -23,11 +23,11 @@
                             <div v-if="this.$route.path === '/'" class="flex text-sm ">
                                 Home
                             </div>
-                        </a>
+                        </RouterLink>
                     </div>
                     <!--categories -->
                     <div class=" flex grow h-10 ">
-                        <a href="/categories" class="flex justify-center items-center grow pr-2"
+                        <RouterLink :to="{name:'categories'}" class="flex justify-center items-center grow pr-2"
                            v-bind:class="(this.$route.path === '/categories')? ' border rounded-lg': ''">
                             <div class="px-1 text-md">
                                 <font-awesome-icon :icon="['fab' , 'buffer']"/>
@@ -35,7 +35,7 @@
                             <div v-if="this.$route.path === '/categories'" class="flex text-sm ">
                                 Categories
                             </div>
-                        </a>
+                        </RouterLink>
                     </div>
                     <!-- about us -->
                     <div class=" flex grow h-10 ">

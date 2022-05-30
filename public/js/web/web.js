@@ -49435,71 +49435,83 @@ var render = function () {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _c("div", { staticClass: " flex grow h-10 " }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "flex justify-center items-center grow pr-2",
-                      class:
-                        this.$route.path === "/" ? " border rounded-lg" : "",
-                      attrs: { href: "/" },
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "px-1 text-md" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "home"] },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      this.$route.path === "/"
-                        ? _c("div", { staticClass: "flex text-sm " }, [
-                            _vm._v(
-                              "\n                            Home\n                        "
-                            ),
-                          ])
-                        : _vm._e(),
-                    ]
-                  ),
-                ]),
+                _c(
+                  "div",
+                  { staticClass: " flex grow h-10 " },
+                  [
+                    _c(
+                      "RouterLink",
+                      {
+                        staticClass:
+                          "flex justify-center items-center grow pr-2",
+                        class:
+                          this.$route.path === "/" ? " border rounded-lg" : "",
+                        attrs: { to: { name: "welcome" }, href: "/" },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "px-1 text-md" },
+                          [
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fas", "home"] },
+                            }),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        this.$route.path === "/"
+                          ? _c("div", { staticClass: "flex text-sm " }, [
+                              _vm._v(
+                                "\n                            Home\n                        "
+                              ),
+                            ])
+                          : _vm._e(),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: " flex grow h-10 " }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "flex justify-center items-center grow pr-2",
-                      class:
+                _c(
+                  "div",
+                  { staticClass: " flex grow h-10 " },
+                  [
+                    _c(
+                      "RouterLink",
+                      {
+                        staticClass:
+                          "flex justify-center items-center grow pr-2",
+                        class:
+                          this.$route.path === "/categories"
+                            ? " border rounded-lg"
+                            : "",
+                        attrs: { to: { name: "categories" } },
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "px-1 text-md" },
+                          [
+                            _c("font-awesome-icon", {
+                              attrs: { icon: ["fab", "buffer"] },
+                            }),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
                         this.$route.path === "/categories"
-                          ? " border rounded-lg"
-                          : "",
-                      attrs: { href: "/categories" },
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "px-1 text-md" },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fab", "buffer"] },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      this.$route.path === "/categories"
-                        ? _c("div", { staticClass: "flex text-sm " }, [
-                            _vm._v(
-                              "\n                            Categories\n                        "
-                            ),
-                          ])
-                        : _vm._e(),
-                    ]
-                  ),
-                ]),
+                          ? _c("div", { staticClass: "flex text-sm " }, [
+                              _vm._v(
+                                "\n                            Categories\n                        "
+                              ),
+                            ])
+                          : _vm._e(),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c(
                   "div",
