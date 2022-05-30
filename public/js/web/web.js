@@ -20020,7 +20020,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       allCategories: {},
       categoryContainer: {},
-      productContainer: {}
+      productContainer: {},
+      objectifiedCategories: []
     };
   },
   props: ['category'],
@@ -20059,107 +20060,167 @@ __webpack_require__.r(__webpack_exports__);
     // )
   },
   methods: {
-    getAllCategories: function getAllCategories() {
+    // getAllCategories() {
+    //     axios.get('/api/categories')
+    //         .then(response => {
+    //             console.log('getAllCategories >-------- \n')
+    //             this.allCategories = response.data.data
+    //             console.log(response.data.data)
+    //             this.initCategoryContainer()
+    //             this.refreshCategoryContainer(this.category)
+    //             if (isEmpty(this.categoryContainer)) {
+    //                 this.getCategoryAssociatedProducts()
+    //             }
+    //             this.objectifiedCategories(this.allCategories)
+    //         })
+    //         .catch(function (error) {
+    //             console.log('error getting categories > ' + error)
+    //         })
+    // },
+    // initCategoryContainer() {
+    //     console.log('initCategoryContainer > ------ \n')
+    //     this.allCategories.forEach((item, index, array) => {
+    //         if (item.parent_id === null) {
+    //             //this is how to update vue js state ,check vue js docs ( reactivity )
+    //             this.$set(this.categoryContainer, index, item)
+    //         }
+    //     })
+    //     console.log(this.categoryContainer)
+    // },
+    // refreshCategoryContainer(queriedCategory) {
+    //     console.log('refreshCategoryContainer > ------')
+    //     if (queriedCategory) {
+    //         console.log('received category to process > ' + queriedCategory + '\n')
+    //         let preserveContainerContent = this.categoryContainer
+    //         let categoryIsNotValid = true
+    //         this.categoryContainer = {}
+    //         if (this.allCategories) {
+    //             //find queried category id
+    //             let queriedCategoryId
+    //             this.allCategories.forEach((item, index) => {
+    //                 if (item.category === queriedCategory) {
+    //                     queriedCategoryId = item.id
+    //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
+    //                 }
+    //             })
+    //             //set container to contain childes of queried category
+    //             this.allCategories.forEach((item, index) => {
+    //                 if (item.parent_id === queriedCategoryId) {
+    //                     //this is how to update vue js state ,check vue js docs ( reactivity )
+    //                     this.$set(this.categoryContainer, index, item)
+    //                     console.log('category founded :) adding ' + item.category + ' to container')
+    //                     categoryIsNotValid = false
+    //                 }
+    //             })
+    //         } else {
+    //             console.log('allCategories not initialized by api \n')
+    //         }
+    //         if (categoryIsNotValid) {
+    //             console.log('queried category (' + queriedCategory + ') is not a valid category')
+    //             // this.categoryContainer = preserveContainerContent
+    //         }
+    //     } else {
+    //         console.log('no category queried')
+    //     }
+    // },
+    // categoryHasSubCategory() {
+    //     console.log('categoryHasSubCategory > ------ \n')
+    //     console.log(!isEmpty(this.categoryContainer))
+    //     return !isEmpty(this.categoryContainer)
+    // },
+    // getCategoryAssociatedProducts() {
+    //     console.log('getCategoryAssociatedProducts > ------ \n')
+    //     console.log(this.$route.params.category + '\n')
+    //     let category = this.$route.params.category
+    //
+    //     //get category categoryId
+    //     let categoryId;
+    //     this.allCategories.forEach((item, index) => {
+    //         if (item.category === category)
+    //             categoryId = item.id
+    //     })
+    //     console.log('category categoryId >>> ' + categoryId + '\n')
+    //
+    //     //request for productContainer
+    //     axios.get('/api/productContainer/' + categoryId)
+    //         .then(response => {
+    //             let products = response.data.data
+    //             console.log('retrieved productContainer  >>> \n')
+    //             console.log(response.data.product)
+    //             this.productContainer = response.data.product
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error)
+    //         })
+    // },
+    // emptyProductsContainer() {
+    //     this.productContainer = {}
+    // },
+    objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
       var _this = this;
 
-      axios.get('/api/categories').then(function (response) {
-        console.log('getAllCategories >-------- \n');
-        _this.allCategories = response.data.data;
-        console.log(response.data.data);
+      console.log('objectifyCategoryArray >'); //assign an empty subCategory array to all elements
 
-        _this.initCategoryContainer();
+      categoryArray.forEach(function (item, index) {
+        item.sub = [];
+      }); //objectify root elements
 
-        _this.refreshCategoryContainer(_this.category);
+      categoryArray.forEach(function (category, index) {
+        if (_this.itIsRootCategory(category)) {
+          _this.objectifiedCategories.push(category);
 
-        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this.categoryContainer)) {
-          _this.getCategoryAssociatedProducts();
+          categoryArray = _this.removeElementFromArray(category, categoryArray);
         }
-      })["catch"](function (error) {
-        console.log('error getting categories > ' + error);
+      });
+      console.log('root categories objectified');
+      console.log(this.objectifiedCategories);
+      console.log(categoryArray); //objectify remaining elements
+
+      while (categoryArray.length > 0) {
+        console.log('categoryArrayLength > ' + categoryArray.length);
+        console.log(categoryArray);
+        categoryArray.forEach(function (category, index) {
+          _this.putCategoryIntoCategoryObject(category, _this.objectifiedCategories);
+
+          categoryArray = _this.removeElementFromArray(category, categoryArray);
+        });
+      }
+
+      console.log('all categories objectified');
+      console.log(this.objectifiedCategories);
+      console.log(categoryArray);
+      console.log('------------------------------');
+    },
+    itIsRootCategory: function itIsRootCategory(category) {
+      return category.parent_id === null;
+    },
+    removeElementFromArray: function removeElementFromArray(category, categoryArray) {
+      console.log('removing ' + category.category);
+      return categoryArray.filter(function (element) {
+        return element !== category;
       });
     },
-    initCategoryContainer: function initCategoryContainer() {
+    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
       var _this2 = this;
 
-      console.log('initCategoryContainer > ------ \n');
-      this.allCategories.forEach(function (item, index, array) {
-        if (item.parent_id === null) {
-          //this is how to update vue js state ,check vue js docs ( reactivity )
-          _this2.$set(_this2.categoryContainer, index, item);
+      console.log('putting ' + category.category + ' into categoryObject');
+      console.log(categoryObject);
+      var objectified = false;
+      categoryObject.forEach(function (item, index) {
+        if (category.parent_id === item.id) {
+          console.log('parent founded');
+          console.log(item.category + ' < ' + category.category);
+          item.sub.push(category);
+          objectified = true;
         }
       });
-      console.log(this.categoryContainer);
-    },
-    refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
-      var _this3 = this;
 
-      console.log('refreshCategoryContainer > ------');
-
-      if (queriedCategory) {
-        console.log('received category to process > ' + queriedCategory + '\n');
-        var preserveContainerContent = this.categoryContainer;
-        var categoryIsNotValid = true;
-        this.categoryContainer = {};
-
-        if (this.allCategories) {
-          //find queried category id
-          var queriedCategoryId;
-          this.allCategories.forEach(function (item, index) {
-            if (item.category === queriedCategory) {
-              queriedCategoryId = item.id;
-              console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n');
-            }
-          }); //set container to contain childes of queried category
-
-          this.allCategories.forEach(function (item, index) {
-            if (item.parent_id === queriedCategoryId) {
-              //this is how to update vue js state ,check vue js docs ( reactivity )
-              _this3.$set(_this3.categoryContainer, index, item);
-
-              console.log('category founded :) adding ' + item.category + ' to container');
-              categoryIsNotValid = false;
-            }
-          });
-        } else {
-          console.log('allCategories not initialized by api \n');
-        }
-
-        if (categoryIsNotValid) {
-          console.log('queried category (' + queriedCategory + ') is not a valid category'); // this.categoryContainer = preserveContainerContent
-        }
-      } else {
-        console.log('no category queried');
+      if (!objectified) {
+        console.log('parent not found ');
+        categoryObject.forEach(function (item, index) {
+          _this2.putCategoryIntoCategoryObject(category, item.sub);
+        });
       }
-    },
-    categoryHasSubCategory: function categoryHasSubCategory() {
-      console.log('categoryHasSubCategory > ------ \n');
-      console.log(!(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer));
-      return !(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer);
-    },
-    getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {
-      var _this4 = this;
-
-      console.log('getCategoryAssociatedProducts > ------ \n');
-      console.log(this.$route.params.category + '\n');
-      var category = this.$route.params.category; //get category categoryId
-
-      var categoryId;
-      this.allCategories.forEach(function (item, index) {
-        if (item.category === category) categoryId = item.id;
-      });
-      console.log('category categoryId >>> ' + categoryId + '\n'); //request for productContainer
-
-      axios.get('/api/productContainer/' + categoryId).then(function (response) {
-        var products = response.data.data;
-        console.log('retrieved productContainer  >>> \n');
-        console.log(response.data.product);
-        _this4.productContainer = response.data.product;
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    emptyProductsContainer: function emptyProductsContainer() {
-      this.productContainer = {};
     }
   }
 });
