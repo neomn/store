@@ -10,7 +10,7 @@
 
 <script>
 import Header from "../web/Header";
-import SideBar from "../web/SideBar";
+import SideBar from "./SideBar";
 export default {
     name: "Dashboard",
     components: {SideBar, Header},

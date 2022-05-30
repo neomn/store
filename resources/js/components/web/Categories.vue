@@ -1,54 +1,61 @@
 <template>
     <div>
-        <background/>
+        <Background/>
         <Header/>
-        <SideBar/>
-        <div>
-
+        <Sidebar/>
+        <div class=" z-20 absolute w-full h-full text-zinc-200 overflow-y-scroll ">
+            <div class=" grid grid-cols-3 gap-4 p-2 mt-10 justify-center place-items-center  ">
+                <div v-for="category in categoryContainer" >
+                <router-link :to="{name: 'categories' , params: {category: category.category}}">
+                    <button @click="refreshCategoryContainer(category.sub)"  class="w-28 h-28 p-2 rounded-xl border">
+                        {{ category.category }}
+                    </button>
+                </router-link>
+                </div>
+            </div>
         </div>
     </div>
+    <!--    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">-->
 
-<!--    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">-->
+    <!--        <Header class="z-10"/>-->
 
-<!--        <Header class="z-10"/>-->
-
-<!--        <aside class="bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ">-->
-<!--            {{ category }}-->
-<!--        </aside>-->
-
-
-<!--        <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">-->
-
-<!--            &lt;!&ndash;display category container contents&ndash;&gt;-->
-<!--            <div v-for="category in categoryContainer"-->
-<!--                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">-->
-<!--                <router-link :to="{name: 'categories' , params: {category: category.category}}">-->
-<!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
-<!--                        {{ category.category }}-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </div>-->
+    <!--        <aside class="bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ">-->
+    <!--            {{ category }}-->
+    <!--        </aside>-->
 
 
-<!--            &lt;!&ndash; display product container contents  &ndash;&gt;-->
-<!--            <div v-for="product in productContainer"-->
-<!--                 class="bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0">-->
-<!--                <img :src="product.image" alt="product image" class="rounded-lg">-->
-<!--                <div class="pt-4 pl-4">-->
-<!--                    {{ product.number }} <br>-->
-<!--                    {{ product.name }} <br>-->
-<!--                    {{ product.price }} <br>-->
-<!--                </div>-->
-<!--                <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
-<!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
-<!--                        <button> show details</button>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </div>-->
+    <!--        <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">-->
 
-<!--        </div>-->
+    <!--            &lt;!&ndash;display category container contents&ndash;&gt;-->
+    <!--            <div v-for="category in categoryContainer"-->
+    <!--                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">-->
+    <!--                <router-link :to="{name: 'categories' , params: {category: category.category}}">-->
+    <!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
+    <!--                        {{ category.category }}-->
+    <!--                    </div>-->
+    <!--                </router-link>-->
+    <!--            </div>-->
 
-<!--    </div>-->
+
+    <!--            &lt;!&ndash; display product container contents  &ndash;&gt;-->
+    <!--            <div v-for="product in productContainer"-->
+    <!--                 class="bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0">-->
+    <!--                <img :src="product.image" alt="product image" class="rounded-lg">-->
+    <!--                <div class="pt-4 pl-4">-->
+    <!--                    {{ product.number }} <br>-->
+    <!--                    {{ product.name }} <br>-->
+    <!--                    {{ product.price }} <br>-->
+    <!--                </div>-->
+    <!--                <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
+    <!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
+    <!--                        <button> show details</button>-->
+    <!--                    </div>-->
+    <!--                </router-link>-->
+    <!--            </div>-->
+
+    <!--        </div>-->
+
+    <!--    </div>-->
 </template>
 
 <!---------------------------------------------------------------------->
@@ -57,21 +64,22 @@
 <script>
 import {isEmpty} from "lodash/lang";
 import Header from "./Header";
-import SideBar from "./Sidebar";
 import Background from "./Background";
+import Sidebar from "./SideBar";
 
 export default {
     name: "Categories",
     components: {
         Background,
-        SideBar,
-        Header
+        Header,
+        Sidebar,
     },
     data() {
         return {
             allCategories: {},
             categoryContainer: {},
             productContainer: {},
+            objectifiedCategories: []
         }
     },
     props: [
@@ -83,37 +91,36 @@ export default {
     },
     mounted() {
 
-
         //watch route parameters changes
-        this.$watch(
-            () => this.$route.params, (newParams, previousParams) => {
-                console.log('this.$route.params watcher > ------ \n')
-                this.emptyProductsContainer()
-                console.log('product container is now empty \n')
-                console.log('new params >> ' + newParams.category + '\n')
-                console.log('previous params >> ' + previousParams.category + '\n')
-                if (newParams.category)
-                    this.refreshCategoryContainer(newParams.category)
+        // this.$watch(
+        //     () => this.$route.params, (newParams, previousParams) => {
+        //         console.log('this.$route.params watcher > ------ \n')
+        //         this.emptyProductsContainer()
+        //         console.log('product container is now empty \n')
+        //         console.log('new params >> ' + newParams.category + '\n')
+        //         console.log('previous params >> ' + previousParams.category + '\n')
+        //         if (newParams.category)
+        //             this.refreshCategoryContainer(newParams.category)
+        //
+        //             // reload page if route is /categories
+        //         // this is because category container wasn't refreshing in that route when pressing back button
+        //         else if (!newParams.category) {
+        //             window.location.reload()
+        //         }
+        //     }
+        // )
 
-                    // reload page if route is /categories
-                // this is because category container wasn't refreshing in that route when pressing back button
-                else if (!newParams.category) {
-                    window.location.reload()
-                }
-            }
-        )
-
-        //watch for categories with no sub category
-        this.$watch(
-            () => this.categoryHasSubCategory(), (newParams, previousParams) => {
-                console.log('categoryHasSubCategory watcher > -------- \n')
-                console.log(newParams)
-                if (newParams === false) {
-                    console.log('requesting for category productContainer')
-                    this.getCategoryAssociatedProducts()
-                }
-            }
-        )
+        // //watch for categories with no sub category
+        // this.$watch(
+        //     () => this.categoryHasSubCategory(), (newParams, previousParams) => {
+        //         console.log('categoryHasSubCategory watcher > -------- \n')
+        //         console.log(newParams)
+        //         if (newParams === false) {
+        //             console.log('requesting for category productContainer')
+        //             this.getCategoryAssociatedProducts()
+        //         }
+        //     }
+        // )
     },
     methods: {
         getAllCategories() {
@@ -122,96 +129,162 @@ export default {
                     console.log('getAllCategories >-------- \n')
                     this.allCategories = response.data.data
                     console.log(response.data.data)
-                    this.initCategoryContainer()
-                    this.refreshCategoryContainer(this.category)
+                    // this.initCategoryContainer()
+                    // this.refreshCategoryContainer(this.category)
                     if (isEmpty(this.categoryContainer)) {
-                        this.getCategoryAssociatedProducts()
+                        // this.getCategoryAssociatedProducts()
                     }
+                    this.objectifyCategoryArray(response.data.data)
+                    this.initCategoryContainer()
                 })
                 .catch(function (error) {
                     console.log('error getting categories > ' + error)
                 })
         },
         initCategoryContainer() {
-            console.log('initCategoryContainer > ------ \n')
-            this.allCategories.forEach((item, index, array) => {
-                if (item.parent_id === null) {
-                    //this is how to update vue js state ,check vue js docs ( reactivity )
-                    this.$set(this.categoryContainer, index, item)
+            // console.log('initCategoryContainer > ------ \n')
+            // this.allCategories.forEach((item, index, array) => {
+            //     if (item.parent_id === null) {
+            //         //this is how to update vue js state ,check vue js docs ( reactivity )
+            //         this.$set(this.categoryContainer, index, item)
+            //     }
+            // })
+            // console.log(this.categoryContainer)
+            this.categoryContainer = this.objectifiedCategories
+        },
+        refreshCategoryContainer(categoryObject) {
+            this.categoryContainer = categoryObject
+        //     console.log('refreshCategoryContainer > ------')
+        //     if (queriedCategory) {
+        //         console.log('received category to process > ' + queriedCategory + '\n')
+        //         let preserveContainerContent = this.categoryContainer
+        //         let categoryIsNotValid = true
+        //         this.categoryContainer = {}
+        //         if (this.allCategories) {
+        //             //find queried category id
+        //             let queriedCategoryId
+        //             this.allCategories.forEach((item, index) => {
+        //                 if (item.category === queriedCategory) {
+        //                     queriedCategoryId = item.id
+        //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
+        //                 }
+        //             })
+        //             //set container to contain childes of queried category
+        //             this.allCategories.forEach((item, index) => {
+        //                 if (item.parent_id === queriedCategoryId) {
+        //                     //this is how to update vue js state ,check vue js docs ( reactivity )
+        //                     this.$set(this.categoryContainer, index, item)
+        //                     console.log('category founded :) adding ' + item.category + ' to container')
+        //                     categoryIsNotValid = false
+        //                 }
+        //             })
+        //         } else {
+        //             console.log('allCategories not initialized by api \n')
+        //         }
+        //         if (categoryIsNotValid) {
+        //             console.log('queried category (' + queriedCategory + ') is not a valid category')
+        //             // this.categoryContainer = preserveContainerContent
+        //         }
+        //     } else {
+        //         console.log('no category queried')
+        //     }
+        },
+        // categoryHasSubCategory() {
+        //     console.log('categoryHasSubCategory > ------ \n')
+        //     console.log(!isEmpty(this.categoryContainer))
+        //     return !isEmpty(this.categoryContainer)
+        // },
+        // getCategoryAssociatedProducts() {
+        //     console.log('getCategoryAssociatedProducts > ------ \n')
+        //     console.log(this.$route.params.category + '\n')
+        //     let category = this.$route.params.category
+        //
+        //     //get category categoryId
+        //     let categoryId;
+        //     this.allCategories.forEach((item, index) => {
+        //         if (item.category === category)
+        //             categoryId = item.id
+        //     })
+        //     console.log('category categoryId >>> ' + categoryId + '\n')
+        //
+        //     //request for productContainer
+        //     axios.get('/api/productContainer/' + categoryId)
+        //         .then(response => {
+        //             let products = response.data.data
+        //             console.log('retrieved productContainer  >>> \n')
+        //             console.log(response.data.product)
+        //             this.productContainer = response.data.product
+        //         })
+        //         .catch(function (error) {
+        //             console.log(error)
+        //         })
+        // },
+        // emptyProductsContainer() {
+        //     this.productContainer = {}
+        // },
+
+
+
+
+
+        objectifyCategoryArray(categoryArray) {
+            console.log('objectifyCategoryArray >')
+            //assign an empty subCategory array to all elements
+            categoryArray.forEach((item, index) => {
+                item.sub = []
+            })
+            //objectify root elements
+            categoryArray.forEach((category, index) => {
+                if (this.itIsRootCategory(category)) {
+                    this.objectifiedCategories.push(category)
+                    categoryArray = this.removeElementFromArray(category, categoryArray)
                 }
             })
-            console.log(this.categoryContainer)
+            console.log('root categories objectified')
+            console.log(this.objectifiedCategories)
+            console.log(categoryArray)
+            //objectify remaining elements
+            while (categoryArray.length > 0) {
+                console.log('categoryArrayLength > ' + categoryArray.length)
+                console.log(categoryArray)
+                categoryArray.forEach((category, index) => {
+                    this.putCategoryIntoCategoryObject(category, this.objectifiedCategories)
+                    categoryArray = this.removeElementFromArray(category, categoryArray)
+                })
+            }
+            console.log('all categories objectified')
+            console.log(this.objectifiedCategories)
+            console.log(categoryArray)
+            console.log('------------------------------')
         },
-        refreshCategoryContainer(queriedCategory) {
-            console.log('refreshCategoryContainer > ------')
-            if (queriedCategory) {
-                console.log('received category to process > ' + queriedCategory + '\n')
-                let preserveContainerContent = this.categoryContainer
-                let categoryIsNotValid = true
-                this.categoryContainer = {}
-                if (this.allCategories) {
-                    //find queried category id
-                    let queriedCategoryId
-                    this.allCategories.forEach((item, index) => {
-                        if (item.category === queriedCategory) {
-                            queriedCategoryId = item.id
-                            console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
-                        }
-                    })
-                    //set container to contain childes of queried category
-                    this.allCategories.forEach((item, index) => {
-                        if (item.parent_id === queriedCategoryId) {
-                            //this is how to update vue js state ,check vue js docs ( reactivity )
-                            this.$set(this.categoryContainer, index, item)
-                            console.log('category founded :) adding ' + item.category + ' to container')
-                            categoryIsNotValid = false
-                        }
-                    })
-                } else {
-                    console.log('allCategories not initialized by api \n')
+        itIsRootCategory(category) {
+            return category.parent_id === null
+        },
+        removeElementFromArray(category, categoryArray) {
+            console.log('removing ' + category.category)
+            return categoryArray.filter(element => {
+                return element !== category
+            })
+        },
+        putCategoryIntoCategoryObject(category, categoryObject) {
+            console.log('putting ' + category.category + ' into categoryObject')
+            console.log(categoryObject)
+            let objectified = false
+            categoryObject.forEach((item, index) => {
+                if (category.parent_id === item.id) {
+                    console.log('parent founded')
+                    console.log(item.category + ' < ' + category.category)
+                    item.sub.push(category)
+                    objectified = true
                 }
-                if (categoryIsNotValid) {
-                    console.log('queried category (' + queriedCategory + ') is not a valid category')
-                    // this.categoryContainer = preserveContainerContent
-                }
-            } else {
-                console.log('no category queried')
+            })
+            if (!objectified) {
+                console.log('parent not found ')
+                categoryObject.forEach((item, index) => {
+                    this.putCategoryIntoCategoryObject(category, item.sub)
+                })
             }
         },
-        categoryHasSubCategory() {
-            console.log('categoryHasSubCategory > ------ \n')
-            console.log(!isEmpty(this.categoryContainer))
-            return !isEmpty(this.categoryContainer)
-        },
-        getCategoryAssociatedProducts() {
-            console.log('getCategoryAssociatedProducts > ------ \n')
-            console.log(this.$route.params.category + '\n')
-            let category = this.$route.params.category
-
-            //get category categoryId
-            let categoryId;
-            this.allCategories.forEach((item, index) => {
-                if (item.category === category)
-                    categoryId = item.id
-            })
-            console.log('category categoryId >>> ' + categoryId + '\n')
-
-            //request for productContainer
-            axios.get('/api/productContainer/' + categoryId)
-                .then(response => {
-                    let products = response.data.data
-                    console.log('retrieved productContainer  >>> \n')
-                    console.log(response.data.product)
-                    this.productContainer = response.data.product
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
-        },
-
-        emptyProductsContainer() {
-            this.productContainer = {}
-        }
     }
 }
 </script>

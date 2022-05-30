@@ -3,6 +3,7 @@
         <Background />
         <Header/>
         <ImageSlider/>
+        <SideBar/>
         <ProductContainer :products="newProducts" title="New Products" color="yellow-600" class="z-20 my-4 mt-10"/>
         <Offer imageUrl="/storage/images/products/electronicsAndRobotics/arduino/Uno-R3.png"
                discountPercentage="25"/>
@@ -22,10 +23,12 @@ import ProductContainer from "./miniComponenets/ProductContainer";
 import ImageSlider from "./miniComponenets/ImageSlider";
 import Offer from "./miniComponenets/Offer";
 import Background from "./Background";
+import SideBar from "./Sidebar";
 
 export default {
     name: 'web',
     components: {
+        SideBar,
         Background,
         Offer,
         Header,

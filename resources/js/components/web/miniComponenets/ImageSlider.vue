@@ -22,14 +22,14 @@ export default {
             currentlyDisplayingImage: 0,
             firstTime: true,
             images: [
-                '/storage/images/products/electronicsAndRobotics/arduino/arduino.png',
                 '/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png',
+                '/storage/images/products/electronicsAndRobotics/arduino/arduino.png',
             ]
         }
     },
     mounted() {
-        setInterval(this.slider, 3000)
-        this.setImageNavigatorLocation()
+        // setInterval(this.slider, 3000)
+        // this.setImageNavigatorLocation()
     },
     methods: {
         slider() {
