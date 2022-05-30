@@ -20461,6 +20461,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     toggleMenu: function toggleMenu() {
       this.displayMenu = !this.displayMenu;
+      this.$root.$emit('toggle');
     }
   }
 });
@@ -21165,12 +21166,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: ['orientation'],
   data: function data() {
     return {
+      displaySidebar: false,
       sideBarItems: ['inbox', 'orders', 'favorites', 'profile']
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$root.$on('toggle', function () {
+      _this.toggle();
+    });
+  },
   methods: {
     logout: function logout() {
-      var _this = this;
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -21184,7 +21193,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 axios.post('/logout').then(function (response) {
                   console.log(response);
 
-                  _this.$router.push({
+                  _this2.$router.push({
                     name: 'welcome'
                   });
                 })["catch"](function (error) {
@@ -21199,6 +21208,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    toggle: function toggle() {
+      this.displaySidebar = !this.displaySidebar;
     }
   }
 });
@@ -48984,7 +48996,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: " z-20 absolute w-full h-full border text-zinc-200 " },
+      { staticClass: " z-20 absolute w-full h-full  text-zinc-200 " },
       [_c("h1", [_vm._v("this is category body ")])]
     )
   },
@@ -49229,7 +49241,10 @@ var render = function () {
                 _vm.displayMenu
                   ? _c(
                       "div",
-                      { staticClass: "pr-2 ", on: { click: _vm.toggleMenu } },
+                      {
+                        staticClass: "pr-2 text-red-600 ",
+                        on: { click: _vm.toggleMenu },
+                      },
                       [
                         _c("font-awesome-icon", {
                           attrs: { icon: ["fas", "times"] },
@@ -49267,7 +49282,7 @@ var render = function () {
                         this.$route.path === "/"
                           ? _c("div", { staticClass: "flex text-sm " }, [
                               _vm._v(
-                                "\n                            Home\n                        "
+                                "\n                                Home\n                            "
                               ),
                             ])
                           : _vm._e(),
@@ -49307,7 +49322,7 @@ var render = function () {
                         this.$route.path === "/categories"
                           ? _c("div", { staticClass: "flex text-sm " }, [
                               _vm._v(
-                                "\n                            Categories\n                        "
+                                "\n                                Categories\n                            "
                               ),
                             ])
                           : _vm._e(),
@@ -49347,7 +49362,7 @@ var render = function () {
                         this.$route.path === "/about-us"
                           ? _c("div", { staticClass: "flex text-sm " }, [
                               _vm._v(
-                                "\n                            About Us\n                        "
+                                "\n                                About Us\n                            "
                               ),
                             ])
                           : _vm._e(),
@@ -49389,7 +49404,7 @@ var render = function () {
                         this.$route.path === "/shopping-cart"
                           ? _c("div", { staticClass: "flex text-sm " }, [
                               _vm._v(
-                                "\n                            Cart\n                        "
+                                "\n                                Cart\n                            "
                               ),
                             ])
                           : _vm._e(),
@@ -49428,7 +49443,7 @@ var render = function () {
                         this.$route.path === "/login"
                           ? _c("div", { staticClass: "flex text-sm " }, [
                               _vm._v(
-                                "\n                            Login\n                        "
+                                "\n                                Login\n                            "
                               ),
                             ])
                           : _vm._e(),
@@ -49483,10 +49498,6 @@ var render = function () {
           ),
         ]
       ),
-      _vm._v(" "),
-      _vm.displayMenu
-        ? _c("div", { staticClass: " w-full h-32  bg-gray-700 " })
-        : _vm._e(),
     ]
   )
 }
@@ -50223,9 +50234,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    staticClass: "z-30 fixed left-0 w-3/4 h-full backdrop-blur bg-white/10",
-  })
+  return _vm.displaySidebar
+    ? _c("div", {
+        staticClass: "z-30 fixed left-0 w-3/5 h-full backdrop-blur bg-white/10",
+      })
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

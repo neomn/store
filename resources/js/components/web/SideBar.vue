@@ -1,5 +1,5 @@
 <template>
-    <div class="z-30 fixed left-0 w-3/4 h-full backdrop-blur bg-white/10">
+    <div v-if="displaySidebar" class="z-30 fixed left-0 w-3/5 h-full backdrop-blur bg-white/10">
 
     </div>
 <!--    <div class=" z-20 absolute flex left-0 top-12 h-full w-full  rounded-lg bg-slate-900 overflow-hidden border">-->
@@ -84,6 +84,7 @@ export default {
     ],
     data() {
         return {
+            displaySidebar: false,
             sideBarItems: [
                 'inbox',
                 'orders',
@@ -91,6 +92,11 @@ export default {
                 'profile',
             ],
         }
+    },
+    mounted(){
+      this.$root.$on('toggle' , ()=>{
+           this.toggle()
+      })
     },
     methods: {
         async logout() {
@@ -105,6 +111,9 @@ export default {
                     localStorage.removeItem('loggedInUser')
                 })
         },
+        toggle(){
+            this.displaySidebar = !this.displaySidebar
+        }
     }
 }
 </script>

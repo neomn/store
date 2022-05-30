@@ -9,8 +9,8 @@
                     <div v-if="!displayMenu" @click="toggleMenu" class="pr-2">
                         <font-awesome-icon :icon="['fas' , 'bars']"/>
                     </div>
-                    <!-- close menu  -->
-                    <div v-if="displayMenu" @click="toggleMenu" class="pr-2 ">
+                    <!--  menu close -->
+                    <div v-if="displayMenu" @click="toggleMenu" class="pr-2 text-red-600 ">
                         <font-awesome-icon :icon="['fas' , 'times']"/>
                     </div>
                     <!--home -->
@@ -99,9 +99,9 @@
             </div>
         </div>
         <!-- header hidden area -->
-        <div v-if="displayMenu" class=" w-full h-32  bg-gray-700 ">
+<!--        <div v-if="displayMenu" class=" w-full h-32  bg-gray-700 ">-->
 
-        </div>
+<!--        </div>-->
     </div>
 </template>
 
@@ -139,6 +139,7 @@ export default {
         },
         toggleMenu() {
             this.displayMenu = !this.displayMenu
+            this.$root.$emit('toggle')
         }
     }
 }

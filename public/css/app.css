@@ -913,6 +913,9 @@ select {
 .w-3\/4 {
   width: 75%;
 }
+.w-3\/5 {
+  width: 60%;
+}
 .max-w-xl {
   max-width: 36rem;
 }

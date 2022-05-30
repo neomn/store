@@ -3,7 +3,7 @@
         <Background/>
         <Header/>
         <Sidebar/>
-        <div class=" z-20 absolute w-full h-full border text-zinc-200 ">
+        <div class=" z-20 absolute w-full h-full  text-zinc-200 ">
             <h1>this is category body </h1>
         </div>
     </div>
