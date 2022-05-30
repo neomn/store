@@ -4,7 +4,7 @@
         <Header/>
         <Sidebar/>
         <div class=" z-20 absolute w-full h-full text-zinc-200 overflow-y-scroll ">
-            <div class=" grid grid-cols-3 gap-4 p-2 justify-center place-items-center border ">
+            <div class=" grid grid-cols-3 gap-4 p-2 mt-10 justify-center place-items-center  ">
                 <div v-for="category in categoryContainer" class="w-28 h-28 p-2 rounded-xl border">
                     {{category.category}}
                 </div>

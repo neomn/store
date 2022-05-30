@@ -49000,7 +49000,7 @@ var render = function () {
             "div",
             {
               staticClass:
-                " grid grid-cols-3 gap-4 p-2 justify-center place-items-center border ",
+                " grid grid-cols-3 gap-4 p-2 mt-10 justify-center place-items-center  ",
             },
             _vm._l(_vm.categoryContainer, function (category) {
               return _c(
@@ -50260,7 +50260,7 @@ var render = function () {
   return _vm.displaySidebar
     ? _c("div", {
         staticClass:
-          "z-30 fixed left-0 w-3/5 h-full backdrop-blur-sm bg-white/10",
+          "z-30 fixed left-0 w-3/4 h-full backdrop-blur-sm bg-white/10",
       })
     : _vm._e()
 }
