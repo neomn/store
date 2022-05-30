@@ -20060,23 +20060,23 @@ __webpack_require__.r(__webpack_exports__);
     // )
   },
   methods: {
-    // getAllCategories() {
-    //     axios.get('/api/categories')
-    //         .then(response => {
-    //             console.log('getAllCategories >-------- \n')
-    //             this.allCategories = response.data.data
-    //             console.log(response.data.data)
-    //             this.initCategoryContainer()
-    //             this.refreshCategoryContainer(this.category)
-    //             if (isEmpty(this.categoryContainer)) {
-    //                 this.getCategoryAssociatedProducts()
-    //             }
-    //             this.objectifiedCategories(this.allCategories)
-    //         })
-    //         .catch(function (error) {
-    //             console.log('error getting categories > ' + error)
-    //         })
-    // },
+    getAllCategories: function getAllCategories() {
+      var _this = this;
+
+      axios.get('/api/categories').then(function (response) {
+        console.log('getAllCategories >-------- \n');
+        _this.allCategories = response.data.data;
+        console.log(response.data.data); // this.initCategoryContainer()
+        // this.refreshCategoryContainer(this.category)
+
+        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this.categoryContainer)) {// this.getCategoryAssociatedProducts()
+        }
+
+        _this.objectifyCategoryArray(response.data.data);
+      })["catch"](function (error) {
+        console.log('error getting categories > ' + error);
+      });
+    },
     // initCategoryContainer() {
     //     console.log('initCategoryContainer > ------ \n')
     //     this.allCategories.forEach((item, index, array) => {
@@ -20157,7 +20157,7 @@ __webpack_require__.r(__webpack_exports__);
     //     this.productContainer = {}
     // },
     objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
-      var _this = this;
+      var _this2 = this;
 
       console.log('objectifyCategoryArray >'); //assign an empty subCategory array to all elements
 
@@ -20166,10 +20166,10 @@ __webpack_require__.r(__webpack_exports__);
       }); //objectify root elements
 
       categoryArray.forEach(function (category, index) {
-        if (_this.itIsRootCategory(category)) {
-          _this.objectifiedCategories.push(category);
+        if (_this2.itIsRootCategory(category)) {
+          _this2.objectifiedCategories.push(category);
 
-          categoryArray = _this.removeElementFromArray(category, categoryArray);
+          categoryArray = _this2.removeElementFromArray(category, categoryArray);
         }
       });
       console.log('root categories objectified');
@@ -20180,9 +20180,9 @@ __webpack_require__.r(__webpack_exports__);
         console.log('categoryArrayLength > ' + categoryArray.length);
         console.log(categoryArray);
         categoryArray.forEach(function (category, index) {
-          _this.putCategoryIntoCategoryObject(category, _this.objectifiedCategories);
+          _this2.putCategoryIntoCategoryObject(category, _this2.objectifiedCategories);
 
-          categoryArray = _this.removeElementFromArray(category, categoryArray);
+          categoryArray = _this2.removeElementFromArray(category, categoryArray);
         });
       }
 
@@ -20201,7 +20201,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
-      var _this2 = this;
+      var _this3 = this;
 
       console.log('putting ' + category.category + ' into categoryObject');
       console.log(categoryObject);
@@ -20218,7 +20218,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!objectified) {
         console.log('parent not found ');
         categoryObject.forEach(function (item, index) {
-          _this2.putCategoryIntoCategoryObject(category, item.sub);
+          _this3.putCategoryIntoCategoryObject(category, item.sub);
         });
       }
     }

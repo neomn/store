@@ -123,23 +123,23 @@ export default {
         // )
     },
     methods: {
-        // getAllCategories() {
-        //     axios.get('/api/categories')
-        //         .then(response => {
-        //             console.log('getAllCategories >-------- \n')
-        //             this.allCategories = response.data.data
-        //             console.log(response.data.data)
-        //             this.initCategoryContainer()
-        //             this.refreshCategoryContainer(this.category)
-        //             if (isEmpty(this.categoryContainer)) {
-        //                 this.getCategoryAssociatedProducts()
-        //             }
-        //             this.objectifiedCategories(this.allCategories)
-        //         })
-        //         .catch(function (error) {
-        //             console.log('error getting categories > ' + error)
-        //         })
-        // },
+        getAllCategories() {
+            axios.get('/api/categories')
+                .then(response => {
+                    console.log('getAllCategories >-------- \n')
+                    this.allCategories = response.data.data
+                    console.log(response.data.data)
+                    // this.initCategoryContainer()
+                    // this.refreshCategoryContainer(this.category)
+                    if (isEmpty(this.categoryContainer)) {
+                        // this.getCategoryAssociatedProducts()
+                    }
+                    this.objectifyCategoryArray(response.data.data)
+                })
+                .catch(function (error) {
+                    console.log('error getting categories > ' + error)
+                })
+        },
         // initCategoryContainer() {
         //     console.log('initCategoryContainer > ------ \n')
         //     this.allCategories.forEach((item, index, array) => {
