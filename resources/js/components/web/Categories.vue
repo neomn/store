@@ -5,9 +5,9 @@
         <Sidebar/>
         <div class=" z-20 absolute w-full h-full text-zinc-200 overflow-y-scroll ">
             <div class=" grid grid-cols-3 gap-4 p-2 mt-10 justify-center place-items-center  ">
-                <div v-for="category in categoryContainer">
+                <div v-for="category in categoryContainer" >
                 <router-link :to="{name: 'categories' , params: {category: category.category}}">
-                    <button  class="w-28 h-28 p-2 rounded-xl border">
+                    <button @click="refreshCategoryContainer(category.sub)"  class="w-28 h-28 p-2 rounded-xl border">
                         {{ category.category }}
                     </button>
                 </router-link>
@@ -135,22 +135,25 @@ export default {
                         // this.getCategoryAssociatedProducts()
                     }
                     this.objectifyCategoryArray(response.data.data)
+                    this.initCategoryContainer()
                 })
                 .catch(function (error) {
                     console.log('error getting categories > ' + error)
                 })
         },
-        // initCategoryContainer() {
-        //     console.log('initCategoryContainer > ------ \n')
-        //     this.allCategories.forEach((item, index, array) => {
-        //         if (item.parent_id === null) {
-        //             //this is how to update vue js state ,check vue js docs ( reactivity )
-        //             this.$set(this.categoryContainer, index, item)
-        //         }
-        //     })
-        //     console.log(this.categoryContainer)
-        // },
-        // refreshCategoryContainer(queriedCategory) {
+        initCategoryContainer() {
+            // console.log('initCategoryContainer > ------ \n')
+            // this.allCategories.forEach((item, index, array) => {
+            //     if (item.parent_id === null) {
+            //         //this is how to update vue js state ,check vue js docs ( reactivity )
+            //         this.$set(this.categoryContainer, index, item)
+            //     }
+            // })
+            // console.log(this.categoryContainer)
+            this.categoryContainer = this.objectifiedCategories
+        },
+        refreshCategoryContainer(categoryObject) {
+            this.categoryContainer = categoryObject
         //     console.log('refreshCategoryContainer > ------')
         //     if (queriedCategory) {
         //         console.log('received category to process > ' + queriedCategory + '\n')
@@ -185,7 +188,7 @@ export default {
         //     } else {
         //         console.log('no category queried')
         //     }
-        // },
+        },
         // categoryHasSubCategory() {
         //     console.log('categoryHasSubCategory > ------ \n')
         //     console.log(!isEmpty(this.categoryContainer))

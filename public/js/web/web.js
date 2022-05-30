@@ -20073,56 +20073,59 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         _this.objectifyCategoryArray(response.data.data);
+
+        _this.initCategoryContainer();
       })["catch"](function (error) {
         console.log('error getting categories > ' + error);
       });
     },
-    // initCategoryContainer() {
-    //     console.log('initCategoryContainer > ------ \n')
-    //     this.allCategories.forEach((item, index, array) => {
-    //         if (item.parent_id === null) {
-    //             //this is how to update vue js state ,check vue js docs ( reactivity )
-    //             this.$set(this.categoryContainer, index, item)
-    //         }
-    //     })
-    //     console.log(this.categoryContainer)
-    // },
-    // refreshCategoryContainer(queriedCategory) {
-    //     console.log('refreshCategoryContainer > ------')
-    //     if (queriedCategory) {
-    //         console.log('received category to process > ' + queriedCategory + '\n')
-    //         let preserveContainerContent = this.categoryContainer
-    //         let categoryIsNotValid = true
-    //         this.categoryContainer = {}
-    //         if (this.allCategories) {
-    //             //find queried category id
-    //             let queriedCategoryId
-    //             this.allCategories.forEach((item, index) => {
-    //                 if (item.category === queriedCategory) {
-    //                     queriedCategoryId = item.id
-    //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
-    //                 }
-    //             })
-    //             //set container to contain childes of queried category
-    //             this.allCategories.forEach((item, index) => {
-    //                 if (item.parent_id === queriedCategoryId) {
-    //                     //this is how to update vue js state ,check vue js docs ( reactivity )
-    //                     this.$set(this.categoryContainer, index, item)
-    //                     console.log('category founded :) adding ' + item.category + ' to container')
-    //                     categoryIsNotValid = false
-    //                 }
-    //             })
-    //         } else {
-    //             console.log('allCategories not initialized by api \n')
-    //         }
-    //         if (categoryIsNotValid) {
-    //             console.log('queried category (' + queriedCategory + ') is not a valid category')
-    //             // this.categoryContainer = preserveContainerContent
-    //         }
-    //     } else {
-    //         console.log('no category queried')
-    //     }
-    // },
+    initCategoryContainer: function initCategoryContainer() {
+      // console.log('initCategoryContainer > ------ \n')
+      // this.allCategories.forEach((item, index, array) => {
+      //     if (item.parent_id === null) {
+      //         //this is how to update vue js state ,check vue js docs ( reactivity )
+      //         this.$set(this.categoryContainer, index, item)
+      //     }
+      // })
+      // console.log(this.categoryContainer)
+      this.categoryContainer = this.objectifiedCategories;
+    },
+    refreshCategoryContainer: function refreshCategoryContainer(categoryObject) {
+      this.categoryContainer = categoryObject; //     console.log('refreshCategoryContainer > ------')
+      //     if (queriedCategory) {
+      //         console.log('received category to process > ' + queriedCategory + '\n')
+      //         let preserveContainerContent = this.categoryContainer
+      //         let categoryIsNotValid = true
+      //         this.categoryContainer = {}
+      //         if (this.allCategories) {
+      //             //find queried category id
+      //             let queriedCategoryId
+      //             this.allCategories.forEach((item, index) => {
+      //                 if (item.category === queriedCategory) {
+      //                     queriedCategoryId = item.id
+      //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
+      //                 }
+      //             })
+      //             //set container to contain childes of queried category
+      //             this.allCategories.forEach((item, index) => {
+      //                 if (item.parent_id === queriedCategoryId) {
+      //                     //this is how to update vue js state ,check vue js docs ( reactivity )
+      //                     this.$set(this.categoryContainer, index, item)
+      //                     console.log('category founded :) adding ' + item.category + ' to container')
+      //                     categoryIsNotValid = false
+      //                 }
+      //             })
+      //         } else {
+      //             console.log('allCategories not initialized by api \n')
+      //         }
+      //         if (categoryIsNotValid) {
+      //             console.log('queried category (' + queriedCategory + ') is not a valid category')
+      //             // this.categoryContainer = preserveContainerContent
+      //         }
+      //     } else {
+      //         console.log('no category queried')
+      //     }
+    },
     // categoryHasSubCategory() {
     //     console.log('categoryHasSubCategory > ------ \n')
     //     console.log(!isEmpty(this.categoryContainer))
@@ -21540,7 +21543,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       currentlyDisplayingImage: 0,
       firstTime: true,
-      images: ['/storage/images/products/electronicsAndRobotics/arduino/arduino.png', '/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png']
+      images: ['/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png', '/storage/images/products/electronicsAndRobotics/arduino/arduino.png']
     };
   },
   mounted: function mounted() {// setInterval(this.slider, 3000)
@@ -49083,7 +49086,14 @@ var render = function () {
                     [
                       _c(
                         "button",
-                        { staticClass: "w-28 h-28 p-2 rounded-xl border" },
+                        {
+                          staticClass: "w-28 h-28 p-2 rounded-xl border",
+                          on: {
+                            click: function ($event) {
+                              return _vm.refreshCategoryContainer(category.sub)
+                            },
+                          },
+                        },
                         [
                           _vm._v(
                             "\n                    " +
@@ -50343,7 +50353,7 @@ var render = function () {
   return _vm.displaySidebar
     ? _c("div", {
         staticClass:
-          "z-30 fixed left-0 w-3/4 h-full backdrop-blur-sm bg-white/10",
+          "z-30 fixed left-0 w-3/4 h-full backdrop-blur-sm bg-white/10 ",
       })
     : _vm._e()
 }
