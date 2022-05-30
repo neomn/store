@@ -3,8 +3,8 @@
         <Background/>
         <Header/>
         <Sidebar/>
-        <div>
-
+        <div class=" z-20 absolute w-full h-full border text-zinc-200 ">
+            <h1>this is category body </h1>
         </div>
     </div>
 <!--    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">-->
@@ -57,7 +57,7 @@
 import {isEmpty} from "lodash/lang";
 import Header from "./Header";
 import Background from "./Background";
-import Sidebar from "./Sidebar";
+import Sidebar from "./SideBar";
 
 export default {
     name: "Categories",
@@ -78,8 +78,8 @@ export default {
         'category',
     ],
     created() {
-        console.log('Categories component created > -------------------- \n')
-        this.getAllCategories()
+        // console.log('Categories component created > -------------------- \n')
+        // this.getAllCategories()
     },
     mounted() {
 
