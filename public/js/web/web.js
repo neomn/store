@@ -19997,6 +19997,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -20016,8 +20020,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   props: ['category'],
-  created: function created() {// console.log('Categories component created > -------------------- \n')
-    // this.getAllCategories()
+  created: function created() {
+    console.log('Categories component created > -------------------- \n');
+    this.getAllCategories();
   },
   mounted: function mounted() {//watch route parameters changes
     // this.$watch(
@@ -48984,23 +48989,41 @@ var render = function () {
       _vm._v(" "),
       _c("Sidebar"),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        {
+          staticClass:
+            " z-20 absolute w-full h-full text-zinc-200 overflow-y-scroll ",
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                " grid grid-cols-3 gap-4 p-2 justify-center place-items-center border ",
+            },
+            _vm._l(_vm.categoryContainer, function (category) {
+              return _c(
+                "div",
+                { staticClass: "w-28 h-28 p-2 rounded-xl border" },
+                [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(category.category) +
+                      "\n            "
+                  ),
+                ]
+              )
+            }),
+            0
+          ),
+        ]
+      ),
     ],
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: " z-20 absolute w-full h-full  text-zinc-200 " },
-      [_c("h1", [_vm._v("this is category body ")])]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -50236,7 +50259,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _vm.displaySidebar
     ? _c("div", {
-        staticClass: "z-30 fixed left-0 w-3/5 h-full backdrop-blur bg-white/10",
+        staticClass:
+          "z-30 fixed left-0 w-3/5 h-full backdrop-blur-sm bg-white/10",
       })
     : _vm._e()
 }

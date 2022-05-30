@@ -3,51 +3,55 @@
         <Background/>
         <Header/>
         <Sidebar/>
-        <div class=" z-20 absolute w-full h-full  text-zinc-200 ">
-            <h1>this is category body </h1>
+        <div class=" z-20 absolute w-full h-full text-zinc-200 overflow-y-scroll ">
+            <div class=" grid grid-cols-3 gap-4 p-2 justify-center place-items-center border ">
+                <div v-for="category in categoryContainer" class="w-28 h-28 p-2 rounded-xl border">
+                    {{category.category}}
+                </div>
+            </div>
         </div>
     </div>
-<!--    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">-->
+    <!--    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">-->
 
-<!--        <Header class="z-10"/>-->
+    <!--        <Header class="z-10"/>-->
 
-<!--        <aside class="bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ">-->
-<!--            {{ category }}-->
-<!--        </aside>-->
-
-
-<!--        <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">-->
-
-<!--            &lt;!&ndash;display category container contents&ndash;&gt;-->
-<!--            <div v-for="category in categoryContainer"-->
-<!--                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">-->
-<!--                <router-link :to="{name: 'categories' , params: {category: category.category}}">-->
-<!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
-<!--                        {{ category.category }}-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </div>-->
+    <!--        <aside class="bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ">-->
+    <!--            {{ category }}-->
+    <!--        </aside>-->
 
 
-<!--            &lt;!&ndash; display product container contents  &ndash;&gt;-->
-<!--            <div v-for="product in productContainer"-->
-<!--                 class="bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0">-->
-<!--                <img :src="product.image" alt="product image" class="rounded-lg">-->
-<!--                <div class="pt-4 pl-4">-->
-<!--                    {{ product.number }} <br>-->
-<!--                    {{ product.name }} <br>-->
-<!--                    {{ product.price }} <br>-->
-<!--                </div>-->
-<!--                <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
-<!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
-<!--                        <button> show details</button>-->
-<!--                    </div>-->
-<!--                </router-link>-->
-<!--            </div>-->
+    <!--        <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">-->
 
-<!--        </div>-->
+    <!--            &lt;!&ndash;display category container contents&ndash;&gt;-->
+    <!--            <div v-for="category in categoryContainer"-->
+    <!--                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">-->
+    <!--                <router-link :to="{name: 'categories' , params: {category: category.category}}">-->
+    <!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
+    <!--                        {{ category.category }}-->
+    <!--                    </div>-->
+    <!--                </router-link>-->
+    <!--            </div>-->
 
-<!--    </div>-->
+
+    <!--            &lt;!&ndash; display product container contents  &ndash;&gt;-->
+    <!--            <div v-for="product in productContainer"-->
+    <!--                 class="bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0">-->
+    <!--                <img :src="product.image" alt="product image" class="rounded-lg">-->
+    <!--                <div class="pt-4 pl-4">-->
+    <!--                    {{ product.number }} <br>-->
+    <!--                    {{ product.name }} <br>-->
+    <!--                    {{ product.price }} <br>-->
+    <!--                </div>-->
+    <!--                <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
+    <!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
+    <!--                        <button> show details</button>-->
+    <!--                    </div>-->
+    <!--                </router-link>-->
+    <!--            </div>-->
+
+    <!--        </div>-->
+
+    <!--    </div>-->
 </template>
 
 <!---------------------------------------------------------------------->
@@ -65,7 +69,6 @@ export default {
         Background,
         Header,
         Sidebar,
-
     },
     data() {
         return {
@@ -78,8 +81,8 @@ export default {
         'category',
     ],
     created() {
-        // console.log('Categories component created > -------------------- \n')
-        // this.getAllCategories()
+        console.log('Categories component created > -------------------- \n')
+        this.getAllCategories()
     },
     mounted() {
 
