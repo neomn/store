@@ -20020,74 +20020,70 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Categories component created > -------------------- \n');
     this.getAllCategories();
   },
-  mounted: function mounted() {
-    var _this = this;
-
-    //watch route parameters changes
-    this.$watch(function () {
-      return _this.$route.params;
-    }, function (newParams, previousParams) {
-      console.log('this.$route.params watcher > ------ \n');
-
-      _this.emptyProductsContainer();
-
-      console.log('product container is now empty \n');
-      console.log('new params >> ' + newParams.category + '\n');
-      console.log('previous params >> ' + previousParams.category + '\n');
-      if (newParams.category) _this.refreshCategoryContainer(newParams.category); // reload page if route is /categories
-      // this is because category container wasn't refreshing in that route when pressing back button
-      else if (!newParams.category) {
-        window.location.reload();
-      }
-    }); //watch for categories with no sub category
-
-    this.$watch(function () {
-      return _this.categoryHasSubCategory();
-    }, function (newParams, previousParams) {
-      console.log('categoryHasSubCategory watcher > -------- \n');
-      console.log(newParams);
-
-      if (newParams === false) {
-        console.log('requesting for category productContainer');
-
-        _this.getCategoryAssociatedProducts();
-      }
-    });
+  mounted: function mounted() {//watch route parameters changes
+    // this.$watch(
+    //     () => this.$route.params, (newParams, previousParams) => {
+    //         console.log('this.$route.params watcher > ------ \n')
+    //         this.emptyProductsContainer()
+    //         console.log('product container is now empty \n')
+    //         console.log('new params >> ' + newParams.category + '\n')
+    //         console.log('previous params >> ' + previousParams.category + '\n')
+    //         if (newParams.category)
+    //             this.refreshCategoryContainer(newParams.category)
+    //
+    //             // reload page if route is /categories
+    //         // this is because category container wasn't refreshing in that route when pressing back button
+    //         else if (!newParams.category) {
+    //             window.location.reload()
+    //         }
+    //     }
+    // )
+    // //watch for categories with no sub category
+    // this.$watch(
+    //     () => this.categoryHasSubCategory(), (newParams, previousParams) => {
+    //         console.log('categoryHasSubCategory watcher > -------- \n')
+    //         console.log(newParams)
+    //         if (newParams === false) {
+    //             console.log('requesting for category productContainer')
+    //             this.getCategoryAssociatedProducts()
+    //         }
+    //     }
+    // )
   },
   methods: {
     getAllCategories: function getAllCategories() {
-      var _this2 = this;
+      var _this = this;
 
       axios.get('/api/categories').then(function (response) {
         console.log('getAllCategories >-------- \n');
-        _this2.allCategories = response.data.data;
+        _this.allCategories = response.data.data;
         console.log(response.data.data);
 
-        _this2.initCategoryContainer();
+        _this.initCategoryContainer();
 
-        _this2.refreshCategoryContainer(_this2.category);
+        _this.refreshCategoryContainer(_this.category);
 
-        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this2.categoryContainer)) {
-          _this2.getCategoryAssociatedProducts();
+        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this.categoryContainer)) {
+          _this.getCategoryAssociatedProducts();
         }
       })["catch"](function (error) {
         console.log('error getting categories > ' + error);
       });
     },
     initCategoryContainer: function initCategoryContainer() {
-      var _this3 = this;
+      var _this2 = this;
 
       console.log('initCategoryContainer > ------ \n');
       this.allCategories.forEach(function (item, index, array) {
         if (item.parent_id === null) {
           //this is how to update vue js state ,check vue js docs ( reactivity )
-          _this3.$set(_this3.categoryContainer, index, item);
+          _this2.$set(_this2.categoryContainer, index, item);
         }
       });
       console.log(this.categoryContainer);
     },
     refreshCategoryContainer: function refreshCategoryContainer(queriedCategory) {
-      var _this4 = this;
+      var _this3 = this;
 
       console.log('refreshCategoryContainer > ------');
 
@@ -20110,7 +20106,7 @@ __webpack_require__.r(__webpack_exports__);
           this.allCategories.forEach(function (item, index) {
             if (item.parent_id === queriedCategoryId) {
               //this is how to update vue js state ,check vue js docs ( reactivity )
-              _this4.$set(_this4.categoryContainer, index, item);
+              _this3.$set(_this3.categoryContainer, index, item);
 
               console.log('category founded :) adding ' + item.category + ' to container');
               categoryIsNotValid = false;
@@ -20133,7 +20129,7 @@ __webpack_require__.r(__webpack_exports__);
       return !(0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(this.categoryContainer);
     },
     getCategoryAssociatedProducts: function getCategoryAssociatedProducts() {
-      var _this5 = this;
+      var _this4 = this;
 
       console.log('getCategoryAssociatedProducts > ------ \n');
       console.log(this.$route.params.category + '\n');
@@ -20149,7 +20145,7 @@ __webpack_require__.r(__webpack_exports__);
         var products = response.data.data;
         console.log('retrieved productContainer  >>> \n');
         console.log(response.data.product);
-        _this5.productContainer = response.data.product;
+        _this4.productContainer = response.data.product;
       })["catch"](function (error) {
         console.log(error);
       });
