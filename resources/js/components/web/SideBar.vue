@@ -65,7 +65,7 @@
             </div>
             <div class=" absolute bottom-16 self-center w-5/6 h-8 text-center
                 text-red-600 rounded-lg border-2 border-red-600">
-                <button @click="logout">
+                <button @click="logout" >
                         Log Out
                 </button>
             </div>
