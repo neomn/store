@@ -28,8 +28,8 @@ export default {
         }
     },
     mounted() {
-        setInterval(this.slider, 3000)
-        this.setImageNavigatorLocation()
+        // setInterval(this.slider, 3000)
+        // this.setImageNavigatorLocation()
     },
     methods: {
         slider() {

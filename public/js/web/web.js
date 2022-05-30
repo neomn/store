@@ -20001,6 +20001,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -21478,9 +21482,8 @@ __webpack_require__.r(__webpack_exports__);
       images: ['/storage/images/products/electronicsAndRobotics/arduino/arduino.png', '/storage/images/products/electronicsAndRobotics/raspberryPi/raspberryPi.png']
     };
   },
-  mounted: function mounted() {
-    setInterval(this.slider, 3000);
-    this.setImageNavigatorLocation();
+  mounted: function mounted() {// setInterval(this.slider, 3000)
+    // this.setImageNavigatorLocation()
   },
   methods: {
     slider: function slider() {
@@ -49005,14 +49008,33 @@ var render = function () {
             _vm._l(_vm.categoryContainer, function (category) {
               return _c(
                 "div",
-                { staticClass: "w-28 h-28 p-2 rounded-xl border" },
                 [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(category.category) +
-                      "\n            "
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "categories",
+                          params: { category: category.category },
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "button",
+                        { staticClass: "w-28 h-28 p-2 rounded-xl border" },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(category.category) +
+                              "\n                "
+                          ),
+                        ]
+                      ),
+                    ]
                   ),
-                ]
+                ],
+                1
               )
             }),
             0
