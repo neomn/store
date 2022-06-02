@@ -23,7 +23,7 @@ import ProductContainer from "./miniComponenets/ProductContainer";
 import ImageSlider from "./miniComponenets/ImageSlider";
 import Offer from "./miniComponenets/Offer";
 import Background from "./Background";
-import SideBar from "./Sidebar";
+import SideBar from "./SideBar";
 
 export default {
     name: 'web',

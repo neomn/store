@@ -1,7 +1,7 @@
 <template>
     <div class="bg-slate-800 min-h-screen text-gray-200">
         <Header />
-        <SideBar  />
+        <SideBar/>
     </div>
 </template>
 
