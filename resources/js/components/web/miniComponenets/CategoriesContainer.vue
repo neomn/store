@@ -4,11 +4,9 @@
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded">
                 <div class="flex w-full h-full">
                     <div class="relative w-3/5 h-full flex justify-center items-center border">
-                        <div class="absolute top-0 w-full h-full">
-                            <img src="storage/images/categories/electronicsAndRobotics.jpg" alt="category image"
-                                 class="w-full h-full object-fill">
-                        </div>
-                        <div>
+                        <img src="storage/images/categories/electronicsAndRobotics.jpg" alt="category image"
+                             class=" w-full h-full object-fill filter blur-sm">
+                        <div class="absolute flex items-center ">
                             <button>{{ category.category }}</button>
                         </div>
                     </div>

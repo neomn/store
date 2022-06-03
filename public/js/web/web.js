@@ -21362,8 +21362,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -50644,9 +50642,15 @@ var render = function () {
                     "relative w-3/5 h-full flex justify-center items-center border",
                 },
                 [
-                  _vm._m(0, true),
+                  _c("img", {
+                    staticClass: " w-full h-full object-fill filter blur-sm",
+                    attrs: {
+                      src: "storage/images/categories/electronicsAndRobotics.jpg",
+                      alt: "category image",
+                    },
+                  }),
                   _vm._v(" "),
-                  _c("div", [
+                  _c("div", { staticClass: "absolute flex items-center " }, [
                     _c("button", [_vm._v(_vm._s(category.category))]),
                   ]),
                 ]
@@ -50675,22 +50679,7 @@ var render = function () {
     ]
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "absolute top-0 w-full h-full" }, [
-      _c("img", {
-        staticClass: "w-full h-full object-fill",
-        attrs: {
-          src: "storage/images/categories/electronicsAndRobotics.jpg",
-          alt: "category image",
-        },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
