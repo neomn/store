@@ -1,14 +1,16 @@
 <template>
-    <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll" >
+    <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll">
         <div class="grid grid-cols-1 gap-4 place-items-center">
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded">
-                <div class="flex items-center w-full h-full">
-                    <div class="w-3/5 h-full border">
-                        <button>{{category.category}}</button>
+                <div class="flex w-full h-full">
+                    <div class="w-3/5 h-full flex justify-center items-center border">
+                        <div>
+                            <button>{{ category.category }}</button>
+                        </div>
                     </div>
-                    <div class="w-2/5 h-full border flex flex-col overflow-y-scroll">
-                        <div v-for="sub in category.sub" class="">
-                            <button>{{sub.category}}</button>
+                    <div class="w-2/5 h-full border flex flex-col place-items-center overflow-y-scroll">
+                        <div v-for="sub in category.sub" class=" w-11/12 border-b text-center">
+                            <button>{{ sub.category }}</button>
                         </div>
                     </div>
                 </div>
@@ -133,9 +135,6 @@ export default {
         // emptyProductsContainer() {
         //     this.productContainer = {}
         // },
-
-
-
 
 
         objectifyCategoryArray(categoryArray) {
