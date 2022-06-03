@@ -3,7 +3,11 @@
         <div class="grid grid-cols-1 gap-4 place-items-center">
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded">
                 <div class="flex w-full h-full">
-                    <div class="w-3/5 h-full flex justify-center items-center border">
+                    <div class="relative w-3/5 h-full flex justify-center items-center border">
+                        <div class="absolute top-0 w-full h-full">
+                            <img src="storage/images/categories/electronicsAndRobotics.jpg" alt="category image"
+                                 class="w-full h-full object-fill">
+                        </div>
                         <div>
                             <button>{{ category.category }}</button>
                         </div>

@@ -21362,6 +21362,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Breadcrumb"
 });
@@ -21381,6 +21383,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/lang */ "./node_modules/lodash/lang.js");
 /* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_lang__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
 //
 //
 //
@@ -50626,11 +50632,16 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "z-20 absolute top-4 flex justify-center w-full h-12 " },
+      {
+        staticClass:
+          "z-20 absolute top-4 flex justify-center items-center w-full h-12 ",
+      },
       [
-        _c("div", {
-          staticClass: "w-11/12 h-full border text-zinc-200 rounded-lg",
-        }),
+        _c(
+          "div",
+          { staticClass: "w-11/12 h-full border text-zinc-200 rounded-lg" },
+          [_c("div")]
+        ),
       ]
     )
   },
@@ -50674,9 +50685,15 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    "w-3/5 h-full flex justify-center items-center border",
+                    "relative w-3/5 h-full flex justify-center items-center border",
                 },
-                [_c("div", [_c("button", [_vm._v(_vm._s(category.category))])])]
+                [
+                  _vm._m(0, true),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("button", [_vm._v(_vm._s(category.category))]),
+                  ]),
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -50702,7 +50719,22 @@ var render = function () {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "absolute top-0 w-full h-full" }, [
+      _c("img", {
+        staticClass: "w-full h-full object-fill",
+        attrs: {
+          src: "storage/images/categories/electronicsAndRobotics.jpg",
+          alt: "category image",
+        },
+      }),
+    ])
+  },
+]
 render._withStripped = true
 
 
