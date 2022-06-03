@@ -582,6 +582,9 @@ select {
 .left-5 {
   left: 1.25rem;
 }
+.top-20 {
+  top: 5rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -1145,6 +1148,10 @@ select {
 .border-red-500 {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+.border-red-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(185 28 28 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;

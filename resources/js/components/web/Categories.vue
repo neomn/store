@@ -3,8 +3,9 @@
         <Background/>
         <Header/>
         <Sidebar/>
-        <div class=" z-20 absolute w-full h-full text-zinc-200 overflow-y-scroll ">
-            <div class=" grid grid-cols-3 gap-4 p-2 mt-10 justify-center place-items-center  ">
+        <Breadcrumb/>
+        <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll border border-red-700">
+            <div class=" grid grid-cols-3 gap-4 p-2 justify-center place-items-center  ">
                 <div v-for="category in categoryContainer" >
                 <router-link :to="{name: 'categories' , params: {category: category.category}}">
                     <button @click="refreshCategoryContainer(category.sub)"  class="w-28 h-28 p-2 rounded-xl border">
@@ -66,10 +67,12 @@ import {isEmpty} from "lodash/lang";
 import Header from "./Header";
 import Background from "./Background";
 import Sidebar from "./SideBar";
+import Breadcrumb from "./miniComponenets/Breadcrumb";
 
 export default {
     name: "Categories",
     components: {
+        Breadcrumb,
         Background,
         Header,
         Sidebar,
