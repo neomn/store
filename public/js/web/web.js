@@ -20013,18 +20013,9 @@ __webpack_require__.r(__webpack_exports__);
     Sidebar: _SideBar__WEBPACK_IMPORTED_MODULE_3__["default"],
     CategoriesContainer: _miniComponenets_CategoriesContainer__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
-  data: function data() {
-    return {
-      allCategories: {},
-      categoryContainer: {},
-      productContainer: {},
-      objectifiedCategories: []
-    };
-  },
   props: ['category'],
   created: function created() {
     console.log('Categories component created > -------------------- \n');
-    this.getAllCategories();
   },
   mounted: function mounted() {//watch route parameters changes
     // this.$watch(
@@ -20056,173 +20047,7 @@ __webpack_require__.r(__webpack_exports__);
     //     }
     // )
   },
-  methods: {
-    getAllCategories: function getAllCategories() {
-      var _this = this;
-
-      axios.get('/api/categories').then(function (response) {
-        console.log('getAllCategories >-------- \n');
-        _this.allCategories = response.data.data;
-        console.log(response.data.data); // this.initCategoryContainer()
-        // this.refreshCategoryContainer(this.category)
-
-        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this.categoryContainer)) {// this.getCategoryAssociatedProducts()
-        }
-
-        _this.objectifyCategoryArray(response.data.data);
-
-        _this.initCategoryContainer();
-      })["catch"](function (error) {
-        console.log('error getting categories > ' + error);
-      });
-    },
-    initCategoryContainer: function initCategoryContainer() {
-      // console.log('initCategoryContainer > ------ \n')
-      // this.allCategories.forEach((item, index, array) => {
-      //     if (item.parent_id === null) {
-      //         //this is how to update vue js state ,check vue js docs ( reactivity )
-      //         this.$set(this.categoryContainer, index, item)
-      //     }
-      // })
-      // console.log(this.categoryContainer)
-      this.categoryContainer = this.objectifiedCategories;
-    },
-    refreshCategoryContainer: function refreshCategoryContainer(categoryObject) {
-      this.categoryContainer = categoryObject; //     console.log('refreshCategoryContainer > ------')
-      //     if (queriedCategory) {
-      //         console.log('received category to process > ' + queriedCategory + '\n')
-      //         let preserveContainerContent = this.categoryContainer
-      //         let categoryIsNotValid = true
-      //         this.categoryContainer = {}
-      //         if (this.allCategories) {
-      //             //find queried category id
-      //             let queriedCategoryId
-      //             this.allCategories.forEach((item, index) => {
-      //                 if (item.category === queriedCategory) {
-      //                     queriedCategoryId = item.id
-      //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
-      //                 }
-      //             })
-      //             //set container to contain childes of queried category
-      //             this.allCategories.forEach((item, index) => {
-      //                 if (item.parent_id === queriedCategoryId) {
-      //                     //this is how to update vue js state ,check vue js docs ( reactivity )
-      //                     this.$set(this.categoryContainer, index, item)
-      //                     console.log('category founded :) adding ' + item.category + ' to container')
-      //                     categoryIsNotValid = false
-      //                 }
-      //             })
-      //         } else {
-      //             console.log('allCategories not initialized by api \n')
-      //         }
-      //         if (categoryIsNotValid) {
-      //             console.log('queried category (' + queriedCategory + ') is not a valid category')
-      //             // this.categoryContainer = preserveContainerContent
-      //         }
-      //     } else {
-      //         console.log('no category queried')
-      //     }
-    },
-    // categoryHasSubCategory() {
-    //     console.log('categoryHasSubCategory > ------ \n')
-    //     console.log(!isEmpty(this.categoryContainer))
-    //     return !isEmpty(this.categoryContainer)
-    // },
-    // getCategoryAssociatedProducts() {
-    //     console.log('getCategoryAssociatedProducts > ------ \n')
-    //     console.log(this.$route.params.category + '\n')
-    //     let category = this.$route.params.category
-    //
-    //     //get category categoryId
-    //     let categoryId;
-    //     this.allCategories.forEach((item, index) => {
-    //         if (item.category === category)
-    //             categoryId = item.id
-    //     })
-    //     console.log('category categoryId >>> ' + categoryId + '\n')
-    //
-    //     //request for productContainer
-    //     axios.get('/api/productContainer/' + categoryId)
-    //         .then(response => {
-    //             let products = response.data.data
-    //             console.log('retrieved productContainer  >>> \n')
-    //             console.log(response.data.product)
-    //             this.productContainer = response.data.product
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error)
-    //         })
-    // },
-    // emptyProductsContainer() {
-    //     this.productContainer = {}
-    // },
-    objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
-      var _this2 = this;
-
-      console.log('objectifyCategoryArray >'); //assign an empty subCategory array to all elements
-
-      categoryArray.forEach(function (item, index) {
-        item.sub = [];
-      }); //objectify root elements
-
-      categoryArray.forEach(function (category, index) {
-        if (_this2.itIsRootCategory(category)) {
-          _this2.objectifiedCategories.push(category);
-
-          categoryArray = _this2.removeElementFromArray(category, categoryArray);
-        }
-      });
-      console.log('root categories objectified');
-      console.log(this.objectifiedCategories);
-      console.log(categoryArray); //objectify remaining elements
-
-      while (categoryArray.length > 0) {
-        console.log('categoryArrayLength > ' + categoryArray.length);
-        console.log(categoryArray);
-        categoryArray.forEach(function (category, index) {
-          _this2.putCategoryIntoCategoryObject(category, _this2.objectifiedCategories);
-
-          categoryArray = _this2.removeElementFromArray(category, categoryArray);
-        });
-      }
-
-      console.log('all categories objectified');
-      console.log(this.objectifiedCategories);
-      console.log(categoryArray);
-      console.log('------------------------------');
-    },
-    itIsRootCategory: function itIsRootCategory(category) {
-      return category.parent_id === null;
-    },
-    removeElementFromArray: function removeElementFromArray(category, categoryArray) {
-      console.log('removing ' + category.category);
-      return categoryArray.filter(function (element) {
-        return element !== category;
-      });
-    },
-    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
-      var _this3 = this;
-
-      console.log('putting ' + category.category + ' into categoryObject');
-      console.log(categoryObject);
-      var objectified = false;
-      categoryObject.forEach(function (item, index) {
-        if (category.parent_id === item.id) {
-          console.log('parent founded');
-          console.log(item.category + ' < ' + category.category);
-          item.sub.push(category);
-          objectified = true;
-        }
-      });
-
-      if (!objectified) {
-        console.log('parent not found ');
-        categoryObject.forEach(function (item, index) {
-          _this3.putCategoryIntoCategoryObject(category, item.sub);
-        });
-      }
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -21547,6 +21372,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/lang */ "./node_modules/lodash/lang.js");
+/* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_lang__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -21562,8 +21389,193 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Categories"
+  name: "Categories",
+  data: function data() {
+    return {
+      allCategories: {},
+      categoryContainer: {},
+      productContainer: {},
+      objectifiedCategories: []
+    };
+  },
+  mounted: function mounted() {
+    this.getAllCategories();
+  },
+  methods: {
+    getAllCategories: function getAllCategories() {
+      var _this = this;
+
+      axios.get('/api/categories').then(function (response) {
+        console.log('getAllCategories >-------- \n');
+        _this.allCategories = response.data.data;
+        console.log(response.data.data); // this.initCategoryContainer()
+        // this.refreshCategoryContainer(this.category)
+
+        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this.categoryContainer)) {// this.getCategoryAssociatedProducts()
+        }
+
+        _this.objectifyCategoryArray(response.data.data);
+
+        _this.initCategoryContainer();
+      })["catch"](function (error) {
+        console.log('error getting categories > ' + error);
+      });
+    },
+    initCategoryContainer: function initCategoryContainer() {
+      // console.log('initCategoryContainer > ------ \n')
+      // this.allCategories.forEach((item, index, array) => {
+      //     if (item.parent_id === null) {
+      //         //this is how to update vue js state ,check vue js docs ( reactivity )
+      //         this.$set(this.categoryContainer, index, item)
+      //     }
+      // })
+      // console.log(this.categoryContainer)
+      this.categoryContainer = this.objectifiedCategories;
+    },
+    refreshCategoryContainer: function refreshCategoryContainer(categoryObject) {
+      this.categoryContainer = categoryObject; //     console.log('refreshCategoryContainer > ------')
+      //     if (queriedCategory) {
+      //         console.log('received category to process > ' + queriedCategory + '\n')
+      //         let preserveContainerContent = this.categoryContainer
+      //         let categoryIsNotValid = true
+      //         this.categoryContainer = {}
+      //         if (this.allCategories) {
+      //             //find queried category id
+      //             let queriedCategoryId
+      //             this.allCategories.forEach((item, index) => {
+      //                 if (item.category === queriedCategory) {
+      //                     queriedCategoryId = item.id
+      //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
+      //                 }
+      //             })
+      //             //set container to contain childes of queried category
+      //             this.allCategories.forEach((item, index) => {
+      //                 if (item.parent_id === queriedCategoryId) {
+      //                     //this is how to update vue js state ,check vue js docs ( reactivity )
+      //                     this.$set(this.categoryContainer, index, item)
+      //                     console.log('category founded :) adding ' + item.category + ' to container')
+      //                     categoryIsNotValid = false
+      //                 }
+      //             })
+      //         } else {
+      //             console.log('allCategories not initialized by api \n')
+      //         }
+      //         if (categoryIsNotValid) {
+      //             console.log('queried category (' + queriedCategory + ') is not a valid category')
+      //             // this.categoryContainer = preserveContainerContent
+      //         }
+      //     } else {
+      //         console.log('no category queried')
+      //     }
+    },
+    // categoryHasSubCategory() {
+    //     console.log('categoryHasSubCategory > ------ \n')
+    //     console.log(!isEmpty(this.categoryContainer))
+    //     return !isEmpty(this.categoryContainer)
+    // },
+    // getCategoryAssociatedProducts() {
+    //     console.log('getCategoryAssociatedProducts > ------ \n')
+    //     console.log(this.$route.params.category + '\n')
+    //     let category = this.$route.params.category
+    //
+    //     //get category categoryId
+    //     let categoryId;
+    //     this.allCategories.forEach((item, index) => {
+    //         if (item.category === category)
+    //             categoryId = item.id
+    //     })
+    //     console.log('category categoryId >>> ' + categoryId + '\n')
+    //
+    //     //request for productContainer
+    //     axios.get('/api/productContainer/' + categoryId)
+    //         .then(response => {
+    //             let products = response.data.data
+    //             console.log('retrieved productContainer  >>> \n')
+    //             console.log(response.data.product)
+    //             this.productContainer = response.data.product
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error)
+    //         })
+    // },
+    // emptyProductsContainer() {
+    //     this.productContainer = {}
+    // },
+    objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
+      var _this2 = this;
+
+      console.log('objectifyCategoryArray >'); //assign an empty subCategory array to all elements
+
+      categoryArray.forEach(function (item, index) {
+        item.sub = [];
+      }); //objectify root elements
+
+      categoryArray.forEach(function (category, index) {
+        if (_this2.itIsRootCategory(category)) {
+          _this2.objectifiedCategories.push(category);
+
+          categoryArray = _this2.removeElementFromArray(category, categoryArray);
+        }
+      });
+      console.log('root categories objectified');
+      console.log(this.objectifiedCategories);
+      console.log(categoryArray); //objectify remaining elements
+
+      while (categoryArray.length > 0) {
+        console.log('categoryArrayLength > ' + categoryArray.length);
+        console.log(categoryArray);
+        categoryArray.forEach(function (category, index) {
+          _this2.putCategoryIntoCategoryObject(category, _this2.objectifiedCategories);
+
+          categoryArray = _this2.removeElementFromArray(category, categoryArray);
+        });
+      }
+
+      console.log('all categories objectified');
+      console.log(this.objectifiedCategories);
+      console.log(categoryArray);
+      console.log('------------------------------');
+    },
+    itIsRootCategory: function itIsRootCategory(category) {
+      return category.parent_id === null;
+    },
+    removeElementFromArray: function removeElementFromArray(category, categoryArray) {
+      console.log('removing ' + category.category);
+      return categoryArray.filter(function (element) {
+        return element !== category;
+      });
+    },
+    putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
+      var _this3 = this;
+
+      console.log('putting ' + category.category + ' into categoryObject');
+      console.log(categoryObject);
+      var objectified = false;
+      categoryObject.forEach(function (item, index) {
+        if (category.parent_id === item.id) {
+          console.log('parent founded');
+          console.log(item.category + ' < ' + category.category);
+          item.sub.push(category);
+          objectified = true;
+        }
+      });
+
+      if (!objectified) {
+        console.log('parent not found ');
+        categoryObject.forEach(function (item, index) {
+          _this3.putCategoryIntoCategoryObject(category, item.sub);
+        });
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -50608,7 +50620,7 @@ var staticRenderFns = [
       { staticClass: "z-20 absolute top-4 flex justify-center w-full h-12 " },
       [
         _c("div", {
-          staticClass: "w-11/12 h-full border text-zinc-200 rounded-xl",
+          staticClass: "w-11/12 h-full border text-zinc-200 rounded-lg",
         }),
       ]
     )
@@ -50636,7 +50648,25 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    {
+      staticClass:
+        " z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll border border-red-700",
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "grid grid-cols-1 gap-4 border" },
+        _vm._l(_vm.categoryContainer, function (category) {
+          return _c("div", [
+            _vm._v("\n            " + _vm._s(category.category) + "\n        "),
+          ])
+        }),
+        0
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
