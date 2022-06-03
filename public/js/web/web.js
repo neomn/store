@@ -21535,6 +21535,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Breadcrumb"
 });
@@ -50561,11 +50563,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "z-20 absolute flex justify-center w-full h-16 border-2 text-zinc-200",
-      },
-      [_c("h1", [_vm._v("bread crumb")])]
+      { staticClass: "z-20 absolute top-4 flex justify-center w-full h-12 " },
+      [
+        _c("div", {
+          staticClass: "w-11/12 h-full border text-zinc-200 rounded-xl",
+        }),
+      ]
     )
   },
 ]

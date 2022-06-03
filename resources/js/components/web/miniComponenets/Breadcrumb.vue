@@ -1,6 +1,8 @@
 <template>
-    <div class="z-20 absolute flex justify-center w-full h-16 border-2 text-zinc-200">
-        <h1>bread crumb</h1>
+    <div class="z-20 absolute top-4 flex justify-center w-full h-12 ">
+        <div class="w-11/12 h-full border text-zinc-200 rounded-xl">
+
+        </div>
     </div>
 </template>
 
