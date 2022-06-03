@@ -4,17 +4,7 @@
         <Header/>
         <Sidebar/>
         <Breadcrumb/>
-        <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll border border-red-700">
-            <div class=" grid grid-cols-3 gap-4 p-2 justify-center place-items-center  ">
-                <div v-for="category in categoryContainer" >
-                <router-link :to="{name: 'categories' , params: {category: category.category}}">
-                    <button @click="refreshCategoryContainer(category.sub)"  class="w-28 h-28 p-2 rounded-xl border">
-                        {{ category.category }}
-                    </button>
-                </router-link>
-                </div>
-            </div>
-        </div>
+        <CategoriesContainer/>
     </div>
     <!--    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">-->
 
@@ -68,6 +58,8 @@ import Header from "./Header";
 import Background from "./Background";
 import Sidebar from "./SideBar";
 import Breadcrumb from "./miniComponenets/Breadcrumb";
+import CategoriesContainer from "./miniComponenets/CategoriesContainer";
+
 
 export default {
     name: "Categories",
@@ -76,6 +68,7 @@ export default {
         Background,
         Header,
         Sidebar,
+        CategoriesContainer
     },
     data() {
         return {
