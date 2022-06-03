@@ -6,54 +6,12 @@
         <Breadcrumb/>
         <CategoriesContainer/>
     </div>
-    <!--    <div class="z-0 mt-8 bg-slate-800 min-h-screen text-gray-200">-->
-
-    <!--        <Header class="z-10"/>-->
-
-    <!--        <aside class="bg-gray-800 border-r border-gray-200 float-left w-52 min-h-screen ">-->
-    <!--            {{ category }}-->
-    <!--        </aside>-->
-
-
-    <!--        <div class="min-h-screen grid grid-cols-5  block bg-slate-700 pr-4 ">-->
-
-    <!--            &lt;!&ndash;display category container contents&ndash;&gt;-->
-    <!--            <div v-for="category in categoryContainer"-->
-    <!--                 class="bg-slate-800 w-44 h-60 m-8 rounded-lg justify-center relative">-->
-    <!--                <router-link :to="{name: 'categories' , params: {category: category.category}}">-->
-    <!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
-    <!--                        {{ category.category }}-->
-    <!--                    </div>-->
-    <!--                </router-link>-->
-    <!--            </div>-->
-
-
-    <!--            &lt;!&ndash; display product container contents  &ndash;&gt;-->
-    <!--            <div v-for="product in productContainer"-->
-    <!--                 class="bg-slate-800 w-44 h-72 m-8 rounded-lg justify-center relative top-0">-->
-    <!--                <img :src="product.image" alt="product image" class="rounded-lg">-->
-    <!--                <div class="pt-4 pl-4">-->
-    <!--                    {{ product.number }} <br>-->
-    <!--                    {{ product.name }} <br>-->
-    <!--                    {{ product.price }} <br>-->
-    <!--                </div>-->
-    <!--                <router-link :to="{name: 'product' , params: {product_number: product.number}}">-->
-    <!--                    <div class="rounded text-center  absolute bottom-0 border-t w-full h-12">-->
-    <!--                        <button> show details</button>-->
-    <!--                    </div>-->
-    <!--                </router-link>-->
-    <!--            </div>-->
-
-    <!--        </div>-->
-
-    <!--    </div>-->
 </template>
 
 <!---------------------------------------------------------------------->
 
 
 <script>
-import {isEmpty} from "lodash/lang";
 import Header from "./Header";
 import Background from "./Background";
 import Sidebar from "./SideBar";
