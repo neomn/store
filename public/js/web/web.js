@@ -19856,6 +19856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+/* harmony import */ var _Background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Background */ "./resources/js/components/web/Background.vue");
+//
 //
 //
 //
@@ -19863,9 +19865,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AboutUs",
   components: {
+    Background: _Background__WEBPACK_IMPORTED_MODULE_1__["default"],
     Header: _web_Header__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
@@ -20760,6 +20764,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+/* harmony import */ var _Background__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Background */ "./resources/js/components/web/Background.vue");
 //
 //
 //
@@ -20811,11 +20816,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ShoppingCart",
   components: {
+    Background: _Background__WEBPACK_IMPORTED_MODULE_2__["default"],
     Header: _web_Header__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
@@ -49157,7 +49164,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-slate-800" }, [_c("Header")], 1)
+  return _c("div", [_c("Background"), _vm._v(" "), _c("Header")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50311,6 +50318,8 @@ var render = function () {
   return _c(
     "div",
     [
+      _c("Background"),
+      _vm._v(" "),
       _c("Header"),
       _vm._v(" "),
       _c(
