@@ -19,6 +19,7 @@ class CreateImagesTable extends Migration
             $table->string('url');
             $table->integer('display_order');
             $table->bigInteger('product_id');
+            $table->bigInteger('category_id')->nullable();
             $table->timestamps();
         });
     }
