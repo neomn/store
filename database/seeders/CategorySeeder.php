@@ -26,7 +26,8 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert($categories);
 
         $categoryImages = [
-            ['category_id' => 1 ,'title' => 'Electronics And Robotics' , 'url'=> 'storage/images/categories/electronicsAndRobotics.jpg' ],
+            ['category_id' => 1 ,'title' => 'Electronics And Robotics' , 'url'=> 'storage/images/categories/electronicsAndRobotics.jpg'],
+            ['category_id' => 2 ,'title' => 'Other' , 'url'=> 'storage/images/categories/other.jpg'],
         ];
         DB::table('images')->insert($categoryImages);
     }
