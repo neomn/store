@@ -50645,7 +50645,7 @@ var render = function () {
                   _c("img", {
                     staticClass: " w-full h-full object-fill filter blur-sm",
                     attrs: {
-                      src: "storage/images/categories/electronicsAndRobotics.jpg",
+                      src: category.imageUrl.url,
                       alt: "category image",
                     },
                   }),
