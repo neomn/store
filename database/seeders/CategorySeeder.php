@@ -23,7 +23,8 @@ class CategorySeeder extends Seeder
             ['id' => 112, 'category' => 'Raspberry Family', 'parent_id' => 11],
             ['id' => 113, 'category' => 'ESP Family', 'parent_id' => 11],
         ];
-
         DB::table('categories')->insert($categories);
+
+
     }
 }
