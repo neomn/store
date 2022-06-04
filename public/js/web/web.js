@@ -21375,6 +21375,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getAllCategories();
+    this.refreshCategoryContainer(this.$route.params.category);
   },
   methods: {
     getAllCategories: function getAllCategories() {
@@ -21407,8 +21408,9 @@ __webpack_require__.r(__webpack_exports__);
       // console.log(this.categoryContainer)
       this.categoryContainer = this.objectifiedCategories;
     },
-    refreshCategoryContainer: function refreshCategoryContainer(categoryObject) {
-      this.categoryContainer = categoryObject; //     console.log('refreshCategoryContainer > ------')
+    refreshCategoryContainer: function refreshCategoryContainer(category) {
+      // this.categoryContainer = categoryObject
+      console.log(category); //     console.log('refreshCategoryContainer > ------')
       //     if (queriedCategory) {
       //         console.log('received category to process > ' + queriedCategory + '\n')
       //         let preserveContainerContent = this.categoryContainer

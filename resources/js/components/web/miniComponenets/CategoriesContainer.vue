@@ -36,6 +36,7 @@ export default {
     },
     mounted() {
         this.getAllCategories()
+        this.refreshCategoryContainer(this.$route.params.category)
     },
     methods: {
         getAllCategories() {
@@ -67,8 +68,9 @@ export default {
             // console.log(this.categoryContainer)
             this.categoryContainer = this.objectifiedCategories
         },
-        refreshCategoryContainer(categoryObject) {
-            this.categoryContainer = categoryObject
+        refreshCategoryContainer(category) {
+            // this.categoryContainer = categoryObject
+            console.log(category)
             //     console.log('refreshCategoryContainer > ------')
             //     if (queriedCategory) {
             //         console.log('received category to process > ' + queriedCategory + '\n')
