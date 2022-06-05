@@ -40,21 +40,13 @@ export default {
             objectifiedCategories: []
         }
     },
-    created() {
-        console.log('******* created  ***********')
-    },
-    beforeMount() {
-        console.log('******* before mount  ***********')
-    },
-    updated() {
-        console.log('******* updated  ***********')
-    },
-    beforeUpdate() {
-        console.log('******* before update  ***********')
-    },
     mounted() {
         this.getAllCategories(this.objectifiedCategories)
         this.refreshCategoryContainer(this.$route.params.category)
+
+        this.$watch(()=> this.$route.params , (newValue , oldValue) => {
+                console.log(newValue)
+            })
     },
     methods: {
         getAllCategories(objectifiedCategories) {

@@ -21393,40 +21393,35 @@ __webpack_require__.r(__webpack_exports__);
       objectifiedCategories: []
     };
   },
-  created: function created() {
-    console.log('******* created  ***********');
-  },
-  beforeMount: function beforeMount() {
-    console.log('******* before mount  ***********');
-  },
-  updated: function updated() {
-    console.log('******* updated  ***********');
-  },
-  beforeUpdate: function beforeUpdate() {
-    console.log('******* before update  ***********');
-  },
   mounted: function mounted() {
+    var _this = this;
+
     this.getAllCategories(this.objectifiedCategories);
     this.refreshCategoryContainer(this.$route.params.category);
+    this.$watch(function () {
+      return _this.$route.params;
+    }, function (newValue, oldValue) {
+      console.log(newValue);
+    });
   },
   methods: {
     getAllCategories: function getAllCategories(objectifiedCategories) {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/api/categories').then(function (response) {
         console.log('getAllCategories >-------- \n');
-        _this.allCategories = response.data.data;
+        _this2.allCategories = response.data.data;
         console.log(response.data.data); // this.initCategoryContainer()
         // this.refreshCategoryContainer(this.category)
 
-        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this.categoryContainer)) {// this.getCategoryAssociatedProducts()
+        if ((0,lodash_lang__WEBPACK_IMPORTED_MODULE_0__.isEmpty)(_this2.categoryContainer)) {// this.getCategoryAssociatedProducts()
         }
 
-        _this.objectifyCategoryArray(response.data.data);
+        _this2.objectifyCategoryArray(response.data.data);
 
-        _this.$root.$emit('bredCrumb', objectifiedCategories);
+        _this2.$root.$emit('bredCrumb', objectifiedCategories);
 
-        _this.initCategoryContainer();
+        _this2.initCategoryContainer();
       })["catch"](function (error) {
         console.log('error getting categories > ' + error);
       });
@@ -21511,7 +21506,7 @@ __webpack_require__.r(__webpack_exports__);
     //     this.productContainer = {}
     // },
     objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
-      var _this2 = this;
+      var _this3 = this;
 
       console.log('objectifyCategoryArray >'); //assign an empty subCategory array to all elements
 
@@ -21520,10 +21515,10 @@ __webpack_require__.r(__webpack_exports__);
       }); //objectify root elements
 
       categoryArray.forEach(function (category, index) {
-        if (_this2.itIsRootCategory(category)) {
-          _this2.objectifiedCategories.push(category);
+        if (_this3.itIsRootCategory(category)) {
+          _this3.objectifiedCategories.push(category);
 
-          categoryArray = _this2.removeElementFromArray(category, categoryArray);
+          categoryArray = _this3.removeElementFromArray(category, categoryArray);
         }
       });
       console.log('root categories objectified');
@@ -21534,9 +21529,9 @@ __webpack_require__.r(__webpack_exports__);
         console.log('categoryArrayLength > ' + categoryArray.length);
         console.log(categoryArray);
         categoryArray.forEach(function (category, index) {
-          _this2.putCategoryIntoCategoryObject(category, _this2.objectifiedCategories);
+          _this3.putCategoryIntoCategoryObject(category, _this3.objectifiedCategories);
 
-          categoryArray = _this2.removeElementFromArray(category, categoryArray);
+          categoryArray = _this3.removeElementFromArray(category, categoryArray);
         });
       }
 
@@ -21555,7 +21550,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
-      var _this3 = this;
+      var _this4 = this;
 
       console.log('putting ' + category.category + ' into categoryObject');
       console.log(categoryObject);
@@ -21572,7 +21567,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!objectified) {
         console.log('parent not found ');
         categoryObject.forEach(function (item, index) {
-          _this3.putCategoryIntoCategoryObject(category, item.sub);
+          _this4.putCategoryIntoCategoryObject(category, item.sub);
         });
       }
     }
