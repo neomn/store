@@ -1,8 +1,8 @@
 <template>
     <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12 ">
         <div class="w-11/12 h-full  text-zinc-200 rounded-lg border">
-            <div v-for="category in this.$root.categories">
-                {{category}}
+            <div v-for="category in bredCrumbContainer">
+
             </div>
         </div>
     </div>
@@ -13,14 +13,14 @@ export default {
     name: "Breadcrumb",
     data(){
       return {
-          content: {},
+          bredCrumbContainer: {},
       }
     },
     created() {
     },
     mounted(){
-        this.$root.$on('bredCrumb' , (category)=>{
-            console.log(category)
+        this.$root.$on('bredCrumb' , (categories)=>{
+            this.bredCrumbContainer = categories
         })
     },
     methods:{

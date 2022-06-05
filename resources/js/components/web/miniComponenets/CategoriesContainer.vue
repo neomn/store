@@ -3,8 +3,8 @@
         <div class="grid grid-cols-1 gap-4 place-items-center">
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded ">
                 <div class="flex w-full h-full">
-                    <router-link :to="{name: 'categories' , params:{ category: category.category}}" >
-                        <div class="relative w-3/5 h-full flex justify-center items-center border">
+                    <router-link :to="{name: 'categories' , params:{ category: category.category}}" class="border-4">
+                        <div class="relative w-3/5 h-full flex justify-center items-center border-4">
                             <img :src="category.imageUrl.url" alt="category image"
                                  class=" w-full h-full object-fill filter blur-sm">
                             <div class="absolute flex items-center ">
@@ -12,12 +12,15 @@
                             </div>
                         </div>
                     </router-link>
-                    <div class="w-2/5 h-full border flex flex-col place-items-center overflow-y-scroll">
-                        <div v-for="sub in category.sub" class=" w-11/12 border-b text-center">
-                            <router-link :to="{name:'categories' , params: {category: sub.category}}">
-                                {{ sub.category }}
-                            </router-link>
-                        </div>
+                    <div v-for="sub in category.sub">
+                        <router-link :to="{name:'categories' , params: {category: sub.category}}" class="border-4">
+                            <div class="w-2/5 h-full border flex flex-col place-items-center overflow-y-scroll">
+                                <div class=" w-11/12 border-b text-center">
+                                    class="border-4">
+                                    {{ sub.category }}
+                                </div>
+                            </div>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -55,7 +58,7 @@ export default {
                         // this.getCategoryAssociatedProducts()
                     }
                     this.objectifyCategoryArray(response.data.data)
-                    this.$root.$emit('bredCrumb' , objectifiedCategories )
+                    this.$root.$emit('bredCrumb', objectifiedCategories)
                     this.initCategoryContainer()
                 })
                 .catch(function (error) {

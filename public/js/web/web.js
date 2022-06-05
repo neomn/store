@@ -21324,13 +21324,15 @@ __webpack_require__.r(__webpack_exports__);
   name: "Breadcrumb",
   data: function data() {
     return {
-      content: {}
+      bredCrumbContainer: {}
     };
   },
   created: function created() {},
   mounted: function mounted() {
-    this.$root.$on('bredCrumb', function (category) {
-      console.log(category);
+    var _this = this;
+
+    this.$root.$on('bredCrumb', function (categories) {
+      _this.bredCrumbContainer = categories;
     });
   },
   methods: {}
@@ -21351,6 +21353,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/lang */ "./node_modules/lodash/lang.js");
 /* harmony import */ var lodash_lang__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_lang__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -50605,10 +50610,8 @@ var render = function () {
       _c(
         "div",
         { staticClass: "w-11/12 h-full  text-zinc-200 rounded-lg border" },
-        _vm._l(this.$root.categories, function (category) {
-          return _c("div", [
-            _vm._v("\n            " + _vm._s(category) + "\n        "),
-          ])
+        _vm._l(_vm.bredCrumbContainer, function (category) {
+          return _c("div")
         }),
         0
       ),
@@ -50657,6 +50660,7 @@ var render = function () {
                 _c(
                   "router-link",
                   {
+                    staticClass: "border-4",
                     attrs: {
                       to: {
                         name: "categories",
@@ -50669,7 +50673,7 @@ var render = function () {
                       "div",
                       {
                         staticClass:
-                          "relative w-3/5 h-full flex justify-center items-center border",
+                          "relative w-3/5 h-full flex justify-center items-center border-4",
                       },
                       [
                         _c("img", {
@@ -50691,43 +50695,52 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "w-2/5 h-full border flex flex-col place-items-center overflow-y-scroll",
-                  },
-                  _vm._l(category.sub, function (sub) {
-                    return _c(
-                      "div",
-                      { staticClass: " w-11/12 border-b text-center" },
-                      [
-                        _c(
-                          "router-link",
-                          {
-                            attrs: {
-                              to: {
-                                name: "categories",
-                                params: { category: sub.category },
-                              },
+                _vm._l(category.sub, function (sub) {
+                  return _c(
+                    "div",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "border-4",
+                          attrs: {
+                            to: {
+                              name: "categories",
+                              params: { category: sub.category },
                             },
                           },
-                          [
-                            _vm._v(
-                              "\n                            " +
-                                _vm._s(sub.category) +
-                                "\n                        "
-                            ),
-                          ]
-                        ),
-                      ],
-                      1
-                    )
-                  }),
-                  0
-                ),
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "w-2/5 h-full border flex flex-col place-items-center overflow-y-scroll",
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass: " w-11/12 border-b text-center",
+                                },
+                                [
+                                  _vm._v(
+                                    '\n                                class="border-4">\n                                ' +
+                                      _vm._s(sub.category) +
+                                      "\n                            "
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ],
+                    1
+                  )
+                }),
               ],
-              1
+              2
             ),
           ])
         }),
