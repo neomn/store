@@ -21393,6 +21393,18 @@ __webpack_require__.r(__webpack_exports__);
       objectifiedCategories: []
     };
   },
+  created: function created() {
+    console.log('******* created  ***********');
+  },
+  beforeMount: function beforeMount() {
+    console.log('******* before mount  ***********');
+  },
+  updated: function updated() {
+    console.log('******* updated  ***********');
+  },
+  beforeUpdate: function beforeUpdate() {
+    console.log('******* before update  ***********');
+  },
   mounted: function mounted() {
     this.getAllCategories(this.objectifiedCategories);
     this.refreshCategoryContainer(this.$route.params.category);
@@ -50686,7 +50698,10 @@ var render = function () {
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "absolute flex items-center " },
+                            {
+                              staticClass:
+                                "absolute flex items-center text-2xl font-bold ",
+                            },
                             [_c("button", [_vm._v(_vm._s(category.category))])]
                           ),
                         ]
@@ -50703,7 +50718,10 @@ var render = function () {
                 _vm._l(category.sub, function (sub) {
                   return _c(
                     "div",
-                    { staticClass: "w-full h-auto overflow-y-scroll border-b" },
+                    {
+                      staticClass:
+                        "w-full h-auto overflow-y-scroll p-2 border-b",
+                    },
                     [
                       _c(
                         "router-link",

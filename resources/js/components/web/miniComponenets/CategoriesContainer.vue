@@ -8,14 +8,14 @@
                             <div class="relative w-full h-full flex justify-center items-center  ">
                                 <img :src="category.imageUrl.url" alt="category image"
                                      class=" w-full h-full object-fill filter blur-sm">
-                                <div class="absolute flex items-center ">
+                                <div class="absolute flex items-center text-2xl font-bold ">
                                     <button>{{ category.category }}</button>
                                 </div>
                             </div>
                         </router-link>
                     </div>
                     <div class="w-2/5 h-full flex flex-col justify-start">
-                        <div v-for="sub in category.sub" class="w-full h-auto overflow-y-scroll border-b">
+                        <div v-for="sub in category.sub" class="w-full h-auto overflow-y-scroll p-2 border-b">
                             <router-link :to="{name:'categories' , params: {category: sub.category}}">
                                 <button>{{ sub.category }}</button>
                             </router-link>
@@ -39,6 +39,18 @@ export default {
             productContainer: {},
             objectifiedCategories: []
         }
+    },
+    created() {
+        console.log('******* created  ***********')
+    },
+    beforeMount() {
+        console.log('******* before mount  ***********')
+    },
+    updated() {
+        console.log('******* updated  ***********')
+    },
+    beforeUpdate() {
+        console.log('******* before update  ***********')
     },
     mounted() {
         this.getAllCategories(this.objectifiedCategories)
