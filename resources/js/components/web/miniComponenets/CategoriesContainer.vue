@@ -86,6 +86,13 @@ export default {
 
             allCategories.forEach((item, index) => {
                 console.log(item.category)
+
+                if (item.category === category){
+                    console.log('category found>')
+                    console.log(item)
+                    this.categoryContainer = item
+                }
+
                 if (item.sub !== undefined)
                     this.refreshCategoryContainer(category , item.sub)
             })

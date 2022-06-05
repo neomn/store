@@ -21448,6 +21448,13 @@ __webpack_require__.r(__webpack_exports__);
       if (allCategories === undefined) return;
       allCategories.forEach(function (item, index) {
         console.log(item.category);
+
+        if (item.category === category) {
+          console.log('category found>');
+          console.log(item);
+          _this3.categoryContainer = item;
+        }
+
         if (item.sub !== undefined) _this3.refreshCategoryContainer(category, item.sub);
       }); //     console.log('refreshCategoryContainer > ------')
       //     if (queriedCategory) {
