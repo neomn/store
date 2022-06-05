@@ -1760,6 +1760,12 @@ select {
   .sm\:hidden {
     display: none;
   }
+  .sm\:w-2\/5 {
+    width: 40%;
+  }
+  .sm\:w-3\/5 {
+    width: 60%;
+  }
   .sm\:max-w-md {
     max-width: 28rem;
   }

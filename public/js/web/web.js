@@ -21382,11 +21382,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -50660,7 +50655,7 @@ var render = function () {
             _c("div", { staticClass: "flex w-full h-full justify-center" }, [
               _c(
                 "div",
-                { staticClass: "w-2/5 h-full border-2 border-lime-600" },
+                { staticClass: "w-3/5 h-full " },
                 [
                   _c(
                     "router-link",
@@ -50673,10 +50668,29 @@ var render = function () {
                       },
                     },
                     [
-                      _c("div", {
-                        staticClass:
-                          "relative w-2/5 h-full flex justify-center items-center ",
-                      }),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "relative w-full h-full flex justify-center items-center  ",
+                        },
+                        [
+                          _c("img", {
+                            staticClass:
+                              " w-full h-full object-fill filter blur-sm",
+                            attrs: {
+                              src: category.imageUrl.url,
+                              alt: "category image",
+                            },
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "absolute flex items-center " },
+                            [_c("button", [_vm._v(_vm._s(category.category))])]
+                          ),
+                        ]
+                      ),
                     ]
                   ),
                 ],
@@ -50685,10 +50699,11 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "w-3/5 h-full border-2 border-red-600" },
+                { staticClass: "w-2/5 h-full flex flex-col justify-start" },
                 _vm._l(category.sub, function (sub) {
                   return _c(
                     "div",
+                    { staticClass: "w-full h-auto overflow-y-scroll border-b" },
                     [
                       _c(
                         "router-link",
@@ -50700,12 +50715,7 @@ var render = function () {
                             },
                           },
                         },
-                        [
-                          _c("div", {
-                            staticClass:
-                              "w-2/5 h-full  flex flex-col place-items-center overflow-y-scroll",
-                          }),
-                        ]
+                        [_c("button", [_vm._v(_vm._s(sub.category))])]
                       ),
                     ],
                     1
