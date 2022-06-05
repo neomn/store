@@ -39,11 +39,11 @@ export default {
         }
     },
     mounted() {
-        this.getAllCategories()
+        this.getAllCategories(this.objectifiedCategories)
         this.refreshCategoryContainer(this.$route.params.category)
     },
     methods: {
-        getAllCategories() {
+        getAllCategories(objectifiedCategories) {
             axios.get('/api/categories')
                 .then(response => {
                     console.log('getAllCategories >-------- \n')
@@ -55,7 +55,7 @@ export default {
                         // this.getCategoryAssociatedProducts()
                     }
                     this.objectifyCategoryArray(response.data.data)
-                    this.$root.categories = this.objectifiedCategories
+                    this.$root.$emit('bredCrumb' , objectifiedCategories )
                     this.initCategoryContainer()
                 })
                 .catch(function (error) {

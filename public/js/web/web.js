@@ -21327,9 +21327,11 @@ __webpack_require__.r(__webpack_exports__);
       content: {}
     };
   },
+  created: function created() {},
   mounted: function mounted() {
-    console.log('breadCrumb > ');
-    console.log(this.$root);
+    this.$root.$on('bredCrumb', function (category) {
+      console.log(category);
+    });
   },
   methods: {}
 });
@@ -21388,11 +21390,11 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.getAllCategories();
+    this.getAllCategories(this.objectifiedCategories);
     this.refreshCategoryContainer(this.$route.params.category);
   },
   methods: {
-    getAllCategories: function getAllCategories() {
+    getAllCategories: function getAllCategories(objectifiedCategories) {
       var _this = this;
 
       axios.get('/api/categories').then(function (response) {
@@ -21406,7 +21408,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.objectifyCategoryArray(response.data.data);
 
-        _this.$root.categories = _this.objectifiedCategories;
+        _this.$root.$emit('bredCrumb', objectifiedCategories);
 
         _this.initCategoryContainer();
       })["catch"](function (error) {
@@ -50593,29 +50595,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass:
+        "z-20 absolute top-4 flex justify-center items-center w-full h-12 ",
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "w-11/12 h-full  text-zinc-200 rounded-lg border" },
+        _vm._l(this.$root.categories, function (category) {
+          return _c("div", [
+            _vm._v("\n            " + _vm._s(category) + "\n        "),
+          ])
+        }),
+        0
+      ),
+    ]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "z-20 absolute top-4 flex justify-center items-center w-full h-12 ",
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "w-11/12 h-full  text-zinc-200 rounded-lg border" },
-          [_c("div")]
-        ),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
