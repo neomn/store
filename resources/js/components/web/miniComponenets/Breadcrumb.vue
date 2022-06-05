@@ -1,6 +1,6 @@
 <template>
     <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12 ">
-        <div class="w-11/12 h-full border text-zinc-200 rounded-lg">
+        <div class="w-11/12 h-full  text-zinc-200 rounded-lg border">
             <div>
 
             </div>
@@ -10,10 +10,18 @@
 
 <script>
 export default {
-    name: "Breadcrumb"
+    name: "Breadcrumb",
+    data(){
+      return {
+          content: {}
+      }
+    },
+    mounted(){
+        console.log('breadCrumb > ')
+        console.log(this.$root)
+    },
+    methods:{
+
+    }
 }
 </script>
-
-<style scoped>
-
-</style>
