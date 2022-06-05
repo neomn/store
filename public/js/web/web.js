@@ -21383,6 +21383,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Categories",
@@ -50653,48 +50657,35 @@ var render = function () {
         { staticClass: "grid grid-cols-1 gap-4 place-items-center" },
         _vm._l(_vm.categoryContainer, function (category) {
           return _c("div", { staticClass: "w-11/12 h-40 border rounded " }, [
-            _c(
-              "div",
-              { staticClass: "flex w-full h-full" },
-              [
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "border-4",
-                    attrs: {
-                      to: {
-                        name: "categories",
-                        params: { category: category.category },
+            _c("div", { staticClass: "flex w-full h-full justify-center" }, [
+              _c(
+                "div",
+                { staticClass: "w-2/5 h-full border-2 border-lime-600" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: {
+                          name: "categories",
+                          params: { category: category.category },
+                        },
                       },
                     },
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
+                    [
+                      _c("div", {
                         staticClass:
-                          "relative w-3/5 h-full flex justify-center items-center border-4",
-                      },
-                      [
-                        _c("img", {
-                          staticClass:
-                            " w-full h-full object-fill filter blur-sm",
-                          attrs: {
-                            src: category.imageUrl.url,
-                            alt: "category image",
-                          },
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "absolute flex items-center " },
-                          [_c("button", [_vm._v(_vm._s(category.category))])]
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
+                          "relative w-2/5 h-full flex justify-center items-center ",
+                      }),
+                    ]
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "w-3/5 h-full border-2 border-red-600" },
                 _vm._l(category.sub, function (sub) {
                   return _c(
                     "div",
@@ -50702,7 +50693,6 @@ var render = function () {
                       _c(
                         "router-link",
                         {
-                          staticClass: "border-4",
                           attrs: {
                             to: {
                               name: "categories",
@@ -50711,37 +50701,19 @@ var render = function () {
                           },
                         },
                         [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "w-2/5 h-full border flex flex-col place-items-center overflow-y-scroll",
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: " w-11/12 border-b text-center",
-                                },
-                                [
-                                  _vm._v(
-                                    '\n                                class="border-4">\n                                ' +
-                                      _vm._s(sub.category) +
-                                      "\n                            "
-                                  ),
-                                ]
-                              ),
-                            ]
-                          ),
+                          _c("div", {
+                            staticClass:
+                              "w-2/5 h-full  flex flex-col place-items-center overflow-y-scroll",
+                          }),
                         ]
                       ),
                     ],
                     1
                   )
                 }),
-              ],
-              2
-            ),
+                0
+              ),
+            ]),
           ])
         }),
         0
