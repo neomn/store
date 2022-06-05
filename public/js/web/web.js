@@ -21334,6 +21334,11 @@ __webpack_require__.r(__webpack_exports__);
     this.$root.$on('bredCrumb', function (categories) {
       _this.bredCrumbContainer = categories;
     });
+    this.$watch(function () {
+      return _this.$route.params;
+    }, function (newValue, oldValue) {
+      console.log(newValue);
+    });
   },
   methods: {}
 });
