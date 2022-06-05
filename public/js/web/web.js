@@ -21336,8 +21336,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     this.$watch(function () {
       return _this.$route.params;
-    }, function (newValue, oldValue) {
-      console.log(newValue);
+    }, function (newValue, oldValue) {// console.log(newValue)
     });
   },
   methods: {}
@@ -21404,9 +21403,10 @@ __webpack_require__.r(__webpack_exports__);
     this.getAllCategories(this.objectifiedCategories);
     this.refreshCategoryContainer(this.$route.params.category);
     this.$watch(function () {
-      return _this.$route.params;
+      return _this.$route.params.category;
     }, function (newValue, oldValue) {
-      console.log(newValue);
+      // console.log('route parameter watcher > ')
+      _this.refreshCategoryContainer(newValue, _this.objectifiedCategories);
     });
   },
   methods: {
@@ -21442,7 +21442,14 @@ __webpack_require__.r(__webpack_exports__);
       // console.log(this.categoryContainer)
       this.categoryContainer = this.objectifiedCategories;
     },
-    refreshCategoryContainer: function refreshCategoryContainer(category) {//     console.log('refreshCategoryContainer > ------')
+    refreshCategoryContainer: function refreshCategoryContainer(category, allCategories) {
+      var _this3 = this;
+
+      if (allCategories === undefined) return;
+      allCategories.forEach(function (item, index) {
+        console.log(item.category);
+        if (item.sub !== undefined) _this3.refreshCategoryContainer(category, item.sub);
+      }); //     console.log('refreshCategoryContainer > ------')
       //     if (queriedCategory) {
       //         console.log('received category to process > ' + queriedCategory + '\n')
       //         let preserveContainerContent = this.categoryContainer
@@ -21511,7 +21518,7 @@ __webpack_require__.r(__webpack_exports__);
     //     this.productContainer = {}
     // },
     objectifyCategoryArray: function objectifyCategoryArray(categoryArray) {
-      var _this3 = this;
+      var _this4 = this;
 
       console.log('objectifyCategoryArray >'); //assign an empty subCategory array to all elements
 
@@ -21520,10 +21527,10 @@ __webpack_require__.r(__webpack_exports__);
       }); //objectify root elements
 
       categoryArray.forEach(function (category, index) {
-        if (_this3.itIsRootCategory(category)) {
-          _this3.objectifiedCategories.push(category);
+        if (_this4.itIsRootCategory(category)) {
+          _this4.objectifiedCategories.push(category);
 
-          categoryArray = _this3.removeElementFromArray(category, categoryArray);
+          categoryArray = _this4.removeElementFromArray(category, categoryArray);
         }
       });
       console.log('root categories objectified');
@@ -21534,9 +21541,9 @@ __webpack_require__.r(__webpack_exports__);
         console.log('categoryArrayLength > ' + categoryArray.length);
         console.log(categoryArray);
         categoryArray.forEach(function (category, index) {
-          _this3.putCategoryIntoCategoryObject(category, _this3.objectifiedCategories);
+          _this4.putCategoryIntoCategoryObject(category, _this4.objectifiedCategories);
 
-          categoryArray = _this3.removeElementFromArray(category, categoryArray);
+          categoryArray = _this4.removeElementFromArray(category, categoryArray);
         });
       }
 
@@ -21555,7 +21562,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     putCategoryIntoCategoryObject: function putCategoryIntoCategoryObject(category, categoryObject) {
-      var _this4 = this;
+      var _this5 = this;
 
       console.log('putting ' + category.category + ' into categoryObject');
       console.log(categoryObject);
@@ -21572,7 +21579,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!objectified) {
         console.log('parent not found ');
         categoryObject.forEach(function (item, index) {
-          _this4.putCategoryIntoCategoryObject(category, item.sub);
+          _this5.putCategoryIntoCategoryObject(category, item.sub);
         });
       }
     }

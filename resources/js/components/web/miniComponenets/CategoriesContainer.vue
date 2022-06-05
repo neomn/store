@@ -44,9 +44,10 @@ export default {
         this.getAllCategories(this.objectifiedCategories)
         this.refreshCategoryContainer(this.$route.params.category)
 
-        this.$watch(()=> this.$route.params , (newValue , oldValue) => {
-                console.log(newValue)
-            })
+        this.$watch(() => this.$route.params.category, (newValue, oldValue) => {
+            // console.log('route parameter watcher > ')
+            this.refreshCategoryContainer(newValue, this.objectifiedCategories)
+        })
     },
     methods: {
         getAllCategories(objectifiedCategories) {
@@ -79,8 +80,15 @@ export default {
             // console.log(this.categoryContainer)
             this.categoryContainer = this.objectifiedCategories
         },
-        refreshCategoryContainer(category) {
+        refreshCategoryContainer(category, allCategories) {
+            if (allCategories === undefined)
+                return
 
+            allCategories.forEach((item, index) => {
+                console.log(item.category)
+                if (item.sub !== undefined)
+                    this.refreshCategoryContainer(category , item.sub)
+            })
 
             //     console.log('refreshCategoryContainer > ------')
             //     if (queriedCategory) {

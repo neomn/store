@@ -23,8 +23,8 @@ export default {
             this.bredCrumbContainer = categories
         })
 
-        this.$watch(()=> this.$route.params , (newValue , oldValue) => {
-            console.log(newValue)
+        this.$watch(()=> this.$route.params , (newValue , oldValue ) => {
+            // console.log(newValue)
         })
     },
     methods:{
