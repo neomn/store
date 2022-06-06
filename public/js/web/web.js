@@ -50703,7 +50703,7 @@ var render = function () {
                             staticClass:
                               " w-full h-full object-fill filter blur-sm",
                             attrs: {
-                              src: category.imageUrl.url,
+                              src: category.imageUrl,
                               alt: "category image",
                             },
                           }),
