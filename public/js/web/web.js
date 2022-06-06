@@ -21445,17 +21445,15 @@ __webpack_require__.r(__webpack_exports__);
     refreshCategoryContainer: function refreshCategoryContainer(category, allCategories) {
       var _this3 = this;
 
+      console.log('category >' + category);
       if (allCategories === undefined) return;
       allCategories.forEach(function (item, index) {
-        console.log(item.category);
-
+        // console.log(item.category)
         if (item.category === category) {
-          console.log('category found>');
-          console.log(item);
           _this3.categoryContainer = item;
-        }
-
-        if (item.sub !== undefined) _this3.refreshCategoryContainer(category, item.sub);
+          console.log(_this3.categoryContainer);
+          return;
+        } else if (item.sub !== undefined) _this3.refreshCategoryContainer(category, item.sub);
       }); //     console.log('refreshCategoryContainer > ------')
       //     if (queriedCategory) {
       //         console.log('received category to process > ' + queriedCategory + '\n')
@@ -50714,7 +50712,7 @@ var render = function () {
                             "div",
                             {
                               staticClass:
-                                "absolute flex items-center text-2xl font-bold ",
+                                "absolute flex items-center text-2xl font-bold  ",
                             },
                             [_c("button", [_vm._v(_vm._s(category.category))])]
                           ),

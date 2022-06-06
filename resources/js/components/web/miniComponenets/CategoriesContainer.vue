@@ -8,7 +8,7 @@
                             <div class="relative w-full h-full flex justify-center items-center  ">
                                 <img :src="category.imageUrl.url" alt="category image"
                                      class=" w-full h-full object-fill filter blur-sm">
-                                <div class="absolute flex items-center text-2xl font-bold ">
+                                <div class="absolute flex items-center text-2xl font-bold  ">
                                     <button>{{ category.category }}</button>
                                 </div>
                             </div>
@@ -81,19 +81,19 @@ export default {
             this.categoryContainer = this.objectifiedCategories
         },
         refreshCategoryContainer(category, allCategories) {
+            console.log( 'category >' + category)
             if (allCategories === undefined)
                 return
 
             allCategories.forEach((item, index) => {
-                console.log(item.category)
+                // console.log(item.category)
 
                 if (item.category === category){
-                    console.log('category found>')
-                    console.log(item)
                     this.categoryContainer = item
+                    console.log(this.categoryContainer)
+                    return
                 }
-
-                if (item.sub !== undefined)
+                else if (item.sub !== undefined)
                     this.refreshCategoryContainer(category , item.sub)
             })
 
