@@ -50733,6 +50733,36 @@ var render = function () {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "w-2/5 h-full flex flex-col justify-start" },
+                _vm._l(category.sub, function (sub) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass:
+                        "w-full h-auto overflow-y-scroll p-2 border-b",
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "categories",
+                              params: { category: sub.category },
+                            },
+                          },
+                        },
+                        [_c("button", [_vm._v(_vm._s(sub.category))])]
+                      ),
+                    ],
+                    1
+                  )
+                }),
+                0
+              ),
             ]),
           ])
         }),
