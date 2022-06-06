@@ -1,9 +1,9 @@
 <template>
     <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll">
 
-        <div class="w-full h-80 border overflow-y-scroll">
-            {{categoryContainer}}
-        </div>
+<!--        <div class="w-full h-80 border overflow-y-scroll">-->
+<!--            {{categoryContainer}}-->
+<!--        </div>-->
 
         <div  class="grid grid-cols-1 gap-4 place-items-center" >
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded ">
@@ -86,8 +86,10 @@ export default {
             this.categoryContainer = this.objectifiedCategories
         },
         refreshCategoryContainer(category, allCategories) {
-            if (allCategories === undefined || category === undefined)
+            if (allCategories === undefined || category === undefined){
+                this.initCategoryContainer()
                 return
+            }
 
             allCategories.forEach((item, index) => {
                 console.log('comparing ' + category + ' with ' + item.category )

@@ -21450,7 +21450,11 @@ __webpack_require__.r(__webpack_exports__);
     refreshCategoryContainer: function refreshCategoryContainer(category, allCategories) {
       var _this3 = this;
 
-      if (allCategories === undefined || category === undefined) return;
+      if (allCategories === undefined || category === undefined) {
+        this.initCategoryContainer();
+        return;
+      }
+
       allCategories.forEach(function (item, index) {
         console.log('comparing ' + category + ' with ' + item.category);
 
@@ -50677,10 +50681,6 @@ var render = function () {
         " z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll",
     },
     [
-      _c("div", { staticClass: "w-full h-80 border overflow-y-scroll" }, [
-        _vm._v("\n            " + _vm._s(_vm.categoryContainer) + "\n        "),
-      ]),
-      _vm._v(" "),
       _c(
         "div",
         { staticClass: "grid grid-cols-1 gap-4 place-items-center" },
