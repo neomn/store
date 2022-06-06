@@ -14,13 +14,13 @@
                             </div>
                         </router-link>
                     </div>
-                    <div class="w-2/5 h-full flex flex-col justify-start">
-                        <div v-for="sub in category.sub" class="w-full h-auto overflow-y-scroll p-2 border-b">
-                            <router-link :to="{name:'categories' , params: {category: sub.category}}">
-                                <button>{{ sub.category }}</button>
-                            </router-link>
-                        </div>
-                    </div>
+<!--                    <div class="w-2/5 h-full flex flex-col justify-start">-->
+<!--                        <div v-for="sub in category.sub" class="w-full h-auto overflow-y-scroll p-2 border-b">-->
+<!--                            <router-link :to="{name:'categories' , params: {category: sub.category}}">-->
+<!--                                <button>{{ sub.category }}</button>-->
+<!--                            </router-link>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
@@ -82,14 +82,16 @@ export default {
         },
         refreshCategoryContainer(category, allCategories) {
             console.log( 'category >' + category)
-            if (allCategories === undefined)
+            if (allCategories === undefined || category === undefined)
                 return
 
             allCategories.forEach((item, index) => {
-                // console.log(item.category)
+
+                console.log('comparing' + category + 'with ' + item.category )
 
                 if (item.category === category){
                     this.categoryContainer = item
+                    console.log('send to category container >')
                     console.log(this.categoryContainer)
                     return
                 }

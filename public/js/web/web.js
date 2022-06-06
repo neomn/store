@@ -21446,11 +21446,13 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       console.log('category >' + category);
-      if (allCategories === undefined) return;
+      if (allCategories === undefined || category === undefined) return;
       allCategories.forEach(function (item, index) {
-        // console.log(item.category)
+        console.log('comparing' + category + 'with ' + item.category);
+
         if (item.category === category) {
           _this3.categoryContainer = item;
+          console.log('send to category container >');
           console.log(_this3.categoryContainer);
           return;
         } else if (item.sub !== undefined) _this3.refreshCategoryContainer(category, item.sub);
@@ -50722,36 +50724,6 @@ var render = function () {
                   ),
                 ],
                 1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "w-2/5 h-full flex flex-col justify-start" },
-                _vm._l(category.sub, function (sub) {
-                  return _c(
-                    "div",
-                    {
-                      staticClass:
-                        "w-full h-auto overflow-y-scroll p-2 border-b",
-                    },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: {
-                              name: "categories",
-                              params: { category: sub.category },
-                            },
-                          },
-                        },
-                        [_c("button", [_vm._v(_vm._s(sub.category))])]
-                      ),
-                    ],
-                    1
-                  )
-                }),
-                0
               ),
             ]),
           ])
