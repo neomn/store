@@ -28,25 +28,27 @@ export default {
 
         this.$watch(() => this.$route.params.category, (newValue, oldValue) => {
             this.breakIteration = false
-            this.refreshBredCrumbContainer(newValue , this.allCategories)
+            this.refreshBredCrumbContainer(newValue, this.allCategories)
         })
     },
     methods: {
-        refreshBredCrumbContainer(category , allCategories) {
+        refreshBredCrumbContainer(category, allCategories) {
             if (!this.breakIteration) {
                 if (category === undefined) {
                     return
                 } else {
                     allCategories.forEach((item, index) => {
-                        console.log('comparing ' + category + ' with ' + item.category)
-                        if (item.category === category) {
-                            console.log(category + ' found')
-                            this.breakIteration = true
-                            // this.bredCrumbContainer = item.sub.category
-                            // console.log('send to bredCrumb container >')
-                            // console.log(this.bredCrumbContainer)
-                        } else if (item.sub !== undefined)
-                            this.refreshBredCrumbContainer(category, item.sub)
+                        if (!this.breakIteration) {
+                            console.log('comparing ' + category + ' with ' + item.category)
+                            if (item.category === category) {
+                                console.log(category + ' found')
+                                this.breakIteration = true
+                                // this.bredCrumbContainer = item.sub.category
+                                // console.log('send to bredCrumb container >')
+                                // console.log(this.bredCrumbContainer)
+                            } else if (item.sub !== undefined)
+                                this.refreshBredCrumbContainer(category, item.sub)
+                        }
                     })
                 }
             }

@@ -21356,14 +21356,16 @@ __webpack_require__.r(__webpack_exports__);
           return;
         } else {
           allCategories.forEach(function (item, index) {
-            console.log('comparing ' + category + ' with ' + item.category);
+            if (!_this2.breakIteration) {
+              console.log('comparing ' + category + ' with ' + item.category);
 
-            if (item.category === category) {
-              console.log(category + ' found');
-              _this2.breakIteration = true; // this.bredCrumbContainer = item.sub.category
-              // console.log('send to bredCrumb container >')
-              // console.log(this.bredCrumbContainer)
-            } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
+              if (item.category === category) {
+                console.log(category + ' found');
+                _this2.breakIteration = true; // this.bredCrumbContainer = item.sub.category
+                // console.log('send to bredCrumb container >')
+                // console.log(this.bredCrumbContainer)
+              } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
+            }
           });
         }
       }
