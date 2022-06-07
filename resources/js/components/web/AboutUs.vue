@@ -1,14 +1,16 @@
 <template>
-    <div class="bg-slate-800">
+    <div>
+        <Background/>
         <Header/>
     </div>
 </template>
 
 <script>
 import Header from "../web/Header";
+import Background from "./Background";
 export default {
     name: "AboutUs",
-    components: {Header}
+    components: {Background, Header}
 }
 </script>
 

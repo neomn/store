@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <Background/>
         <Header/>
 
         <!-- display shopping cart productContainer -->
@@ -52,10 +52,11 @@
 <script>
 import {isEmpty} from "lodash";
 import Header from "../web/Header";
+import Background from "./Background";
 
 export default {
     name: "ShoppingCart",
-    components: {Header},
+    components: {Background, Header},
     data() {
         return {
             productContainer: [],

@@ -20,6 +20,7 @@ class CategoryResource extends JsonResource
             'id' => $this->id,
             'parent_id' => $this->parent_id,
             'category' => $this->category,
+            'imageUrl' => $this->image->url,
         ];
     }
 }
