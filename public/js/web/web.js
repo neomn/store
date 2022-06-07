@@ -21320,10 +21320,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Breadcrumb",
   data: function data() {
     return {
+      allCategories: {},
       bredCrumbContainer: {}
     };
   },
@@ -21331,15 +21335,20 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.$root.$on('bredCrumb', function (categories) {
-      _this.bredCrumbContainer = categories;
+      _this.allCategories = categories;
     });
     this.$watch(function () {
-      return _this.$route.params;
-    }, function (newValue, oldValue) {// console.log(newValue)
+      return _this.$route.params.category;
+    }, function (newValue, oldValue) {
+      _this.refreshBredCrumbContainer(newValue);
     });
   },
   methods: {
-    refreshBredCrumbContainer: function refreshBredCrumbContainer(category) {}
+    refreshBredCrumbContainer: function refreshBredCrumbContainer(category) {
+      if (category === undefined) {} else {
+        this.bredCrumbContainer = category;
+      }
+    }
   }
 });
 
@@ -21457,12 +21466,11 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       allCategories.forEach(function (item, index) {
-        console.log('comparing ' + category + ' with ' + item.category);
-
+        // console.log('comparing ' + category + ' with ' + item.category )
         if (item.category === category) {
-          _this3.categoryContainer = item.sub;
-          console.log('send to category container >');
-          console.log(_this3.categoryContainer);
+          _this3.categoryContainer = item.sub; // console.log('send to category container >')
+          // console.log(this.categoryContainer)
+
           return;
         } else if (item.sub !== undefined) _this3.refreshCategoryContainer(category, item.sub);
       }); //     console.log('refreshCategoryContainer > ------')
@@ -50643,11 +50651,22 @@ var render = function () {
     [
       _c(
         "div",
-        { staticClass: "w-11/12 h-full  text-zinc-200 rounded-lg border" },
-        _vm._l(_vm.bredCrumbContainer, function (category) {
-          return _c("div")
-        }),
-        0
+        {
+          staticClass:
+            "flex justify-start items-center w-11/12 h-full text-zinc-200 rounded-lg border",
+        },
+        [
+          _c("div", { staticClass: "ml-4" }, [
+            _vm._v("\n            Categories >\n        "),
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.bredCrumbContainer, function (category) {
+            return _c("div", { staticClass: "w-auto h-10 ml-2 border" }, [
+              _vm._v("\n            " + _vm._s(category) + "\n        "),
+            ])
+          }),
+        ],
+        2
       ),
     ]
   )

@@ -92,11 +92,11 @@ export default {
             }
 
             allCategories.forEach((item, index) => {
-                console.log('comparing ' + category + ' with ' + item.category )
+                // console.log('comparing ' + category + ' with ' + item.category )
                 if (item.category === category){
                     this.categoryContainer = item.sub
-                    console.log('send to category container >')
-                    console.log(this.categoryContainer)
+                    // console.log('send to category container >')
+                    // console.log(this.categoryContainer)
                     return
                 }
                 else if (item.sub !== undefined)
