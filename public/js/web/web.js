@@ -21327,6 +21327,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "Breadcrumb",
   data: function data() {
     return {
+      breakIteration: false,
+      // helper variable to to break nested Object iteration
       allCategories: {},
       bredCrumbContainer: {}
     };
@@ -21340,13 +21342,30 @@ __webpack_require__.r(__webpack_exports__);
     this.$watch(function () {
       return _this.$route.params.category;
     }, function (newValue, oldValue) {
-      _this.refreshBredCrumbContainer(newValue);
+      _this.breakIteration = false;
+
+      _this.refreshBredCrumbContainer(newValue, _this.allCategories);
     });
   },
   methods: {
-    refreshBredCrumbContainer: function refreshBredCrumbContainer(category) {
-      if (category === undefined) {} else {
-        this.bredCrumbContainer = category;
+    refreshBredCrumbContainer: function refreshBredCrumbContainer(category, allCategories) {
+      var _this2 = this;
+
+      if (!this.breakIteration) {
+        if (category === undefined) {
+          return;
+        } else {
+          allCategories.forEach(function (item, index) {
+            console.log('comparing ' + category + ' with ' + item.category);
+
+            if (item.category === category) {
+              console.log(category + ' found');
+              _this2.breakIteration = true; // this.bredCrumbContainer = item.sub.category
+              // console.log('send to bredCrumb container >')
+              // console.log(this.bredCrumbContainer)
+            } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
+          });
+        }
       }
     }
   }

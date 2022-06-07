@@ -4,8 +4,8 @@
             <div class="ml-4">
                 Categories >
             </div>
-            <div v-for="category in bredCrumbContainer" class="w-auto h-10 ml-2 border" >
-                {{category}}
+            <div v-for="category in bredCrumbContainer" class="w-auto h-10 ml-2 border">
+                {{ category }}
             </div>
         </div>
     </div>
@@ -16,6 +16,7 @@ export default {
     name: "Breadcrumb",
     data() {
         return {
+            breakIteration: false, // helper variable to to break nested Object iteration
             allCategories: {},
             bredCrumbContainer: {},
         }
@@ -26,17 +27,30 @@ export default {
         })
 
         this.$watch(() => this.$route.params.category, (newValue, oldValue) => {
-            this.refreshBredCrumbContainer(newValue)
+            this.breakIteration = false
+            this.refreshBredCrumbContainer(newValue , this.allCategories)
         })
     },
     methods: {
-        refreshBredCrumbContainer(category) {
-            if (category === undefined){
-
-            }else {
-                this.bredCrumbContainer = category
+        refreshBredCrumbContainer(category , allCategories) {
+            if (!this.breakIteration) {
+                if (category === undefined) {
+                    return
+                } else {
+                    allCategories.forEach((item, index) => {
+                        console.log('comparing ' + category + ' with ' + item.category)
+                        if (item.category === category) {
+                            console.log(category + ' found')
+                            this.breakIteration = true
+                            // this.bredCrumbContainer = item.sub.category
+                            // console.log('send to bredCrumb container >')
+                            // console.log(this.bredCrumbContainer)
+                        } else if (item.sub !== undefined)
+                            this.refreshBredCrumbContainer(category, item.sub)
+                    })
+                }
             }
-        }
+        },
     }
 }
 </script>
