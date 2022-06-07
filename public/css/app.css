@@ -829,6 +829,9 @@ select {
 .h-\[1px\] {
   height: 1px;
 }
+.h-80 {
+  height: 20rem;
+}
 .h-40 {
   height: 10rem;
 }
@@ -840,9 +843,6 @@ select {
 }
 .h-64 {
   height: 16rem;
-}
-.h-80 {
-  height: 20rem;
 }
 .min-h-screen {
   min-height: 100vh;

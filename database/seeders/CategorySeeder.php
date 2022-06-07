@@ -28,10 +28,10 @@ class CategorySeeder extends Seeder
         $categoryImages = [
             ['category_id' => 1 ,'title' => 'Electronics And Robotics' , 'url'=> '/storage/images/categories/electronicsAndRobotics.jpg'],
             ['category_id' => 2 ,'title' => 'Other' , 'url'=> '/storage/images/categories/other.jpg'],
-            ['category_id' => 11 ,'title' => 'MicroControllers and Processors' , 'url'=> '/storage/images/categories/other.jpg'],
-            ['category_id' => 111 ,'title' => 'Arduino Family' , 'url'=> '/storage/images/categories/other.jpg'],
-            ['category_id' => 112 ,'title' => 'Raspberry Family' , 'url'=> '/storage/images/categories/other.jpg'],
-            ['category_id' => 113 ,'title' => 'ESP Family' , 'url'=> '/storage/images/categories/other.jpg'],
+            ['category_id' => 11 ,'title' => 'MicroControllers and Processors' , 'url'=> '/storage/images/categories/electronicsAndRobotics.jpg'],
+            ['category_id' => 111 ,'title' => 'Arduino Family' , 'url'=> '/storage/images/categories/electronicsAndRobotics.jpg'],
+            ['category_id' => 112 ,'title' => 'Raspberry Family' , 'url'=> '/storage/images/categories/electronicsAndRobotics.jpg'],
+            ['category_id' => 113 ,'title' => 'ESP Family' , 'url'=> '/storage/images/categories/electronicsAndRobotics.jpg'],
         ];
         DB::table('images')->insert($categoryImages);
     }
