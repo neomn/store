@@ -11,24 +11,24 @@
 <script>
 export default {
     name: "Breadcrumb",
-    data(){
-      return {
-          bredCrumbContainer: {},
-      }
+    data() {
+        return {
+            bredCrumbContainer: {},
+        }
     },
-    created() {
-    },
-    mounted(){
-        this.$root.$on('bredCrumb' , (categories)=>{
+    mounted() {
+        this.$root.$on('bredCrumb', (categories) => {
             this.bredCrumbContainer = categories
         })
 
-        this.$watch(()=> this.$route.params , (newValue , oldValue ) => {
+        this.$watch(() => this.$route.params, (newValue, oldValue) => {
             // console.log(newValue)
         })
     },
-    methods:{
+    methods: {
+        refreshBredCrumbContainer( category ) {
 
+        }
     }
 }
 </script>

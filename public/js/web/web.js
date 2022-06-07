@@ -21327,7 +21327,6 @@ __webpack_require__.r(__webpack_exports__);
       bredCrumbContainer: {}
     };
   },
-  created: function created() {},
   mounted: function mounted() {
     var _this = this;
 
@@ -21339,7 +21338,9 @@ __webpack_require__.r(__webpack_exports__);
     }, function (newValue, oldValue) {// console.log(newValue)
     });
   },
-  methods: {}
+  methods: {
+    refreshBredCrumbContainer: function refreshBredCrumbContainer(category) {}
+  }
 });
 
 /***/ }),
