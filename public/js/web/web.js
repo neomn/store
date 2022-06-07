@@ -21352,18 +21352,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (!this.breakIteration) {
-        if (category === undefined) {
-          return;
-        } else {
+        if (category === undefined) {} else {
           allCategories.forEach(function (item, index) {
             if (!_this2.breakIteration) {
-              console.log('comparing ' + category + ' with ' + item.category);
-
               if (item.category === category) {
                 console.log(category + ' found');
-                _this2.breakIteration = true; // this.bredCrumbContainer = item.sub.category
-                // console.log('send to bredCrumb container >')
-                // console.log(this.bredCrumbContainer)
+                _this2.breakIteration = true;
               } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
             }
           });
@@ -50777,14 +50771,14 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "w-2/5 h-full flex flex-col justify-start" },
+                {
+                  staticClass:
+                    "w-2/5 h-full flex flex-col justify-start overflow-y-scroll text-center",
+                },
                 _vm._l(category.sub, function (sub) {
                   return _c(
                     "div",
-                    {
-                      staticClass:
-                        "w-full h-auto overflow-y-scroll p-2 border-b",
-                    },
+                    { staticClass: "w-full h-auto p-2 border-b" },
                     [
                       _c(
                         "router-link",
