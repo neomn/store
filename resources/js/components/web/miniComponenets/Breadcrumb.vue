@@ -21,6 +21,7 @@ export default {
             breakBredIteration: false, // helper variable to to break nested Object iteration
             breakHierarchyIteration: false, // helper variable to to break nested Object iteration
             targetCategory: {},
+            hierarchyArray: []
         }
     },
     mounted() {
@@ -46,8 +47,10 @@ export default {
                             if (item.category === category) {
                                 console.log(category + ' found')
                                 this.targetCategory = item
-                                if (item.parentId !== null)
+                                if (item.parent_id !== null) {
+                                    this.breakHierarchyIteration = false
                                     this.buildCategoryHierarchyArray(item, this.allCategories)
+                                }
                                 this.breakBredIteration = true
                             } else if (item.sub !== undefined)
                                 this.refreshBredCrumbContainer(category, item.sub)
@@ -57,29 +60,32 @@ export default {
             }
         },
         buildCategoryHierarchyArray(category, allCategories) {
-            let hierarchyArray = []
-            allCategories.forEach((item, index) => {
+            if (!this.breakHierarchyIteration) {
+                allCategories.forEach((item, index) => {
 
-                console.log('checking >')
-                console.log(item.category)
+                    console.log('checking >')
+                    console.log(item.category)
 
-                if (!this.breakHierarchyIteration) {
-                    if (item.parentId === null) {
-                        hierarchyArray = []
-                        hierarchyArray.push(item.category)
+                    if (!this.breakHierarchyIteration) {
+                        if (item.parent_id === null) {
+                            this.hierarchyArray = []
+                            this.hierarchyArray.push(item.category)
+                        }
+                        if (item.id === this.targetCategory.parent_id) {
+                            this.hierarchyArray.push(item.category)
+                            this.hierarchyArray.push(this.targetCategory.category)
+                            this.breakHierarchyIteration = true
+                            console.log(' ---------- process should be finished -------')
+                        } else if (item.sub !== undefined) {
+                            console.log('item.sub !== undefined ')
+                            console.log(item.sun)
+                            this.buildCategoryHierarchyArray(this.targetCategory, item.sub)
+                        }
                     }
-                    hierarchyArray.push(category.category)
-                    if (item.id === this.targetCategory.parentId){
-                        this.breakHierarchyIteration = true
-                    }
-                    else if (item.sub !== undefined){
-                        this.buildCategoryHierarchyArray(item.sub , this.allCategories)
-                    }
-                }
-            })
-            this.breakHierarchyIteration = false
-            console.log(hierarchyArray)
-            this.bredCrumbContainer = hierarchyArray
+                })
+                console.log(this.hierarchyArray)
+                this.bredCrumbContainer = this.hierarchyArray
+            }
         },
     }
 }
