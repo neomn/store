@@ -21327,10 +21327,13 @@ __webpack_require__.r(__webpack_exports__);
   name: "Breadcrumb",
   data: function data() {
     return {
-      breakIteration: false,
-      // helper variable to to break nested Object iteration
       allCategories: {},
-      bredCrumbContainer: {}
+      bredCrumbContainer: {},
+      breakBredIteration: false,
+      // helper variable to to break nested Object iteration
+      breakHierarchyIteration: false,
+      // helper variable to to break nested Object iteration
+      targetCategory: {}
     };
   },
   mounted: function mounted() {
@@ -21342,7 +21345,7 @@ __webpack_require__.r(__webpack_exports__);
     this.$watch(function () {
       return _this.$route.params.category;
     }, function (newValue, oldValue) {
-      _this.breakIteration = false;
+      _this.breakBredIteration = false;
 
       _this.refreshBredCrumbContainer(newValue, _this.allCategories);
     });
@@ -21351,18 +21354,48 @@ __webpack_require__.r(__webpack_exports__);
     refreshBredCrumbContainer: function refreshBredCrumbContainer(category, allCategories) {
       var _this2 = this;
 
-      if (!this.breakIteration) {
-        if (category === undefined) {} else {
+      if (!this.breakBredIteration) {
+        if (category === undefined) {} // find intended category Object
+        else {
           allCategories.forEach(function (item, index) {
-            if (!_this2.breakIteration) {
+            if (!_this2.breakBredIteration) {
               if (item.category === category) {
                 console.log(category + ' found');
-                _this2.breakIteration = true;
+                _this2.targetCategory = item;
+                if (item.parentId !== null) _this2.buildCategoryHierarchyArray(item, _this2.allCategories);
+                _this2.breakBredIteration = true;
               } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
             }
           });
         }
       }
+    },
+    buildCategoryHierarchyArray: function buildCategoryHierarchyArray(category, allCategories) {
+      var _this3 = this;
+
+      var hierarchyArray = [];
+      allCategories.forEach(function (item, index) {
+        console.log('checking >');
+        console.log(item.category);
+
+        if (!_this3.breakHierarchyIteration) {
+          if (item.parentId === null) {
+            hierarchyArray = [];
+            hierarchyArray.push(item.category);
+          }
+
+          hierarchyArray.push(category.category);
+
+          if (item.id === _this3.targetCategory.parentId) {
+            _this3.breakHierarchyIteration = true;
+          } else if (item.sub !== undefined) {
+            _this3.buildCategoryHierarchyArray(item.sub, _this3.allCategories);
+          }
+        }
+      });
+      this.breakHierarchyIteration = false;
+      console.log(hierarchyArray);
+      this.bredCrumbContainer = hierarchyArray;
     }
   }
 });

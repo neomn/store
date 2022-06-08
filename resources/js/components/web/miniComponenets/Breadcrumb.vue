@@ -16,9 +16,11 @@ export default {
     name: "Breadcrumb",
     data() {
         return {
-            breakIteration: false, // helper variable to to break nested Object iteration
             allCategories: {},
             bredCrumbContainer: {},
+            breakBredIteration: false, // helper variable to to break nested Object iteration
+            breakHierarchyIteration: false, // helper variable to to break nested Object iteration
+            targetCategory: {},
         }
     },
     mounted() {
@@ -27,27 +29,57 @@ export default {
         })
 
         this.$watch(() => this.$route.params.category, (newValue, oldValue) => {
-            this.breakIteration = false
+            this.breakBredIteration = false
             this.refreshBredCrumbContainer(newValue, this.allCategories)
         })
     },
     methods: {
         refreshBredCrumbContainer(category, allCategories) {
-            if (!this.breakIteration) {
+            if (!this.breakBredIteration) {
                 if (category === undefined) {
 
-                } else {
+                }
+                // find intended category Object
+                else {
                     allCategories.forEach((item, index) => {
-                        if (!this.breakIteration) {
+                        if (!this.breakBredIteration) {
                             if (item.category === category) {
                                 console.log(category + ' found')
-                                this.breakIteration = true
+                                this.targetCategory = item
+                                if (item.parentId !== null)
+                                    this.buildCategoryHierarchyArray(item, this.allCategories)
+                                this.breakBredIteration = true
                             } else if (item.sub !== undefined)
                                 this.refreshBredCrumbContainer(category, item.sub)
                         }
                     })
                 }
             }
+        },
+        buildCategoryHierarchyArray(category, allCategories) {
+            let hierarchyArray = []
+            allCategories.forEach((item, index) => {
+
+                console.log('checking >')
+                console.log(item.category)
+
+                if (!this.breakHierarchyIteration) {
+                    if (item.parentId === null) {
+                        hierarchyArray = []
+                        hierarchyArray.push(item.category)
+                    }
+                    hierarchyArray.push(category.category)
+                    if (item.id === this.targetCategory.parentId){
+                        this.breakHierarchyIteration = true
+                    }
+                    else if (item.sub !== undefined){
+                        this.buildCategoryHierarchyArray(item.sub , this.allCategories)
+                    }
+                }
+            })
+            this.breakHierarchyIteration = false
+            console.log(hierarchyArray)
+            this.bredCrumbContainer = hierarchyArray
         },
     }
 }
