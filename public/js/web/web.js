@@ -21383,9 +21383,40 @@ __webpack_require__.r(__webpack_exports__);
     buildCategoryHierarchyArray: function buildCategoryHierarchyArray(allCategories) {
       var _this3 = this;
 
+      var wasntTarget = 0;
+      console.log('recursive call > ');
+      console.log(allCategories);
       allCategories.forEach(function (item, index) {
         if (!_this3.breakHierarchyIteration) {
-          console.log('checking > ' + item.category + '   index > ' + index); //is it target ?
+          console.log('checking > ' + item.category); //is it target ?
+
+          if (item.category === _this3.targetCategory.category) {
+            console.log('target found');
+
+            _this3.hierarchyArray.push(item.category);
+
+            _this3.breakHierarchyIteration = true;
+          } else {
+            wasntTarget++;
+            console.log(item.category + ' wasnt target > ' + wasntTarget);
+
+            if (wasntTarget >= allCategories.length) {
+              console.log('all children checked');
+              console.log('removing last element');
+              console.log(_this3.hierarchyArray);
+
+              _this3.hierarchyArray.pop();
+            }
+
+            if (item.sub.length > 0) {
+              _this3.hierarchyArray.push(item.category);
+
+              console.log('adding ' + item.category + ' to hierarchy array ');
+              console.log(_this3.hierarchyArray);
+
+              _this3.buildCategoryHierarchyArray(item.sub);
+            }
+          }
         }
       });
     }

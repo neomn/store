@@ -62,11 +62,33 @@ export default {
             }
         },
         buildCategoryHierarchyArray(allCategories) {
+            let wasntTarget = 0
+            console.log( 'recursive call > ')
+            console.log(allCategories)
             allCategories.forEach((item, index) => {
                 if (!this.breakHierarchyIteration) {
-                    console.log('checking > ' + item.category + '   index > ' + index)
+                    console.log('checking > ' + item.category )
                     //is it target ?
-
+                    if (item.category === this.targetCategory.category){
+                        console.log('target found')
+                        this.hierarchyArray.push(item.category)
+                        this.breakHierarchyIteration = true
+                    }else {
+                        wasntTarget++
+                        console.log(item.category + ' wasnt target > ' + wasntTarget)
+                        if (wasntTarget >= allCategories.length) {
+                            console.log('all children checked')
+                            console.log('removing last element')
+                            console.log(this.hierarchyArray)
+                            this.hierarchyArray.pop()
+                        }
+                        if (item.sub.length > 0){
+                            this.hierarchyArray.push(item.category)
+                            console.log('adding ' + item.category + ' to hierarchy array ')
+                            console.log(this.hierarchyArray)
+                            this.buildCategoryHierarchyArray(item.sub)
+                        }
+                    }
                 }
             })
         },
