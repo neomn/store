@@ -64,13 +64,18 @@ export default {
         buildCategoryHierarchyArray(allCategories) {
             allCategories.forEach((item, index) => {
                 if (!this.breakHierarchyIteration) {
+                    console.log('checking > ' + item.category + '   index > ' + index)
                     //if it is root , add it to array
                     if (item.parent_id === null){
+                        this.hierarchyArray = []
                         this.hierarchyArray.push(item.category)
                     }
+                    //if it is target , finish process
                     if (item.category === this.targetCategory.category){
+                        if (item.parent_id !== null)
+                            this.hierarchyArray.push(item.category)
                         this.breakHierarchyIteration = true
-                    }else {
+                    }else if (item.sub !== undefined) {
                         this.buildCategoryHierarchyArray(item.sub)
                     }
                 }

@@ -21385,14 +21385,19 @@ __webpack_require__.r(__webpack_exports__);
 
       allCategories.forEach(function (item, index) {
         if (!_this3.breakHierarchyIteration) {
-          //if it is root , add it to array
+          console.log('checking > ' + item.category + '   index > ' + index); //if it is root , add it to array
+
           if (item.parent_id === null) {
+            _this3.hierarchyArray = [];
+
             _this3.hierarchyArray.push(item.category);
-          }
+          } //if it is target , finish process
+
 
           if (item.category === _this3.targetCategory.category) {
+            if (item.parent_id !== null) _this3.hierarchyArray.push(item.category);
             _this3.breakHierarchyIteration = true;
-          } else {
+          } else if (item.sub !== undefined) {
             _this3.buildCategoryHierarchyArray(item.sub);
           }
         }
