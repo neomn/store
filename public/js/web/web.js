@@ -21363,12 +21363,9 @@ __webpack_require__.r(__webpack_exports__);
               if (item.category === category) {
                 console.log(category + ' found');
                 _this2.targetCategory = item;
+                _this2.breakHierarchyIteration = false;
 
-                if (item.parent_id !== null) {
-                  _this2.breakHierarchyIteration = false;
-
-                  _this2.buildCategoryHierarchyArray(item, _this2.allCategories);
-                }
+                _this2.buildCategoryHierarchyArray(item, _this2.allCategories);
 
                 _this2.breakBredIteration = true;
               } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
@@ -21381,14 +21378,18 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       allCategories.forEach(function (item, index) {
-        console.log('checking >');
-        console.log(item.category);
-
         if (!_this3.breakHierarchyIteration) {
           if (item.parent_id === null) {
             _this3.hierarchyArray = [];
 
             _this3.hierarchyArray.push(item.category);
+
+            console.log(item.category);
+
+            if (item.category === _this3.targetCategory.category) {
+              _this3.bredCrumbContainer = _this3.hierarchyArray;
+              _this3.breakHierarchyIteration = true;
+            }
           }
 
           if (item.id === _this3.targetCategory.parent_id) {
