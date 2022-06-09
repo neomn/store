@@ -29,6 +29,10 @@ export default {
             this.allCategories = categories
         })
 
+        if (this.$route.params.category !== undefined) {
+            this.$router.push({name: 'categories'})
+        }
+
         this.$watch(() => this.$route.params.category, (newValue, oldValue) => {
             this.breakBredIteration = false
             this.refreshBredCrumbContainer(newValue, this.allCategories)

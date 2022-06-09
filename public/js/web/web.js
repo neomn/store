@@ -21343,6 +21343,13 @@ __webpack_require__.r(__webpack_exports__);
     this.$root.$on('bredCrumb', function (categories) {
       _this.allCategories = categories;
     });
+
+    if (this.$route.params.category !== undefined) {
+      this.$router.push({
+        name: 'categories'
+      });
+    }
+
     this.$watch(function () {
       return _this.$route.params.category;
     }, function (newValue, oldValue) {
