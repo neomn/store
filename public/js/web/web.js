@@ -21323,6 +21323,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Breadcrumb",
   data: function data() {
@@ -50724,24 +50725,30 @@ var render = function () {
     "div",
     {
       staticClass:
-        "z-20 absolute top-4 flex justify-center items-center w-full h-12 ",
+        "z-20 absolute top-4 flex justify-center items-center w-full h-12  ",
     },
     [
       _c(
         "div",
         {
           staticClass:
-            "flex justify-start items-center w-11/12 h-full text-zinc-200 rounded-lg border",
+            "flex justify-start items-center w-11/12 h-10 text-zinc-200 rounded-lg overflow-x-scroll inline border",
         },
         [
           _c("div", { staticClass: "ml-4" }, [
-            _vm._v("\n            Categories >\n        "),
+            _vm._v("\n            Categories\n        "),
           ]),
           _vm._v(" "),
           _vm._l(_vm.bredCrumbContainer, function (category) {
-            return _c("div", { staticClass: "w-auto h-10 ml-2 border" }, [
-              _vm._v("\n            " + _vm._s(category) + "\n        "),
-            ])
+            return _c(
+              "div",
+              { staticClass: "w-auto flex items-center h-10 pl-2 " },
+              [
+                _c("span", { staticClass: "truncate" }, [
+                  _vm._v(" > " + _vm._s(category) + " "),
+                ]),
+              ]
+            )
           }),
         ],
         2

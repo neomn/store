@@ -1,11 +1,12 @@
 <template>
-    <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12 ">
-        <div class="flex justify-start items-center w-11/12 h-full text-zinc-200 rounded-lg border">
+    <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12  ">
+        <div
+            class="flex justify-start items-center w-11/12 h-10 text-zinc-200 rounded-lg overflow-x-scroll inline border">
             <div class="ml-4">
-                Categories >
+                Categories
             </div>
-            <div v-for="category in bredCrumbContainer" class="w-auto h-10 ml-2 border">
-                {{ category }}
+            <div v-for="category in bredCrumbContainer" class="w-auto flex items-center h-10 pl-2 ">
+                <span class="truncate"> > {{ category }} </span>
             </div>
         </div>
     </div>
@@ -67,17 +68,17 @@ export default {
         },
         buildCategoryHierarchyArray(allCategories) {
             let wasntTarget = 0
-            console.log( 'recursive call > ')
+            console.log('recursive call > ')
             console.log(allCategories)
             allCategories.forEach((item, index) => {
                 if (!this.breakHierarchyIteration) {
-                    console.log('checking > ' + item.category )
+                    console.log('checking > ' + item.category)
                     //is it target ?
-                    if (item.category === this.targetCategory.category){
+                    if (item.category === this.targetCategory.category) {
                         console.log('target found')
                         this.hierarchyArray.push(item.category)
                         this.breakHierarchyIteration = true
-                    }else {
+                    } else {
                         wasntTarget++
                         console.log(item.category + ' wasnt target > ' + wasntTarget)
                         if (wasntTarget >= allCategories.length) {
@@ -86,7 +87,7 @@ export default {
                             console.log(this.hierarchyArray)
                             this.hierarchyArray.pop()
                         }
-                        if (item.sub.length > 0){
+                        if (item.sub.length > 0) {
                             this.hierarchyArray.push(item.category)
                             console.log('adding ' + item.category + ' to hierarchy array ')
                             console.log(this.hierarchyArray)
