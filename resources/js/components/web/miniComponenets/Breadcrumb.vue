@@ -48,7 +48,7 @@ export default {
                                 console.log(category + ' found')
                                 this.targetCategory = item
                                 this.breakHierarchyIteration = false
-                                this.buildCategoryHierarchyArray(item, this.allCategories)
+                                this.buildCategoryHierarchyArray(this.allCategories)
                                 this.breakBredIteration = true
                             } else if (item.sub !== undefined)
                                 this.refreshBredCrumbContainer(category, item.sub)
@@ -57,30 +57,10 @@ export default {
                 }
             }
         },
-        buildCategoryHierarchyArray(category, allCategories) {
+        buildCategoryHierarchyArray(allCategories) {
             allCategories.forEach((item, index) => {
                 if (!this.breakHierarchyIteration) {
-                    if (item.parent_id === null) {
-                        this.hierarchyArray = []
-                        this.hierarchyArray.push(item.category)
-                        console.log(item.category)
-                        if (item.category === this.targetCategory.category){
-                            this.bredCrumbContainer = this.hierarchyArray
-                            this.breakHierarchyIteration = true
-                        }
-                    }
-                    if (item.id === this.targetCategory.parent_id) {
-                        if (item.parent_id !== null) {
-                            this.hierarchyArray.push(item.category)
-                        }
-                        this.hierarchyArray.push(this.targetCategory.category)
-                        this.breakHierarchyIteration = true
-                        console.log(' ---------- process should be finished -------')
-                    } else if (item.sub !== undefined) {
-                        console.log('item.sub !== undefined ')
-                        console.log(item.sun)
-                        this.buildCategoryHierarchyArray(this.targetCategory, item.sub)
-                    }
+
                 }
             })
             console.log(this.hierarchyArray)

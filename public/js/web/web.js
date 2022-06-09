@@ -21365,7 +21365,7 @@ __webpack_require__.r(__webpack_exports__);
                 _this2.targetCategory = item;
                 _this2.breakHierarchyIteration = false;
 
-                _this2.buildCategoryHierarchyArray(item, _this2.allCategories);
+                _this2.buildCategoryHierarchyArray(_this2.allCategories);
 
                 _this2.breakBredIteration = true;
               } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
@@ -21374,40 +21374,11 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     },
-    buildCategoryHierarchyArray: function buildCategoryHierarchyArray(category, allCategories) {
+    buildCategoryHierarchyArray: function buildCategoryHierarchyArray(allCategories) {
       var _this3 = this;
 
       allCategories.forEach(function (item, index) {
-        if (!_this3.breakHierarchyIteration) {
-          if (item.parent_id === null) {
-            _this3.hierarchyArray = [];
-
-            _this3.hierarchyArray.push(item.category);
-
-            console.log(item.category);
-
-            if (item.category === _this3.targetCategory.category) {
-              _this3.bredCrumbContainer = _this3.hierarchyArray;
-              _this3.breakHierarchyIteration = true;
-            }
-          }
-
-          if (item.id === _this3.targetCategory.parent_id) {
-            if (item.parent_id !== null) {
-              _this3.hierarchyArray.push(item.category);
-            }
-
-            _this3.hierarchyArray.push(_this3.targetCategory.category);
-
-            _this3.breakHierarchyIteration = true;
-            console.log(' ---------- process should be finished -------');
-          } else if (item.sub !== undefined) {
-            console.log('item.sub !== undefined ');
-            console.log(item.sun);
-
-            _this3.buildCategoryHierarchyArray(_this3.targetCategory, item.sub);
-          }
-        }
+        if (!_this3.breakHierarchyIteration) {}
       });
       console.log(this.hierarchyArray);
       this.bredCrumbContainer = this.hierarchyArray;
