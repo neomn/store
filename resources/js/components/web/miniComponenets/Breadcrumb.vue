@@ -60,9 +60,9 @@ export default {
             }
         },
         buildCategoryHierarchyArray(category, allCategories) {
-            if (!this.breakHierarchyIteration) {
-                allCategories.forEach((item, index) => {
 
+            allCategories.forEach((item, index) => {
+                if (!this.breakHierarchyIteration) {
                     console.log('checking >')
                     console.log(item.category)
 
@@ -82,10 +82,10 @@ export default {
                             this.buildCategoryHierarchyArray(this.targetCategory, item.sub)
                         }
                     }
-                })
-                console.log(this.hierarchyArray)
-                this.bredCrumbContainer = this.hierarchyArray
-            }
+                }
+            })
+            console.log(this.hierarchyArray)
+            this.bredCrumbContainer = this.hierarchyArray
         },
     }
 }

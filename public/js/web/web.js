@@ -21380,8 +21380,8 @@ __webpack_require__.r(__webpack_exports__);
     buildCategoryHierarchyArray: function buildCategoryHierarchyArray(category, allCategories) {
       var _this3 = this;
 
-      if (!this.breakHierarchyIteration) {
-        allCategories.forEach(function (item, index) {
+      allCategories.forEach(function (item, index) {
+        if (!_this3.breakHierarchyIteration) {
           console.log('checking >');
           console.log(item.category);
 
@@ -21406,10 +21406,10 @@ __webpack_require__.r(__webpack_exports__);
               _this3.buildCategoryHierarchyArray(_this3.targetCategory, item.sub);
             }
           }
-        });
-        console.log(this.hierarchyArray);
-        this.bredCrumbContainer = this.hierarchyArray;
-      }
+        }
+      });
+      console.log(this.hierarchyArray);
+      this.bredCrumbContainer = this.hierarchyArray;
     }
   }
 });
