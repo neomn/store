@@ -62,7 +62,6 @@ export default {
         buildCategoryHierarchyArray(category, allCategories) {
 
             allCategories.forEach((item, index) => {
-                if (!this.breakHierarchyIteration) {
                     console.log('checking >')
                     console.log(item.category)
 
@@ -72,7 +71,9 @@ export default {
                             this.hierarchyArray.push(item.category)
                         }
                         if (item.id === this.targetCategory.parent_id) {
-                            this.hierarchyArray.push(item.category)
+                            if (item.parent_id !== null){
+                                this.hierarchyArray.push(item.category)
+                            }
                             this.hierarchyArray.push(this.targetCategory.category)
                             this.breakHierarchyIteration = true
                             console.log(' ---------- process should be finished -------')
@@ -82,7 +83,6 @@ export default {
                             this.buildCategoryHierarchyArray(this.targetCategory, item.sub)
                         }
                     }
-                }
             })
             console.log(this.hierarchyArray)
             this.bredCrumbContainer = this.hierarchyArray

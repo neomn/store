@@ -21381,30 +21381,30 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       allCategories.forEach(function (item, index) {
+        console.log('checking >');
+        console.log(item.category);
+
         if (!_this3.breakHierarchyIteration) {
-          console.log('checking >');
-          console.log(item.category);
+          if (item.parent_id === null) {
+            _this3.hierarchyArray = [];
 
-          if (!_this3.breakHierarchyIteration) {
-            if (item.parent_id === null) {
-              _this3.hierarchyArray = [];
+            _this3.hierarchyArray.push(item.category);
+          }
 
+          if (item.id === _this3.targetCategory.parent_id) {
+            if (item.parent_id !== null) {
               _this3.hierarchyArray.push(item.category);
             }
 
-            if (item.id === _this3.targetCategory.parent_id) {
-              _this3.hierarchyArray.push(item.category);
+            _this3.hierarchyArray.push(_this3.targetCategory.category);
 
-              _this3.hierarchyArray.push(_this3.targetCategory.category);
+            _this3.breakHierarchyIteration = true;
+            console.log(' ---------- process should be finished -------');
+          } else if (item.sub !== undefined) {
+            console.log('item.sub !== undefined ');
+            console.log(item.sun);
 
-              _this3.breakHierarchyIteration = true;
-              console.log(' ---------- process should be finished -------');
-            } else if (item.sub !== undefined) {
-              console.log('item.sub !== undefined ');
-              console.log(item.sun);
-
-              _this3.buildCategoryHierarchyArray(_this3.targetCategory, item.sub);
-            }
+            _this3.buildCategoryHierarchyArray(_this3.targetCategory, item.sub);
           }
         }
       });
