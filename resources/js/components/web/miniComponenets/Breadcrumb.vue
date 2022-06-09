@@ -38,7 +38,8 @@ export default {
         refreshBredCrumbContainer(category, allCategories) {
             if (!this.breakBredIteration) {
                 if (category === undefined) {
-
+                    console.log('category undefined')
+                    this.bredCrumbContainer = {}
                 }
                 // find intended category Object
                 else {
@@ -48,7 +49,10 @@ export default {
                                 console.log(category + ' found')
                                 this.targetCategory = item
                                 this.breakHierarchyIteration = false
+                                this.hierarchyArray = []
                                 this.buildCategoryHierarchyArray(this.allCategories)
+                                this.bredCrumbContainer = this.hierarchyArray
+                                console.log(this.bredCrumbContainer)
                                 this.breakBredIteration = true
                             } else if (item.sub !== undefined)
                                 this.refreshBredCrumbContainer(category, item.sub)
@@ -60,11 +64,17 @@ export default {
         buildCategoryHierarchyArray(allCategories) {
             allCategories.forEach((item, index) => {
                 if (!this.breakHierarchyIteration) {
-
+                    //if it is root , add it to array
+                    if (item.parent_id === null){
+                        this.hierarchyArray.push(item.category)
+                    }
+                    if (item.category === this.targetCategory.category){
+                        this.breakHierarchyIteration = true
+                    }else {
+                        this.buildCategoryHierarchyArray(item.sub)
+                    }
                 }
             })
-            console.log(this.hierarchyArray)
-            this.bredCrumbContainer = this.hierarchyArray
         },
     }
 }

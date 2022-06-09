@@ -21356,7 +21356,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (!this.breakBredIteration) {
-        if (category === undefined) {} // find intended category Object
+        if (category === undefined) {
+          console.log('category undefined');
+          this.bredCrumbContainer = {};
+        } // find intended category Object
         else {
           allCategories.forEach(function (item, index) {
             if (!_this2.breakBredIteration) {
@@ -21364,9 +21367,12 @@ __webpack_require__.r(__webpack_exports__);
                 console.log(category + ' found');
                 _this2.targetCategory = item;
                 _this2.breakHierarchyIteration = false;
+                _this2.hierarchyArray = [];
 
                 _this2.buildCategoryHierarchyArray(_this2.allCategories);
 
+                _this2.bredCrumbContainer = _this2.hierarchyArray;
+                console.log(_this2.bredCrumbContainer);
                 _this2.breakBredIteration = true;
               } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
             }
@@ -21378,10 +21384,19 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       allCategories.forEach(function (item, index) {
-        if (!_this3.breakHierarchyIteration) {}
+        if (!_this3.breakHierarchyIteration) {
+          //if it is root , add it to array
+          if (item.parent_id === null) {
+            _this3.hierarchyArray.push(item.category);
+          }
+
+          if (item.category === _this3.targetCategory.category) {
+            _this3.breakHierarchyIteration = true;
+          } else {
+            _this3.buildCategoryHierarchyArray(item.sub);
+          }
+        }
       });
-      console.log(this.hierarchyArray);
-      this.bredCrumbContainer = this.hierarchyArray;
     }
   }
 });
