@@ -50850,7 +50850,7 @@ var render = function () {
             _c("div", { staticClass: "flex w-full h-full justify-center" }, [
               _c(
                 "div",
-                { staticClass: "w-1/2 h-full p-2 " },
+                { staticClass: "w-3/5 h-full p-2 " },
                 [
                   _c(
                     "router-link",
@@ -50890,7 +50890,7 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    "w-1/2 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center",
+                    "w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center text-xs",
                 },
                 _vm._l(category.sub, function (sub) {
                   return _c(

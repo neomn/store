@@ -8,7 +8,7 @@
         <div  class="grid grid-cols-1 gap-4 place-items-center" >
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded ">
                 <div class="flex w-full h-full justify-center">
-                    <div class="w-1/2 h-full p-2 ">
+                    <div class="w-3/5 h-full p-2 ">
                         <router-link :to="{name: 'categories' , params:{ category: category.category}}">
                             <div class="relative w-full h-full flex justify-center items-center  ">
 <!--                                <img :src="category.imageUrl" alt="category image"-->
@@ -19,7 +19,7 @@
                             </div>
                         </router-link>
                     </div>
-                    <div class="w-1/2 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center">
+                    <div class="w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center text-xs">
                         <div v-for="sub in category.sub" class="w-full h-auto p-2 border-b">
                             <router-link :to="{name:'categories' , params: {category: sub.category}}">
                                 <button>{{ sub.category }}</button>
