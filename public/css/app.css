@@ -968,6 +968,13 @@ select {
 .cursor-default {
   cursor: default;
 }
+.snap-x {
+  -ms-scroll-snap-type: x var(--tw-scroll-snap-strictness);
+      scroll-snap-type: x var(--tw-scroll-snap-strictness);
+}
+.snap-end {
+  scroll-snap-align: end;
+}
 .list-inside {
   list-style-position: inside;
 }

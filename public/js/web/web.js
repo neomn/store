@@ -21359,6 +21359,9 @@ __webpack_require__.r(__webpack_exports__);
       _this.refreshBredCrumbContainer(newValue, _this.allCategories);
     });
   },
+  updated: function updated() {
+    document.getElementById('bredCrumb').scrollTo(document.getElementById('bredCrumb').scrollWidth, 0);
+  },
   methods: {
     refreshBredCrumbContainer: function refreshBredCrumbContainer(category, allCategories) {
       var _this2 = this;
@@ -50732,7 +50735,8 @@ var render = function () {
         "div",
         {
           staticClass:
-            "flex justify-start items-center w-11/12 h-10 text-zinc-200 rounded-lg overflow-x-scroll inline border",
+            "flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll border",
+          attrs: { id: "bredCrumb" },
         },
         [
           _c("div", { staticClass: "ml-4" }, [
@@ -50843,7 +50847,7 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    "w-2/5 h-full flex flex-col justify-start overflow-y-scroll text-center",
+                    "w-2/5 h-full flex flex-col justify-start p-4 overflow-y-scroll text-center",
                 },
                 _vm._l(category.sub, function (sub) {
                   return _c(
