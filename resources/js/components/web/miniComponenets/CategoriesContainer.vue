@@ -11,8 +11,8 @@
                     <div class="w-3/5 h-full ">
                         <router-link :to="{name: 'categories' , params:{ category: category.category}}">
                             <div class="relative w-full h-full flex justify-center items-center  ">
-                                <img :src="category.imageUrl" alt="category image"
-                                     class=" w-full h-full object-fill filter blur-sm">
+<!--                                <img :src="category.imageUrl" alt="category image"-->
+<!--                                     class=" w-full h-full object-fill filter blur-sm">-->
                                 <div class="absolute flex items-center text-2xl font-bold  ">
                                     <button>{{ category.category }}</button>
                                 </div>
@@ -29,6 +29,13 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 </template>
 
