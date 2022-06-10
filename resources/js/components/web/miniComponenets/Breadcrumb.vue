@@ -26,7 +26,8 @@ export default {
             breakBredIteration: false, // helper variable to to break nested Object iteration
             breakHierarchyIteration: false, // helper variable to to break nested Object iteration
             targetCategory: {},
-            hierarchyArray: []
+            hierarchyArray: [],
+            breadCrumbScrollPosition: 0
         }
     },
     mounted() {
@@ -44,7 +45,16 @@ export default {
         })
     },
     updated() {
-        document.getElementById('bredCrumb').scrollTo(document.getElementById('bredCrumb').scrollWidth, 0)
+        this.breadCrumbScrollPosition = 0
+        let intervalId = setInterval(() => {
+            document.getElementById('bredCrumb').scrollBy(1, 0)
+            if (this.breadCrumbScrollPosition ===
+                document.getElementById('bredCrumb').scrollLeft) {
+                clearInterval(intervalId)
+            }
+            this.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft
+        }, 1)
+
     },
     methods: {
         refreshBredCrumbContainer(category, allCategories) {
