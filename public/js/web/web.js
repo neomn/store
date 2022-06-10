@@ -50735,7 +50735,7 @@ var render = function () {
         "div",
         {
           staticClass:
-            "flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll border",
+            "flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll overflow-y-hidden border",
           attrs: { id: "bredCrumb" },
         },
         [
