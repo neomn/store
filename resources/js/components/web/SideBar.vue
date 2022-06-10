@@ -1,5 +1,5 @@
 <template>
-    <div v-if="displaySidebar" class="z-30 fixed left-0 w-3/4 h-full backdrop-blur bg-white/10 ">
+    <div v-if="displaySidebar" class="z-30 fixed left-0 w-3/4 h-full bg-zinc-800 border ">
 
     </div>
 <!--    <div class=" z-20 absolute flex left-0 top-12 h-full w-full  rounded-lg bg-slate-900 overflow-hidden border">-->

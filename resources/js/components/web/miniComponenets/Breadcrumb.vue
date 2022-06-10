@@ -1,11 +1,16 @@
 <template>
-    <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12 ">
-        <div class="flex justify-start items-center w-11/12 h-full text-zinc-200 rounded-lg border">
+    <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12  ">
+        <div id="bredCrumb"
+             class="flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll overflow-y-hidden border">
             <div class="ml-4">
-                Categories >
+                <router-link :to="{name: 'categories'}">
+                    Categories
+                </router-link>
             </div>
-            <div v-for="category in bredCrumbContainer" class="w-auto h-10 ml-2 border">
-                {{ category }}
+            <div v-for="category in bredCrumbContainer" class="w-auto flex items-center h-10 pl-2 ">
+                <router-link :to="{name: 'categories' , params: {category: category}}">
+                    <span class="truncate"> > {{ category }} </span>
+                </router-link>
             </div>
         </div>
     </div>
@@ -16,9 +21,13 @@ export default {
     name: "Breadcrumb",
     data() {
         return {
-            breakIteration: false, // helper variable to to break nested Object iteration
             allCategories: {},
             bredCrumbContainer: {},
+            breakBredIteration: false, // helper variable to to break nested Object iteration
+            breakHierarchyIteration: false, // helper variable to to break nested Object iteration
+            targetCategory: {},
+            hierarchyArray: [],
+            breadCrumbScrollPosition: 0
         }
     },
     mounted() {
@@ -26,32 +35,84 @@ export default {
             this.allCategories = categories
         })
 
+        if (this.$route.params.category !== undefined) {
+            this.$router.push({name: 'categories'})
+        }
+
         this.$watch(() => this.$route.params.category, (newValue, oldValue) => {
-            this.breakIteration = false
+            this.breakBredIteration = false
             this.refreshBredCrumbContainer(newValue, this.allCategories)
         })
     },
+    updated() {
+        this.breadCrumbScrollPosition = 0
+        let intervalId = setInterval(() => {
+            document.getElementById('bredCrumb').scrollBy(1, 0)
+            if (this.breadCrumbScrollPosition ===
+                document.getElementById('bredCrumb').scrollLeft) {
+                clearInterval(intervalId)
+            }
+            this.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft
+        }, 1)
+
+    },
     methods: {
         refreshBredCrumbContainer(category, allCategories) {
-            if (!this.breakIteration) {
+            if (!this.breakBredIteration) {
                 if (category === undefined) {
-                    return
-                } else {
+                    console.log('category undefined')
+                    this.bredCrumbContainer = {}
+                }
+                // find intended category Object
+                else {
                     allCategories.forEach((item, index) => {
-                        if (!this.breakIteration) {
-                            console.log('comparing ' + category + ' with ' + item.category)
+                        if (!this.breakBredIteration) {
                             if (item.category === category) {
                                 console.log(category + ' found')
-                                this.breakIteration = true
-                                // this.bredCrumbContainer = item.sub.category
-                                // console.log('send to bredCrumb container >')
-                                // console.log(this.bredCrumbContainer)
+                                this.targetCategory = item
+                                this.breakHierarchyIteration = false
+                                this.hierarchyArray = []
+                                this.buildCategoryHierarchyArray(this.allCategories)
+                                this.bredCrumbContainer = this.hierarchyArray
+                                console.log(this.bredCrumbContainer)
+                                this.breakBredIteration = true
                             } else if (item.sub !== undefined)
                                 this.refreshBredCrumbContainer(category, item.sub)
                         }
                     })
                 }
             }
+        },
+        buildCategoryHierarchyArray(allCategories) {
+            let wasntTarget = 0
+            console.log('recursive call > ')
+            console.log(allCategories)
+            allCategories.forEach((item, index) => {
+                if (!this.breakHierarchyIteration) {
+                    console.log('checking > ' + item.category)
+                    //is it target ?
+                    if (item.category === this.targetCategory.category) {
+                        console.log('target found')
+                        this.hierarchyArray.push(item.category)
+                        this.breakHierarchyIteration = true
+                    } else {
+                        wasntTarget++
+                        console.log(item.category + ' wasnt target > ' + wasntTarget)
+                        if (wasntTarget >= allCategories.length) {
+                            console.log('all children checked')
+                            console.log('removing last element')
+                            console.log(this.hierarchyArray)
+                            this.hierarchyArray.pop()
+                        }
+                        if (item.sub.length > 0) {
+                            this.hierarchyArray.push(item.category)
+                            console.log('adding ' + item.category + ' to hierarchy array ')
+                            console.log(this.hierarchyArray)
+                            this.buildCategoryHierarchyArray(item.sub)
+                        }
+                    }
+                }
+            })
         },
     }
 }

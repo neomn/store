@@ -10,7 +10,6 @@
 
 <!---------------------------------------------------------------------->
 
-
 <script>
 import Header from "./Header";
 import Background from "./Background";
@@ -73,10 +72,3 @@ export default {
     }
 }
 </script>
-
-
-<!---------------------------------------------------------------------->
-
-<style scoped>
-
-</style>
