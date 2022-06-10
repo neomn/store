@@ -1,12 +1,14 @@
 <template>
     <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12  ">
         <div id="bredCrumb"
-            class="flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll overflow-y-hidden border">
+             class="flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll overflow-y-hidden border">
             <div class="ml-4">
                 Categories
             </div>
             <div v-for="category in bredCrumbContainer" class="w-auto flex items-center h-10 pl-2 ">
-                <span class="truncate"> > {{ category }} </span>
+                <router-link :to="{name: 'categories' , params: {category: category}}">
+                    <span class="truncate"> > {{ category }} </span>
+                </router-link>
             </div>
         </div>
     </div>
@@ -39,8 +41,8 @@ export default {
             this.refreshBredCrumbContainer(newValue, this.allCategories)
         })
     },
-    updated(){
-        document.getElementById('bredCrumb').scrollTo(document.getElementById('bredCrumb').scrollWidth , 0)
+    updated() {
+        document.getElementById('bredCrumb').scrollTo(document.getElementById('bredCrumb').scrollWidth, 0)
     },
     methods: {
         refreshBredCrumbContainer(category, allCategories) {

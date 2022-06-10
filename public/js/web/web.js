@@ -21324,6 +21324,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Breadcrumb",
   data: function data() {
@@ -50748,10 +50750,24 @@ var render = function () {
               "div",
               { staticClass: "w-auto flex items-center h-10 pl-2 " },
               [
-                _c("span", { staticClass: "truncate" }, [
-                  _vm._v(" > " + _vm._s(category) + " "),
-                ]),
-              ]
+                _c(
+                  "router-link",
+                  {
+                    attrs: {
+                      to: {
+                        name: "categories",
+                        params: { category: category },
+                      },
+                    },
+                  },
+                  [
+                    _c("span", { staticClass: "truncate" }, [
+                      _vm._v(" > " + _vm._s(category) + " "),
+                    ]),
+                  ]
+                ),
+              ],
+              1
             )
           }),
         ],
