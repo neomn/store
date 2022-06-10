@@ -50659,8 +50659,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _vm.displaySidebar
     ? _c("div", {
-        staticClass:
-          "z-30 fixed left-0 w-3/4 h-full backdrop-blur bg-white/10 ",
+        staticClass: "z-30 fixed left-0 w-3/4 h-full bg-zinc-800 border ",
       })
     : _vm._e()
 }
