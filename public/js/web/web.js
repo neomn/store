@@ -21326,6 +21326,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Breadcrumb",
   data: function data() {
@@ -50741,9 +50743,16 @@ var render = function () {
           attrs: { id: "bredCrumb" },
         },
         [
-          _c("div", { staticClass: "ml-4" }, [
-            _vm._v("\n            Categories\n        "),
-          ]),
+          _c(
+            "div",
+            { staticClass: "ml-4" },
+            [
+              _c("router-link", { attrs: { to: { name: "categories" } } }, [
+                _vm._v("\n                Categories\n            "),
+              ]),
+            ],
+            1
+          ),
           _vm._v(" "),
           _vm._l(_vm.bredCrumbContainer, function (category) {
             return _c(

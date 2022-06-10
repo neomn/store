@@ -3,7 +3,9 @@
         <div id="bredCrumb"
              class="flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll overflow-y-hidden border">
             <div class="ml-4">
-                Categories
+                <router-link :to="{name: 'categories'}">
+                    Categories
+                </router-link>
             </div>
             <div v-for="category in bredCrumbContainer" class="w-auto flex items-center h-10 pl-2 ">
                 <router-link :to="{name: 'categories' , params: {category: category}}">
