@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" class=" bg-zinc-800">
         <App></App>
     </div>
 <script src={{mix("/js/web/web.js")}}></script>
