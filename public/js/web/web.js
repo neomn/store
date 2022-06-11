@@ -21927,7 +21927,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     retrieveProducts: function retrieveProducts(categoryId) {
-      console.log(categoryId);
+      var _this2 = this;
+
+      axios.get('/api/productContainer/' + categoryId).then(function (response) {
+        _this2.productContainer = response.data.product;
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -51303,7 +51309,9 @@ var render = function () {
         "div",
         { staticClass: "gird grid-cols-1 border" },
         _vm._l(_vm.productContainer, function (product) {
-          return _c("div", { staticClass: "w-11/12 h-44 border" })
+          return _c("div", { staticClass: "w-11/12 h-44 border" }, [
+            _vm._v("\n            " + _vm._s(product) + "\n        "),
+          ])
         }),
         0
       ),
