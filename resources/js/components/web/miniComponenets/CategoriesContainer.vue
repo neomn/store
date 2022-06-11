@@ -1,11 +1,6 @@
 <template>
     <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll">
-
-<!--        <div class="w-full h-80 border overflow-y-scroll">-->
-<!--            {{categoryContainer}}-->
-<!--        </div>-->
-
-        <div  class="grid grid-cols-1 gap-4 place-items-center" >
+        <div  class="grid grid-cols-1 gap-4 place-items-center">
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded ">
                 <div class="flex w-full h-full justify-center">
                     <div class="w-3/5 h-full p-2 ">
@@ -29,21 +24,17 @@
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <Products/>
     </div>
 </template>
 
 <script>
 import {isEmpty} from "lodash/lang";
+import Products from "../../web/miniComponenets/Products";
 
 export default {
     name: "Categories",
+    components: {Products},
     data() {
         return {
             allCategories: {},

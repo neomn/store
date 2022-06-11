@@ -17,7 +17,6 @@ import Sidebar from "./SideBar";
 import Breadcrumb from "./miniComponenets/Breadcrumb";
 import CategoriesContainer from "./miniComponenets/CategoriesContainer";
 
-
 export default {
     name: "Categories",
     components: {
