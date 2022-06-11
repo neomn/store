@@ -21554,14 +21554,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     initCategoryContainer: function initCategoryContainer() {
-      // console.log('initCategoryContainer > ------ \n')
-      // this.allCategories.forEach((item, index, array) => {
-      //     if (item.parent_id === null) {
-      //         //this is how to update vue js state ,check vue js docs ( reactivity )
-      //         this.$set(this.categoryContainer, index, item)
-      //     }
-      // })
-      // console.log(this.categoryContainer)
       this.categoryContainer = this.objectifiedCategories;
     },
     refreshCategoryContainer: function refreshCategoryContainer(category, allCategories) {
@@ -21573,47 +21565,11 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       allCategories.forEach(function (item, index) {
-        // console.log('comparing ' + category + ' with ' + item.category )
         if (item.category === category) {
-          _this3.categoryContainer = item.sub; // console.log('send to category container >')
-          // console.log(this.categoryContainer)
-
+          _this3.categoryContainer = item.sub;
           return;
         } else if (item.sub !== undefined) _this3.refreshCategoryContainer(category, item.sub);
-      }); //     console.log('refreshCategoryContainer > ------')
-      //     if (queriedCategory) {
-      //         console.log('received category to process > ' + queriedCategory + '\n')
-      //         let preserveContainerContent = this.categoryContainer
-      //         let categoryIsNotValid = true
-      //         this.categoryContainer = {}
-      //         if (this.allCategories) {
-      //             //find queried category id
-      //             let queriedCategoryId
-      //             this.allCategories.forEach((item, index) => {
-      //                 if (item.category === queriedCategory) {
-      //                     queriedCategoryId = item.id
-      //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
-      //                 }
-      //             })
-      //             //set container to contain childes of queried category
-      //             this.allCategories.forEach((item, index) => {
-      //                 if (item.parent_id === queriedCategoryId) {
-      //                     //this is how to update vue js state ,check vue js docs ( reactivity )
-      //                     this.$set(this.categoryContainer, index, item)
-      //                     console.log('category founded :) adding ' + item.category + ' to container')
-      //                     categoryIsNotValid = false
-      //                 }
-      //             })
-      //         } else {
-      //             console.log('allCategories not initialized by api \n')
-      //         }
-      //         if (categoryIsNotValid) {
-      //             console.log('queried category (' + queriedCategory + ') is not a valid category')
-      //             // this.categoryContainer = preserveContainerContent
-      //         }
-      //     } else {
-      //         console.log('no category queried')
-      //     }
+      });
     },
     // categoryHasSubCategory() {
     //     console.log('categoryHasSubCategory > ------ \n')
@@ -21941,13 +21897,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Products",
   props: [],
   data: function data() {
-    return {};
+    return {
+      productContainer: {}
+    };
   },
-  methods: {}
+  methods: {
+    retrieveProducts: function retrieveProducts() {}
+  }
 });
 
 /***/ }),
@@ -51316,7 +51280,16 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "z-20 absolute w-full h-fit text-zinc-200  border" },
-    [_vm._v("\n    this is products\n")]
+    [
+      _c(
+        "div",
+        { staticClass: "gird grid-cols-1 border" },
+        _vm._l(_vm.productContainer, function (product) {
+          return _c("div", { staticClass: "w-11/12 h-44 border" })
+        }),
+        0
+      ),
+    ]
   )
 }
 var staticRenderFns = []

@@ -82,14 +82,6 @@ export default {
                 })
         },
         initCategoryContainer() {
-            // console.log('initCategoryContainer > ------ \n')
-            // this.allCategories.forEach((item, index, array) => {
-            //     if (item.parent_id === null) {
-            //         //this is how to update vue js state ,check vue js docs ( reactivity )
-            //         this.$set(this.categoryContainer, index, item)
-            //     }
-            // })
-            // console.log(this.categoryContainer)
             this.categoryContainer = this.objectifiedCategories
         },
         refreshCategoryContainer(category, allCategories) {
@@ -99,51 +91,13 @@ export default {
             }
 
             allCategories.forEach((item, index) => {
-                // console.log('comparing ' + category + ' with ' + item.category )
                 if (item.category === category){
                     this.categoryContainer = item.sub
-                    // console.log('send to category container >')
-                    // console.log(this.categoryContainer)
                     return
                 }
                 else if (item.sub !== undefined)
                     this.refreshCategoryContainer(category , item.sub)
             })
-
-            //     console.log('refreshCategoryContainer > ------')
-            //     if (queriedCategory) {
-            //         console.log('received category to process > ' + queriedCategory + '\n')
-            //         let preserveContainerContent = this.categoryContainer
-            //         let categoryIsNotValid = true
-            //         this.categoryContainer = {}
-            //         if (this.allCategories) {
-            //             //find queried category id
-            //             let queriedCategoryId
-            //             this.allCategories.forEach((item, index) => {
-            //                 if (item.category === queriedCategory) {
-            //                     queriedCategoryId = item.id
-            //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
-            //                 }
-            //             })
-            //             //set container to contain childes of queried category
-            //             this.allCategories.forEach((item, index) => {
-            //                 if (item.parent_id === queriedCategoryId) {
-            //                     //this is how to update vue js state ,check vue js docs ( reactivity )
-            //                     this.$set(this.categoryContainer, index, item)
-            //                     console.log('category founded :) adding ' + item.category + ' to container')
-            //                     categoryIsNotValid = false
-            //                 }
-            //             })
-            //         } else {
-            //             console.log('allCategories not initialized by api \n')
-            //         }
-            //         if (categoryIsNotValid) {
-            //             console.log('queried category (' + queriedCategory + ') is not a valid category')
-            //             // this.categoryContainer = preserveContainerContent
-            //         }
-            //     } else {
-            //         console.log('no category queried')
-            //     }
         },
         // categoryHasSubCategory() {
         //     console.log('categoryHasSubCategory > ------ \n')
@@ -178,7 +132,6 @@ export default {
         // emptyProductsContainer() {
         //     this.productContainer = {}
         // },
-
 
         objectifyCategoryArray(categoryArray) {
             console.log('objectifyCategoryArray >')
