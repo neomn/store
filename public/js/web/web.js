@@ -21495,6 +21495,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -21933,7 +21942,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Products"
+  name: "Products",
+  props: [],
+  data: function data() {
+    return {};
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -50928,7 +50942,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        " z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll",
+        " z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll ",
     },
     [
       _c(
@@ -51011,6 +51025,22 @@ var render = function () {
       ),
       _vm._v(" "),
       _c("Products"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br"),
     ],
     1
   )
@@ -51283,20 +51313,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "z-20 absolute w-full h-fit text-zinc-200  border" },
+    [_vm._v("\n    this is products\n")]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "z-20 absolute w-full text-zinc-200  border-4" },
-      [_c("h1", [_vm._v("this is products")])]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
