@@ -19,8 +19,13 @@ export default {
             productContainer: {}
         }
     },
+    mounted() {
+        this.$root.$on('loadProducts',(categoryId)=>{
+            this.retrieveProducts(categoryId)
+        })
+    },
     methods: {
-        retrieveProducts(){
+        retrieveProducts(categoryId){
 
         }
     }

@@ -21364,22 +21364,11 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   updated: function updated() {
-    var _this2 = this;
-
-    this.breadCrumbScrollPosition = 0;
-    var intervalId = setInterval(function () {
-      document.getElementById('bredCrumb').scrollBy(1, 0);
-
-      if (_this2.breadCrumbScrollPosition === document.getElementById('bredCrumb').scrollLeft) {
-        clearInterval(intervalId);
-      }
-
-      _this2.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft;
-    }, 1);
+    this.autoScroll();
   },
   methods: {
     refreshBredCrumbContainer: function refreshBredCrumbContainer(category, allCategories) {
-      var _this3 = this;
+      var _this2 = this;
 
       if (!this.breakBredIteration) {
         if (category === undefined) {
@@ -21388,40 +21377,40 @@ __webpack_require__.r(__webpack_exports__);
         } // find intended category Object
         else {
           allCategories.forEach(function (item, index) {
-            if (!_this3.breakBredIteration) {
+            if (!_this2.breakBredIteration) {
               if (item.category === category) {
                 console.log(category + ' found');
-                _this3.targetCategory = item;
-                _this3.breakHierarchyIteration = false;
-                _this3.hierarchyArray = [];
+                _this2.targetCategory = item;
+                _this2.breakHierarchyIteration = false;
+                _this2.hierarchyArray = [];
 
-                _this3.buildCategoryHierarchyArray(_this3.allCategories);
+                _this2.buildCategoryHierarchyArray(_this2.allCategories);
 
-                _this3.bredCrumbContainer = _this3.hierarchyArray;
-                console.log(_this3.bredCrumbContainer);
-                _this3.breakBredIteration = true;
-              } else if (item.sub !== undefined) _this3.refreshBredCrumbContainer(category, item.sub);
+                _this2.bredCrumbContainer = _this2.hierarchyArray;
+                console.log(_this2.bredCrumbContainer);
+                _this2.breakBredIteration = true;
+              } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
             }
           });
         }
       }
     },
     buildCategoryHierarchyArray: function buildCategoryHierarchyArray(allCategories) {
-      var _this4 = this;
+      var _this3 = this;
 
       var wasntTarget = 0;
       console.log('recursive call > ');
       console.log(allCategories);
       allCategories.forEach(function (item, index) {
-        if (!_this4.breakHierarchyIteration) {
+        if (!_this3.breakHierarchyIteration) {
           console.log('checking > ' + item.category); //is it target ?
 
-          if (item.category === _this4.targetCategory.category) {
+          if (item.category === _this3.targetCategory.category) {
             console.log('target found');
 
-            _this4.hierarchyArray.push(item.category);
+            _this3.hierarchyArray.push(item.category);
 
-            _this4.breakHierarchyIteration = true;
+            _this3.breakHierarchyIteration = true;
           } else {
             wasntTarget++;
             console.log(item.category + ' wasnt target > ' + wasntTarget);
@@ -21429,22 +21418,37 @@ __webpack_require__.r(__webpack_exports__);
             if (wasntTarget >= allCategories.length) {
               console.log('all children checked');
               console.log('removing last element');
-              console.log(_this4.hierarchyArray);
+              console.log(_this3.hierarchyArray);
 
-              _this4.hierarchyArray.pop();
+              _this3.hierarchyArray.pop();
             }
 
             if (item.sub.length > 0) {
-              _this4.hierarchyArray.push(item.category);
+              _this3.hierarchyArray.push(item.category);
 
               console.log('adding ' + item.category + ' to hierarchy array ');
-              console.log(_this4.hierarchyArray);
+              console.log(_this3.hierarchyArray);
 
-              _this4.buildCategoryHierarchyArray(item.sub);
+              _this3.buildCategoryHierarchyArray(item.sub);
             }
           }
         }
       });
+    },
+    sendCategoryIdToProducts: function sendCategoryIdToProducts() {},
+    autoScroll: function autoScroll() {
+      var _this4 = this;
+
+      this.breadCrumbScrollPosition = 0;
+      var intervalId = setInterval(function () {
+        document.getElementById('bredCrumb').scrollBy(1, 0);
+
+        if (_this4.breadCrumbScrollPosition === document.getElementById('bredCrumb').scrollLeft) {
+          clearInterval(intervalId);
+        }
+
+        _this4.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft;
+      }, 1);
     }
   }
 });
@@ -21909,8 +21913,15 @@ __webpack_require__.r(__webpack_exports__);
       productContainer: {}
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$root.$on('loadProducts', function (categoryId) {
+      _this.retrieveProducts(categoryId);
+    });
+  },
   methods: {
-    retrieveProducts: function retrieveProducts() {}
+    retrieveProducts: function retrieveProducts(categoryId) {}
   }
 });
 

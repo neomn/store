@@ -45,16 +45,7 @@ export default {
         })
     },
     updated() {
-        this.breadCrumbScrollPosition = 0
-        let intervalId = setInterval(() => {
-            document.getElementById('bredCrumb').scrollBy(1, 0)
-            if (this.breadCrumbScrollPosition ===
-                document.getElementById('bredCrumb').scrollLeft) {
-                clearInterval(intervalId)
-            }
-            this.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft
-        }, 1)
-
+        this.autoScroll()
     },
     methods: {
         refreshBredCrumbContainer(category, allCategories) {
@@ -114,6 +105,20 @@ export default {
                 }
             })
         },
+        sendCategoryIdToProducts() {
+
+        },
+        autoScroll() {
+            this.breadCrumbScrollPosition = 0
+            let intervalId = setInterval(() => {
+                document.getElementById('bredCrumb').scrollBy(1, 0)
+                if (this.breadCrumbScrollPosition ===
+                    document.getElementById('bredCrumb').scrollLeft) {
+                    clearInterval(intervalId)
+                }
+                this.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft
+            }, 1)
+        }
     }
 }
 </script>
