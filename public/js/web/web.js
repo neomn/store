@@ -21924,6 +21924,11 @@ __webpack_require__.r(__webpack_exports__);
     this.$root.$on('loadProducts', function (categoryId) {
       _this.retrieveProducts(categoryId);
     });
+    this.$watch(function () {
+      return _this.$route.params.category;
+    }, function (newValue, oldValue) {
+      _this.productContainer = {};
+    });
   },
   methods: {
     retrieveProducts: function retrieveProducts(categoryId) {

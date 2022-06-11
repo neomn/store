@@ -23,6 +23,10 @@ export default {
         this.$root.$on('loadProducts',(categoryId)=>{
             this.retrieveProducts(categoryId)
         })
+
+        this.$watch(() => this.$route.params.category , (newValue , oldValue) => {
+            this.productContainer = {}
+        })
     },
     methods: {
         retrieveProducts(categoryId){
