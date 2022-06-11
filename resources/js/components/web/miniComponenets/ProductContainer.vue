@@ -7,7 +7,7 @@
             </div>
             <!-- product -->
             <div v-for="item in products" class="mx-1">
-                <Product :product="item"/>
+                <ProductCard :product="item"/>
             </div>
         </div>
     </div>
@@ -16,12 +16,12 @@
 <script>
 
 
-import Product from "./Product";
+import ProductCard from "./ProductCard";
 
 export default {
     name: "ProductContainer",
     components: {
-        Product
+        ProductCard
     },
     props: [
         'products',
