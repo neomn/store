@@ -4,11 +4,11 @@
         <Header/>
         <ImageSlider/>
         <SideBar/>
-        <ProductContainer :products="newProducts" title="New Products" color="yellow-600" class="z-20 my-4 mt-10"/>
+        <ProductCardContainer :products="newProducts" title="New Products" color="yellow-600" class="z-20 my-4 mt-10"/>
         <Offer imageUrl="/storage/images/products/electronicsAndRobotics/arduino/Uno-R3.png"
                discountPercentage="25"/>
-        <ProductContainer :products="topSells" title="Top Sells" color="red-600" />
-        <ProductContainer :products="favoriteProducts" title="Favorite Products" />
+        <ProductCardContainer :products="topSells" title="Top Sells" color="red-600" />
+        <ProductCardContainer :products="favoriteProducts" title="Favorite Products" />
         <Footer/>
         <br>
     </div>
@@ -19,7 +19,7 @@
 <script>
 import Header from './Header.vue';
 import Footer from './Footer';
-import ProductContainer from "./miniComponenets/ProductContainer";
+import ProductCardContainer from "./miniComponenets/ProductCardContainer";
 import ImageSlider from "./miniComponenets/ImageSlider";
 import Offer from "./miniComponenets/Offer";
 import Background from "./Background";
@@ -33,7 +33,7 @@ export default {
         Offer,
         Header,
         Footer,
-        ProductContainer,
+        ProductCardContainer,
         ImageSlider
     },
     props: [],
