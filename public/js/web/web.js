@@ -21332,7 +21332,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       allCategories: {},
-      bredCrumbContainer: {},
+      breadCrumbContainer: {},
       breakBredIteration: false,
       // helper variable to to break nested Object iteration
       breakHierarchyIteration: false,
@@ -21373,7 +21373,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.breakBredIteration) {
         if (category === undefined) {
           console.log('category undefined');
-          this.bredCrumbContainer = {};
+          this.breadCrumbContainer = {};
         } // find intended category Object
         else {
           allCategories.forEach(function (item, index) {
@@ -21386,8 +21386,10 @@ __webpack_require__.r(__webpack_exports__);
 
                 _this2.buildCategoryHierarchyArray(_this2.allCategories);
 
-                _this2.bredCrumbContainer = _this2.hierarchyArray;
-                console.log(_this2.bredCrumbContainer);
+                _this2.breadCrumbContainer = _this2.hierarchyArray;
+
+                _this2.sendCategoryIdToProductsContainer(item);
+
                 _this2.breakBredIteration = true;
               } else if (item.sub !== undefined) _this2.refreshBredCrumbContainer(category, item.sub);
             }
@@ -21449,6 +21451,9 @@ __webpack_require__.r(__webpack_exports__);
 
         _this4.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft;
       }, 1);
+    },
+    sendCategoryIdToProductsContainer: function sendCategoryIdToProductsContainer(item) {
+      if (item.sub.length === 0) this.$root.$emit('loadProducts', item.id);
     }
   }
 });
@@ -21921,7 +21926,9 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    retrieveProducts: function retrieveProducts(categoryId) {}
+    retrieveProducts: function retrieveProducts(categoryId) {
+      console.log(categoryId);
+    }
   }
 });
 
@@ -50859,7 +50866,7 @@ var render = function () {
             1
           ),
           _vm._v(" "),
-          _vm._l(_vm.bredCrumbContainer, function (category) {
+          _vm._l(_vm.breadCrumbContainer, function (category) {
             return _c(
               "div",
               { staticClass: "w-auto flex items-center h-10 pl-2 " },

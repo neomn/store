@@ -7,7 +7,7 @@
                     Categories
                 </router-link>
             </div>
-            <div v-for="category in bredCrumbContainer" class="w-auto flex items-center h-10 pl-2 ">
+            <div v-for="category in breadCrumbContainer" class="w-auto flex items-center h-10 pl-2 ">
                 <router-link :to="{name: 'categories' , params: {category: category}}">
                     <span class="truncate"> > {{ category }} </span>
                 </router-link>
@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             allCategories: {},
-            bredCrumbContainer: {},
+            breadCrumbContainer: {},
             breakBredIteration: false, // helper variable to to break nested Object iteration
             breakHierarchyIteration: false, // helper variable to to break nested Object iteration
             targetCategory: {},
@@ -52,7 +52,7 @@ export default {
             if (!this.breakBredIteration) {
                 if (category === undefined) {
                     console.log('category undefined')
-                    this.bredCrumbContainer = {}
+                    this.breadCrumbContainer = {}
                 }
                 // find intended category Object
                 else {
@@ -64,8 +64,8 @@ export default {
                                 this.breakHierarchyIteration = false
                                 this.hierarchyArray = []
                                 this.buildCategoryHierarchyArray(this.allCategories)
-                                this.bredCrumbContainer = this.hierarchyArray
-                                console.log(this.bredCrumbContainer)
+                                this.breadCrumbContainer = this.hierarchyArray
+                                this.sendCategoryIdToProductsContainer(item)
                                 this.breakBredIteration = true
                             } else if (item.sub !== undefined)
                                 this.refreshBredCrumbContainer(category, item.sub)
@@ -118,6 +118,10 @@ export default {
                 }
                 this.breadCrumbScrollPosition = document.getElementById('bredCrumb').scrollLeft
             }, 1)
+        },
+        sendCategoryIdToProductsContainer(item){
+            if (item.sub.length === 0)
+                this.$root.$emit('loadProducts' , item.id)
         }
     }
 }

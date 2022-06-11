@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         retrieveProducts(categoryId){
-
+            console.log(categoryId)
         }
     }
 }
