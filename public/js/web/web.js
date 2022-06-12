@@ -21900,6 +21900,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _ImageSlider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImageSlider */ "./resources/js/components/web/miniComponenets/ImageSlider.vue");
 //
 //
 //
@@ -21910,8 +21911,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Products",
+  components: {
+    ImageSlider: _ImageSlider__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: [],
   data: function data() {
     return {
@@ -51306,22 +51318,33 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "z-20 absolute w-full h-fit text-zinc-200  border" },
-    [
-      _c(
+  return _vm.productContainer.length > 0
+    ? _c(
         "div",
-        { staticClass: "gird grid-cols-1 border" },
-        _vm._l(_vm.productContainer, function (product) {
-          return _c("div", { staticClass: "w-11/12 h-44 border" }, [
-            _vm._v("\n            " + _vm._s(product) + "\n        "),
-          ])
-        }),
-        0
-      ),
-    ]
-  )
+        { staticClass: "z-20 absolute w-full h-fit text-zinc-200  border" },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "gird grid-cols-1 flex flex-col items-center border",
+            },
+            _vm._l(_vm.productContainer, function (product) {
+              return _c("div", { staticClass: "w-full h-44 flex border" }, [
+                _c("div", { staticClass: "w-3/5" }),
+                _vm._v(" "),
+                _c("div", { staticClass: "w-2/5" }, [
+                  _c("img", {
+                    staticClass: "w-full h-full object-fill",
+                    attrs: { src: product.image, alt: "product image" },
+                  }),
+                ]),
+              ])
+            }),
+            0
+          ),
+        ]
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
