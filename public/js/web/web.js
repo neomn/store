@@ -51326,19 +51326,27 @@ var render = function () {
           _c(
             "div",
             {
-              staticClass: "gird grid-cols-1 flex flex-col items-center border",
+              staticClass:
+                "gird grid-cols-1 flex flex-col items-center border ",
             },
             _vm._l(_vm.productContainer, function (product) {
-              return _c("div", { staticClass: "w-full h-44 flex border" }, [
-                _c("div", { staticClass: "w-3/5" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "w-2/5" }, [
-                  _c("img", {
-                    staticClass: "w-full h-full object-fill",
-                    attrs: { src: product.image, alt: "product image" },
-                  }),
-                ]),
-              ])
+              return _c(
+                "div",
+                {
+                  staticClass:
+                    "w-11/12 h-44 flex justify-end m-2 rounded-lg border",
+                },
+                [
+                  _c("div", { staticClass: "grow h-full" }),
+                  _vm._v(" "),
+                  _c("div", {}, [
+                    _c("img", {
+                      staticClass: "w-52 h-44  rounded-tr-lg rounded-br-lg",
+                      attrs: { src: product.image, alt: "product image" },
+                    }),
+                  ]),
+                ]
+              )
             }),
             0
           ),

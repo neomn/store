@@ -1,14 +1,14 @@
 <template>
     <div v-if="productContainer.length > 0 " class="z-20 absolute w-full h-fit text-zinc-200  border">
-        <div class="gird grid-cols-1 flex flex-col items-center border">
-            <div v-for="product in productContainer" class="w-full h-44 flex border">
+        <div class="gird grid-cols-1 flex flex-col items-center border ">
+            <div v-for="product in productContainer" class="w-11/12 h-44 flex justify-end m-2 rounded-lg border">
                 <!-- -->
-                <div class="w-3/5">
+                <div class="grow h-full">
 
                 </div>
                 <!--product image -->
-                <div class="w-2/5">
-                    <img :src="product.image" alt="product image" class="w-full h-full object-fill" >
+                <div class="">
+                    <img :src="product.image" alt="product image" class="w-52 h-44  rounded-tr-lg rounded-br-lg" >
                 </div>
             </div>
         </div>
