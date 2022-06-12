@@ -21918,6 +21918,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Products",
@@ -51337,7 +51339,23 @@ var render = function () {
                     "w-11/12 h-44 flex justify-end m-2 rounded-lg border",
                 },
                 [
-                  _c("div", { staticClass: "grow h-full" }),
+                  _c(
+                    "div",
+                    { staticClass: "grow h-full flex flex-col justify-start " },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "text-center font-bold border-b" },
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(product.name) +
+                              "\n                "
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("div", {}, [
                     _c("img", {
