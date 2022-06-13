@@ -51359,7 +51359,7 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", {}, [
                     _c("img", {
-                      staticClass: "w-52 h-44  rounded-tr-lg rounded-br-lg",
+                      staticClass: "w-44 h-44  rounded-tr-lg rounded-br-lg",
                       attrs: { src: product.image, alt: "product image" },
                     }),
                   ]),

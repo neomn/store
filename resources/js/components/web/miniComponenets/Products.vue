@@ -10,7 +10,7 @@
                 </div>
                 <!--product image -->
                 <div class="">
-                    <img :src="product.image" alt="product image" class="w-52 h-44  rounded-tr-lg rounded-br-lg" >
+                    <img :src="product.image" alt="product image" class="w-44 h-44  rounded-tr-lg rounded-br-lg" >
                 </div>
             </div>
         </div>
