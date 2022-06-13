@@ -1,14 +1,9 @@
 <template>
-    <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll">
-
-<!--        <div class="w-full h-80 border overflow-y-scroll">-->
-<!--            {{categoryContainer}}-->
-<!--        </div>-->
-
-        <div  class="grid grid-cols-1 gap-4 place-items-center" >
+    <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll ">
+        <div  class="grid grid-cols-1 gap-4 place-items-center">
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded ">
                 <div class="flex w-full h-full justify-center">
-                    <div class="w-3/5 h-full ">
+                    <div class="w-3/5 h-full p-2 ">
                         <router-link :to="{name: 'categories' , params:{ category: category.category}}">
                             <div class="relative w-full h-full flex justify-center items-center  ">
 <!--                                <img :src="category.imageUrl" alt="category image"-->
@@ -19,7 +14,7 @@
                             </div>
                         </router-link>
                     </div>
-                    <div class="w-2/5 h-full flex flex-col justify-start p-4 overflow-y-scroll text-center">
+                    <div class="w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center text-xs">
                         <div v-for="sub in category.sub" class="w-full h-auto p-2 border-b">
                             <router-link :to="{name:'categories' , params: {category: sub.category}}">
                                 <button>{{ sub.category }}</button>
@@ -29,6 +24,9 @@
                 </div>
             </div>
         </div>
+
+        <Products/>
+        <br>
         <br>
         <br>
         <br>
@@ -41,9 +39,11 @@
 
 <script>
 import {isEmpty} from "lodash/lang";
+import Products from "../../web/miniComponenets/Products";
 
 export default {
     name: "Categories",
+    components: {Products},
     data() {
         return {
             allCategories: {},
@@ -82,14 +82,6 @@ export default {
                 })
         },
         initCategoryContainer() {
-            // console.log('initCategoryContainer > ------ \n')
-            // this.allCategories.forEach((item, index, array) => {
-            //     if (item.parent_id === null) {
-            //         //this is how to update vue js state ,check vue js docs ( reactivity )
-            //         this.$set(this.categoryContainer, index, item)
-            //     }
-            // })
-            // console.log(this.categoryContainer)
             this.categoryContainer = this.objectifiedCategories
         },
         refreshCategoryContainer(category, allCategories) {
@@ -99,51 +91,13 @@ export default {
             }
 
             allCategories.forEach((item, index) => {
-                // console.log('comparing ' + category + ' with ' + item.category )
                 if (item.category === category){
                     this.categoryContainer = item.sub
-                    // console.log('send to category container >')
-                    // console.log(this.categoryContainer)
                     return
                 }
                 else if (item.sub !== undefined)
                     this.refreshCategoryContainer(category , item.sub)
             })
-
-            //     console.log('refreshCategoryContainer > ------')
-            //     if (queriedCategory) {
-            //         console.log('received category to process > ' + queriedCategory + '\n')
-            //         let preserveContainerContent = this.categoryContainer
-            //         let categoryIsNotValid = true
-            //         this.categoryContainer = {}
-            //         if (this.allCategories) {
-            //             //find queried category id
-            //             let queriedCategoryId
-            //             this.allCategories.forEach((item, index) => {
-            //                 if (item.category === queriedCategory) {
-            //                     queriedCategoryId = item.id
-            //                     console.log('category id for ***  ' + queriedCategory + '  *** is ' + queriedCategoryId + ' \n')
-            //                 }
-            //             })
-            //             //set container to contain childes of queried category
-            //             this.allCategories.forEach((item, index) => {
-            //                 if (item.parent_id === queriedCategoryId) {
-            //                     //this is how to update vue js state ,check vue js docs ( reactivity )
-            //                     this.$set(this.categoryContainer, index, item)
-            //                     console.log('category founded :) adding ' + item.category + ' to container')
-            //                     categoryIsNotValid = false
-            //                 }
-            //             })
-            //         } else {
-            //             console.log('allCategories not initialized by api \n')
-            //         }
-            //         if (categoryIsNotValid) {
-            //             console.log('queried category (' + queriedCategory + ') is not a valid category')
-            //             // this.categoryContainer = preserveContainerContent
-            //         }
-            //     } else {
-            //         console.log('no category queried')
-            //     }
         },
         // categoryHasSubCategory() {
         //     console.log('categoryHasSubCategory > ------ \n')
@@ -178,7 +132,6 @@ export default {
         // emptyProductsContainer() {
         //     this.productContainer = {}
         // },
-
 
         objectifyCategoryArray(categoryArray) {
             console.log('objectifyCategoryArray >')
