@@ -846,6 +846,9 @@ select {
   height: -moz-fit-content;
   height: fit-content;
 }
+.h-96 {
+  height: 24rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1085,6 +1088,9 @@ select {
 }
 .border-2 {
   border-width: 2px;
+}
+.border-4 {
+  border-width: 4px;
 }
 .border-t {
   border-top-width: 1px;

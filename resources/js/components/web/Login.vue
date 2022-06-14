@@ -2,10 +2,10 @@
     <div class="flex min-h-screen ">
         <Background/>
         <Header class="z-50"/>
+        <div class="z-20 absolute flex justify-center items-start w-full h-full border-4 border-yellow-500">
+            <div class="w-11/12 h-5/6 mt-10 overflow-y-scroll border-4">
 
-        <!-- body -->
-        <div>
-
+            </div>
         </div>
 
 

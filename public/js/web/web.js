@@ -50075,12 +50075,30 @@ var render = function () {
       _vm._v(" "),
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _c("div"),
+      _vm._m(0),
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "z-20 absolute flex justify-center items-start w-full h-full border-4 border-yellow-500",
+      },
+      [
+        _c("div", {
+          staticClass: "w-11/12 h-5/6 mt-10 overflow-y-scroll border-4",
+        }),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
