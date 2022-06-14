@@ -20335,9 +20335,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+/* harmony import */ var _web_Background__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../web/Background */ "./resources/js/components/web/Background.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -20388,12 +20387,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   components: {
-    Header: _web_Header__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Background: _web_Background__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -20406,17 +20418,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {
     console.log('login created > ------------------------');
     this.initCSRFToken();
-    this.login(); // this.redirectIfAuthenticated()
-    // this.$watch(
-    //     () => this.formData.email, (newValue, oldValue) => {
-    //         this.validateEmail()
-    //     }
-    // )
-    // this.$watch(
-    //     () => this.formData.password, (newValue, oldValue) => {
-    //         this.validatePassword()
-    //     }
-    // )
+    this.login();
   },
   methods: {
     initCSRFToken: function initCSRFToken() {
@@ -49518,8 +49520,6 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("Background"),
-      _vm._v(" "),
       _c("Header"),
       _vm._v(" "),
       _c("Sidebar"),
@@ -50057,45 +50057,44 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex min-h-screen bg-slate-800" },
+    { staticClass: "flex min-h-screen " },
     [
+      _c("Background"),
+      _vm._v(" "),
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-12 flex flex-col w-full" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              " flex flex-col place-self-center w-auto h-5/6 mt-10 px-4 text-gray-200 bg-slate-900 rounded-lg  border-2 border-red-600 ",
-          },
-          [
-            _c(
-              "h5",
-              {
-                staticClass:
-                  " my-4 mx-4 bg-slate-800 text-center rounded-lg   ",
-              },
-              [_vm._v("Enter Your Credential To Login ")]
-            ),
-            _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                staticClass: "flex flex-col h-full overflow-hidden",
-                attrs: { action: "#" },
-                on: {
-                  submit: function ($event) {
-                    $event.preventDefault()
-                    return _vm.login.apply(null, arguments)
-                  },
+      _c(
+        "div",
+        {
+          staticClass:
+            "z-20 absolute flex justify-center items-start w-full h-full  border-yellow-500",
+        },
+        [
+          _c(
+            "form",
+            {
+              staticClass:
+                "flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 p-2 border border-red-600 rounded-2xl",
+              attrs: { action: "#" },
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.login.apply(null, arguments)
                 },
               },
-              [
-                _c("div", { staticClass: "text-left relative" }, [
-                  _c("div", { staticClass: " rounded-md" }, [
-                    _c("div", { staticClass: "flex flex-col py-10" }, [
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-full h-60 text-zinc-200 " }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex flex-col justify-center items-center py-10",
+                  },
+                  [
+                    _c("div", { staticClass: "w-5/6 " }, [
                       _c(
                         "label",
                         {
@@ -50115,7 +50114,7 @@ var render = function () {
                           },
                         ],
                         staticClass:
-                          "mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200 border-1 border-red-600",
+                          " w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200\n                             border-1 border-red-600",
                         attrs: {
                           name: "email",
                           id: "email",
@@ -50132,7 +50131,9 @@ var render = function () {
                           },
                         },
                       }),
-                      _vm._v(" "),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "w-5/6" }, [
                       _c(
                         "label",
                         {
@@ -50152,7 +50153,7 @@ var render = function () {
                           },
                         ],
                         staticClass:
-                          "rounded-lg text-gray-200 text-sm bg-slate-700 border border-red-600",
+                          " w-full rounded-lg text-gray-200 text-sm bg-slate-700 border border-red-600",
                         attrs: {
                           name: "password",
                           id: "password",
@@ -50174,23 +50175,26 @@ var render = function () {
                         },
                       }),
                     ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      " justify-self-end  border-2 border-red-600 rounded-lg ",
-                    attrs: { type: "submit" },
-                  },
-                  [_vm._v("login\n                ")]
+                  ]
                 ),
-              ]
-            ),
-          ]
-        ),
-      ]),
+              ]),
+              _vm._v(" "),
+              _c("label", { staticClass: "text-zinc-200" }, [
+                _vm._v(" social media login"),
+              ]),
+              _vm._v(" "),
+              _c("div", {
+                staticClass:
+                  "w-full h-1 bg-gradient-to-r from-zinc-900 via-zinc-400 to-zinc-900 ",
+              }),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+            ]
+          ),
+        ]
+      ),
     ],
     1
   )
@@ -50204,10 +50208,10 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "  text-sm place-self-center p-2 h-auto rounded bg-gradient-to-r from-slate-700",
+          "w-full h-44 flex flex-col justify-center items-start text-zinc-200\n                 bg-gradient-to-r from-slate-700 rounded-lg",
       },
       [
-        _c("ul", { staticClass: "list-disk" }, [
+        _c("ul", { staticClass: "pl-8 list-disk " }, [
           _c("li", { staticClass: "pt-4 pb-1" }, [
             _vm._v("enter a valid email address"),
           ]),
@@ -50216,6 +50220,69 @@ var staticRenderFns = [
             _vm._v("password should be at least 8 characters"),
           ]),
         ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "w-full h-20 flex justify-center items-center " },
+      [
+        _c("img", {
+          staticClass: "w-16 h-16 mx-4 rounded-full ",
+          attrs: {
+            src: "/storage/images/socialMedia/without_background/google.png",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "w-16 h-16 mx-4 rounded-full ",
+          attrs: {
+            src: "/storage/images/socialMedia/without_background/linkedin.png",
+          },
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "w-16 h-16 mx-4 rounded-full ",
+          attrs: {
+            src: "/storage/images/socialMedia/without_background/github.png",
+          },
+        }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "w-full h-44 flex flex-col justify-end items-center text-zinc-200 ",
+      },
+      [
+        _c(
+          "button",
+          {
+            staticClass:
+              " w-3/4 h-10 my-2 justify-self-end  border-2 border-red-600 rounded-lg ",
+            attrs: { type: "submit" },
+          },
+          [_vm._v("\n                    login\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "w-3/4 h-10 my-2 rounded-lg border border-yellow-600",
+            attrs: { type: "button" },
+          },
+          [_vm._v("\n                    forgot password\n                ")]
+        ),
       ]
     )
   },
@@ -51321,55 +51388,48 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.productContainer.length > 0
-    ? _c(
-        "div",
-        { staticClass: "z-20 absolute w-full h-fit text-zinc-200  border" },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "gird grid-cols-1 flex flex-col items-center border ",
-            },
-            _vm._l(_vm.productContainer, function (product) {
-              return _c(
-                "div",
-                {
-                  staticClass:
-                    "w-11/12 h-44 flex justify-end m-2 rounded-lg border",
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "grow h-full flex flex-col justify-start " },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "text-center font-bold border-b" },
-                        [
-                          _vm._v(
-                            "\n                    " +
-                              _vm._s(product.name) +
-                              "\n                "
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", {}, [
-                    _c("img", {
-                      staticClass: "w-52 h-44  rounded-tr-lg rounded-br-lg",
-                      attrs: { src: product.image, alt: "product image" },
-                    }),
-                  ]),
-                ]
-              )
-            }),
-            0
-          ),
-        ]
-      )
+    ? _c("div", { staticClass: "z-20 absolute w-full h-fit text-zinc-200  " }, [
+        _c(
+          "div",
+          { staticClass: "gird grid-cols-1 flex flex-col items-center  " },
+          _vm._l(_vm.productContainer, function (product) {
+            return _c(
+              "div",
+              {
+                staticClass:
+                  "w-11/12 h-44 flex justify-end m-2 rounded-lg border",
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "grow h-full flex flex-col justify-start " },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "text-center font-bold border-b" },
+                      [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(product.name) +
+                            "\n                "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", {}, [
+                  _c("img", {
+                    staticClass: "w-44 h-44  rounded-tr-lg rounded-br-lg",
+                    attrs: { src: product.image, alt: "product image" },
+                  }),
+                ]),
+              ]
+            )
+          }),
+          0
+        ),
+      ])
     : _vm._e()
 }
 var staticRenderFns = []
