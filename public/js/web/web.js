@@ -20335,10 +20335,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
-/* harmony import */ var _web_Background__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../web/Background */ "./resources/js/components/web/Background.vue");
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+/* harmony import */ var _web_Background__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../web/Background */ "./resources/js/components/web/Background.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -20400,48 +20398,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   components: {
-    Header: _web_Header__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Background: _web_Background__WEBPACK_IMPORTED_MODULE_3__["default"]
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Background: _web_Background__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -20454,17 +20417,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   created: function created() {
     console.log('login created > ------------------------');
     this.initCSRFToken();
-    this.login(); // this.redirectIfAuthenticated()
-    // this.$watch(
-    //     () => this.formData.email, (newValue, oldValue) => {
-    //         this.validateEmail()
-    //     }
-    // )
-    // this.$watch(
-    //     () => this.formData.password, (newValue, oldValue) => {
-    //         this.validatePassword()
-    //     }
-    // )
+    this.login();
   },
   methods: {
     initCSRFToken: function initCSRFToken() {
@@ -50134,7 +50087,7 @@ var render = function () {
             [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "w-full h-80 text-zinc-200 " }, [
+              _c("div", { staticClass: "w-full h-60 text-zinc-200 " }, [
                 _c(
                   "div",
                   {
@@ -50227,14 +50180,18 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _c("label", { staticClass: "text-zinc-200" }, [
+                _vm._v(" social media login"),
+              ]),
+              _vm._v(" "),
               _c("div", {
                 staticClass:
-                  "w-full h-1 bg-gradient-to-r from-zinc-800 via-zinc-400 to-zinc-800 ",
+                  "w-full h-1 bg-gradient-to-r from-zinc-900 via-zinc-400 to-zinc-900 ",
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "w-full h-20 " }),
-              _vm._v(" "),
               _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
             ]
           ),
         ]
@@ -50273,9 +50230,25 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
+      { staticClass: "w-full h-20 flex justify-center items-center " },
+      [
+        _c("button", { staticClass: "w-16 h-16 mx-4 rounded-full border" }),
+        _vm._v(" "),
+        _c("button", { staticClass: "w-16 h-16 mx-4 rounded-full border" }),
+        _vm._v(" "),
+        _c("button", { staticClass: "w-16 h-16 mx-4 rounded-full border" }),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
       {
         staticClass:
-          "w-full h-44 flex flex-col justify-center items-center text-zinc-200 ",
+          "w-full h-44 flex flex-col justify-end items-center text-zinc-200 ",
       },
       [
         _c(
@@ -50291,10 +50264,9 @@ var staticRenderFns = [
         _c(
           "button",
           {
-            staticClass:
-              "w-3/4 h-10 my-2 rounded-lg border-2 border-yellow-400",
+            staticClass: "w-3/4 h-10 my-2 rounded-lg border border-yellow-600",
           },
-          [_vm._v("\n                    forgot password ?\n                ")]
+          [_vm._v("\n                    forgot password\n                ")]
         ),
       ]
     )
