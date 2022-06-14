@@ -2,9 +2,9 @@
     <div class="flex min-h-screen ">
         <Background/>
         <Header class="z-50"/>
-        <div class="z-20 absolute flex justify-center items-start w-full h-full border-4 border-yellow-500">
-            <form
-                class="flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 p-2 border border-red-600 rounded-2xl">
+        <div class="z-20 absolute flex justify-center items-start w-full h-full  border-yellow-500">
+            <form action="#" @submit.prevent="login"
+                  class="flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 p-2 border border-red-600 rounded-2xl">
                 <!-- message box -->
                 <div
                     class="w-full h-44 flex flex-col justify-center items-start text-zinc-200
@@ -16,15 +16,19 @@
                 </div>
                 <!-- inputs -->
                 <div class="w-full h-80 text-zinc-200 ">
-                    <div class="flex flex-col py-10">
-                        <label class="block mb-2 ml-2 text-sm" for="email">Email </label>
-                        <input
-                            class=" mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200 border-1 border-red-600"
-                            v-model="formData.email" name="email" id="email" type="email" autocomplete="email">
-                        <label class="block mb-1 ml-2 text-sm" for="password">Password</label>
-                        <input class="rounded-lg text-gray-200 text-sm bg-slate-700 border border-red-600"
-                               v-model="formData.password" name="password" id="password" type="password"
-                               autocomplete="current-password">
+                    <div class="flex flex-col justify-center items-center py-10">
+                        <div class="w-5/6 ">
+                            <label class="block mb-2 ml-2 text-sm" for="email">Email </label>
+                            <input
+                                class=" w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200 border-1 border-red-600"
+                                v-model="formData.email" name="email" id="email" type="email" autocomplete="email">
+                        </div>
+                        <div class="w-5/6">
+                            <label class="block mb-1 ml-2 text-sm" for="password">Password</label>
+                            <input class=" w-full rounded-lg text-gray-200 text-sm bg-slate-700 border border-red-600"
+                                   v-model="formData.password" name="password" id="password" type="password"
+                                   autocomplete="current-password">
+                        </div>
                     </div>
                 </div>
                 <!-- social login -->
@@ -32,8 +36,10 @@
 
                 </div>
                 <!-- buttons -->
-                <div class="w-full h-44 text-zinc-200 ">
-                    login
+                <div class="w-full h-44 flex justify-center items-center text-zinc-200 ">
+                    <button class=" w-3/4 h-10 justify-self-end  border-2 border-red-600 rounded-lg " type="submit">
+                        login
+                    </button>
                 </div>
             </form>
         </div>
