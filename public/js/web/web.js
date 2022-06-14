@@ -20398,6 +20398,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -50092,9 +50104,26 @@ var staticRenderFns = [
           "z-20 absolute flex justify-center items-start w-full h-full border-4 border-yellow-500",
       },
       [
-        _c("div", {
-          staticClass: "w-11/12 h-5/6 mt-10 overflow-y-scroll border-4",
-        }),
+        _c(
+          "div",
+          {
+            staticClass:
+              "flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 ",
+          },
+          [
+            _c("div", { staticClass: "w-full h-44 text-zinc-200 border" }, [
+              _vm._v("\n                    message box\n                "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full h-60 border" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full h-20 border" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "w-full h-44 text-zinc-200 border" }, [
+              _vm._v("\n                    login\n                "),
+            ]),
+          ]
+        ),
       ]
     )
   },

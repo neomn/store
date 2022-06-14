@@ -3,13 +3,25 @@
         <Background/>
         <Header class="z-50"/>
         <div class="z-20 absolute flex justify-center items-start w-full h-full border-4 border-yellow-500">
-            <div class="w-11/12 h-5/6 mt-10 overflow-y-scroll border-4">
+            <div class="flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 ">
+                <!-- message box -->
+                <div class="w-full h-44 text-zinc-200 border">
+                    message box
+                </div>
+                <!-- inputs -->
+                <div class="w-full h-60 border">
 
+                </div>
+                <!-- social login -->
+                <div class="w-full h-20 border">
+
+                </div>
+                <!-- buttons -->
+                <div class="w-full h-44 text-zinc-200 border">
+                    login
+                </div>
             </div>
         </div>
-
-
-
 
 
 
