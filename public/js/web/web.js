@@ -20410,6 +20410,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -50111,16 +50115,31 @@ var staticRenderFns = [
               "flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 ",
           },
           [
-            _c("div", { staticClass: "w-full h-44 text-zinc-200 border" }, [
-              _vm._v("\n                    message box\n                "),
-            ]),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "w-full h-44 flex flex-col justify-center items-start text-zinc-200\n                 bg-gradient-to-r from-slate-700 rounded-lg",
+              },
+              [
+                _c("ul", { staticClass: "pl-8 list-disk " }, [
+                  _c("li", { staticClass: "pt-4 pb-1" }, [
+                    _vm._v("enter a valid email address"),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "pt-1 pb-4" }, [
+                    _vm._v("password should be at least 8 characters"),
+                  ]),
+                ]),
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "w-full h-60 border" }),
+            _c("div", { staticClass: "w-full h-80 border" }),
             _vm._v(" "),
             _c("div", { staticClass: "w-full h-20 border" }),
             _vm._v(" "),
             _c("div", { staticClass: "w-full h-44 text-zinc-200 border" }, [
-              _vm._v("\n                    login\n                "),
+              _vm._v("\n                login\n            "),
             ]),
           ]
         ),
