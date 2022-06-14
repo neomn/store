@@ -51321,55 +51321,48 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.productContainer.length > 0
-    ? _c(
-        "div",
-        { staticClass: "z-20 absolute w-full h-fit text-zinc-200  border" },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "gird grid-cols-1 flex flex-col items-center border ",
-            },
-            _vm._l(_vm.productContainer, function (product) {
-              return _c(
-                "div",
-                {
-                  staticClass:
-                    "w-11/12 h-44 flex justify-end m-2 rounded-lg border",
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "grow h-full flex flex-col justify-start " },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "text-center font-bold border-b" },
-                        [
-                          _vm._v(
-                            "\n                    " +
-                              _vm._s(product.name) +
-                              "\n                "
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", {}, [
-                    _c("img", {
-                      staticClass: "w-44 h-44  rounded-tr-lg rounded-br-lg",
-                      attrs: { src: product.image, alt: "product image" },
-                    }),
-                  ]),
-                ]
-              )
-            }),
-            0
-          ),
-        ]
-      )
+    ? _c("div", { staticClass: "z-20 absolute w-full h-fit text-zinc-200  " }, [
+        _c(
+          "div",
+          { staticClass: "gird grid-cols-1 flex flex-col items-center  " },
+          _vm._l(_vm.productContainer, function (product) {
+            return _c(
+              "div",
+              {
+                staticClass:
+                  "w-11/12 h-44 flex justify-end m-2 rounded-lg border",
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "grow h-full flex flex-col justify-start " },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "text-center font-bold border-b" },
+                      [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(product.name) +
+                            "\n                "
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", {}, [
+                  _c("img", {
+                    staticClass: "w-44 h-44  rounded-tr-lg rounded-br-lg",
+                    attrs: { src: product.image, alt: "product image" },
+                  }),
+                ]),
+              ]
+            )
+          }),
+          0
+        ),
+      ])
     : _vm._e()
 }
 var staticRenderFns = []

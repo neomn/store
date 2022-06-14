@@ -918,9 +918,6 @@ select {
 .w-1\/3 {
   width: 33.333333%;
 }
-.w-52 {
-  width: 13rem;
-}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -991,9 +988,6 @@ select {
 .items-start {
   align-items: flex-start;
 }
-.items-end {
-  align-items: flex-end;
-}
 .items-center {
   align-items: center;
 }
@@ -1030,9 +1024,6 @@ select {
 }
 .self-start {
   align-self: flex-start;
-}
-.self-end {
-  align-self: flex-end;
 }
 .self-center {
   align-self: center;
@@ -1094,9 +1085,6 @@ select {
 }
 .border-2 {
   border-width: 2px;
-}
-.border-4 {
-  border-width: 4px;
 }
 .border-t {
   border-top-width: 1px;
