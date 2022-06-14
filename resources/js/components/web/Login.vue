@@ -32,13 +32,17 @@
                     </div>
                 </div>
                 <!-- social login -->
+                <div class="w-full h-1 bg-gradient-to-r from-zinc-800 via-zinc-400 to-zinc-800 "></div>
                 <div class="w-full h-20 ">
 
                 </div>
                 <!-- buttons -->
-                <div class="w-full h-44 flex justify-center items-center text-zinc-200 ">
-                    <button class=" w-3/4 h-10 justify-self-end  border-2 border-red-600 rounded-lg " type="submit">
+                <div class="w-full h-44 flex flex-col justify-center items-center text-zinc-200 ">
+                    <button class=" w-3/4 h-10 my-2 justify-self-end  border-2 border-red-600 rounded-lg " type="submit">
                         login
+                    </button>
+                    <button class="w-3/4 h-10 my-2 rounded-lg border-2 border-yellow-400">
+                        forgot password ?
                     </button>
                 </div>
             </form>

@@ -640,6 +640,10 @@ select {
   margin-left: 0.25rem;
   margin-right: 0.25rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -857,6 +861,9 @@ select {
 }
 .h-80 {
   height: 20rem;
+}
+.h-1 {
+  height: 0.25rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1159,6 +1166,10 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(234 179 8 / var(--tw-border-opacity));
 }
+.border-yellow-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(250 204 21 / var(--tw-border-opacity));
+}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1272,6 +1283,15 @@ select {
 }
 .via-lime-300 {
   --tw-gradient-stops: var(--tw-gradient-from), #bef264, var(--tw-gradient-to, rgb(190 242 100 / 0));
+}
+.via-zinc-200 {
+  --tw-gradient-stops: var(--tw-gradient-from), #e4e4e7, var(--tw-gradient-to, rgb(228 228 231 / 0));
+}
+.via-zinc-300 {
+  --tw-gradient-stops: var(--tw-gradient-from), #d4d4d8, var(--tw-gradient-to, rgb(212 212 216 / 0));
+}
+.via-zinc-400 {
+  --tw-gradient-stops: var(--tw-gradient-from), #a1a1aa, var(--tw-gradient-to, rgb(161 161 170 / 0));
 }
 .to-slate-900 {
   --tw-gradient-to: #0f172a;

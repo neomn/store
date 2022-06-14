@@ -20430,6 +20430,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -50223,6 +50227,11 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
+              _c("div", {
+                staticClass:
+                  "w-full h-1 bg-gradient-to-r from-zinc-800 via-zinc-400 to-zinc-800 ",
+              }),
+              _vm._v(" "),
               _c("div", { staticClass: "w-full h-20 " }),
               _vm._v(" "),
               _vm._m(1),
@@ -50266,17 +50275,26 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "w-full h-44 flex justify-center items-center text-zinc-200 ",
+          "w-full h-44 flex flex-col justify-center items-center text-zinc-200 ",
       },
       [
         _c(
           "button",
           {
             staticClass:
-              " w-3/4 h-10 justify-self-end  border-2 border-red-600 rounded-lg ",
+              " w-3/4 h-10 my-2 justify-self-end  border-2 border-red-600 rounded-lg ",
             attrs: { type: "submit" },
           },
           [_vm._v("\n                    login\n                ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "w-3/4 h-10 my-2 rounded-lg border-2 border-yellow-400",
+          },
+          [_vm._v("\n                    forgot password ?\n                ")]
         ),
       ]
     )
