@@ -20398,6 +20398,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -49519,8 +49520,6 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("Background"),
-      _vm._v(" "),
       _c("Header"),
       _vm._v(" "),
       _c("Sidebar"),
@@ -50115,7 +50114,7 @@ var render = function () {
                           },
                         ],
                         staticClass:
-                          " w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200 border-1 border-red-600",
+                          " w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200\n                             border-1 border-red-600",
                         attrs: {
                           name: "email",
                           id: "email",
@@ -50232,11 +50231,26 @@ var staticRenderFns = [
       "div",
       { staticClass: "w-full h-20 flex justify-center items-center " },
       [
-        _c("button", { staticClass: "w-16 h-16 mx-4 rounded-full border" }),
+        _c("img", {
+          staticClass: "w-16 h-16 mx-4 rounded-full ",
+          attrs: {
+            src: "/storage/images/socialMedia/without_background/google.png",
+          },
+        }),
         _vm._v(" "),
-        _c("button", { staticClass: "w-16 h-16 mx-4 rounded-full border" }),
+        _c("img", {
+          staticClass: "w-16 h-16 mx-4 rounded-full ",
+          attrs: {
+            src: "/storage/images/socialMedia/without_background/linkedin.png",
+          },
+        }),
         _vm._v(" "),
-        _c("button", { staticClass: "w-16 h-16 mx-4 rounded-full border" }),
+        _c("img", {
+          staticClass: "w-16 h-16 mx-4 rounded-full ",
+          attrs: {
+            src: "/storage/images/socialMedia/without_background/github.png",
+          },
+        }),
       ]
     )
   },
@@ -50265,6 +50279,7 @@ var staticRenderFns = [
           "button",
           {
             staticClass: "w-3/4 h-10 my-2 rounded-lg border border-yellow-600",
+            attrs: { type: "button" },
           },
           [_vm._v("\n                    forgot password\n                ")]
         ),

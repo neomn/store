@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Background/>
+<!--        <Background/>-->
         <Header/>
         <Sidebar/>
         <Breadcrumb/>

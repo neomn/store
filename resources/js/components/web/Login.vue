@@ -20,7 +20,8 @@
                         <div class="w-5/6 ">
                             <label class="block mb-2 ml-2 text-sm" for="email">Email </label>
                             <input
-                                class=" w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200 border-1 border-red-600"
+                                class=" w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200
+                                 border-1 border-red-600"
                                 v-model="formData.email" name="email" id="email" type="email" autocomplete="email">
                         </div>
                         <div class="w-5/6">
@@ -35,16 +36,16 @@
                 <label class="text-zinc-200" > social media login</label>
                 <div class="w-full h-1 bg-gradient-to-r from-zinc-900 via-zinc-400 to-zinc-900 "></div>
                 <div class="w-full h-20 flex justify-center items-center ">
-                    <button class="w-16 h-16 mx-4 rounded-full border"></button>
-                    <button class="w-16 h-16 mx-4 rounded-full border"></button>
-                    <button class="w-16 h-16 mx-4 rounded-full border"></button>
+                    <img class="w-16 h-16 mx-4 rounded-full " src="/storage/images/socialMedia/without_background/google.png">
+                    <img class="w-16 h-16 mx-4 rounded-full " src="/storage/images/socialMedia/without_background/linkedin.png">
+                    <img class="w-16 h-16 mx-4 rounded-full " src="/storage/images/socialMedia/without_background/github.png">
                 </div>
                 <!-- buttons -->
                 <div class="w-full h-44 flex flex-col justify-end items-center text-zinc-200 ">
                     <button class=" w-3/4 h-10 my-2 justify-self-end  border-2 border-red-600 rounded-lg " type="submit">
                         login
                     </button>
-                    <button class="w-3/4 h-10 my-2 rounded-lg border border-yellow-600">
+                    <button class="w-3/4 h-10 my-2 rounded-lg border border-yellow-600" type="button">
                         forgot password
                     </button>
                 </div>
