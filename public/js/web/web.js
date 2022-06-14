@@ -20338,6 +20338,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+/* harmony import */ var _web_Background__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../web/Background */ "./resources/js/components/web/Background.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -20388,12 +20389,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   components: {
-    Header: _web_Header__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Background: _web_Background__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -50057,169 +50069,18 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex min-h-screen bg-slate-800" },
+    { staticClass: "flex min-h-screen " },
     [
+      _c("Background"),
+      _vm._v(" "),
       _c("Header", { staticClass: "z-50" }),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-12 flex flex-col w-full" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              " flex flex-col place-self-center w-auto h-5/6 mt-10 px-4 text-gray-200 bg-slate-900 rounded-lg  border-2 border-red-600 ",
-          },
-          [
-            _c(
-              "h5",
-              {
-                staticClass:
-                  " my-4 mx-4 bg-slate-800 text-center rounded-lg   ",
-              },
-              [_vm._v("Enter Your Credential To Login ")]
-            ),
-            _vm._v(" "),
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "form",
-              {
-                staticClass: "flex flex-col h-full overflow-hidden",
-                attrs: { action: "#" },
-                on: {
-                  submit: function ($event) {
-                    $event.preventDefault()
-                    return _vm.login.apply(null, arguments)
-                  },
-                },
-              },
-              [
-                _c("div", { staticClass: "text-left relative" }, [
-                  _c("div", { staticClass: " rounded-md" }, [
-                    _c("div", { staticClass: "flex flex-col py-10" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "block mb-2 ml-2 text-sm",
-                          attrs: { for: "email" },
-                        },
-                        [_vm._v("Email ")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.formData.email,
-                            expression: "formData.email",
-                          },
-                        ],
-                        staticClass:
-                          "mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200 border-1 border-red-600",
-                        attrs: {
-                          name: "email",
-                          id: "email",
-                          type: "email",
-                          autocomplete: "email",
-                        },
-                        domProps: { value: _vm.formData.email },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.formData, "email", $event.target.value)
-                          },
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "block mb-1 ml-2 text-sm",
-                          attrs: { for: "password" },
-                        },
-                        [_vm._v("Password")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.formData.password,
-                            expression: "formData.password",
-                          },
-                        ],
-                        staticClass:
-                          "rounded-lg text-gray-200 text-sm bg-slate-700 border border-red-600",
-                        attrs: {
-                          name: "password",
-                          id: "password",
-                          type: "password",
-                          autocomplete: "current-password",
-                        },
-                        domProps: { value: _vm.formData.password },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.formData,
-                              "password",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      " justify-self-end  border-2 border-red-600 rounded-lg ",
-                    attrs: { type: "submit" },
-                  },
-                  [_vm._v("login\n                ")]
-                ),
-              ]
-            ),
-          ]
-        ),
-      ]),
+      _c("div"),
     ],
     1
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "  text-sm place-self-center p-2 h-auto rounded bg-gradient-to-r from-slate-700",
-      },
-      [
-        _c("ul", { staticClass: "list-disk" }, [
-          _c("li", { staticClass: "pt-4 pb-1" }, [
-            _vm._v("enter a valid email address"),
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "pt-1 pb-4" }, [
-            _vm._v("password should be at least 8 characters"),
-          ]),
-        ]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
