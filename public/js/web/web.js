@@ -19976,36 +19976,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     console.log('Categories component created > -------------------- \n');
   },
-  mounted: function mounted() {//watch route parameters changes
-    // this.$watch(
-    //     () => this.$route.params, (newParams, previousParams) => {
-    //         console.log('this.$route.params watcher > ------ \n')
-    //         this.emptyProductsContainer()
-    //         console.log('product container is now empty \n')
-    //         console.log('new params >> ' + newParams.category + '\n')
-    //         console.log('previous params >> ' + previousParams.category + '\n')
-    //         if (newParams.category)
-    //             this.refreshCategoryContainer(newParams.category)
-    //
-    //             // reload page if route is /categories
-    //         // this is because category container wasn't refreshing in that route when pressing back button
-    //         else if (!newParams.category) {
-    //             window.location.reload()
-    //         }
-    //     }
-    // )
-    // //watch for categories with no sub category
-    // this.$watch(
-    //     () => this.categoryHasSubCategory(), (newParams, previousParams) => {
-    //         console.log('categoryHasSubCategory watcher > -------- \n')
-    //         console.log(newParams)
-    //         if (newParams === false) {
-    //             console.log('requesting for category productContainer')
-    //             this.getCategoryAssociatedProducts()
-    //         }
-    //     }
-    // )
-  },
+  mounted: function mounted() {},
   methods: {}
 });
 
@@ -49430,15 +49401,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "absolute top-0 w-full min-h-screen overflow-y-hidden  border-red-500",
-    },
-    [_c("router-view")],
-    1
-  )
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49519,6 +49482,10 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      staticClass:
+        "w-full min-h-screen flex flex-col bg-zinc-800 overflow-y-scroll text-zinc-300",
+    },
     [
       _c("Header"),
       _vm._v(" "),
@@ -49739,13 +49706,16 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " z-50 fixed bottom-4 flex flex-col items-center w-full " },
+    {
+      staticClass:
+        "z-50 fixed bottom-0 flex flex-col items-center w-full h-14  ",
+    },
     [
       _c(
         "div",
         {
           staticClass:
-            "flex w-11/12 h-14 px-2 rounded-lg backdrop-blur bg-white/10 ",
+            "flex w-full h-full px-2 rounded-lg backdrop-blur bg-black/70 ",
         },
         [
           _c(
@@ -50067,14 +50037,14 @@ var render = function () {
         "div",
         {
           staticClass:
-            "z-20 absolute flex justify-center items-start w-full h-full  border-yellow-500",
+            "z-20 absolute w-full h-full flex justify-center items-center ",
         },
         [
           _c(
             "form",
             {
               staticClass:
-                "flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 p-2 border border-red-600 rounded-2xl",
+                "flex flex-col justify-start items-center w-11/12 h-5/6 mb-20  border border-red-600 rounded-2xl",
               attrs: { action: "#" },
               on: {
                 submit: function ($event) {
@@ -50836,7 +50806,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _vm.displaySidebar
     ? _c("div", {
-        staticClass: "z-30 fixed left-0 w-3/4 h-full bg-zinc-800 border ",
+        staticClass:
+          "z-30 fixed left-0 w-3/4 h-full backdrop-blur bg-black/50  ",
       })
     : _vm._e()
 }
@@ -50866,19 +50837,17 @@ var render = function () {
   return _c(
     "div",
     {
-      staticClass: "flex flex-col w-full h-full bg-zinc-900 overflow-y-scroll ",
+      staticClass:
+        "flex flex-col w-full min-h-screen bg-zinc-800 overflow-y-scroll border",
     },
     [
-      _c("Background"),
-      _vm._v(" "),
       _c("Header"),
-      _vm._v(" "),
-      _c("ImageSlider"),
       _vm._v(" "),
       _c("SideBar"),
       _vm._v(" "),
+      _c("ImageSlider"),
+      _vm._v(" "),
       _c("ProductCardContainer", {
-        staticClass: "z-20 my-4 mt-10",
         attrs: {
           products: _vm.newProducts,
           title: "New Products",
@@ -50934,10 +50903,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "z-20 absolute top-4 flex justify-center items-center w-full h-12  ",
-    },
+    { staticClass: "pt-8 flex justify-center items-center w-full h-12 " },
     [
       _c(
         "div",
@@ -51014,10 +50980,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        " z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll ",
-    },
+    { staticClass: " mt-10 w-full h-full text-zinc-200 overflow-y-scroll " },
     [
       _c(
         "div",
@@ -51067,12 +51030,12 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    "w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center text-xs",
+                    "w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll overflow-x-hidden text-center text-xs ",
                 },
                 _vm._l(category.sub, function (sub) {
                   return _c(
                     "div",
-                    { staticClass: "w-full h-auto p-2 border-b" },
+                    { staticClass: "w-full h-auto p-2 m-1 rounded-lg border " },
                     [
                       _c(
                         "router-link",
@@ -51144,7 +51107,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-20 relative flex justify-center w-full h-72  " },
+    { staticClass: "relative flex justify-center w-full h-72 " },
     [
       _c("div", { staticClass: "w-11/12 max-w-md h-60 " }, [
         _c("img", {
@@ -51205,7 +51168,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "z-20 flex justify-center w-full h-60  " }, [
+  return _c("div", { staticClass: " flex justify-center w-full h-60   " }, [
     _c("div", { staticClass: " relative w-11/12 max-w-sm  h-52 m-4  " }, [
       _c("img", {
         staticClass: " absolute right-0 w-60 h-52 text-zinc-200 ",
@@ -51331,10 +51294,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        " z-20 flex justify-center items-center w-full h-64 my-4 overflow-y-hidden text-lg font-bold  ",
-    },
+    { staticClass: "w-full h-72 my-4 flex justify-center text-zinc-200 " },
     [
       _c(
         "div",
@@ -51388,7 +51348,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.productContainer.length > 0
-    ? _c("div", { staticClass: "z-20 absolute w-full h-fit text-zinc-200  " }, [
+    ? _c("div", { staticClass: " w-full h-fit text-zinc-200  " }, [
         _c(
           "div",
           { staticClass: "gird grid-cols-1 flex flex-col items-center  " },

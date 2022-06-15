@@ -2,9 +2,9 @@
     <div class="flex min-h-screen ">
         <Background/>
         <Header class="z-50"/>
-        <div class="z-20 absolute flex justify-center items-start w-full h-full  border-yellow-500">
+        <div class="z-20 absolute w-full h-full flex justify-center items-center ">
             <form action="#" @submit.prevent="login"
-                  class="flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 p-2 border border-red-600 rounded-2xl">
+                  class="flex flex-col justify-start items-center w-11/12 h-5/6 mb-20  border border-red-600 rounded-2xl">
                 <!-- message box -->
                 <div
                     class="w-full h-44 flex flex-col justify-center items-start text-zinc-200

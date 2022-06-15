@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute top-0 w-full min-h-screen overflow-y-hidden  border-red-500">
+    <div>
         <router-view/>
     </div>
 </template>
