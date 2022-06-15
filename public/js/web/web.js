@@ -51030,12 +51030,12 @@ var render = function () {
                 "div",
                 {
                   staticClass:
-                    "w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center text-xs",
+                    "w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll overflow-x-hidden text-center text-xs ",
                 },
                 _vm._l(category.sub, function (sub) {
                   return _c(
                     "div",
-                    { staticClass: "w-full h-auto p-2 border-b" },
+                    { staticClass: "w-full h-auto p-2 m-1 rounded-lg border " },
                     [
                       _c(
                         "router-link",

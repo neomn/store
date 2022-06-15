@@ -14,8 +14,8 @@
                             </div>
                         </router-link>
                     </div>
-                    <div class="w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll text-center text-xs">
-                        <div v-for="sub in category.sub" class="w-full h-auto p-2 border-b">
+                    <div class="w-2/5 h-full flex flex-col justify-start p-2 overflow-y-scroll overflow-x-hidden text-center text-xs ">
+                        <div v-for="sub in category.sub" class="w-full h-auto p-2 m-1 rounded-lg border ">
                             <router-link :to="{name:'categories' , params: {category: sub.category}}">
                                 <button>{{ sub.category }}</button>
                             </router-link>
