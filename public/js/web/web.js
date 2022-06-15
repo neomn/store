@@ -49704,13 +49704,16 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: " z-50 fixed bottom-4 flex flex-col items-center  w-full " },
+    {
+      staticClass:
+        "z-50 fixed bottom-0 flex flex-col items-center w-full h-14 border ",
+    },
     [
       _c(
         "div",
         {
           staticClass:
-            "flex w-11/12 h-14 px-2 rounded-lg backdrop-blur bg-white/10 ",
+            "flex w-full h-full px-2 rounded-lg backdrop-blur bg-white/10 ",
         },
         [
           _c(
@@ -50830,7 +50833,10 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-col w-full h-full overflow-y-scroll " },
+    {
+      staticClass:
+        "flex flex-col w-full h-full bg-zinc-800 overflow-y-scroll border-4 ",
+    },
     [
       _c("Header"),
       _vm._v(" "),
@@ -51105,7 +51111,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "z-20 relative flex justify-center w-full h-72  " },
+    { staticClass: "relative flex justify-center w-full h-72  " },
     [
       _c("div", { staticClass: "w-11/12 max-w-md h-60 " }, [
         _c("img", {
@@ -51166,7 +51172,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "z-20 flex justify-center w-full h-60  " }, [
+  return _c("div", { staticClass: " flex justify-center w-full h-60  " }, [
     _c("div", { staticClass: " relative w-11/12 max-w-sm  h-52 m-4  " }, [
       _c("img", {
         staticClass: " absolute right-0 w-60 h-52 text-zinc-200 ",
@@ -51294,7 +51300,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        " z-20 flex justify-center items-center w-full h-64 my-4 overflow-y-hidden text-lg font-bold  ",
+        " flex justify-center items-center w-full h-64 my-4 overflow-y-hidden text-lg font-bold border-4 ",
     },
     [
       _c(

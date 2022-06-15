@@ -1,7 +1,7 @@
 <template>
-    <div class=" z-50 fixed bottom-4 flex flex-col items-center  w-full ">
+    <div class="z-50 fixed bottom-0 flex flex-col items-center w-full h-14 border ">
         <!-- header -->
-        <div class="flex w-11/12 h-14 px-2 rounded-lg backdrop-blur bg-white/10 ">
+        <div class="flex w-full h-full px-2 rounded-lg backdrop-blur bg-white/10 ">
             <div class="flex grow justify-around items-center rounded text-zinc-300 text-2xl">
                 <!-- left side buttons-->
                 <div class=" flex grow items-center">

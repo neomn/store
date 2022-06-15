@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full h-full overflow-y-scroll ">
+    <div class="flex flex-col w-full h-full bg-zinc-800 overflow-y-scroll border-4 ">
 <!--        <Background />-->
         <Header/>
         <ImageSlider/>
