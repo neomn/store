@@ -1,10 +1,10 @@
 <template>
-    <div class="flex flex-col w-full h-full bg-zinc-800 overflow-y-scroll border-4 ">
+    <div class="flex flex-col w-full min-h-screen bg-zinc-800 overflow-y-scroll border">
 <!--        <Background />-->
         <Header/>
-        <ImageSlider/>
         <SideBar/>
-        <ProductCardContainer :products="newProducts" title="New Products" color="yellow-600" class="z-20 my-4 mt-10"/>
+        <ImageSlider/>
+        <ProductCardContainer :products="newProducts" title="New Products" color="yellow-600"/>
         <Offer imageUrl="/storage/images/products/electronicsAndRobotics/arduino/Uno-R3.png"
                discountPercentage="25"/>
         <ProductCardContainer :products="topSells" title="Top Sells" color="red-600" />

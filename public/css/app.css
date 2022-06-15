@@ -856,6 +856,9 @@ select {
   height: -moz-fit-content;
   height: fit-content;
 }
+.h-1\/4 {
+  height: 25%;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1234,6 +1237,18 @@ select {
 }
 .bg-white\/60 {
   background-color: rgb(255 255 255 / 0.6);
+}
+.bg-black\/10 {
+  background-color: rgb(0 0 0 / 0.1);
+}
+.bg-black\/40 {
+  background-color: rgb(0 0 0 / 0.4);
+}
+.bg-black\/70 {
+  background-color: rgb(0 0 0 / 0.7);
+}
+.bg-black\/50 {
+  background-color: rgb(0 0 0 / 0.5);
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));

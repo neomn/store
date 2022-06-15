@@ -1,5 +1,5 @@
 <template>
-    <div class="relative flex justify-center w-full h-72  ">
+    <div class="relative flex justify-center w-full h-72 ">
         <div class="w-11/12 max-w-md h-60 ">
             <img ref="slider" :src="images[0]" alt="image slider" class=" w-full h-60 mt-4 rounded-2xl object-fill  ">
         </div>

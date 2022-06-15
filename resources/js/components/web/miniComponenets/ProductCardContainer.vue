@@ -1,5 +1,5 @@
 <template>
-    <div class=" flex justify-center items-center w-full h-64 my-4 overflow-y-hidden text-lg font-bold border-4 ">
+    <div class="w-full h-72 my-2  text-zinc-200 ">
         <div ref='productContainer' class=" flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  backdrop-blur bg-white/10 ">
             <!--title -->
             <div class="w-1/3 self-start mt-10 flex text-zinc-300">
