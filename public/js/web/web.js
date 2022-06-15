@@ -49482,9 +49482,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    {
+      staticClass:
+        "w-full min-h-screen flex flex-col bg-zinc-800 overflow-y-scroll text-zinc-300",
+    },
     [
-      _c("Background"),
-      _vm._v(" "),
       _c("Header"),
       _vm._v(" "),
       _c("Sidebar"),
@@ -50901,10 +50903,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "z-20 absolute top-4 flex justify-center items-center w-full h-12  ",
-    },
+    { staticClass: "pt-8 flex justify-center items-center w-full h-12 " },
     [
       _c(
         "div",
@@ -50981,10 +50980,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        " z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll ",
-    },
+    { staticClass: " mt-10 w-full h-full text-zinc-200 overflow-y-scroll " },
     [
       _c(
         "div",
@@ -51296,33 +51292,37 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-full h-72 my-2  text-zinc-200 " }, [
-    _c(
-      "div",
-      {
-        ref: "productContainer",
-        staticClass:
-          " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  backdrop-blur bg-white/10 ",
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "w-1/3 self-start mt-10 flex text-zinc-300" },
-          [_c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))])]
-        ),
-        _vm._v(" "),
-        _vm._l(_vm.products, function (item) {
-          return _c(
+  return _c(
+    "div",
+    { staticClass: "w-full h-72 my-4 flex justify-center text-zinc-200 " },
+    [
+      _c(
+        "div",
+        {
+          ref: "productContainer",
+          staticClass:
+            " flex w-11/12 h-full p-2 overflow-x-scroll rounded-lg  backdrop-blur bg-white/10 ",
+        },
+        [
+          _c(
             "div",
-            { staticClass: "mx-1" },
-            [_c("ProductCard", { attrs: { product: item } })],
-            1
-          )
-        }),
-      ],
-      2
-    ),
-  ])
+            { staticClass: "w-1/3 self-start mt-10 flex text-zinc-300" },
+            [_c("h1", { staticClass: "w-44" }, [_vm._v(_vm._s(_vm.title))])]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.products, function (item) {
+            return _c(
+              "div",
+              { staticClass: "mx-1" },
+              [_c("ProductCard", { attrs: { product: item } })],
+              1
+            )
+          }),
+        ],
+        2
+      ),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51348,7 +51348,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.productContainer.length > 0
-    ? _c("div", { staticClass: "z-20 absolute w-full h-fit text-zinc-200  " }, [
+    ? _c("div", { staticClass: " w-full h-fit text-zinc-200  " }, [
         _c(
           "div",
           { staticClass: "gird grid-cols-1 flex flex-col items-center  " },

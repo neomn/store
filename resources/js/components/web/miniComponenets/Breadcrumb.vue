@@ -1,5 +1,5 @@
 <template>
-    <div class="z-20 absolute top-4 flex justify-center items-center w-full h-12  ">
+    <div class="pt-8 flex justify-center items-center w-full h-12 ">
         <div id="bredCrumb"
              class="flex justify-start items-center w-11/12 h-10 pr-4 text-zinc-200 rounded-lg overflow-x-scroll overflow-y-hidden border">
             <div class="ml-4">

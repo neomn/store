@@ -1,5 +1,5 @@
 <template>
-    <div class=" z-20 absolute top-20 w-full h-full text-zinc-200 overflow-y-scroll ">
+    <div class=" mt-10 w-full h-full text-zinc-200 overflow-y-scroll ">
         <div  class="grid grid-cols-1 gap-4 place-items-center">
             <div v-for="category in categoryContainer" class="w-11/12 h-40 border rounded ">
                 <div class="flex w-full h-full justify-center">

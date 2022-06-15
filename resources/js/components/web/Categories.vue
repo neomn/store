@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <Background/>
+    <div class="w-full min-h-screen flex flex-col bg-zinc-800 overflow-y-scroll text-zinc-300">
+<!--        <Background/>-->
         <Header/>
         <Sidebar/>
         <Breadcrumb/>
