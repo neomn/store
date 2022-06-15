@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col w-full h-full bg-zinc-900 overflow-y-scroll ">
-        <Background />
+    <div class="flex flex-col w-full h-full overflow-y-scroll ">
+<!--        <Background />-->
         <Header/>
         <ImageSlider/>
         <SideBar/>

@@ -49401,15 +49401,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "absolute top-0 w-full min-h-screen overflow-y-hidden  border-red-500",
-    },
-    [_c("router-view")],
-    1
-  )
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50838,12 +50830,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "flex flex-col w-full h-full bg-zinc-900 overflow-y-scroll ",
-    },
+    { staticClass: "flex flex-col w-full h-full overflow-y-scroll " },
     [
-      _c("Background"),
-      _vm._v(" "),
       _c("Header"),
       _vm._v(" "),
       _c("ImageSlider"),
