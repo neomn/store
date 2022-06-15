@@ -740,6 +740,12 @@ select {
 .mt-20 {
   margin-top: 5rem;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
 .block {
   display: block;
 }

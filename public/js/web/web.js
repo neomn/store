@@ -50040,14 +50040,14 @@ var render = function () {
         "div",
         {
           staticClass:
-            "z-20 absolute flex justify-center items-start w-full h-full  border-yellow-500",
+            "z-20 absolute w-full h-full flex justify-center items-center ",
         },
         [
           _c(
             "form",
             {
               staticClass:
-                "flex flex-col justify-start items-center w-11/12 h-5/6 mt-10 p-2 border border-red-600 rounded-2xl",
+                "flex flex-col justify-start items-center w-11/12 h-5/6 mb-20  border border-red-600 rounded-2xl",
               attrs: { action: "#" },
               on: {
                 submit: function ($event) {
