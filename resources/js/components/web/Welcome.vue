@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full min-h-screen bg-zinc-800 overflow-y-scroll border">
+    <div class="flex flex-col w-full min-h-screen bg-zinc-800 overflow-y-scroll">
 <!--        <Background />-->
         <Header/>
         <SideBar/>

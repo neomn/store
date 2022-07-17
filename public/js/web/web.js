@@ -50838,7 +50838,7 @@ var render = function () {
     "div",
     {
       staticClass:
-        "flex flex-col w-full min-h-screen bg-zinc-800 overflow-y-scroll border",
+        "flex flex-col w-full min-h-screen bg-zinc-800 overflow-y-scroll",
     },
     [
       _c("Header"),
