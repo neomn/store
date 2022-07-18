@@ -27,8 +27,8 @@ class UserSeeder extends Seeder
         //create a test user to test login
         $faker = Factory::create();
         $value = [
-            'firstName' => 'test',
-            'lastName' => 'user',
+            'first_name' => 'test',
+            'last_name' => 'user',
             'phone_number' => '09178448254',
             'email' => 'testuser@test.com',
             'email_verified_at' => $faker->dateTime(),
