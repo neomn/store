@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\ExternalApi;
 
+use App\Http\Requests\RegisterUserRequest;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function register()
+    public function register(RegisterUserRequest $request)
     {
 
     }
