@@ -16,7 +16,7 @@ class RegisterUserRequest extends FormRequest
     {
         return [
             'phone_number' => 'required|digits:11|numeric|unique:users',
-            'password' => 'required|min:8|max:16|',
+            'password' => 'required|min:8|max:16',
         ];
     }
     public function messages()

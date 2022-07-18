@@ -12,8 +12,8 @@ class AuthController extends Controller
     public function register(RegisterUserRequest $request)
     {
         $credentials = [
-            'phone_number' => $request->phone_number,
-            'password' => Hash::make($request->password),
+            'phone_number' => $request->safe()->phone_number,
+            'password' => Hash::make($request->safe()->password),
         ];
         return response()->json(['successfully registered' => User::create($credentials)] , '200');
     }
