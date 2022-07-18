@@ -13,6 +13,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        auth()->setDefaultDriver('api');
+        auth()->setDefaultDriver('externalApi');
     }
 }
