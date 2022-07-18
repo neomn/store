@@ -44,7 +44,7 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
-        'externalApi' => [
+        'api' => [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
