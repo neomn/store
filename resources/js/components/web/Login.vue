@@ -33,16 +33,20 @@
                     </div>
                 </div>
                 <!-- social login -->
-                <label class="text-zinc-200" > social media login</label>
+                <label class="text-zinc-200"> social media login</label>
                 <div class="w-full h-1 bg-gradient-to-r from-zinc-900 via-zinc-400 to-zinc-900 "></div>
                 <div class="w-full h-20 flex justify-center items-center ">
-                    <img class="w-16 h-16 mx-4 rounded-full " src="/storage/images/socialMedia/without_background/google.png">
-                    <img class="w-16 h-16 mx-4 rounded-full " src="/storage/images/socialMedia/without_background/linkedin.png">
-                    <img class="w-16 h-16 mx-4 rounded-full " src="/storage/images/socialMedia/without_background/github.png">
+                    <img class="w-16 h-16 mx-4 rounded-full "
+                         src="/storage/images/socialMedia/without_background/google.png">
+                    <img class="w-16 h-16 mx-4 rounded-full "
+                         src="/storage/images/socialMedia/without_background/linkedin.png">
+                    <img class="w-16 h-16 mx-4 rounded-full "
+                         src="/storage/images/socialMedia/without_background/github.png">
                 </div>
                 <!-- buttons -->
                 <div class="w-full h-44 flex flex-col justify-end items-center text-zinc-200 ">
-                    <button class=" w-3/4 h-10 my-2 justify-self-end  border-2 border-red-600 rounded-lg " type="submit">
+                    <button class=" w-3/4 h-10 my-2 justify-self-end  border-2 border-red-600 rounded-lg "
+                            type="submit">
                         login
                     </button>
                     <button class="w-3/4 h-10 my-2 rounded-lg border border-yellow-600" type="button">
@@ -71,33 +75,24 @@ export default {
         }
     },
     created() {
-        console.log('login created > ------------------------')
         this.initCSRFToken()
         this.login()
     },
     methods: {
-        async initCSRFToken() {
-            await axios.get('/sanctum/csrf-cookie')
-                .then(response => {
-                    console.log('\n')
-                    console.log('initCSRFToken > ------------ ')
-                    console.log(response.status)
-                    console.log(response.data)
-                    if (response.status === 204) {
-                        console.log(true)
-                        return true
-                    }
-                })
-                .catch(function (error) {
-                    console.log('initCSRFToken error > ------------ ')
-                    console.log(error)
-                    console.log(false)
-                    return false
-                })
+        initCSRFToken() {
+            axios.get('/sanctum/csrf-cookie').then(response => {
+                if (response.status === 204)
+                    console.log('initCSRFToken > done')
+
+            }).catch(function (error) {
+                console.log('initCSRFToken error >')
+                console.log(error)
+            })
         },
-        async login() {
+
+        login() {
             console.log('\n')
-            await axios.post('/login', this.formData)
+            axios.post('/login', this.formData)
                 .then(response => {
                     console.log('login > -----------------')
                     console.log('status > \n')

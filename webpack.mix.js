@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/web/web.js', 'public/js/web')
-    .js('resources/js/admin/admin.js' , 'public/js/admin')
+    .js('resources/js/adminPanel/admin.js' , 'public/js/adminPanel')
     .vue()
     .postCss('resources/css/app.css', 'public/css', [
     require('postcss-import'),

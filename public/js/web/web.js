@@ -20304,16 +20304,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
-/* harmony import */ var _web_Background__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../web/Background */ "./resources/js/components/web/Background.vue");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _web_Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../web/Header */ "./resources/js/components/web/Header.vue");
+/* harmony import */ var _web_Background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../web/Background */ "./resources/js/components/web/Background.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -20375,8 +20371,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Login",
   components: {
-    Header: _web_Header__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Background: _web_Background__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Header: _web_Header__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Background: _web_Background__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -20387,92 +20383,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   created: function created() {
-    console.log('login created > ------------------------');
     this.initCSRFToken();
     this.login();
   },
   methods: {
     initCSRFToken: function initCSRFToken() {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.get('/sanctum/csrf-cookie').then(function (response) {
-                  console.log('\n');
-                  console.log('initCSRFToken > ------------ ');
-                  console.log(response.status);
-                  console.log(response.data);
-
-                  if (response.status === 204) {
-                    console.log(true);
-                    return true;
-                  }
-                })["catch"](function (error) {
-                  console.log('initCSRFToken error > ------------ ');
-                  console.log(error);
-                  console.log(false);
-                  return false;
-                });
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+      axios.get('/sanctum/csrf-cookie').then(function (response) {
+        if (response.status === 204) console.log('initCSRFToken > done');
+      })["catch"](function (error) {
+        console.log('initCSRFToken error >');
+        console.log(error);
+      });
     },
     login: function login() {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                console.log('\n');
-                _context2.next = 3;
-                return axios.post('/login', _this.formData).then(function (response) {
-                  console.log('login > -----------------');
-                  console.log('status > \n');
-                  console.log(response.status);
-                  console.log('response > \n');
-                  console.log(response);
+      console.log('\n');
+      axios.post('/login', this.formData).then(function (response) {
+        console.log('login > -----------------');
+        console.log('status > \n');
+        console.log(response.status);
+        console.log('response > \n');
+        console.log(response);
 
-                  if (response.status === 200 && response.data.user) {
-                    localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
-                    if (response.data.user.type === 'user') _this.$router.push('dashboard');
+        if (response.status === 200 && response.data.user) {
+          localStorage.setItem('loggedInUser', JSON.stringify(response.data.user));
+          if (response.data.user.type === 'user') _this.$router.push('dashboard');
 
-                    if (response.data.user.type === 'admin') {
-                      console.log('redirect admin to panel');
-                      window.location.href = '/panel';
-                    }
-                  } else if (response.status === 200 && response.data === 'user logged in') {
-                    console.log('redirect to dashboard');
-
-                    _this.$router.push('dashboard');
-                  } else if (response.status === 200 && response.data === 'admin logged in') {
-                    console.log('redirect to admin panel');
-                    window.location.href = '/panel';
-                  } else if (response.status === 200 && response.data === 'invalid credentials') {
-                    console.log('invalid credentials');
-                    localStorage.removeItem('loggedInUser');
-                  }
-                })["catch"](function (error) {
-                  console.log('login error > ---------------- \n');
-                  console.log(error);
-                  localStorage.removeItem('loggedInUser');
-                });
-
-              case 3:
-              case "end":
-                return _context2.stop();
-            }
+          if (response.data.user.type === 'admin') {
+            console.log('redirect admin to panel');
+            window.location.href = '/panel';
           }
-        }, _callee2);
-      }))();
+        } else if (response.status === 200 && response.data === 'user logged in') {
+          console.log('redirect to dashboard');
+
+          _this.$router.push('dashboard');
+        } else if (response.status === 200 && response.data === 'admin logged in') {
+          console.log('redirect to admin panel');
+          window.location.href = '/panel';
+        } else if (response.status === 200 && response.data === 'invalid credentials') {
+          console.log('invalid credentials');
+          localStorage.removeItem('loggedInUser');
+        }
+      })["catch"](function (error) {
+        console.log('login error > ---------------- \n');
+        console.log(error);
+        localStorage.removeItem('loggedInUser');
+      });
     },
     validateEmail: function validateEmail() {},
     validatePassword: function validatePassword() {}

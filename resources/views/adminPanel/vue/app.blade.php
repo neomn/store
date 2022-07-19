@@ -14,7 +14,7 @@
     <div id="app">
         <App></App>
     </div>
-<script src="{{mix('/js/admin/admin.js')}}"></script>
+<script src="{{mix('/js/adminPanel/admin.js')}}"></script>
 </body>
 </html>
 

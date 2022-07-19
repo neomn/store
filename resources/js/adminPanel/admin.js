@@ -9,15 +9,15 @@ import VueRouter from "vue-router";
 //import adminRouter from "../router/admin/adminRouter";
 
 
-import App from "../components/admin/App";
-import Panel from "../components/admin/Panel";
-import Products from "../components/admin/Products";
-import Users from "../components/admin/Users";
-import Analytics from "../components/admin/Analytics";
-import Settings from "../components/admin/Settings";
-import NotFound from "../components/admin/NotFound";
-import Categories from "../components/admin/Categories";
-import Admins from "../components/admin/Admins";
+import App from "../components/adminPanel/App";
+import Panel from "../components/adminPanel/Panel";
+import Products from "../components/adminPanel/Products";
+import Users from "../components/adminPanel/Users";
+import Analytics from "../components/adminPanel/Analytics";
+import Settings from "../components/adminPanel/Settings";
+import NotFound from "../components/adminPanel/NotFound";
+import Categories from "../components/adminPanel/Categories";
+import Admins from "../components/adminPanel/Admins";
 
 
 require('../web/bootstrap');
@@ -29,7 +29,7 @@ library.add(far)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
-Vue.component('App', require('../components/admin/App').default);
+Vue.component('App', require('../components/adminPanel/App').default);
 
 const routes=[
         { path: '/panel', name: 'panel', component: Panel},
