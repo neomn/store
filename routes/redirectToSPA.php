@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('admin/{any}' , 'adminPanel.vue.app')->where('any' , '.*');
 Route::view('/{any}' , 'web.vue.app')->where('any' , '.*');
 
-require __DIR__ . '/auth.php';
