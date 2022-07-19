@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\admin;
+namespace App\Http\Controllers\Api\adminPanel;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Api\admin\CategoryResource;

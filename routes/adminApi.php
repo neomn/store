@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\admin\CategoryController;
+use App\Http\Controllers\Api\adminPanel\CategoryController;
 use App\Http\Controllers\api\ProductController;
 use Illuminate\Support\Facades\Route;
 
