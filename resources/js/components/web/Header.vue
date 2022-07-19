@@ -120,7 +120,6 @@ export default {
         }
     },
     created() {
-        console.log('Header Created > ------------------------ \n')
         this.retrieveLoggedInUserFromLocalStorage()
     },
     methods: {

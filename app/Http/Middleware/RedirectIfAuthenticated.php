@@ -28,7 +28,6 @@ class RedirectIfAuthenticated
 //        }
 //        return $next($request);
 
-
         if (Auth::guard('web')->check())
             return response('user logged in');
 

@@ -44,8 +44,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::
-                namespace($this->namespace)
+            Route::middleware('guest')
+                ->namespace($this->namespace)
                 ->group(base_path('routes/internalSpaAuth.php'));
 
             Route::middleware('web')

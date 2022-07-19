@@ -92,13 +92,13 @@ export default {
 
         login() {
             console.log('\n')
-            axios.post('/login', this.formData)
+            axios.post('/login', this.formData ,{headers:{'Accept': 'application/json;charset=UTF-8',}})
                 .then(response => {
                     console.log('login > -----------------')
                     console.log('status > \n')
                     console.log(response.status)
                     console.log('response > \n')
-                    console.log(response)
+                    console.log(response.data)
                     if (response.status === 200 && response.data.user) {
                         localStorage.setItem('loggedInUser', JSON.stringify(response.data.user))
                         if (response.data.user.type === 'user')
@@ -119,7 +119,7 @@ export default {
                     }
                 })
                 .catch(function (error) {
-                    console.log('login error > ---------------- \n')
+                    console.log('login error >')
                     console.log(error)
                     localStorage.removeItem('loggedInUser')
                 })
