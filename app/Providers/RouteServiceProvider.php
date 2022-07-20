@@ -44,10 +44,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('guest')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/internalSpaAuth.php'));
-
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/redirectToSPA.php'));
