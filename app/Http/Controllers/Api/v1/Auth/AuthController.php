@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\web;
+namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Requests\RegisterUserRequest;
@@ -17,10 +17,5 @@ class AuthController extends ApiController
             'password' => Hash::make($request->safe()->password),
         ];
         return response()->json(['successfully registered' => User::create($credentials)] , '200');
-    }
-
-    public function login(Request $request)
-    {
-        return response()->json(['response' => 'test']);
     }
 }

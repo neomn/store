@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\v1\web\AuthController;
+use App\Http\Controllers\Api\v1\Auth\API\AuthController as ApiController;
+use App\Http\Controllers\Api\v1\Auth\AuthController;
+use App\Http\Controllers\Api\v1\Auth\SPA\AuthController as SpaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('auth')->group(function () {
-    Route::post('register', [\App\Http\Controllers\Api\v1\web\AuthController::class, 'register'])->withoutMiddleware('auth:externalApi');
-    Route::post('login', [AuthController::class, 'login'])->withoutMiddleware('auth:api');
+    Route::post('spa/login', [SpaController::class, 'login'])->withoutMiddleware('auth:api');
+    Route::post('api/login', [ApiController::class, 'login'])->withoutMiddleware('auth:api');
+    Route::post('register', [AuthController::class, 'register'])->withoutMiddleware('auth:api');
+    Route::post('me', [AuthController::class, 'me'])->withoutMiddleware('auth:api');
+    Route::post('logout', [AuthController::class, 'logout'])->withoutMiddleware('auth:api');
 });
 
 
