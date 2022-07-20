@@ -22,7 +22,7 @@ class AuthenticatedSessionController extends Controller
 //        return redirect()->intended(RouteServiceProvider::HOME);
 
         $credentials = $request->safe()->only(['phone_number', 'password']);
-//        return response()->json($credentials);
+        return response()->json($credentials);
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();

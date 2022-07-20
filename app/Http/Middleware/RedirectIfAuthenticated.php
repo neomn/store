@@ -28,11 +28,11 @@ class RedirectIfAuthenticated
 //        }
 //        return $next($request);
 
-        if (Auth::guard('web')->check())
-            return response('user logged in');
-
-        if (Auth::guard('admin')->check())
-            return response('admin logged in');
+//        if (Auth::guard('web')->check())
+//            return response('user logged in');
+//
+//        if (Auth::guard('admin')->check())
+//            return response('admin logged in');
 
         return $next($request);
     }

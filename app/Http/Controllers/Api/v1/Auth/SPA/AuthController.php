@@ -12,6 +12,6 @@ class AuthController extends ApiController
 {
     public function login(Request $request)
     {
-        return response()->json(['response' => 'test']);
+        return response()->json(['response' => 'spa login controller']);
     }
 }
