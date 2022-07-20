@@ -21,8 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('auth')->group(function () {
     Route::post('register', [\App\Http\Controllers\Api\v1\web\AuthController::class, 'register'])->withoutMiddleware('auth:externalApi');
-    Route::post('login', [AuthController::class, 'login'])->withoutMiddleware('auth:externalApi');
-    Route::post('login', [AuthController::class, 'login'])->withoutMiddleware('auth:externalApi');
+    Route::post('login', [AuthController::class, 'login'])->withoutMiddleware('auth:api');
 });
 
 
