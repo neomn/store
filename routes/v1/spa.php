@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\v1\Auth\API\AuthController as ApiController;
 use App\Http\Controllers\Api\v1\Auth\AuthController;
 use App\Http\Controllers\Api\v1\Auth\SPA\AuthController as SpaController;
 use Illuminate\Http\Request;
@@ -24,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('auth')->group(function () {
     Route::post('login', [SpaController::class, 'login'])->withoutMiddleware('auth:sanctum');
     Route::post('register', [AuthController::class, 'register'])->withoutMiddleware('auth:sanctum');
-    Route::post('me', [AuthController::class, 'me'])->withoutMiddleware('auth:sanctum');
+    Route::get('me', [SpaController::class, 'me'])->withoutMiddleware('auth:sanctum');
     Route::post('logout', [AuthController::class, 'logout'])->withoutMiddleware('auth:sanctum');
 });
 

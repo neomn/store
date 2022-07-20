@@ -18,11 +18,11 @@
                 <div class="w-full h-60 text-zinc-200 ">
                     <div class="flex flex-col justify-center items-center py-10">
                         <div class="w-5/6 ">
-                            <label class="block mb-2 ml-2 text-sm" for="email">Email </label>
+                            <label class="block mb-2 ml-2 text-sm" for="phone_number">Phone Number </label>
                             <input
                                 class=" w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200
                                  border-1 border-red-600"
-                                v-model="formData.email" name="email" id="email" type="email" autocomplete="email">
+                                v-model="formData.phone_number" name="phone_number" id="phone_number" type="number">
                         </div>
                         <div class="w-5/6">
                             <label class="block mb-1 ml-2 text-sm" for="password">Password</label>
@@ -69,7 +69,7 @@ export default {
     data() {
         return {
             formData: {
-                email: '',
+                phone_number: '',
                 password: '',
             },
         }
@@ -92,7 +92,7 @@ export default {
 
         login() {
             console.log('\n')
-            axios.post('/login', this.formData ,{headers:{'Accept': 'application/json;charset=UTF-8',}})
+            axios.post('/spa/v1/auth/login', this.formData ,{headers:{'Accept': 'application/json;charset=UTF-8',}})
                 .then(response => {
                     console.log('login > -----------------')
                     console.log('status > \n')

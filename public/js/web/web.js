@@ -20376,7 +20376,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       formData: {
-        email: '',
+        phone_number: '',
         password: ''
       }
     };
@@ -20398,7 +20398,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       console.log('\n');
-      axios.post('/login', this.formData, {
+      axios.post('/spa/v1/auth/login', this.formData, {
         headers: {
           'Accept': 'application/json;charset=UTF-8'
         }
@@ -50029,9 +50029,9 @@ var render = function () {
                         "label",
                         {
                           staticClass: "block mb-2 ml-2 text-sm",
-                          attrs: { for: "email" },
+                          attrs: { for: "phone_number" },
                         },
-                        [_vm._v("Email ")]
+                        [_vm._v("Phone Number ")]
                       ),
                       _vm._v(" "),
                       _c("input", {
@@ -50039,25 +50039,28 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.formData.email,
-                            expression: "formData.email",
+                            value: _vm.formData.phone_number,
+                            expression: "formData.phone_number",
                           },
                         ],
                         staticClass:
                           " w-full mb-5 rounded-lg text-gray-200 text-sm bg-slate-700 border border-gray-200\n                             border-1 border-red-600",
                         attrs: {
-                          name: "email",
-                          id: "email",
-                          type: "email",
-                          autocomplete: "email",
+                          name: "phone_number",
+                          id: "phone_number",
+                          type: "number",
                         },
-                        domProps: { value: _vm.formData.email },
+                        domProps: { value: _vm.formData.phone_number },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.formData, "email", $event.target.value)
+                            _vm.$set(
+                              _vm.formData,
+                              "phone_number",
+                              $event.target.value
+                            )
                           },
                         },
                       }),

@@ -22,6 +22,11 @@ class AuthController extends ApiController
         return response()->json(['unAuthorized' => 'invalid phone number or password'] , '401');
     }
 
+    public function me(Request $request)
+    {
+        return response()->json('me');
+    }
+
     protected function respondWithToken($token)
     {
         return response()->json([
