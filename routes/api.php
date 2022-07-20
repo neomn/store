@@ -1,13 +1,6 @@
 <?php
 
-
-use App\Http\Controllers\Api\web\CategoriesController;
-use App\Http\Controllers\Api\web\ProductController;
-use App\Http\Controllers\Api\web\RegisteredUserController;
-use App\Http\Controllers\Api\web\WelcomeController;
-use App\Http\Controllers\Api\web\UserDashboard;
-use App\Http\Controllers\ExternalApi\AuthController;
-use App\Http\Controllers\ShoppingCart;
+use App\Http\Controllers\Api\v1\web\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('auth')->group(function () {
-    Route::post('register', [AuthController::class, 'register'])->withoutMiddleware('auth:externalApi');
+    Route::post('register', [\App\Http\Controllers\Api\v1\web\AuthController::class, 'register'])->withoutMiddleware('auth:externalApi');
     Route::post('login', [AuthController::class, 'login'])->withoutMiddleware('auth:externalApi');
     Route::post('login', [AuthController::class, 'login'])->withoutMiddleware('auth:externalApi');
 });
