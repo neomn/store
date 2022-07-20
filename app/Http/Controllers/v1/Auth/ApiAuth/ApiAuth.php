@@ -1,17 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Auth\API;
+namespace App\Http\Controllers\v1\ApiAuth;
 
-use App\Http\Controllers\Api\ApiController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Requests\RegisterUserRequest;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
-class AuthController extends ApiController
+class ApiAuth extends ApiController
 {
     public function login(LoginRequest $request)
     {
