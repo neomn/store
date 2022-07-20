@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'phone_number' => '09178448254',
             'email' => 'testuser@test.com',
             'email_verified_at' => $faker->dateTime(),
-            'password' => Hash::make('testtest123'),
+            'password' => Hash::make('12345678'),
         ];
         DB::table('users')->insert($value);
 

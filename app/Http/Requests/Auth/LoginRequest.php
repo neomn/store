@@ -15,7 +15,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone_number' => 'required|digits:11|numeric|unique:users',
+            'phone_number' => 'required|digits:11|numeric',
             'password' => 'required|min:8|max:16',
         ];
     }
@@ -25,7 +25,6 @@ class LoginRequest extends FormRequest
             'phone_number.required' => 'شماره تلفن الزامی می باشد',
             'phone_number.digits' => 'شماره تلفن باید ۱۱ رقم می باشد',
             'phone_number.numeric' => 'شماره تلفن باید فقط شامل عدد باشد',
-            'phone_number.unique' => 'این شماره تلفن قبلا ثبت شده است',
 
             'password.required' => 'رمز عبور الزامی می باشد',
             'password.min' => 'رمز عبور باید حد اقل هشت کاراکتر باشد ',
