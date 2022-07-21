@@ -1,8 +1,7 @@
 <?php
 
-
-use App\Http\Controllers\v1\ApiAuth\ApiAuth;
-use App\Http\Controllers\v1\SharedAuth\SharedAuth;
+use App\Http\Controllers\v1\Auth\ApiAuth\ApiAuth;
+use App\Http\Controllers\v1\Auth\SharedAuth\SharedAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

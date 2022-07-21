@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\v1\SpaAuth;
+namespace App\Http\Controllers\v1\Auth\SpaAuth;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\Auth\LoginRequest;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\v1\SharedAuth;
+namespace App\Http\Controllers\v1\Auth\SharedAuth;
 
 use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;

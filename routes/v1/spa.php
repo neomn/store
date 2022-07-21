@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\v1\SharedAuth\SharedAuth;
-use App\Http\Controllers\v1\SpaAuth\SpaAuth;
+use App\Http\Controllers\v1\Auth\SharedAuth\SharedAuth;
+use App\Http\Controllers\v1\Auth\SpaAuth\SpaAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
